@@ -39,3 +39,5 @@ To learn more about webextensions development, see this [Mozilla developer Netwo
 ### License
 This repository is available under the [Mozilla Public License 2.0](https://github.com/mozillabrasil/sumo_live_helper/blob/master/LICENSE)
 
+### Credits
+Thank you [philipp-sumo](https://github.com/philipp-sumo/) for your helpfull tips and time to revive this project.
