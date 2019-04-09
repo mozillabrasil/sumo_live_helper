@@ -40,7 +40,7 @@
     "message": "Include Webmaker questions"
   },
   "polling": {
-    "message": "Determines how often SUMO will be queried to receive updates."
+    "message": "Determines how often SUMO will be queried to receive updates"
   },
   "yes": {
     "message": "Yes"
@@ -53,5 +53,8 @@
   },
   "preferences": {
     "message": "Preferences"
+  },
+  "settings": {
+    "message": "Settings"
   }
 }

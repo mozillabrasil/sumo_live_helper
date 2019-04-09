@@ -10,9 +10,7 @@ html, body {
 .default {
 	cursor: default;
 	color: #00000F;
-	margin-left:8px;
 	width: 250px;
-    margin-left: 20px;
 }
 .align {
     font-weight:bold;
