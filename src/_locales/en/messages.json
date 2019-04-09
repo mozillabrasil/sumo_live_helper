@@ -1,0 +1,57 @@
+{
+  "extensionName": {
+    "message": "SUMO Live Helper",
+    "description": "Extension name."
+  },
+  "extensionDescription": {
+    "message": "This Add-on shows a notification when have a new question on Support forum."
+  },
+  "notify_involved": {
+    "message": "Alert me when there's an update in a question where I've been involved in before"
+  },
+  "notify_keywords": {
+    "message": "Alert me when a question contains certain keywords"
+  },
+  "keywords": {
+    "message": "Keywords to look for:"
+  },
+  "notify_opentab": {
+    "message": "Open alerts in a new tab"
+  },
+  "watch_en": {
+    "message": "Look out for new questions in English"
+  },
+  "watch_es": {
+    "message": "Look out for new questions in Espanish"
+  },
+  "watch_pt": {
+    "message": "Look out for new questions in Brazilian Portuguese"
+  },
+  "watch_firefox": {
+    "message": "Include Firefox questions"
+  },
+  "watch_mobile": {
+    "message": "Include Firefox for Android questions"
+  },
+  "watch_thunderbird": {
+    "message": "Include Thunderbird questions"
+  },
+  "watch_webmaker": {
+    "message": "Include Webmaker questions"
+  },
+  "polling": {
+    "message": "Determines how often SUMO will be queried to receive updates."
+  },
+  "yes": {
+    "message": "Yes"
+  },
+  "no": {
+    "message": "No"
+  },
+  "version":{
+    "message": "SUMO Live Helper (v1.0)"
+  },
+  "preferences": {
+    "message": "Preferences"
+  }
+}
