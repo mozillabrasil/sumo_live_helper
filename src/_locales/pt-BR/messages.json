@@ -9,23 +9,8 @@
   "notify_involved": {
     "message": "Notificar quando houver uma atualização de uma questão em que estou envolvido"
   },
-  "notify_keywords": {
-    "message": "Me notifique quando uma questão tiver certas palavras chave"
-  },
-  "keywords": {
-    "message": "Procurar por palavras chave:"
-  },
-  "notify_opentab": {
-    "message": "Abrir alertas em nova aba"
-  },
-  "watch_en": {
-    "message": "Notificar novas questões em Inglês"
-  },
-  "watch_es": {
-    "message": "Notificar novas questões em Espanhol"
-  },
-  "watch_pt": {
-    "message": "Notificar novas questões em Português do Brasil"
+  "watch_questions": {
+    "message": "Notificar novas questões"
   },
   "watch_firefox": {
     "message": "Incluir questões do Firefox"
@@ -46,7 +31,7 @@
     "message": "Sim"
   },
   "no": {
-    "message": "No"
+    "message": "Não"
   },
   "version":{
     "message": "SUMO Live Helper (v1.0)"

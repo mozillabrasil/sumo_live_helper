@@ -54,47 +54,17 @@ $('input[name="notify_opentab"]').on('change', function(){
    });
 });
 
-// watch_en
+// watch_questions
 $(document).ready(function(){
-  var radios = document.getElementsByName("watch_en");
-  var val = localStorage.getItem('watch_en');
+  var radios = document.getElementsByName("watch_questions");
+  var val = localStorage.getItem('watch_questions');
   for(var i=0;i<radios.length;i++){
     if(radios[i].value == val){
       radios[i].checked = true;
     }
   }
-$('input[name="watch_en"]').on('change', function(){
-    localStorage.setItem('watch_en', $(this).val());
-    backgroundPage.request.onload();
-   });
-});
-
-// watch_es
-$(document).ready(function(){
-  var radios = document.getElementsByName("watch_es");
-  var val = localStorage.getItem('watch_es');
-  for(var i=0;i<radios.length;i++){
-    if(radios[i].value == val){
-      radios[i].checked = true;
-    }
-  }
-$('input[name="watch_es"]').on('change', function(){
-    localStorage.setItem('watch_es', $(this).val());
-    backgroundPage.request.onload();
-   });
-});
-
-// watch_pt
-$(document).ready(function(){
-  var radios = document.getElementsByName("watch_pt");
-  var val = localStorage.getItem('watch_pt');
-  for(var i=0;i<radios.length;i++){
-    if(radios[i].value == val){
-      radios[i].checked = true;
-    }
-  }
-$('input[name="watch_pt"]').on('change', function(){
-    localStorage.setItem('watch_pt', $(this).val());
+$('input[name="watch_questions"]').on('change', function(){
+    localStorage.setItem('watch_questions', $(this).val());
     backgroundPage.request.onload();
    });
 });
