@@ -1,4 +1,4 @@
-var backgroundPage = browser.extension.getBackgroundPage();
+// var backgroundPage = browser.extension.getBackgroundPage();
 
 // notify_keywords
 $(document).ready(function(){
@@ -31,13 +31,13 @@ $('input[name="notify_keywords"]').on('change', function(){
 });
 
 // keywords
-$(document).ready(function(){
-  var value = document.getElementsByName("keywords");
-  var val = localStorage.getItem('keywords');
+// $(document).ready(function(){
+  // var value = document.getElementsByName("keywords");
+  // var val = localStorage.getItem('keywords');
 
-  localStorage.setItem('keywords', value.value);
-   backgroundPage.contextMenuFunction();
-});
+  // localStorage.setItem('keywords', value.value);
+  //  backgroundPage.contextMenuFunction();
+// });
 
 // notify_opentab
 $(document).ready(function(){
@@ -50,7 +50,7 @@ $(document).ready(function(){
   }
 $('input[name="notify_opentab"]').on('change', function(){
     localStorage.setItem('notify_opentab', $(this).val());
-    backgroundPage.request.onload();
+    // backgroundPage.request.onload();
    });
 });
 
@@ -65,7 +65,7 @@ $(document).ready(function(){
   }
 $('input[name="watch_en"]').on('change', function(){
     localStorage.setItem('watch_en', $(this).val());
-    backgroundPage.request.onload();
+    // backgroundPage.request.onload();
    });
 });
 
@@ -80,7 +80,7 @@ $(document).ready(function(){
   }
 $('input[name="watch_es"]').on('change', function(){
     localStorage.setItem('watch_es', $(this).val());
-    backgroundPage.request.onload();
+    // backgroundPage.request.onload();
    });
 });
 
@@ -95,7 +95,7 @@ $(document).ready(function(){
   }
 $('input[name="watch_pt"]').on('change', function(){
     localStorage.setItem('watch_pt', $(this).val());
-    backgroundPage.request.onload();
+    // backgroundPage.request.onload();
    });
 });
 
@@ -110,7 +110,7 @@ $(document).ready(function(){
   }
 $('input[name="watch_firefox"]').on('change', function(){
     localStorage.setItem('watch_firefox', $(this).val());
-    backgroundPage.request.onload();
+    // backgroundPage.request.onload();
    });
 });
 
@@ -125,7 +125,7 @@ $(document).ready(function(){
   }
 $('input[name="watch_mobile"]').on('change', function(){
     localStorage.setItem('watch_mobile', $(this).val());
-    backgroundPage.request.onload();
+    // backgroundPage.request.onload();
    });
 });
 
@@ -140,7 +140,7 @@ $(document).ready(function(){
   }
 $('input[name="watch_thunderbird"]').on('change', function(){
     localStorage.setItem('watch_thunderbird', $(this).val());
-    backgroundPage.request.onload();
+    // backgroundPage.request.onload();
    });
 });
 
@@ -155,7 +155,7 @@ $(document).ready(function(){
   }
 $('input[name="watch_webmaker"]').on('change', function(){
     localStorage.setItem('watch_webmaker', $(this).val());
-    backgroundPage.request.onload();
+    // backgroundPage.request.onload();
    });
 });
 
@@ -165,5 +165,5 @@ $(document).ready(function(){
   var val = localStorage.getItem('polling');
 
   localStorage.setItem('polling', value.value);
-   backgroundPage.contextMenuFunction();
+  //  backgroundPage.contextMenuFunction();
 });
