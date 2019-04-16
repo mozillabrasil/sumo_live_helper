@@ -25,7 +25,7 @@
     "message": "Incluir questões do Webmaker"
   },
   "polling": {
-    "message": "Determina com que frequência SUMO será consultado para receber atualizações"
+    "message": "Tempo em minutos para consultar a API"
   },
   "yes": {
     "message": "Sim"
