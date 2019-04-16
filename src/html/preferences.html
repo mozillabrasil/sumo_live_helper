@@ -15,84 +15,72 @@
 
 <body class="col-md-12">
 <main>
-  <header>
-    <nav class="icons">
-      <ul>
+    <header>
+        <nav class="icons">
+            <ul>
+                <div>
+                    <img src="../res/icons/icon.png" style="float:left; padding-right:10px;margin-top:-17px;"><h4><strong id="pageTitle" data-i18n="version"></strong></h4>
+                </div>
+            </ul>
+        </nav>
+    </header>
+    <fieldset class="col-md-12">
         <div>
-          <img src="../res/icons/icon.png" style="float:left; padding-right:10px;margin-top:-17px;"><h4><strong id="pageTitle" data-i18n="version"></strong></h4>
+            <h4><strong id="settings" data-i18n="settings"></strong>
         </div>
-      </ul>
-    </nav>
-  </header>
-<fieldset class="col-md-12">
-    <div>
-        <h4><strong id="settings" data-i18n="settings"></strong>
-    </div>
-    <br>
-<div>
-        <div class="col-md-12">
-            <label  data-i18n="notify_involved"></label>
-            <label class="btn btn-outline-primary" style="float:right;">
-                <input type="radio" name="notify_involved" value="no" checked="checked"> No</label>
-            <label class="btn btn-outline-primary" style="float:right;">
-                <input type="radio" name="notify_involved" value="yes"> Yes</label>
-        </div><br>
-        <div class="col-md-12" >
-            <label class="preferences-speed" data-i18n="watch_en"></label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_en" value="no" checked="checked"> No</label>
-            <label class="btn btn-outline-primary " style="float:right;">
-                <input type="radio" name="watch_en" value="yes"> Yes</label>
-        </div><br>
-        <div class="col-md-12" >
-            <label class="preferences-speed" data-i18n="watch_es"></label>
-            <label class="btn btn-outline-primary " style="float:right;">
-                <input type="radio" name="watch_es" value="no" checked="checked"> No</label>
-            <label class="btn btn-outline-primary " style="float:right;">
-                <input type="radio" name="watch_es" value="yes"> Yes</label>
-        </div><br>
-        <div class="col-md-12" >
-            <label class="preferences-speed" data-i18n="watch_pt"></label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_pt" value="no" checked="checked"> No</label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_pt" value="yes"> Yes</label>
-        </div><br>
-        <div class="col-md-12" >
-            <label class="preferences-speed" data-i18n="watch_firefox"></label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_firefox" value="no" checked="checked"> No</label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_firefox" value="yes"> Yes</label>
-        </div><br>
-        <div class="col-md-12" >
-            <label class="preferences-speed" data-i18n="watch_mobile"></label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_mobile" value="no" checked="checked"> No</label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_mobile" value="yes"> Yes</label>
-        </div><br>
-        <div class="col-md-12" >
-            <label class="preferences-speed" data-i18n="watch_thunderbird"></label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_thunderbird" value="no" checked="checked"> No</label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_thunderbird" value="yes"> Yes</label>
-        </div><br>
-        <div class="col-md-12" >
-            <label class="preferences-speed" data-i18n="watch_webmaker"></label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_webmaker" value="no" checked="checked"> No</label>
-            <label class="btn btn-outline-primary "style="float:right;">
-                <input type="radio" name="watch_webmaker" value="yes"> Yes</label>
+        <br>
+        <div>
+            <div class="col-md-12"><br>
+                <label data-i18n="watch_questions" style="margin-top:10px;"></label>
+                <label class="btn btn-outline-primary "style="float:right;">
+                    <input type="radio" name="watch_questions" value="no" checked="checked"> No</label>
+                <label class="btn btn-outline-primary " style="float:right;">
+                    <input type="radio" name="watch_questions" value="yes"> Yes</label>
+            </div><br>
+            <!-- Implement in future -->
+
+            <!--<div class="col-md-12"><br>-->
+                <!--<label  data-i18n="notify_involved" style="margin-top:10px;"></label>-->
+                <!--<label class="btn btn-outline-primary" style="float:right;">-->
+                    <!--<input type="radio" name="notify_involved" value="no" checked="checked"> No</label>-->
+                <!--<label class="btn btn-outline-primary" style="float:right;">-->
+                    <!--<input type="radio" name="notify_involved" value="yes"> Yes</label>-->
+            <!--</div><br>-->
+            <!--<div class="col-md-12">-->
+                <!--<label data-i18n="watch_firefox" style="margin-top:10px;"></label>-->
+                <!--<label class="btn btn-outline-primary "style="float:right;">-->
+                    <!--<input type="radio" name="watch_firefox" value="no" checked="checked"> No</label>-->
+                <!--<label class="btn btn-outline-primary "style="float:right;">-->
+                    <!--<input type="radio" name="watch_firefox" value="yes"> Yes</label>-->
+            <!--</div><br>-->
+            <!--<div class="col-md-12">-->
+                <!--<label data-i18n="watch_mobile" style="margin-top:10px;"></label>-->
+                <!--<label class="btn btn-outline-primary "style="float:right;">-->
+                    <!--<input type="radio" name="watch_mobile" value="no" checked="checked"> No</label>-->
+                <!--<label class="btn btn-outline-primary "style="float:right;">-->
+                    <!--<input type="radio" name="watch_mobile" value="yes"> Yes</label>-->
+            <!--</div><br>-->
+            <!--<div class="col-md-12">-->
+                <!--<label data-i18n="watch_thunderbird" style="margin-top:10px;"></label>-->
+                <!--<label class="btn btn-outline-primary "style="float:right;">-->
+                    <!--<input type="radio" name="watch_thunderbird" value="no" checked="checked"> No</label>-->
+                <!--<label class="btn btn-outline-primary "style="float:right;">-->
+                    <!--<input type="radio" name="watch_thunderbird" value="yes"> Yes</label>-->
+            <!--</div><br>-->
+            <!--<div class="col-md-12">-->
+                <!--<label data-i18n="watch_webmaker" style="margin-top:10px;"></label>-->
+                <!--<label class="btn btn-outline-primary "style="float:right;">-->
+                    <!--<input type="radio" name="watch_webmaker" value="no" checked="checked"> No</label>-->
+                <!--<label class="btn btn-outline-primary "style="float:right;">-->
+                    <!--<input type="radio" name="watch_webmaker" value="yes"> Yes</label>-->
+            <!--</div><br>-->
+            <div class="col-md-12">
+                <label data-i18n="polling" style="margin-top:10px;"></label>
+                <input class="btn btn-outline-primary" id="polling" type="number" name="polling" value="3" min="1" max="30" style="width:150px;float:right;margin-right:15px;margin-bottom:25px;">
+            </div>
         </div>
-        <div class="col-md-12 col-sm-12" style="margin-top:20px;" >
-            <label data-i18n="polling"></label>
-            <input class="btn btn-outline-primary" id="polling" type="number" name="polling" value="3" min="1" max="30" style="width:205px;float:right;margin-right:14px;">
-        </div>
-</div>
-</fieldset>
-<script src= "../js/language.js"></script>
-<script src="../js/preferenes.js"></script>
+    </fieldset>
+    <script src= "../js/language.js"></script>
+    <script src="../js/preferenes.js"></script>
 </body>
 </html>

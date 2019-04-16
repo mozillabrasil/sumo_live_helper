@@ -1,93 +1,10 @@
 html, body {
 	background-color: #FCFCFC;
-	min-width: 365px;
-	min-height:220px;
-}
-.panel {
-	margin-bottom: 10px;
-	margin-top: 10px;
-}
-.default {
-	cursor: default;
-	color: #00000F;
-	width: 250px;
-}
-.align {
-    font-weight:bold;
-    font-size:14px;
-    float:right;
-    margin-top:7px;
-}
-.menuWithIcon{
-	cursor: default;
-	color: #00000F;
-	width: 250px;
-	padding-top:2px;
-    padding-bottom:2px;
-    margin-left:8px;
-}
-.defaultOptions {
-	cursor: default;
-	color: #00000F;
-	width: 250px;
-	margin-left: 20px;
-}
-.guidelines {
-    display:none;
+	min-width: 420px;
+	min-height:190px;
 }
 .panel-section-header .text-section-header {
 	color: #00000F;
-}
-.panel-list-item {
-}
-icon-list-item-about {
-    margin-left: 20px;
-}
-.icon-list-item {
-    margin-left: 5px;
-}
-.icon-list-item:hover {
-	background-color: #EDEDF0;
-}
-.panel-section-body a {
-	text-decoration: none;
-	display: flex;
-}
-.item_icon {
-	height: 12px;
-	width: 12px;
-	margin-left:50px;
-}
-.item_icon_options {
-	margin-left: 12px;
-	height: 16px;
-	width: 16px;
-	vertical-align: middle;
-}
-.panel-section-separator {
-	margin-top: 5px;
-	margin-bottom: 5px;
-	color: #88807F;
-	margin-left: -20px;
-}
-.item_icon_right {
-	margin-left: 2px;
-	height: 16px;
-	width: 16px;
-	vertical-align: middle;
-}
-.item_icon_submenu {
-	height: 16px;
-	width: 16px;
-	vertical-align: middle;
-}
-.dropdown-container {
-    display: none;
-    margin-left: auto;
-	margin-right: auto;
-	margin-top: auto;
-	margin-bottom: auto;
-    background-color: #FCFCFC;
 }
 input[type='radio'] {
   -webkit-appearance:none;

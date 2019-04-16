@@ -7,13 +7,7 @@
 ![sumo_live_helper](src/res/icons/icon.png)
 # SUMO Live Helper
 
-Helper Add-on for forum contributors:
-
-- notification for new incoming questions in the support forum for selected products/languages
-- notification for contributors about updates in threads where they have participated before
-- set keywords in new questions that will cause an alert in any case
-- shows a notification/thank you note when your solution count increases (only works while you're logged in to SUMO)
-- shows some statistics about your account when you hover over the toolbar icon (only while you're logged in to SUMO)
+Working to add functionalities ...
 
 ## Requirements
 
