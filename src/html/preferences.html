@@ -10,7 +10,9 @@
     <link href="../css/popup.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet"/>
     <script src="../js/jquery-3.3.1.js"></script>
-    <script src="../js/background.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/bootbox.min.js"></script>
+<!--    <script src="../js/background.js"></script>-->
 </head>
 
 <body class="col-md-12">
@@ -26,61 +28,35 @@
     </header>
     <fieldset class="col-md-12">
         <div>
-            <h4><strong id="settings" data-i18n="settings"></strong>
+            <h4><strong id="settings" data-i18n="settings"></strong></h4>
         </div>
         <br>
         <div>
-            <div class="col-md-12"><br>
-                <label data-i18n="watch_questions" style="margin-top:10px;"></label>
-                <label class="btn btn-outline-primary "style="float:right;">
-                    <input type="radio" name="watch_questions" value="no" checked="checked"> No</label>
-                <label class="btn btn-outline-primary " style="float:right;">
-                    <input type="radio" name="watch_questions" value="yes"> Yes</label>
-            </div><br>
-            <!-- Implement in future -->
-
-            <!--<div class="col-md-12"><br>-->
-                <!--<label  data-i18n="notify_involved" style="margin-top:10px;"></label>-->
-                <!--<label class="btn btn-outline-primary" style="float:right;">-->
-                    <!--<input type="radio" name="notify_involved" value="no" checked="checked"> No</label>-->
-                <!--<label class="btn btn-outline-primary" style="float:right;">-->
-                    <!--<input type="radio" name="notify_involved" value="yes"> Yes</label>-->
-            <!--</div><br>-->
-            <!--<div class="col-md-12">-->
-                <!--<label data-i18n="watch_firefox" style="margin-top:10px;"></label>-->
-                <!--<label class="btn btn-outline-primary "style="float:right;">-->
-                    <!--<input type="radio" name="watch_firefox" value="no" checked="checked"> No</label>-->
-                <!--<label class="btn btn-outline-primary "style="float:right;">-->
-                    <!--<input type="radio" name="watch_firefox" value="yes"> Yes</label>-->
-            <!--</div><br>-->
-            <!--<div class="col-md-12">-->
-                <!--<label data-i18n="watch_mobile" style="margin-top:10px;"></label>-->
-                <!--<label class="btn btn-outline-primary "style="float:right;">-->
-                    <!--<input type="radio" name="watch_mobile" value="no" checked="checked"> No</label>-->
-                <!--<label class="btn btn-outline-primary "style="float:right;">-->
-                    <!--<input type="radio" name="watch_mobile" value="yes"> Yes</label>-->
-            <!--</div><br>-->
-            <!--<div class="col-md-12">-->
-                <!--<label data-i18n="watch_thunderbird" style="margin-top:10px;"></label>-->
-                <!--<label class="btn btn-outline-primary "style="float:right;">-->
-                    <!--<input type="radio" name="watch_thunderbird" value="no" checked="checked"> No</label>-->
-                <!--<label class="btn btn-outline-primary "style="float:right;">-->
-                    <!--<input type="radio" name="watch_thunderbird" value="yes"> Yes</label>-->
-            <!--</div><br>-->
-            <!--<div class="col-md-12">-->
-                <!--<label data-i18n="watch_webmaker" style="margin-top:10px;"></label>-->
-                <!--<label class="btn btn-outline-primary "style="float:right;">-->
-                    <!--<input type="radio" name="watch_webmaker" value="no" checked="checked"> No</label>-->
-                <!--<label class="btn btn-outline-primary "style="float:right;">-->
-                    <!--<input type="radio" name="watch_webmaker" value="yes"> Yes</label>-->
-            <!--</div><br>-->
-            <div class="col-md-12">
-                <label data-i18n="polling" style="margin-top:10px;"></label>
-                <input class="btn btn-outline-primary" id="polling" type="number" name="polling" value="3" min="1" max="30" style="width:150px;float:right;margin-right:15px;margin-bottom:25px;">
-            </div>
+            <form>
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="buscarQuestoesAtivamente">
+                    <label class="custom-control-label" data-i18n="watch_questions" for="buscarQuestoesAtivamente"></label>
+                    <small class="form-text text-muted">Determina se o Sumo Live Helper deve procurar novas questões automaticamente</small>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="polling" for="frequenciaBuscaQuestoes" style="margin-top:10px;"></label>
+                    <select class="form-control" id="frequenciaBuscaQuestoes">
+                        <option>5</option>
+                        <option>10</option>
+                        <option>15</option>
+                        <option>20</option>
+                        <option>25</option>
+                        <option>30</option>
+                    </select>
+                    <small class="form-text text-muted">Determina a frequência que o Sumo Live Helper deve buscar atualizações sobre questões.</small>
+                </div>
+                
+                <div class="col-md-12" style="text-align: center">
+                    <button type="submit" class="btn btn-primary">Salvar Preferências</button>
+                </div>
         </div>
     </fieldset>
     <script src= "../js/language.js"></script>
-    <script src="../js/preferenes.js"></script>
+    <script src="../js/preferences.js"></script>
 </body>
 </html>
