@@ -8,11 +8,11 @@ function salvarPreferencias(e) {
     browser.storage.sync.set(preferencias);
 
     bootbox.alert({
-        message: "Preferências salvas",
+        message: browser.i18n.getMessage('saved_preferences'),
         size: "small"
     });
     
-    console.log("Preferências salvas");
+    console.log(browser.i18n.getMessage('saved_preferences'));
 }
 
 function carregarPreferencias() {
@@ -40,7 +40,7 @@ function carregarPreferencias() {
     promiseFrequenciaBuscaQuestoes.then(definirFrequenciaBuscaQuestoes, onError);
     
     
-    console.log("Preferências carregadas");
+    console.log(browser.i18n.getMessage('preferences_loaded'));
 }
 
 document.addEventListener("DOMContentLoaded", carregarPreferencias);
