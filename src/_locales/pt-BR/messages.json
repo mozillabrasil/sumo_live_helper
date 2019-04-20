@@ -24,14 +24,23 @@
   "watch_webmaker": {
     "message": "Incluir questões do Webmaker"
   },
+  "description_questions":{
+    "message": "Determina se o Sumo Live Helper deve alertar o recebimento de novas questões"
+  },
+  "frequency_questions": {
+    "message": "Determina o intervalo de tempo em que o Sumo Live Helper deve buscar novas perguntas"
+  },
+  "save_preferences": {
+    "message": "Salvar Preferências"
+  },
+  "saved_preferences": {
+    "message": "Preferências salvas"
+  },
+  "preferences_loaded": {
+    "message": "Preferências carregadas"
+  },
   "polling": {
     "message": "Tempo em minutos para consultar a API"
-  },
-  "yes": {
-    "message": "Sim"
-  },
-  "no": {
-    "message": "Não"
   },
   "version":{
     "message": "SUMO Live Helper (v1.0)"

@@ -21,17 +21,26 @@
   "watch_thunderbird": {
     "message": "Include Thunderbird questions"
   },
+  "preferences_loaded": {
+    "message": "Preferences loaded"
+  },
+  "saved_preferences": {
+    "message": "Saved preferences"
+  },
   "watch_webmaker": {
     "message": "Include Webmaker questions"
   },
+  "description_questions":{
+    "message": "Determines whether the Sumo Live Helper should alert the receipt of new questions"
+  },
+  "frequency_questions": {
+    "message": "Determines the time interval at which the Sumo Live Helper should seek new questions"
+  },
+  "save_preferences": {
+    "message": "Save Preferences"
+  },
   "polling": {
     "message": "Time in minutes to query the API"
-  },
-  "yes": {
-    "message": "Yes"
-  },
-  "no": {
-    "message": "No"
   },
   "version":{
     "message": "SUMO Live Helper (v1.0)"
