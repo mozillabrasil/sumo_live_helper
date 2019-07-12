@@ -43,7 +43,7 @@
     "message": "Time in minutes to query the API"
   },
   "version":{
-    "message": "SUMO Live Helper (v1.0)"
+    "message": "SUMO Live Helper (v1.0.0)"
   },
   "preferences": {
     "message": "Preferences"
