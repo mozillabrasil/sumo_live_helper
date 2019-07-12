@@ -41,7 +41,7 @@ request.onload = function() {
 // when click at toolbar icon will open the Firefox questions on the Forum
 function openPageSUMO() {
     browser.tabs.create({
-        url: 'https://support.mozilla.org/'+locale+'/questions/firefox'
+        url: 'https://support.mozilla.org/'+locale+'/questions/firefox?filter=new'
     });
     localStorage.setItem('numberOfQuestionsOpened', '');
     browser.browserAction.setBadgeText({text: localStorage.getItem('numberOfQuestionsOpened')});
