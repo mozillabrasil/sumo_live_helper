@@ -18,14 +18,14 @@ Initially this Add-on shows how many issues are open without any response to the
 
 ## Informations
 
-1. The search of new questions at Support Forum to Firefox for Desktop is based on the language of the Firefox used.
-2. The Add-on will get the questions that have been opened recently (Top 20 without answer)
+1. The search of new questions at Support Forum to Firefox for Desktop is based on the language of the Firefox used
+2. The Add-on will get the questions that have been opened recently (Top 20 without answer).
 
 ## How to test this Add-on
 
 1. Clone this repository git clone ```https://github.com/mozillabrasil/sumo_live_helper.git```
 2. In the Firefox address bar type ```about:debugging```
-3. Click ```Load Temporary Add-on```, a dialog window opens.
+3. Click ```Load Temporary Add-on```, a dialog window opens
 4. In the cloned repository, select the ```manifest.json``` file. The Add-on icon will appear in your toolbar.
 
 ## How Contribute
@@ -36,7 +36,7 @@ Have a suggestion, doubt or encountered an error? Please open a new [issue](http
 To learn more about webextensions development, see this [Mozilla developer Network documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
 
 ### License
-This repository is available under the [Mozilla Public License 2.0](https://github.com/mozillabrasil/sumo_live_helper/blob/master/LICENSE)
+This repository is available under the [Mozilla Public License 2.0](https://github.com/mozillabrasil/sumo_live_helper/blob/master/LICENSE).
 
 ### Credits
 Thank you [philipp-sumo](https://github.com/philipp-sumo/) for your helpfull tips and time to revive this project.
