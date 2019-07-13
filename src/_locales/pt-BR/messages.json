@@ -42,13 +42,19 @@
   "polling": {
     "message": "Tempo em minutos para consultar a API"
   },
-  "version":{
-    "message": "SUMO Live Helper (v1.0.0)"
-  },
   "preferences": {
     "message": "Preferências"
   },
   "settings": {
     "message": "Configurações"
+  },
+  "one_question": {
+    "message": " questão aberta"
+  },
+  "number_of_questions": {
+    "message": " questões abertas"
+  },
+  "version":{
+    "message": "SUMO Live Helper (v1.0.0)"
   }
 }
