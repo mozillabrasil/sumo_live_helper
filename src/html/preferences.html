@@ -6,13 +6,12 @@
     <title id="preferencesTitle" data-i18n="preferences"></title>
     <link rel="shortcut icon" href="../res/icons/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="../res/icons/favicon.ico" type="image/x-icon"/>
-    <link href="../css/bootstrap.min.css" rel="stylesheet"/>
+    <link href="../css/bootstrap.css" rel="stylesheet"/>
     <link href="../css/popup.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet"/>
     <script src="../js/jquery-3.3.1.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/bootbox.min.js"></script>
-<!--    <script src="../js/background.js"></script>-->
+    <script src="../js/bootstrap.js"></script>
+    <script src="../js/bootbox.js"></script>
 </head>
 
 <body class="col-md-12">
@@ -21,7 +20,8 @@
         <nav class="icons">
             <ul>
                 <div>
-                    <img src="../res/icons/icon.png" style="float:left; padding-right:10px;margin-top:-17px;"><h4><strong id="pageTitle" data-i18n="version"></strong></h4>
+                    <img src="../res/icons/icon.png" style="float:left; padding-right:10px;margin-top:-17px;"><h4>
+                    <strong id="pageTitle" data-i18n="version"></strong></h4>
                 </div>
             </ul>
         </nav>
@@ -35,7 +35,8 @@
             <form>
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="buscarQuestoesAtivamente">
-                    <label class="custom-control-label" data-i18n="watch_questions" for="buscarQuestoesAtivamente"></label>
+                    <label class="custom-control-label" data-i18n="watch_questions"
+                           for="buscarQuestoesAtivamente"></label>
                 </div>
                 <small class="form-text text-muted" data-i18n="description_questions"></small>
                 <div class="form-group">
@@ -50,15 +51,15 @@
                     </select>
                     <small class="form-text text-muted" data-i18n="frequency_questions"></small>
                 </div>
-                
+
                 <div class="col-md-12" style="text-align: center">
                     <button type="submit" class="btn btn-primary" data-i18n="save_preferences"></button>
                 </div>
             </form>
         </div>
     </fieldset>
-    <script src= "../js/language.js"></script>
-    <script src="../js/preferences.js"></script>
+    <script src="../js/language.js"></script>
+    <!--<script src="../js/preferences.js"></script>-->
 </main>
 </body>
 </html>
