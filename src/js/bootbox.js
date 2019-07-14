@@ -270,7 +270,7 @@
 
     body.find('.bootbox-body').html(options.message);
 
-    // Only attempt to create buttons if at least one has 
+    // Only attempt to create buttons if at least one has
     // been defined in the options object
     if (getKeyLength(options.buttons) > 0) {
       each(buttons, function (key, b) {
@@ -388,7 +388,7 @@
 
     dialog.one('hidden.bs.modal', function (e) {
       // ensure we don't accidentally intercept hidden events triggered
-      // by children of the current dialog. We shouldn't need to handle this anymore, 
+      // by children of the current dialog. We shouldn't need to handle this anymore,
       // now that Bootstrap namespaces its events, but still worth doing.
       if (e.target === this) {
         dialog.remove();
@@ -477,7 +477,7 @@
 
 
   // Helper function to simulate the native alert() behavior. **NOTE**: This is non-blocking, so any
-  // code that must happen after the alert is dismissed should be placed within the callback function 
+  // code that must happen after the alert is dismissed should be placed within the callback function
   // for this alert.
   exports.alert = function () {
     var options;
@@ -505,7 +505,7 @@
 
 
   // Helper function to simulate the native confirm() behavior. **NOTE**: This is non-blocking, so any
-  // code that must happen after the confirm is dismissed should be placed within the callback function 
+  // code that must happen after the confirm is dismissed should be placed within the callback function
   // for this confirm.
   exports.confirm = function () {
     var options;
@@ -532,7 +532,7 @@
 
 
   // Helper function to simulate the native prompt() behavior. **NOTE**: This is non-blocking, so any
-  // code that must happen after the prompt is dismissed should be placed within the callback function 
+  // code that must happen after the prompt is dismissed should be placed within the callback function
   // for this prompt.
   exports.prompt = function () {
     var options;
@@ -564,7 +564,7 @@
     // spawning the dialog to give us a chance to attach some handlers to
     // it, but we need to make sure we respect a preference not to show it
     shouldShow = (options.show === undefined) ? defaults.show : options.show;
-    // This is required prior to calling the dialog builder below - we need to 
+    // This is required prior to calling the dialog builder below - we need to
     // add an event handler just before the prompt is shown
     options.show = false;
 
@@ -573,7 +573,7 @@
       return options.callback.call(this, null);
     };
 
-    // Prompt submitted - extract the prompt value. This requires a bit of work, 
+    // Prompt submitted - extract the prompt value. This requires a bit of work,
     // given the different input types available.
     options.buttons.confirm.callback = function () {
       var value;
@@ -626,15 +626,15 @@
       case 'email':
       case 'password':
         input.val(options.value);
-        
+
         if (options.placeholder) {
           input.attr('placeholder', options.placeholder);
         }
-    
+
         if (options.pattern) {
           input.attr('pattern', options.pattern);
         }
-    
+
         if (options.maxlength) {
           input.attr('maxlength', options.maxlength);
         }
@@ -642,7 +642,7 @@
         if (options.required) {
           input.prop({ 'required': true });
         }
-        
+
         if (options.rows && !isNaN(parseInt(options.rows))) {
           if(options.inputType === 'textarea'){
             input.attr({ 'rows': options.rows });
@@ -657,11 +657,11 @@
       case 'number':
       case 'range':
         input.val(options.value);
-        
+
         if (options.placeholder) {
           input.attr('placeholder', options.placeholder);
         }
-    
+
         if (options.pattern) {
           input.attr('pattern', options.pattern);
         }
@@ -669,9 +669,9 @@
         if (options.required) {
           input.prop({ 'required': true });
         }
-        
+
         // These input types have extra attributes which affect their input validation.
-        // Warning: For most browsers, date inputs are buggy in their implementation of 'step', so 
+        // Warning: For most browsers, date inputs are buggy in their implementation of 'step', so
         // this attribute will have no effect. Therefore, we don't set the attribute for date inputs.
         // @see https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date#Setting_maximum_and_minimum_dates
         if (options.inputType !== 'date') {
@@ -714,15 +714,15 @@
         if (options.placeholder) {
           input.attr('placeholder', options.placeholder);
         }
-        
+
         if (options.required) {
           input.prop({ 'required': true });
         }
-        
+
         if (options.multiple) {
           input.prop({ 'multiple': true });
         }
-        
+
         each(inputOptions, function (_, option) {
           // assume the element to attach to is the input...
           var elem = input;
@@ -965,8 +965,8 @@
   }
 
 
-  //  Checks each button object to see if key is valid. 
-  //  This function will only be called by the alert, confirm, and prompt helpers. 
+  //  Checks each button object to see if key is valid.
+  //  This function will only be called by the alert, confirm, and prompt helpers.
   function validateButtons(options, buttons) {
     var allowedButtons = {};
     each(buttons, function (key, value) {
@@ -1005,7 +1005,7 @@
 
 
 
-  //  Get localized text from a locale. Defaults to 'en' locale if no locale 
+  //  Get localized text from a locale. Defaults to 'en' locale if no locale
   //  provided or a non-registered locale is requested
   function getText(key, locale) {
     var labels = locales[locale];
@@ -1062,7 +1062,7 @@
         button.label = key;
       }
 
-      if (!button.className) {     
+      if (!button.className) {
         var isPrimary = false;
         if(options.swapButtonOrder){
           isPrimary = index === 0;
@@ -1117,7 +1117,7 @@
       dialog.modal('hide');
     }
   }
-  
+
   // Validate `min` and `max` values based on the current `inputType` value
   function minAndMaxAreValid(type, min, max){
     var result = false;
@@ -1149,7 +1149,7 @@
         throw new Error('"max" must be a valid number. See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max for more information.');
       }
     }
-    
+
     if(minValid && maxValid){
       if(max <= min){
         throw new Error('"max" must be greater than "min". See https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-max for more information.');

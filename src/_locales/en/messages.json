@@ -48,11 +48,11 @@
   "settings": {
     "message": "Settings"
   },
-  "one_question": {
-    "message": " opened question"
+  "one_question_without_answer": {
+    "message": " question without answer (Click to open)"
   },
-  "number_of_questions": {
-    "message": " opened questions"
+  "more_than_one_question_without_answer": {
+    "message": " questions without answer (Click to open)"
   },
   "version":{
     "message": "SUMO Live Helper (v1.0.0)"

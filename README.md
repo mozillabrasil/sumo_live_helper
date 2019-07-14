@@ -8,15 +8,17 @@
 # SUMO Live Helper
 The goal of this Add-on is for volunteers in SUMO (Support Mozilla) to see when there are new support questions for Firefox Desktop that have not yet been answered. This will help improve the Firefox user experience by getting answers to their problem more quickly.
 
-## Features
-Initially this Add-on shows how many questions are open without any response to the user of Firefox for Desktop.
+![SUMO_Live_Helper gif](sumo_live_helper.gif)
 
 ## Requirements
 * Firefox 58.0 or later
 
+## Features
+Initially this Add-on shows how many questions are open and without answer to the user of Firefox for Desktop and by clicking the Add-on on the toolbar the questions are opened in new tabs.
+
 ## Informations
-1. The search of new questions at Support Forum to Firefox for Desktop is based on the language of the Firefox used
-2. The Add-on will get the questions that have been opened recently (Top 20 without answer).
+1. The search of new questions at Support Forum to Firefox for Desktop is based on the language of the Firefox you are using
+2. The Add-on will show to you the questions that have been opened giving to you the oportunity to open (in new tabs) and choose one or more to answer.
 
 ## How to test this Add-on
 1. Clone this repository git clone ```https://github.com/mozillabrasil/sumo_live_helper.git```
