@@ -2,11 +2,12 @@ let locale = navigator.language;
 let request = new XMLHttpRequest();
 var requestAPI = "";
 var numberOfQuestionsOpened = 0;
+var idToRemoveFromArray;
 
 // Array of id's
 var questionsIds = [];
 
-// search API settings
+// settings to search questions using the Kitsune API
 var product = "Firefox";
 var is_solved = "False";
 var is_spam = "False";
@@ -80,6 +81,9 @@ function openPageSUMO() {
         browser.tabs.create({
             url: 'https://support.mozilla.org/'+locale+'/questions/'+questionsIds[i]
         });
+        // removes the id's from the Array
+        idToRemoveFromArray = i;
+        questionsIds.shift(idToRemoveFromArray);
     }
     // clears the notification and sets the title
     browser.browserAction.setBadgeText({text: ''});
