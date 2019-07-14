@@ -20,11 +20,11 @@ Initially this Add-on shows how many questions are open and without answer to th
 1. The search of new questions at Support Forum to Firefox for Desktop is based on the language of the Firefox you are using
 2. The Add-on will show to you the questions that have been opened giving to you the oportunity to open (in new tabs) and choose one or more to answer.
 
-## How to test this extension
+## How to test this Add-on
 1. Clone this repository git clone ```https://github.com/mozillabrasil/sumo_live_helper.git```
 2. In the Firefox address bar type ```about:debugging```
 3. Click ```Load Temporary Add-on```, a dialog window opens.
-4. In the cloned repository, select the ```manifest.json``` file. The webextension icon will appear in your toolbar.
+4. In the cloned repository, select the ```manifest.json``` file. The Add-on icon will appear in your toolbar.
 
 ## How Contribute
 Have a suggestion, doubt or encountered an error? Please open a new [issue](https://github.com/mozillabrasil/sumo_live_helper/issues).
