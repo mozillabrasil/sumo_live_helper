@@ -2,7 +2,6 @@ let locale = navigator.language;
 let request = new XMLHttpRequest();
 var requestAPI = "";
 var numberOfQuestionsOpened = 0;
-var idToRemoveFromArray;
 
 // Array of id's
 var questionsIds = [];
@@ -82,8 +81,7 @@ function openPageSUMO() {
             url: 'https://support.mozilla.org/'+locale+'/questions/'+questionsIds[i]
         });
         // removes the id's from the Array
-        idToRemoveFromArray = i;
-        questionsIds.shift(idToRemoveFromArray);
+        questionsIds.shift(i);
     }
     // clears the notification and sets the title
     browser.browserAction.setBadgeText({text: ''});
