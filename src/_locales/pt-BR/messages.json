@@ -4,7 +4,7 @@
     "description": "Extension name."
   },
   "extensionDescription": {
-    "message": "Esta extensão mostra notificações quando houver novas questões no fórum de suporte."
+    "message": "Esta extensão é para voluntários no SUMO (Support Mozilla) para ver quando há novas perguntas de suporte para o Firefox desktop que ainda não foram respondidas. Isso ajudará a melhorar a experiência do usuário do Firefox que obterá respostas para seu problema mais rapidamente."
   },
   "notify_involved": {
     "message": "Notificar quando houver uma atualização de uma questão em que estou envolvido"
@@ -42,13 +42,19 @@
   "polling": {
     "message": "Tempo em minutos para consultar a API"
   },
-  "version":{
-    "message": "SUMO Live Helper (v1.0)"
-  },
   "preferences": {
     "message": "Preferências"
   },
   "settings": {
     "message": "Configurações"
+  },
+  "one_question": {
+    "message": " questão aberta"
+  },
+  "number_of_questions": {
+    "message": " questões abertas"
+  },
+  "version":{
+    "message": "SUMO Live Helper (v1.0.0)"
   }
 }

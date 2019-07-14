@@ -11,7 +11,7 @@ function salvarPreferencias(e) {
         message: browser.i18n.getMessage('saved_preferences'),
         size: "small"
     });
-    
+
     console.log(browser.i18n.getMessage('saved_preferences'));
 }
 
@@ -38,8 +38,8 @@ function carregarPreferencias() {
 
     promiseBuscarQuestoesAtivamente.then(definirBuscarQuestoesAtivamente, onError);
     promiseFrequenciaBuscaQuestoes.then(definirFrequenciaBuscaQuestoes, onError);
-    
-    
+
+
     console.log(browser.i18n.getMessage('preferences_loaded'));
 }
 
