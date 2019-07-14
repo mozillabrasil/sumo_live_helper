@@ -23,7 +23,7 @@ Initially this Add-on shows how many questions are open and without answer to th
 ## How to test this Add-on
 1. Clone this repository git clone ```https://github.com/mozillabrasil/sumo_live_helper.git```
 2. In the Firefox address bar type ```about:debugging```
-3. Click ```Load Temporary Add-on```, a dialog window opens.
+3. Click ```Load Temporary Add-on```, a dialog window opens
 4. In the cloned repository, select the ```manifest.json``` file. The Add-on icon will appear in your toolbar.
 
 ## How Contribute
