@@ -80,9 +80,13 @@ function openPageSUMO() {
         browser.tabs.create({
             url: 'https://support.mozilla.org/'+locale+'/questions/'+questionsIds[i]
         });
-        // removes the id's from the Array
-        questionsIds.shift(i);
     }
+
+    // removes the id's from the Array
+    for(var i = 0; i <= localStorage.getItem('numberOfQuestionsOpened'); i++){
+        questionsIds.pop();
+    }
+
     // clears the notification and sets the title
     browser.browserAction.setBadgeText({text: ''});
     browser.browserAction.setTitle({title: localStorage.getItem('extensionName')});
