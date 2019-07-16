@@ -15,7 +15,6 @@
 </head>
 
 <body class="col-md-12">
-<main>
     <header>
         <nav class="icons">
             <ul>
@@ -31,17 +30,99 @@
             <h4><strong id="settings" data-i18n="settings"></strong></h4>
         </div>
         <br>
-        <div>
             <form>
                 <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="buscarQuestoesAtivamente">
+                    <input type="checkbox" class="custom-control-input" id="showNewQuestions" checked disabled>
                     <label class="custom-control-label" data-i18n="watch_questions"
-                           for="buscarQuestoesAtivamente"></label>
+                           for="showNewQuestions"></label>
                 </div>
                 <small class="form-text text-muted" data-i18n="description_questions"></small>
                 <div class="form-group">
-                    <label data-i18n="polling" for="frequenciaBuscaQuestoes" style="margin-top:10px;"></label>
-                    <select class="form-control" id="frequenciaBuscaQuestoes">
+                    <label data-i18n="choose_language" for="chooseLanguage" style="margin-top:10px;"></label>
+                    <select class="form-control" id="chooseLanguage" disabled>
+                        <option>Afrikaans</option>
+                        <option>عربي</option>
+                        <option>Azərbaycanca</option>
+                        <option>Български</option>
+                        <option>Bamanankan</option>
+                        <option>বাংলা (বাংলাদেশ)</option>
+                        <option>বাংলা (ভারত)</option>
+                        <option>Bosanski</option>
+                        <option>català</option>
+                        <option>Čeština</option>
+                        <option>Dansk</option>
+                        <option>Deutsch</option>
+                        <option>Èʋegbe</option>
+                        <option>Ελληνικά</option>
+                        <option>English</option>
+                        <option>Español</option>
+                        <option>eesti keel</option>
+                        <option>Euskara</option>
+                        <option>فارسی</option>
+                        <option>suomi</option>
+                        <option>Français</option>
+                        <option>Frysk</option>
+                        <option>Gaeilge (Éire)</option>
+                        <option>Galego</option>
+                        <option>Avañe'ẽ</option>
+                        <option>ગુજરાતી</option>
+                        <option>هَرْشَن هَوْسَ</option>
+                        <option>עברית</option>
+                        <option>हिन्दी (भारत)</option>
+                        <option>Hrvatski</option>
+                        <option>Magyar</option>
+                        <option>Dolnoserbšćina</option>
+                        <option>Hornjoserbsce</option>
+                        <option>Bahasa Indonesia</option>
+                        <option>Asụsụ Igbo</option>
+                        <option>Italiano</option>
+                        <option>日本語</option>
+                        <option>ქართული</option>
+                        <option>ខ្មែរ</option>
+                        <option>ಕನ್ನಡ</option>
+                        <option>한국어</option>
+                        <option>Lingála</option>
+                        <option>lietuvių kalba</option>
+                        <option>Malagasy</option>
+                        <option>Македонски</option>
+                        <option>മലയാളം</option>
+                        <option>Bahasa Melayu</option>
+                        <option>नेपाली</option>
+                        <option>Nederlands</option>
+                        <option>Norsk</option>
+                        <option>Polski</option>
+                        <option>Português (do Brasil)</option>
+                        <option>Português (Europeu)</option>
+                        <option>română</option>
+                        <option>Русский</option>
+                        <option>සිංහල</option>
+                        <option>slovenčina</option>
+                        <option>slovenščina</option>
+                        <option>Shqip</option>
+                        <option>Српски</option>
+                        <option>Kiswahili</option>
+                        <option>Svenska</option>
+                        <option>தமிழ்</option>
+                        <option>தமிழ் (இலங்கை)</option>
+                        <option>తెలుగు</option>
+                        <option>ไทย</option>
+                        <option>Setswana</option>
+                        <option>Türkçe</option>
+                        <option>Українська</option>
+                        <option>اُردو</option>
+                        <option>Tiếng Việt</option>
+                        <option>Wolof</option>
+                        <option>isiXhosa</option>
+                        <option>èdè Yorùbá</option>
+                        <option>中文 (简体)</option>
+                        <option>正體中文 (繁體)</option>
+                        <option>isiZulu</option>
+                    </select>
+                    <small class="form-text text-muted" data-i18n="choose_language_description"></small>
+                </div>
+                <div class="form-group">
+                    <label data-i18n="polling" for="frequencySeekNewQuestions" style="margin-top:10px;"></label>
+                    <select class="form-control" id="frequencySeekNewQuestions" disabled>
                         <option>5</option>
                         <option>10</option>
                         <option>15</option>
@@ -52,14 +133,12 @@
                     <small class="form-text text-muted" data-i18n="frequency_questions"></small>
                 </div>
 
-                <div class="col-md-12" style="text-align: center">
+                <div style="text-align: center">
                     <button type="submit" class="btn btn-primary" data-i18n="save_preferences"></button>
                 </div>
             </form>
-        </div>
     </fieldset>
     <script src="../js/language.js"></script>
     <!--<script src="../js/preferences.js"></script>-->
-</main>
 </body>
 </html>

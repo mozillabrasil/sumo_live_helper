@@ -14,11 +14,19 @@ The goal of this Add-on is for volunteers in SUMO (Support Mozilla) to see when 
 * Firefox 58.0 or later
 
 ## Features
-Initially this Add-on shows how many questions are open and without answer to the user of Firefox for Desktop and by clicking the Add-on on the toolbar the questions are opened in new tabs.
+Initially this Add-on shows how many questions are open and without answer to the user of Firefox for Desktop and by clicking the Add-on on the toolbar a menu will be opened to choose a question and open in a new tab.
 
 ## Informations
-1. The search of new questions at Support Forum to Firefox for Desktop is based on the language of the Firefox you are using
-2. The Add-on will show to you the questions that have been opened giving to you the oportunity to open (in new tabs) and choose one or more to answer.
+1. The search of new questions at Support Forum to Firefox for Desktop is based on the language of the Firefox you are using (search each 15 minutes)
+2. The Add-on will show to you the questions that have been opened giving to you the oportunity to choose and open in a new tab.
+
+## Future implementations
+* Page to edit Preferences 
+    * Choose a language
+    * Define if want search for new questions or stop for a while
+    * Define the interval time to search for new opened questions
+
+We are looking forward to see what you think is a good idea implement in the future, please to do that open a new [issue](https://github.com/mozillabrasil/sumo_live_helper/issues).
 
 ## How to test this Add-on
 1. Clone this repository git clone ```https://github.com/mozillabrasil/sumo_live_helper.git```

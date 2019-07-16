@@ -1,8 +1,8 @@
 function salvarPreferencias(e) {
     e.preventDefault();
     let preferencias = {
-        buscarQuestoesAtivamente: document.getElementById("buscarQuestoesAtivamente").checked,
-        frequenciaBuscaQuestoes: document.getElementById("frequenciaBuscaQuestoes").value
+        buscarQuestoesAtivamente: document.getElementById("showNewQuestions").checked,
+        frequenciaBuscaQuestoes: document.getElementById("frequencySeekNewQuestions").value
     };
 
     browser.storage.sync.set(preferencias);
@@ -19,13 +19,13 @@ function carregarPreferencias() {
     function definirBuscarQuestoesAtivamente(dados) {
         console.log(dados);
         if (dados.buscarQuestoesAtivamente == true) {
-            document.getElementById("buscarQuestoesAtivamente").checked = true
+            document.getElementById("showNewQuestions").checked = true
         }
     }
 
     function definirFrequenciaBuscaQuestoes(dados) {
         if (dados.frequenciaBuscaQuestoes) {
-            document.getElementById("frequenciaBuscaQuestoes").value = dados.frequenciaBuscaQuestoes;
+            document.getElementById("frequencySeekNewQuestions").value = dados.frequenciaBuscaQuestoes;
         }
     }
 
@@ -33,8 +33,8 @@ function carregarPreferencias() {
         console.log(`Error: ${error}`);
     }
 
-    var promiseBuscarQuestoesAtivamente = browser.storage.sync.get("buscarQuestoesAtivamente");
-    var promiseFrequenciaBuscaQuestoes = browser.storage.sync.get("frequenciaBuscaQuestoes");
+    var promiseBuscarQuestoesAtivamente = browser.storage.sync.get("showNewQuestions");
+    var promiseFrequenciaBuscaQuestoes = browser.storage.sync.get("frequencySeekNewQuestions");
 
     promiseBuscarQuestoesAtivamente.then(definirBuscarQuestoesAtivamente, onError);
     promiseFrequenciaBuscaQuestoes.then(definirFrequenciaBuscaQuestoes, onError);
