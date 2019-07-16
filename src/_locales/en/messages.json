@@ -31,10 +31,10 @@
     "message": "Include Webmaker questions"
   },
   "description_questions":{
-    "message": "Determines whether the Sumo Live Helper should alert the receipt of new questions"
+    "message": "Determines whether the SUMO Live Helper should alert the receipt of new questions"
   },
   "frequency_questions": {
-    "message": "Determines the time interval at which the Sumo Live Helper should seek new questions"
+    "message": "Determines the time interval at which the SUMO Live Helper should seek new questions"
   },
   "save_preferences": {
     "message": "Save Preferences"
@@ -53,6 +53,24 @@
   },
   "more_than_one_question_without_answer": {
     "message": " questions without answer (Click to open)"
+  },
+  "choose_language": {
+    "message": "Choose a language"
+  },
+  "choose_language_description": {
+    "message": "Choose a language to search for opened questions"
+  },
+  "open_tab": {
+    "message": "Open"
+  },
+  "firefox_for_desktop": {
+    "message": "Firefox for Desktop"
+  },
+  "congratulations": {
+    "message": "Congratulations! All questions have been answered!"
+  },
+  "searching_for_opened_questions": {
+    "message": "Searching for opened questions..."
   },
   "version":{
     "message": "SUMO Live Helper (v1.0.0)"

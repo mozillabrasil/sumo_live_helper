@@ -1,34 +1,117 @@
 html, body {
-	background-color: #FCFCFC;
-	min-width: 420px;
-	min-height:190px;
+	min-width: 500px;
+	max-width: 500px;
+	min-height:40px;
+	scrollbar-width: none;
+}
+
+div.sticky {
+    position: sticky;
+    top: 0;
+    background-color: white;
 }
 
 .panel-section-header .text-section-header {
-	color: #00000F;
+    color: #00000F;
+}
+
+.align {
+    font-weight:bold;
+    font-size:16px;
+    margin-left:10px;
+    margin-top:7px;
+    text-align:center;
 }
 
 input[type='radio'] {
-  -webkit-appearance:none;
-  cursor:pointer;
-  width:30px;
-  height:25px;
-  border:1px solid darkgray;
-  outline:none;
+    -webkit-appearance:none;
+    cursor:pointer;
+    width:30px;
+    height:25px;
+    border:1px solid darkgray;
+    outline:none;
 }
 
 input[type='radio']:hover {
-  box-shadow:0 0 5px 0px #202659 inset;
+    box-shadow:0 0 5px 0px #202659 inset;
 }
 
 input[type='radio']:before {
-  content:'';
-  cursor:pointer;
-  display:block;
-  width:100%;
-  height:100%;
+    content:'';
+    cursor:pointer;
+    display:block;
+    width:100%;
+    height:100%;
 }
 
 input[type='radio']:checked:before {
-  background: #202659;
+    background: #202659;
+}
+
+.panel-list-item {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+img:active {
+    padding:2px;
+}
+
+a.active {
+    padding:2px;
+}
+
+.margin-and-top-distance {
+    margin-top:20px;
+    margin-left:-10px;
+    margin-right:10px;
+}
+
+.icon-size-and-distance {
+    width:24px;
+    height:24px;
+    margin-bottom:2px;
+}
+
+.refresh-size-and-click {
+    width:16px;
+    height:16px;
+    margin-left:181px;
+    cursor:pointer;
+}
+
+.clear-notifications {
+    width:16px;
+    height:16px;
+    margin-left:45px;
+    cursor:pointer;
+}
+
+.question-settings {
+    margin-left:20px;
+    margin-top:5px;
+    max-width:230px;
+    min-width:230px;
+    font-size:13px;
+}
+
+.distances-empty-box {
+    margin-left:30px;
+    margin-top:30px;
+    margin-bottom:50px;
+}
+
+.distances-loading {
+    margin-left:230px;
+    margin-top:30px;
+    margin-bottom:50px;
+}
+
+.btn-settings {
+    margin-left:35px;
+    color:white;
+    cursor:pointer;
+    font-color:white;
+    width:80px;
+    font-size:13px;
 }

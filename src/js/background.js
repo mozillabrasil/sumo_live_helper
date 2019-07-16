@@ -14,21 +14,36 @@ var is_locked = "False";
 var is_taken = "False";
 var is_archived = "False";
 
+// popup menu
+var refresh = document.getElementById('refresh');
+var openTab = document.getElementById('open_tab');
+var load = document.getElementById('load');
+var empty = document.getElementById('empty');
+var questions = document.getElementById('questions');
+var clear = document.getElementById('clear');
+var questionOpened = '';
+
+clear.addEventListener('click', function(){
+    clearNotifications();
+}, false);
+
+refresh.addEventListener('click', function(){
+    refreshAPICall();
+}, false);
+
+// automatically refresh
 setInterval(function () {
     request.onload();
 }, 900000); // checks every 15 minutes
 
-// clicking the toolbar icon opens the questions on new tabs
-browser.browserAction.onClicked.addListener(openPageSUMO);
-
 function initAPICall() {
-  // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
-  // and using the language based of the Firefox used
-  requestAPI = "https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved="+is_solved+"&is_spam="+
+    // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
+    // and using the language based of the Firefox used
+    requestAPI = "https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved="+is_solved+"&is_spam="+
                 is_spam+"&is_locked="+is_locked+"&product="+product+"&is_taken="+is_taken+"&is_archived="+is_archived+"&locale="+locale,
-  request.open('GET', requestAPI, true);
-  request.responseType = 'json';
-  request.send();
+    request.open('GET', requestAPI, true);
+    request.responseType = 'json';
+    request.send();
 }
 
 initAPICall();
@@ -44,7 +59,20 @@ request.onload = function() {
                             // saves the number of questions opened
                             localStorage.setItem('numberOfQuestionsOpened', numberOfQuestionsOpened);
                             // saves the id of the question in the Array
-                            questionsIds.push(responseSUMO.results[i].id);
+                            // questionsIds.push(responseSUMO.results[i].id);
+
+                            // url of the question
+                            var url = "https://support.mozilla.org/"+locale+"/questions/"+responseSUMO.results[i].id;
+
+                            questionOpened += '<div class="col-md-12 margin-and-top-distance">';
+                            questionOpened += '<img src="../res/icons/firefox.png" class="icon-size-and-distance" title="Firefox for Desktop">';
+                            questionOpened += '<label class="text-justify question-settings">'+responseSUMO.results[i].title+'</label>';
+                            questionOpened += '<a href='+url+' class="btn btn-primary btn-settings" data-i18n="open_tab" id="open_tab" style="color:white;">'+browser.i18n.getMessage("open_tab");
+                            questionOpened += '</a>';
+                            questionOpened += '</div></br>';
+                            questionOpened += '<div class="panel-section-separator"></div>';
+
+                            questions.innerHTML = questionOpened;
                         }
                     }
                 }
@@ -56,8 +84,14 @@ request.onload = function() {
         // verifies if have any questions opened
         if(localStorage.getItem('numberOfQuestionsOpened') >= 1){
             browser.browserAction.setBadgeText({text: localStorage.getItem('numberOfQuestionsOpened')});
+            questions.style.display = "block";
+            load.style.display = "none";
+            empty.style.display = "none";
         }else{
             browser.browserAction.setBadgeText({text: ''});
+            empty.style.display = "block";
+            load.style.display = "none";
+            questions.style.display = "none";
         }
 
         // changes the title
@@ -74,20 +108,34 @@ request.onload = function() {
 }
 
 // when click at toolbar icon will open the Firefox questions on new tabs
-function openPageSUMO() {
-    // opens each question in a separate tab
-    for (var i = 0; i < questionsIds.length; i++){
-        browser.tabs.create({
-            url: 'https://support.mozilla.org/'+locale+'/questions/'+questionsIds[i]
-        });
-    }
+//function openPageSUMO() {
+//        // opens  question in a separate tab
+//        browser.tabs.create({
+//            url: 'https://support.mozilla.org/'+locale+'/questions/'+questionsIds[i]
+//        });
+//
+//    // removes the id's from the Array
+//    for(var i = 0; i <= localStorage.getItem('numberOfQuestionsOpened'); i++){
+//        questionsIds.pop();
+//    }
+//}
 
-    // removes the id's from the Array
-    for(var i = 0; i <= localStorage.getItem('numberOfQuestionsOpened'); i++){
-        questionsIds.pop();
-    }
+// clears the notification and sets the title
+function clearNotifications() {
+  browser.browserAction.setBadgeText({text: ''});
+  browser.browserAction.setTitle({title: localStorage.getItem('extensionName')});
+}
 
-    // clears the notification and sets the title
-    browser.browserAction.setBadgeText({text: ''});
-    browser.browserAction.setTitle({title: localStorage.getItem('extensionName')});
+// refresh function when clicks at refresh icon
+function refreshAPICall() {
+    load.style.display = "block";
+    questions.style.display = "none";
+    empty.style.display = "none";
+    // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
+    // and using the language based of the Firefox used
+    requestAPI = "https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved="+is_solved+"&is_spam="+
+                is_spam+"&is_locked="+is_locked+"&product="+product+"&is_taken="+is_taken+"&is_archived="+is_archived+"&locale="+locale,
+    request.open('GET', requestAPI, true);
+    request.responseType = 'json';
+    request.send();
 }
