@@ -3,9 +3,6 @@ let request = new XMLHttpRequest();
 var requestAPI = "";
 var numberOfQuestionsOpened = 0;
 
-// Array of id's
-var questionsIds = [];
-
 // settings to search questions using the Kitsune API
 var product = "Firefox";
 var is_solved = "False";
@@ -28,7 +25,7 @@ clear.addEventListener('click', function(){
 }, false);
 
 refresh.addEventListener('click', function(){
-    refreshAPICall();
+    location.reload();
 }, false);
 
 // automatically refresh
@@ -58,8 +55,6 @@ request.onload = function() {
                             numberOfQuestionsOpened = numberOfQuestionsOpened + 1;
                             // saves the number of questions opened
                             localStorage.setItem('numberOfQuestionsOpened', numberOfQuestionsOpened);
-                            // saves the id of the question in the Array
-                            // questionsIds.push(responseSUMO.results[i].id);
 
                             // url of the question
                             var url = "https://support.mozilla.org/"+locale+"/questions/"+responseSUMO.results[i].id;
@@ -107,35 +102,8 @@ request.onload = function() {
         numberOfQuestionsOpened = 0;
 }
 
-// when click at toolbar icon will open the Firefox questions on new tabs
-//function openPageSUMO() {
-//        // opens  question in a separate tab
-//        browser.tabs.create({
-//            url: 'https://support.mozilla.org/'+locale+'/questions/'+questionsIds[i]
-//        });
-//
-//    // removes the id's from the Array
-//    for(var i = 0; i <= localStorage.getItem('numberOfQuestionsOpened'); i++){
-//        questionsIds.pop();
-//    }
-//}
-
 // clears the notification and sets the title
 function clearNotifications() {
   browser.browserAction.setBadgeText({text: ''});
   browser.browserAction.setTitle({title: localStorage.getItem('extensionName')});
-}
-
-// refresh function when clicks at refresh icon
-function refreshAPICall() {
-    load.style.display = "block";
-    questions.style.display = "none";
-    empty.style.display = "none";
-    // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
-    // and using the language based of the Firefox used
-    requestAPI = "https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved="+is_solved+"&is_spam="+
-                is_spam+"&is_locked="+is_locked+"&product="+product+"&is_taken="+is_taken+"&is_archived="+is_archived+"&locale="+locale,
-    request.open('GET', requestAPI, true);
-    request.responseType = 'json';
-    request.send();
 }
