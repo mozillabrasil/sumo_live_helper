@@ -59,15 +59,38 @@ request.onload = function() {
                             // url of the question
                             var url = "https://support.mozilla.org/"+locale+"/questions/"+responseSUMO.results[i].id;
 
-                            questionOpened += '<div class="col-md-12 margin-and-top-distance">';
-                            questionOpened += '<img src="../res/icons/firefox.png" class="icon-size-and-distance" title="Firefox for Desktop">';
-                            questionOpened += '<label class="text-justify question-settings">'+responseSUMO.results[i].title+'</label>';
-                            questionOpened += '<a href='+url+' class="btn btn-primary btn-settings" data-i18n="open_tab" id="open_tab" style="color:white;">'+browser.i18n.getMessage("open_tab");
-                            questionOpened += '</a>';
-                            questionOpened += '</div></br>';
-                            questionOpened += '<div class="panel-section-separator"></div>';
+                            // create elements
+                            var questionOrder = document.createElement("div");
+                            var questionTitle = document.createElement("label");
+                            var iconProduct = document.createElement("img");
+                            var zeroDiv = document.createElement("div");
+                            var firstDiv = document.createElement("div");
+                            var secondDiv = document.createElement("div");
+                            var buttonOpen = document.createElement("a");
+                            var section = document.querySelector("section");
 
-                            questions.innerHTML = questionOpened;
+                            //
+                            zeroDiv.className = "col-md-12 margin-and-top-distance";
+                            firstDiv.className = "col-md-12 margin-and-top-distance";
+                            secondDiv.className = "panel-section-separator"
+                            questionTitle.className = "text-justify question-settings";
+                            questionTitle.textContent = responseSUMO.results[i].title;
+                            iconProduct.className = "icon-size-and-distance";
+                            iconProduct.title = browser.i18n.getMessage("firefox_for_desktop");
+                            iconProduct.src = "../res/icons/firefox.png";
+                            buttonOpen.className = "btn btn-primary btn-settings";
+                            buttonOpen.text = browser.i18n.getMessage("open_tab");
+                            buttonOpen.href = url;
+
+                            //
+                            questionOrder.appendChild(zeroDiv);
+                            questionOrder.appendChild(iconProduct);
+                            questionOrder.appendChild(questionTitle);
+                            questionOrder.appendChild(buttonOpen);
+                            questionOrder.appendChild(firstDiv);
+                            questionOrder.appendChild(secondDiv);
+
+                            section.appendChild(questionOrder);
                         }
                     }
                 }

@@ -37,6 +37,8 @@ We are looking forward to see what you think is a good idea implement in the fut
 ## How Contribute
 Have a suggestion, doubt or encountered an error? Please open a new [issue](https://github.com/mozillabrasil/sumo_live_helper/issues).
 
+Contributions are welcome, feel free to submit a pull :)
+
 ## Learn More
 To learn more about webextensions development, see this [Mozilla developer Network documentation](https://developer.mozilla.org/en-US/Add-ons/WebExtensions).
 
