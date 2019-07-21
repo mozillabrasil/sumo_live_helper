@@ -90,8 +90,8 @@ a.active {
 .question-settings {
     margin-left:20px;
     margin-top:5px;
-    max-width:230px;
-    min-width:230px;
+    max-width:255px;
+    min-width:255px;
     font-size:13px;
 }
 
@@ -102,8 +102,8 @@ a.active {
 }
 
 .distances-loading {
-    margin-left:230px;
-    margin-top:30px;
+    margin-left:222px;
+    margin-top:50px;
     margin-bottom:50px;
 }
 
@@ -112,6 +112,6 @@ a.active {
     color:white;
     cursor:pointer;
     font-color:white;
-    width:80px;
+    width:90px;
     font-size:13px;
 }
