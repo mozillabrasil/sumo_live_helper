@@ -5,7 +5,7 @@
 [<img align="right" src="https://img.shields.io/github/release/mozillabrasil/sumo_live_helper.svg">](https://github.com/mozillabrasil/sumo_live_helper/releases)
 
 ![sumo_live_helper](src/res/icons/icon.png)
-# SUMO Live Helper
+# SUMO Live Helper [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/sumo-live-helper-/)
 The goal of this Add-on is for volunteers in SUMO (Support Mozilla) to see when there are new support questions for Firefox Desktop that have not yet been answered. This will help improve the Firefox user experience by getting answers to their problem more quickly.
 
 ![SUMO_Live_Helper gif](sumo_live_helper.gif)

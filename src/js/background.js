@@ -20,6 +20,11 @@ var questions = document.getElementById('questions');
 var clear = document.getElementById('clear');
 var questionOpened = '';
 
+// title i18n
+clear.title = browser.i18n.getMessage("clear_notifications");
+refresh.title = browser.i18n.getMessage("refresh");
+
+// Event Listener
 clear.addEventListener('click', function(){
     clearNotifications();
 }, false);
