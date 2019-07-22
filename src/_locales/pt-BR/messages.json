@@ -72,7 +72,13 @@
   "searching_for_opened_questions": {
     "message": "Buscando por questões abertas..."
   },
+  "refresh": {
+    "message": "Atualizar"
+  },
+  "clear_notifications": {
+    "message": "Limpar notificações"
+  },
   "version":{
-    "message": "SUMO Live Helper (v1.0.0)"
+    "message": "SUMO Live Helper (v1.0.1)"
   }
 }

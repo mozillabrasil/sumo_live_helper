@@ -76,14 +76,14 @@ a.active {
 .refresh-size-and-click {
     width:16px;
     height:16px;
-    margin-left:181px;
+    margin-left:200px;
     cursor:pointer;
 }
 
 .clear-notifications {
     width:16px;
     height:16px;
-    margin-left:45px;
+    margin-left:55px;
     cursor:pointer;
 }
 
