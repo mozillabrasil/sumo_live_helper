@@ -54,7 +54,8 @@ initAPICall();
 request.onload = function() {
         var responseSUMO = request.response;
         for(var i = 0; i < 20; i++){
-                if(responseSUMO.results[i].num_answers == 0){
+                if(typeof (responseSUMO.results[i]) != 'undefined' && responseSUMO.results[i].num_answers == 0) {
+
                     for(var j = 0; j < responseSUMO.results[i].tags.length; j++){
                         if(responseSUMO.results[i].tags[j].name == "desktop" && responseSUMO.results[i].tags[j].slug == "desktop"){
                             numberOfQuestionsOpened = numberOfQuestionsOpened + 1;
