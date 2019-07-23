@@ -42,7 +42,7 @@ function initAPICall() {
     // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
     // and using the language based of the Firefox used
     requestAPI = "https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved="+is_solved+"&is_spam="+
-                is_spam+"&is_locked="+is_locked+"&product="+product+"&is_taken="+is_taken+"&is_archived="+is_archived+"&locale="+locale,
+                is_spam+"&is_locked="+is_locked+"&product="+product+"&is_taken="+is_taken+"&is_archived="+is_archived+"&locale="+locale;
     request.open('GET', requestAPI, true);
     request.responseType = 'json';
     request.send();
