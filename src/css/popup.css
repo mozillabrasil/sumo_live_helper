@@ -1,8 +1,19 @@
 html, body {
-	min-width: 500px;
-	max-width: 500px;
+	width:100%;
 	min-height:40px;
-	scrollbar-width: none;
+}
+
+.question-container {
+	display:flex;
+}
+
+.vertical-container {
+	display:flex;
+	flex-direction:column;
+}
+
+.question-container label, .vertical-container div {
+	flex:1;
 }
 
 div.sticky {

@@ -73,6 +73,9 @@ request.onload = function() {
                             var secondDiv = document.createElement("div");
                             var buttonOpen = document.createElement("a");
                             var section = document.querySelector("section");
+                            var container = document.createElement("div");
+                            var verticalContainer = document.createElement("div");
+                            var spacer = document.createElement("div");
 
                             //
                             zeroDiv.className = "col-md-12 margin-and-top-distance";
@@ -86,12 +89,32 @@ request.onload = function() {
                             buttonOpen.className = "btn btn-primary btn-settings";
                             buttonOpen.text = browser.i18n.getMessage("open_tab");
                             buttonOpen.href = url;
+                            container.className = "question-container";
+                            verticalContainer.className = "vertical-container";
+
+                            //
+                            var verticalContainer2 = verticalContainer.cloneNode(true);
+                            var spacer2 = spacer.cloneNode(true);
+                            var spacer3 = spacer.cloneNode(true);
+                            var spacer4 = spacer.cloneNode(true);
 
                             //
                             questionOrder.appendChild(zeroDiv);
-                            questionOrder.appendChild(iconProduct);
-                            questionOrder.appendChild(questionTitle);
-                            questionOrder.appendChild(buttonOpen);
+
+                            container.appendChild(verticalContainer);
+                            verticalContainer.appendChild(spacer);
+                            verticalContainer.appendChild(iconProduct);
+                            verticalContainer.appendChild(spacer2);
+
+                            container.appendChild(questionTitle);
+
+                            container.appendChild(verticalContainer2);
+                            verticalContainer2.appendChild(spacer3);
+                            verticalContainer2.appendChild(buttonOpen);
+                            verticalContainer2.appendChild(spacer4);
+
+                            questionOrder.appendChild(container);
+                            questionOrder.appendChild(firstDiv);
                             questionOrder.appendChild(firstDiv);
                             questionOrder.appendChild(secondDiv);
 
