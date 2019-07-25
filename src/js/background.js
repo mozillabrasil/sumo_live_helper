@@ -34,9 +34,10 @@ refresh.addEventListener('click', function(){
 }, false);
 
 // automatically refresh
-setInterval(function () {
+browser.alarms.create('checkSUMO',{delayInMinutes:15}); // checks every 15 minutes
+browser.alarms.onAlarm.addListener(function(){
     request.onload();
-}, 900000); // checks every 15 minutes
+});
 
 function initAPICall() {
     // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived

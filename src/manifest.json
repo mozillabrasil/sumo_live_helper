@@ -28,6 +28,7 @@
     "page": "/html/popup.html"
   },
   "permissions": [
+    "alarms",
     "tabs",
     "browserSettings",
     "activeTab",
