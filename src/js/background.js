@@ -1,5 +1,7 @@
 let locale = navigator.language;
 let request = new XMLHttpRequest();
+let savedQuestions = browser.storage.local.get('questions');
+savedQuestions.then(loaded);
 var requestAPI = "";
 var numberOfQuestionsOpened = 0;
 
@@ -34,9 +36,10 @@ refresh.addEventListener('click', function(){
 }, false);
 
 // automatically refresh
-setInterval(function () {
+browser.alarms.create('checkSUMO',{delayInMinutes:15}); // checks every 15 minutes
+browser.alarms.onAlarm.addListener(function(){
     request.onload();
-}, 900000); // checks every 15 minutes
+});
 
 function initAPICall() {
     // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
@@ -48,81 +51,128 @@ function initAPICall() {
     request.send();
 }
 
-initAPICall();
+// runs when the browser loads the saved questions
+function loaded(data) {
+    if (data.questions) {
+        savedQuestions = data.questions;
+        cleanData();
+    } else {
+        savedQuestions = [];
+    }
+    initAPICall();
+}
+
+// cleans old data from the browser storage
+function cleanData() {
+    var numItems = savedQuestions.length;
+    for (var i = 0; i < numItems; i++) {
+        if (savedQuestions[i].timestamp < Date.now() - 86400000) {
+            savedQuestions.splice(i,1);
+        }
+    }
+
+    // checks if storage write is necessary
+    if (savedQuestions.length != numItems) {
+        browser.storage.local.set({'questions':newQuestionList});
+    }
+}
 
 // search for new questions
 request.onload = function() {
         var responseSUMO = request.response;
+        var newQuestionList = [];
         for(var i = 0; i < 20; i++){
-                if(responseSUMO.results[i].num_answers == 0){
-                    for(var j = 0; j < responseSUMO.results[i].tags.length; j++){
-                        if(responseSUMO.results[i].tags[j].name == "desktop" && responseSUMO.results[i].tags[j].slug == "desktop"){
-                            numberOfQuestionsOpened = numberOfQuestionsOpened + 1;
-                            // saves the number of questions opened
-                            localStorage.setItem('numberOfQuestionsOpened', numberOfQuestionsOpened);
+            if(responseSUMO.results[i].num_answers == 0){
+                for(var j = 0; j < responseSUMO.results[i].tags.length; j++){
+                    if(responseSUMO.results[i].tags[j].name == "desktop" && responseSUMO.results[i].tags[j].slug == "desktop"){
+                        numberOfQuestionsOpened = numberOfQuestionsOpened + 1;
+                        // saves the number of questions opened
+                        localStorage.setItem('numberOfQuestionsOpened', numberOfQuestionsOpened);
 
-                            // url of the question
-                            var url = "https://support.mozilla.org/"+locale+"/questions/"+responseSUMO.results[i].id;
+                        // url of the question
+                        var url = "https://support.mozilla.org/"+locale+"/questions/"+responseSUMO.results[i].id;
 
-                            // create elements
-                            var questionOrder = document.createElement("div");
-                            var questionTitle = document.createElement("label");
-                            var iconProduct = document.createElement("img");
-                            var zeroDiv = document.createElement("div");
-                            var firstDiv = document.createElement("div");
-                            var secondDiv = document.createElement("div");
-                            var buttonOpen = document.createElement("a");
-                            var section = document.querySelector("section");
-                            var container = document.createElement("div");
-                            var verticalContainer = document.createElement("div");
-                            var spacer = document.createElement("div");
+                        // create elements
+                        var questionOrder = document.createElement("div");
+                        var questionTitle = document.createElement("label");
+                        var iconProduct = document.createElement("img");
+                        var zeroDiv = document.createElement("div");
+                        var firstDiv = document.createElement("div");
+                        var secondDiv = document.createElement("div");
+                        var buttonOpen = document.createElement("a");
+                        var section = document.querySelector("section");
+                        var container = document.createElement("div");
+                        var verticalContainer = document.createElement("div");
+                        var spacer = document.createElement("div");
 
-                            //
-                            zeroDiv.className = "col-md-12 margin-and-top-distance";
-                            firstDiv.className = "col-md-12 margin-and-top-distance";
-                            secondDiv.className = "panel-section-separator"
-                            questionTitle.className = "text-justify question-settings";
-                            questionTitle.textContent = responseSUMO.results[i].title;
-                            iconProduct.className = "icon-size-and-distance";
-                            iconProduct.title = browser.i18n.getMessage("firefox_for_desktop");
-                            iconProduct.src = "../res/icons/firefox.png";
-                            buttonOpen.className = "btn btn-primary btn-settings";
-                            buttonOpen.text = browser.i18n.getMessage("open_tab");
-                            buttonOpen.href = url;
-                            container.className = "question-container";
-                            verticalContainer.className = "vertical-container";
+                        //
+                        zeroDiv.className = "col-md-12 margin-and-top-distance";
+                        firstDiv.className = "col-md-12 margin-and-top-distance";
+                        secondDiv.className = "panel-section-separator"
+                        questionTitle.className = "text-justify question-settings";
+                        questionTitle.textContent = responseSUMO.results[i].title;
+                        iconProduct.className = "icon-size-and-distance";
+                        iconProduct.title = browser.i18n.getMessage("firefox_for_desktop");
+                        iconProduct.src = "../res/icons/firefox.png";
+                        buttonOpen.className = "btn btn-primary btn-settings";
+                        buttonOpen.text = browser.i18n.getMessage("open_tab");
+                        buttonOpen.href = url;
+                        container.className = "question-container";
+                        verticalContainer.className = "vertical-container";
 
-                            //
-                            var verticalContainer2 = verticalContainer.cloneNode(true);
-                            var spacer2 = spacer.cloneNode(true);
-                            var spacer3 = spacer.cloneNode(true);
-                            var spacer4 = spacer.cloneNode(true);
+                        //
+                        var verticalContainer2 = verticalContainer.cloneNode(true);
+                        var spacer2 = spacer.cloneNode(true);
+                        var spacer3 = spacer.cloneNode(true);
+                        var spacer4 = spacer.cloneNode(true);
 
-                            //
-                            questionOrder.appendChild(zeroDiv);
+                        //
+                        questionOrder.appendChild(zeroDiv);
 
-                            container.appendChild(verticalContainer);
-                            verticalContainer.appendChild(spacer);
-                            verticalContainer.appendChild(iconProduct);
-                            verticalContainer.appendChild(spacer2);
+                        container.appendChild(verticalContainer);
+                        verticalContainer.appendChild(spacer);
+                        verticalContainer.appendChild(iconProduct);
+                        verticalContainer.appendChild(spacer2);
 
-                            container.appendChild(questionTitle);
+                        container.appendChild(questionTitle);
 
-                            container.appendChild(verticalContainer2);
-                            verticalContainer2.appendChild(spacer3);
-                            verticalContainer2.appendChild(buttonOpen);
-                            verticalContainer2.appendChild(spacer4);
+                        container.appendChild(verticalContainer2);
+                        verticalContainer2.appendChild(spacer3);
+                        verticalContainer2.appendChild(buttonOpen);
+                        verticalContainer2.appendChild(spacer4);
 
-                            questionOrder.appendChild(container);
-                            questionOrder.appendChild(firstDiv);
-                            questionOrder.appendChild(firstDiv);
-                            questionOrder.appendChild(secondDiv);
+                        questionOrder.appendChild(container);
+                        questionOrder.appendChild(firstDiv);
+                        questionOrder.appendChild(firstDiv);
+                        questionOrder.appendChild(secondDiv);
 
-                            section.appendChild(questionOrder);
+                        section.appendChild(questionOrder);
+
+                        var x = 0;
+                        var questionExists = false;
+                        while (x < savedQuestions.length && !questionExists) {
+                            questionExists = (url == savedQuestions[x].url);
+                            x++;
+                        }
+
+                        if (!questionExists) {
+                            var newItem = {
+                                product: 'firefox_for_desktop',
+                                title: responseSUMO.results[i].title,
+                                url: url,
+                                timestamp: Date.now(),
+                                new: true
+                            }
+                            newQuestionList.push(newItem);
+                            console.log("Saved" + url);
                         }
                     }
                 }
+            }
         }
+    
+        savedQuestions = newQuestionList.concat(savedQuestions);
+        browser.storage.local.set({'questions':savedQuestions});
 
         // number of questions opened
         console.log("Questions opened = "+numberOfQuestionsOpened);
