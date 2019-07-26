@@ -35,6 +35,12 @@ refresh.addEventListener('click', function(){
     location.reload();
 }, false);
 
+questions.addEventListener('click', function(e) {
+    if (e.target.id) {
+        changeStatus(e.target.id, false);
+    }
+}, false);
+
 // automatically refresh
 browser.alarms.create('checkSUMO',{delayInMinutes:15}); // checks every 15 minutes
 browser.alarms.onAlarm.addListener(function(){
@@ -103,6 +109,12 @@ function createItem(title, id, isNew) {
     
     // url of question
     var url = "https://support.mozilla.org/"+locale+"/questions/"+id;
+
+    if (isNew) {
+        questionOrder.className = 'new';
+    } else {
+        questionOrder.className = 'old';
+    }
     
     //
     zeroDiv.className = "col-md-12 margin-and-top-distance";
@@ -171,6 +183,21 @@ function questionCount() {
     }else{
         browser.browserAction.setBadgeText({text: ''});
     }
+}
+
+function changeStatus(id, status) {
+    document.getElementById(id).parentNode.parentNode.parentNode.className = 'old';
+    var i = 0;
+    var found = false;
+    while (i < savedQuestions.length && !found) {
+        if (savedQuestions[i].id == id) {
+            found = true;
+        }
+        i++;
+    }
+    i--;
+    savedQuestions[i].new = false;
+    browser.storage.local.set({'questions':savedQuestions});
 }
 
 // search for new questions

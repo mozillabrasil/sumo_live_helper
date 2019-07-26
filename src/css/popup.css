@@ -3,6 +3,10 @@ html, body {
 	min-height:40px;
 }
 
+.old {
+    opacity: .5;
+}
+
 .question-container {
 	display:flex;
 }
