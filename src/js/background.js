@@ -166,12 +166,10 @@ function questionCount() {
     if(localStorage.getItem('numberOfQuestionsOpened') >= 1){
         browser.browserAction.setBadgeText({text: localStorage.getItem('numberOfQuestionsOpened')});
         questions.style.display = "block";
-        load.style.display = "none";
         empty.style.display = "none";
     }else{
         browser.browserAction.setBadgeText({text: ''});
         empty.style.display = "block";
-        load.style.display = "none";
         questions.style.display = "none";
     }
 
@@ -246,6 +244,8 @@ request.onload = function() {
 
         // clears the number of questions
         numberOfQuestionsOpened = 0;
+    
+        load.style.display = "none";
 }
 
 // clears the notification and sets the title

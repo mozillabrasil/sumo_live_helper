@@ -11,6 +11,7 @@
     <link href="../css/style.css" rel="stylesheet"/>
 </head>
 <body>
+<div id="load"></div>
 <div class="main-panel" id="mainPanel">
     <div class="col-md-12">
         <label data-i18n="extensionName" class="align"></label><img src="../res/icons/refresh.png" id="refresh" class="refresh-size-and-click"><img src="../res/icons/clear.png" id="clear" class="clear-notifications">
@@ -26,11 +27,6 @@
         <!-- No questions -->
         <div class="col-md-12 margin-and-top-distance" id="empty" style="display: none;">
             <label class="distances-empty-box" data-i18n="congratulations"></label>
-        </div>
-
-        <!-- Loading -->
-        <div class="spinner-border distances-loading text-primary" id="load" role="status" style="display: block;">
-            <span class="sr-only" data-i18n="searching_for_opened_questions"></span>
         </div>
     </div>
 </div>
