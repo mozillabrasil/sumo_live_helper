@@ -1,6 +1,20 @@
 html, body {
-	width:100%;
-	min-height:40px;
+	width:520px;
+	min-height:180px;
+	height:100%;
+	overflow: hidden;
+    margin: 0px;
+}
+
+.content {
+  height: 100%;
+  overflow: scroll;
+}
+
+.panel-separator-distance{
+    margin-top:4px;
+    margin-left:-18px;
+    margin-right:-18px;
 }
 
 .old {
@@ -61,8 +75,7 @@ div.sticky {
 .align {
     font-weight:bold;
     font-size:16px;
-    margin-left:10px;
-    margin-top:7px;
+    margin-left:9px;
     text-align:center;
 }
 
@@ -114,20 +127,23 @@ a.active {
     width:24px;
     height:24px;
     margin-bottom:2px;
+    margin-left:10px
 }
 
 .refresh-size-and-click {
     width:16px;
     height:16px;
-    margin-left:200px;
+    margin-left:203px;
+    margin-top:-8px;
     cursor:pointer;
 }
 
 .clear-notifications {
     width:16px;
     height:16px;
-    margin-left:55px;
+    margin-left:58px;
     cursor:pointer;
+    margin-top:-8px;
 }
 
 .question-settings {
@@ -139,7 +155,7 @@ a.active {
 }
 
 .distances-empty-box {
-    margin-left:30px;
+    margin-left:60px;
     margin-top:30px;
     margin-bottom:50px;
 }
@@ -151,10 +167,15 @@ a.active {
 }
 
 .btn-settings {
-    margin-left:35px;
+    margin-left:36px;
     color:white;
     cursor:pointer;
     font-color:white;
     width:90px;
     font-size:13px;
+}
+
+header {
+    background-color:white;
+    width:100%;
 }
