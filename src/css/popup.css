@@ -22,7 +22,7 @@ html, body {
   left: -200px;
   width: 200px;
   height: 4px;
-  background: #2980b9;
+  background: #007BFF;
   animation: loading 2s linear infinite;
 }
 
