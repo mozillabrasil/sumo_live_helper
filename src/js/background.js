@@ -59,6 +59,16 @@ function loaded(data) {
     } else {
         savedQuestions = [];
     }
+    
+    // loads items from saved data
+    for (var i = 0; i < savedQuestions.length; i++) {
+        var title = savedQuestions[i].title;
+        var id = savedQuestions[i].id;
+        var isNew = savedQuestions[i].new;
+        createItem(title, id, isNew);
+    }
+    console.log("Questions Loaded: "+savedQuestions.length);
+    questionCount();
     initAPICall();
 }
 
@@ -77,6 +87,92 @@ function cleanData() {
     }
 }
 
+function createItem(title, id, isNew) {
+    // create elements
+    var questionOrder = document.createElement("div");
+    var questionTitle = document.createElement("label");
+    var iconProduct = document.createElement("img");
+    var zeroDiv = document.createElement("div");
+    var firstDiv = document.createElement("div");
+    var secondDiv = document.createElement("div");
+    var buttonOpen = document.createElement("a");
+    var section = document.querySelector("section");
+    var container = document.createElement("div");
+    var verticalContainer = document.createElement("div");
+    var spacer = document.createElement("div");
+    
+    // url of question
+    var url = "https://support.mozilla.org/"+locale+"/questions/"+id;
+    
+    //
+    zeroDiv.className = "col-md-12 margin-and-top-distance";
+    firstDiv.className = "col-md-12 margin-and-top-distance";
+    secondDiv.className = "panel-section-separator"
+    questionTitle.className = "text-justify question-settings";
+    questionTitle.textContent = title;
+    iconProduct.className = "icon-size-and-distance";
+    iconProduct.title = browser.i18n.getMessage("firefox_for_desktop");
+    iconProduct.src = "../res/icons/firefox.png";
+    buttonOpen.className = "btn btn-primary btn-settings";
+    buttonOpen.id = id;
+    buttonOpen.text = browser.i18n.getMessage("open_tab");
+    buttonOpen.href = url;
+    container.className = "question-container";
+    verticalContainer.className = "vertical-container";
+
+    //
+    var verticalContainer2 = verticalContainer.cloneNode(true);
+    var spacer2 = spacer.cloneNode(true);
+    var spacer3 = spacer.cloneNode(true);
+    var spacer4 = spacer.cloneNode(true);
+
+    //
+    questionOrder.appendChild(zeroDiv);
+
+    container.appendChild(verticalContainer);
+    verticalContainer.appendChild(spacer);
+    verticalContainer.appendChild(iconProduct);
+    verticalContainer.appendChild(spacer2);
+
+    container.appendChild(questionTitle);
+
+    container.appendChild(verticalContainer2);
+    verticalContainer2.appendChild(spacer3);
+    verticalContainer2.appendChild(buttonOpen);
+    verticalContainer2.appendChild(spacer4);
+
+    questionOrder.appendChild(container);
+    questionOrder.appendChild(firstDiv);
+    questionOrder.appendChild(firstDiv);
+    questionOrder.appendChild(secondDiv);
+
+    section.appendChild(questionOrder);
+}
+
+function questionCount() {
+    // verifies if have any questions opened
+    if(localStorage.getItem('numberOfQuestionsOpened') >= 1){
+        browser.browserAction.setBadgeText({text: localStorage.getItem('numberOfQuestionsOpened')});
+        questions.style.display = "block";
+        load.style.display = "none";
+        empty.style.display = "none";
+    }else{
+        browser.browserAction.setBadgeText({text: ''});
+        empty.style.display = "block";
+        load.style.display = "none";
+        questions.style.display = "none";
+    }
+
+    // changes the title
+    if(localStorage.getItem('numberOfQuestionsOpened') >= 2){
+        browser.browserAction.setTitle({title: localStorage.getItem('numberOfQuestionsOpened')+browser.i18n.getMessage("more_than_one_question_without_answer")});
+    }else if (localStorage.getItem('numberOfQuestionsOpened') == 1){
+        browser.browserAction.setTitle({title: localStorage.getItem('numberOfQuestionsOpened')+browser.i18n.getMessage("one_question_without_answer")});
+    }else{
+        browser.browserAction.setBadgeText({text: ''});
+    }
+}
+
 // search for new questions
 request.onload = function() {
         var responseSUMO = request.response;
@@ -85,86 +181,30 @@ request.onload = function() {
             if(responseSUMO.results[i].num_answers == 0){
                 for(var j = 0; j < responseSUMO.results[i].tags.length; j++){
                     if(responseSUMO.results[i].tags[j].name == "desktop" && responseSUMO.results[i].tags[j].slug == "desktop"){
-                        numberOfQuestionsOpened = numberOfQuestionsOpened + 1;
+                        numberOfQuestionsOpened++;
                         // saves the number of questions opened
                         localStorage.setItem('numberOfQuestionsOpened', numberOfQuestionsOpened);
 
-                        // url of the question
-                        var url = "https://support.mozilla.org/"+locale+"/questions/"+responseSUMO.results[i].id;
-
-                        // create elements
-                        var questionOrder = document.createElement("div");
-                        var questionTitle = document.createElement("label");
-                        var iconProduct = document.createElement("img");
-                        var zeroDiv = document.createElement("div");
-                        var firstDiv = document.createElement("div");
-                        var secondDiv = document.createElement("div");
-                        var buttonOpen = document.createElement("a");
-                        var section = document.querySelector("section");
-                        var container = document.createElement("div");
-                        var verticalContainer = document.createElement("div");
-                        var spacer = document.createElement("div");
-
-                        //
-                        zeroDiv.className = "col-md-12 margin-and-top-distance";
-                        firstDiv.className = "col-md-12 margin-and-top-distance";
-                        secondDiv.className = "panel-section-separator"
-                        questionTitle.className = "text-justify question-settings";
-                        questionTitle.textContent = responseSUMO.results[i].title;
-                        iconProduct.className = "icon-size-and-distance";
-                        iconProduct.title = browser.i18n.getMessage("firefox_for_desktop");
-                        iconProduct.src = "../res/icons/firefox.png";
-                        buttonOpen.className = "btn btn-primary btn-settings";
-                        buttonOpen.text = browser.i18n.getMessage("open_tab");
-                        buttonOpen.href = url;
-                        container.className = "question-container";
-                        verticalContainer.className = "vertical-container";
-
-                        //
-                        var verticalContainer2 = verticalContainer.cloneNode(true);
-                        var spacer2 = spacer.cloneNode(true);
-                        var spacer3 = spacer.cloneNode(true);
-                        var spacer4 = spacer.cloneNode(true);
-
-                        //
-                        questionOrder.appendChild(zeroDiv);
-
-                        container.appendChild(verticalContainer);
-                        verticalContainer.appendChild(spacer);
-                        verticalContainer.appendChild(iconProduct);
-                        verticalContainer.appendChild(spacer2);
-
-                        container.appendChild(questionTitle);
-
-                        container.appendChild(verticalContainer2);
-                        verticalContainer2.appendChild(spacer3);
-                        verticalContainer2.appendChild(buttonOpen);
-                        verticalContainer2.appendChild(spacer4);
-
-                        questionOrder.appendChild(container);
-                        questionOrder.appendChild(firstDiv);
-                        questionOrder.appendChild(firstDiv);
-                        questionOrder.appendChild(secondDiv);
-
-                        section.appendChild(questionOrder);
-
+                        var id = responseSUMO.results[i].id;
+                        var title = responseSUMO.results[i].title;
+                        
                         var x = 0;
                         var questionExists = false;
                         while (x < savedQuestions.length && !questionExists) {
-                            questionExists = (url == savedQuestions[x].url);
+                            questionExists = (id == savedQuestions[x].id);
                             x++;
                         }
 
                         if (!questionExists) {
+                            createItem(title, id, true);
                             var newItem = {
                                 product: 'firefox_for_desktop',
                                 title: responseSUMO.results[i].title,
-                                url: url,
+                                id: id,
                                 timestamp: Date.now(),
                                 new: true
                             }
                             newQuestionList.push(newItem);
-                            console.log("Saved" + url);
                         }
                     }
                 }
@@ -175,29 +215,7 @@ request.onload = function() {
         browser.storage.local.set({'questions':savedQuestions});
 
         // number of questions opened
-        console.log("Questions opened = "+numberOfQuestionsOpened);
-
-        // verifies if have any questions opened
-        if(localStorage.getItem('numberOfQuestionsOpened') >= 1){
-            browser.browserAction.setBadgeText({text: localStorage.getItem('numberOfQuestionsOpened')});
-            questions.style.display = "block";
-            load.style.display = "none";
-            empty.style.display = "none";
-        }else{
-            browser.browserAction.setBadgeText({text: ''});
-            empty.style.display = "block";
-            load.style.display = "none";
-            questions.style.display = "none";
-        }
-
-        // changes the title
-        if(localStorage.getItem('numberOfQuestionsOpened') >= 2){
-            browser.browserAction.setTitle({title: localStorage.getItem('numberOfQuestionsOpened')+browser.i18n.getMessage("more_than_one_question_without_answer")});
-        }else if (localStorage.getItem('numberOfQuestionsOpened') == 1){
-            browser.browserAction.setTitle({title: localStorage.getItem('numberOfQuestionsOpened')+browser.i18n.getMessage("one_question_without_answer")});
-        }else{
-            browser.browserAction.setBadgeText({text: ''});
-        }
+        console.log("New questions found: "+newQuestionList.length);
 
         // clears the number of questions
         numberOfQuestionsOpened = 0;
