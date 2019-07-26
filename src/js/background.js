@@ -198,6 +198,27 @@ function changeStatus(id, status) {
     browser.storage.local.set({'questions':savedQuestions});
 }
 
+function removeOld(list) {
+    var i = 0;
+    while (i < savedQuestions.length) {
+        var x = 0;
+        var found = false;
+        while (x < list.length && !found) {
+            if (savedQuestions[i].id == list[x].id) {
+                found = true;
+            }
+            x++;
+        }
+        if (!found) {
+            console.log('Removed: ' + savedQuestions[i].title);
+            document.getElementById(savedQuestions[i].id).parentNode.parentNode.parentNode.style.display = 'none';
+            savedQuestions.splice(i,1);
+        } else {
+            i++;
+        }
+   }
+}
+
 // search for new questions
 request.onload = function() {
         var responseSUMO = request.response;
@@ -235,7 +256,8 @@ request.onload = function() {
                 }
             }
         }
-    
+        
+        removeOld(responseSUMO.results);
         savedQuestions = newQuestionList.concat(savedQuestions);
         browser.storage.local.set({'questions':savedQuestions});
 
