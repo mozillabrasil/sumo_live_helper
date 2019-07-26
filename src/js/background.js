@@ -61,7 +61,6 @@ function initAPICall() {
 function loaded(data) {
     if (data.questions) {
         savedQuestions = data.questions;
-        cleanData();
     } else {
         savedQuestions = [];
     }
@@ -76,21 +75,6 @@ function loaded(data) {
     console.log("Questions Loaded: "+savedQuestions.length);
     questionCount();
     initAPICall();
-}
-
-// cleans old data from the browser storage
-function cleanData() {
-    var numItems = savedQuestions.length;
-    for (var i = 0; i < numItems; i++) {
-        if (savedQuestions[i].timestamp < Date.now() - 86400000) {
-            savedQuestions.splice(i,1);
-        }
-    }
-
-    // checks if storage write is necessary
-    if (savedQuestions.length != numItems) {
-        browser.storage.local.set({'questions':newQuestionList});
-    }
 }
 
 function createItem(title, id, isNew) {
@@ -247,7 +231,6 @@ request.onload = function() {
                                 product: 'firefox_for_desktop',
                                 title: responseSUMO.results[i].title,
                                 id: id,
-                                timestamp: Date.now(),
                                 new: true
                             }
                             newQuestionList.push(newItem);
