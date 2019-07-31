@@ -47,6 +47,7 @@ browser.alarms.onAlarm.addListener(function(){
     request.onload();
 });
 
+// loads questions from SUMO
 function initAPICall() {
     // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
     // and using the language based of the Firefox used
@@ -74,10 +75,10 @@ function loaded(data) {
     }
     questionCount();
     toggleScreen();
-    console.log("Questions Loaded: "+savedQuestions.length);
     initAPICall();
 }
 
+// adds a question to the popup
 function createItem(title, id, isNew) {
     // create elements
     var questionOrder = document.createElement("div");
@@ -146,6 +147,7 @@ function createItem(title, id, isNew) {
     section.appendChild(questionOrder);
 }
 
+// updates the question notification counter
 function questionCount() {
     numberOfQuestionsOpened = 0;
     for (var i = 0; i < savedQuestions.length; i++) {
@@ -171,6 +173,7 @@ function questionCount() {
     }
 }
 
+// shows/hides the question list
 function toggleScreen() {
     if (savedQuestions.length > 0) {
         questions.style.display = "block";
@@ -181,6 +184,7 @@ function toggleScreen() {
     }
 }
 
+// marks a question as viewed
 function changeStatus(id) {
     document.getElementById(id).parentNode.parentNode.parentNode.className = 'old';
     var i = 0;
@@ -197,6 +201,7 @@ function changeStatus(id) {
     questionCount();
 }
 
+// removes old questions from storage
 function removeOld(list) {
     var i = 0;
     while (i < savedQuestions.length) {
@@ -209,7 +214,6 @@ function removeOld(list) {
             x++;
         }
         if (!found) {
-            console.log('Removed: ' + savedQuestions[i].title);
             document.getElementById(savedQuestions[i].id).parentNode.parentNode.parentNode.style.display = 'none';
             savedQuestions.splice(i,1);
         } else {
@@ -254,9 +258,6 @@ request.onload = function() {
         removeOld(responseSUMO.results);
         savedQuestions = newQuestionList.concat(savedQuestions);
         browser.storage.local.set({'questions':savedQuestions});
-
-        // number of questions opened
-        console.log("New questions found: "+newQuestionList.length);
     
         toggleScreen();
         questionCount();
