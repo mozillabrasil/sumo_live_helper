@@ -37,7 +37,7 @@ refresh.addEventListener('click', function(){
 
 questions.addEventListener('click', function(e) {
     if (e.target.id) {
-        changeStatus(e.target.id, false);
+        changeStatus(e.target.id);
     }
 }, false);
 
@@ -72,8 +72,9 @@ function loaded(data) {
         var isNew = savedQuestions[i].new;
         createItem(title, id, isNew);
     }
-    console.log("Questions Loaded: "+savedQuestions.length);
     questionCount();
+    toggleScreen();
+    console.log("Questions Loaded: "+savedQuestions.length);
     initAPICall();
 }
 
@@ -146,28 +147,41 @@ function createItem(title, id, isNew) {
 }
 
 function questionCount() {
+    numberOfQuestionsOpened = 0;
+    for (var i = 0; i < savedQuestions.length; i++) {
+        if (savedQuestions[i].new) {
+            numberOfQuestionsOpened++;
+        }
+    }
+    
     // verifies if have any questions opened
-    if(localStorage.getItem('numberOfQuestionsOpened') >= 1){
-        browser.browserAction.setBadgeText({text: localStorage.getItem('numberOfQuestionsOpened')});
-        questions.style.display = "block";
-        empty.style.display = "none";
-    }else{
+    if (numberOfQuestionsOpened > 0) {
+        browser.browserAction.setBadgeText({text: numberOfQuestionsOpened.toString()});
+    } else {
         browser.browserAction.setBadgeText({text: ''});
-        empty.style.display = "block";
-        questions.style.display = "none";
     }
 
     // changes the title
-    if(localStorage.getItem('numberOfQuestionsOpened') >= 2){
-        browser.browserAction.setTitle({title: localStorage.getItem('numberOfQuestionsOpened')+browser.i18n.getMessage("more_than_one_question_without_answer")});
-    }else if (localStorage.getItem('numberOfQuestionsOpened') == 1){
-        browser.browserAction.setTitle({title: localStorage.getItem('numberOfQuestionsOpened')+browser.i18n.getMessage("one_question_without_answer")});
+    if(numberOfQuestionsOpened >= 2){
+        browser.browserAction.setTitle({title: numberOfQuestionsOpened+browser.i18n.getMessage("more_than_one_question_without_answer")});
+    }else if (numberOfQuestionsOpened == 1){
+        browser.browserAction.setTitle({title: numberOfQuestionsOpened+browser.i18n.getMessage("one_question_without_answer")});
     }else{
         browser.browserAction.setBadgeText({text: ''});
     }
 }
 
-function changeStatus(id, status) {
+function toggleScreen() {
+    if (savedQuestions.length > 0) {
+        questions.style.display = "block";
+        empty.style.display = "none";
+    } else {
+        questions.style.display = "none";
+        empty.style.display = "block";
+    }
+}
+
+function changeStatus(id) {
     document.getElementById(id).parentNode.parentNode.parentNode.className = 'old';
     var i = 0;
     var found = false;
@@ -180,6 +194,7 @@ function changeStatus(id, status) {
     i--;
     savedQuestions[i].new = false;
     browser.storage.local.set({'questions':savedQuestions});
+    questionCount();
 }
 
 function removeOld(list) {
@@ -211,10 +226,6 @@ request.onload = function() {
             if(responseSUMO.results[i].num_answers == 0){
                 for(var j = 0; j < responseSUMO.results[i].tags.length; j++){
                     if(responseSUMO.results[i].tags[j].name == "desktop" && responseSUMO.results[i].tags[j].slug == "desktop"){
-                        numberOfQuestionsOpened++;
-                        // saves the number of questions opened
-                        localStorage.setItem('numberOfQuestionsOpened', numberOfQuestionsOpened);
-
                         var id = responseSUMO.results[i].id;
                         var title = responseSUMO.results[i].title;
                         
@@ -246,15 +257,17 @@ request.onload = function() {
 
         // number of questions opened
         console.log("New questions found: "+newQuestionList.length);
-
-        // clears the number of questions
-        numberOfQuestionsOpened = 0;
     
-        load.style.display = "none";
+        toggleScreen();
+        questionCount();
+        load.style.display = 'none';
 }
 
 // clears the notification and sets the title
 function clearNotifications() {
-  browser.browserAction.setBadgeText({text: ''});
-  browser.browserAction.setTitle({title: localStorage.getItem('extensionName')});
+    for (var i = 0; i < savedQuestions.length; i++) {
+        changeStatus(savedQuestions[i].id);
+    }
+    browser.browserAction.setBadgeText({text: ''});
+    browser.browserAction.setTitle({title: localStorage.getItem('extensionName')});
 }
