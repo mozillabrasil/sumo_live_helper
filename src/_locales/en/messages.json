@@ -77,5 +77,23 @@
   },
   "clear_notifications": {
     "message": "Clear notifications"
+  },
+  "show_notifications": {
+    "message": "Show browser notifications"
+  },
+  "description_notifications": {
+    "message": "Determines whether you will receive notification popups when new questions are found"
+  },
+  "notification_title_single": {
+    "message": "new question found!"
+  },
+  "notification_title_multiple": {
+    "message": "new questions found!"
+  },
+  "notification_message_more": {
+    "message": "more need help."
+  },
+  "notification_message_click": {
+    "message": "Click the SUMO Live Helper toolbar icon to view the question list..."
   }
 }
