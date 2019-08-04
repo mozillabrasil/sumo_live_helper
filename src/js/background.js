@@ -53,6 +53,11 @@ questions.addEventListener('click', function(e) {
     }
 }, false);
 
+// API limitations prevent this
+/*browser.notifications.onClicked.addListener(function() {
+    browser.browserAction.openPopup();
+});*/
+
 // automatically refresh
 browser.alarms.create('checkSUMO',{delayInMinutes: parseInt(frequencySeekNewQuestions)}); // checks every X minutes
 browser.alarms.onAlarm.addListener(function(){
@@ -270,10 +275,34 @@ request.onload = function() {
         removeOld(responseSUMO.results);
         savedQuestions = newQuestionList.concat(savedQuestions);
         browser.storage.local.set({'questions':savedQuestions});
+        
+        if (localStorage.getItem("showNotifications") && newQuestionList.length > 0) {
+            showNotification(newQuestionList);
+        }
     
         toggleScreen();
         questionCount();
         load.style.display = 'none';
+}
+
+function showNotification(questions) {
+    var num = questions.length;
+    var title = num + ' ';
+    var message = '"' + questions[0].title + '"';
+    
+    if (num == 1) {
+        title += browser.i18n.getMessage("notification_title_single");
+    } else {
+        title += browser.i18n.getMessage("notification_title_multiple");
+        message += ' & ' + (num - 1) + ' ' + browser.i18n.getMessage("notification_message_more");
+    }
+    message += '\n\n' + browser.i18n.getMessage("notification_message_click");
+    browser.notifications.create({
+        "type": "basic",
+        "iconUrl": chrome.extension.getURL("/res/icons/icon-32.png"),
+        "title": title,
+        "message": message
+    });
 }
 
 // clears the notification and sets the title

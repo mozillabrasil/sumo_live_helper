@@ -51,3 +51,17 @@ $(document).ready(function(){
     backgroundPage.request.onload();
     });
  });
+ 
+ // show or hide browser notifications
+$(document).ready(function(){
+    var checkbox = document.getElementById("showNotifications");
+    var val = localStorage.getItem('showNotifications');
+    if (val) {
+        checkbox.checked = val;
+    } else {
+        checkbox.checked = false;
+    }
+    $('#showNotifications').on('change', function(){
+        localStorage.setItem('showNotifications', $(this).val());
+    });
+});

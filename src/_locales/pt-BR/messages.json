@@ -77,5 +77,23 @@
   },
   "clear_notifications": {
     "message": "Limpar notificações"
+  },
+  "show_notifications": {
+    "message": "NEEDS MESSAGE"
+  },
+  "description_notifications": {
+    "message": "NEEDS MESSAGE"
+  },
+  "notification_title_single": {
+    "message": "NEEDS MESSAGE"
+  },
+  "notification_title_multiple": {
+    "message": "NEEDS MESSAGE"
+  },
+  "notification_message_more": {
+    "message": "NEEDS MESSAGE"
+  },
+  "notification_message_click": {
+    "message": "NEEDS MESSAGE"
   }
 }
