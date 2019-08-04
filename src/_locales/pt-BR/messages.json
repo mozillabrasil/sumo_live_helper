@@ -79,21 +79,21 @@
     "message": "Limpar notificações"
   },
   "show_notifications": {
-    "message": "NEEDS MESSAGE"
+    "message": "Mostrar notificações no navegador"
   },
   "description_notifications": {
-    "message": "NEEDS MESSAGE"
+    "message": "Determina se você receberá popups de notificação quando novas questões forem encontradas"
   },
   "notification_title_single": {
-    "message": "NEEDS MESSAGE"
+    "message": "nova questão encontrada!"
   },
   "notification_title_multiple": {
-    "message": "NEEDS MESSAGE"
+    "message": "novas questões encontradas!"
   },
   "notification_message_more": {
-    "message": "NEEDS MESSAGE"
+    "message": "mais precisam de ajuda."
   },
   "notification_message_click": {
-    "message": "NEEDS MESSAGE"
+    "message": "Clique no ícone do SUMO Live Helper na barra de ferramentas para ver a lista de questões..."
   }
 }
