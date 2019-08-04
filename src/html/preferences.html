@@ -7,138 +7,122 @@
     <link rel="shortcut icon" href="../res/icons/favicon.ico" type="image/x-icon"/>
     <link rel="icon" href="../res/icons/favicon.ico" type="image/x-icon"/>
     <link href="../css/bootstrap.css" rel="stylesheet"/>
-    <link href="../css/popup.css" rel="stylesheet"/>
     <link href="../css/style.css" rel="stylesheet"/>
     <script src="../js/jquery-3.3.1.js"></script>
     <script src="../js/bootstrap.js"></script>
     <script src="../js/bootbox.js"></script>
 </head>
-
-<body class="col-md-12">
-    <header>
-        <nav class="icons">
-            <ul>
-                <div>
-                    <img src="../res/icons/icon.png" style="float:left; padding-right:10px;margin-top:-17px;"><h4>
-                    <strong id="pageTitle" data-i18n="version"></strong></h4>
-                </div>
-            </ul>
-        </nav>
-    </header>
-    <fieldset class="col-md-12">
-        <div>
-            <h4><strong id="settings" data-i18n="settings"></strong></h4>
-        </div>
-        <br>
-            <form>
-                <div class="custom-control custom-checkbox">
-                    <input type="checkbox" class="custom-control-input" id="showNewQuestions" checked disabled>
-                    <label class="custom-control-label" data-i18n="watch_questions"
-                           for="showNewQuestions"></label>
-                </div>
-                <small class="form-text text-muted" data-i18n="description_questions"></small>
-                <div class="form-group">
-                    <label data-i18n="choose_language" for="chooseLanguage" style="margin-top:10px;"></label>
-                    <select class="form-control" id="chooseLanguage" disabled>
-                        <option>Afrikaans</option>
-                        <option>عربي</option>
-                        <option>Azərbaycanca</option>
-                        <option>Български</option>
-                        <option>Bamanankan</option>
-                        <option>বাংলা (বাংলাদেশ)</option>
-                        <option>বাংলা (ভারত)</option>
-                        <option>Bosanski</option>
-                        <option>català</option>
-                        <option>Čeština</option>
-                        <option>Dansk</option>
-                        <option>Deutsch</option>
-                        <option>Èʋegbe</option>
-                        <option>Ελληνικά</option>
-                        <option>English</option>
-                        <option>Español</option>
-                        <option>eesti keel</option>
-                        <option>Euskara</option>
-                        <option>فارسی</option>
-                        <option>suomi</option>
-                        <option>Français</option>
-                        <option>Frysk</option>
-                        <option>Gaeilge (Éire)</option>
-                        <option>Galego</option>
-                        <option>Avañe'ẽ</option>
-                        <option>ગુજરાતી</option>
-                        <option>هَرْشَن هَوْسَ</option>
-                        <option>עברית</option>
-                        <option>हिन्दी (भारत)</option>
-                        <option>Hrvatski</option>
-                        <option>Magyar</option>
-                        <option>Dolnoserbšćina</option>
-                        <option>Hornjoserbsce</option>
-                        <option>Bahasa Indonesia</option>
-                        <option>Asụsụ Igbo</option>
-                        <option>Italiano</option>
-                        <option>日本語</option>
-                        <option>ქართული</option>
-                        <option>ខ្មែរ</option>
-                        <option>ಕನ್ನಡ</option>
-                        <option>한국어</option>
-                        <option>Lingála</option>
-                        <option>lietuvių kalba</option>
-                        <option>Malagasy</option>
-                        <option>Македонски</option>
-                        <option>മലയാളം</option>
-                        <option>Bahasa Melayu</option>
-                        <option>नेपाली</option>
-                        <option>Nederlands</option>
-                        <option>Norsk</option>
-                        <option>Polski</option>
-                        <option>Português (do Brasil)</option>
-                        <option>Português (Europeu)</option>
-                        <option>română</option>
-                        <option>Русский</option>
-                        <option>සිංහල</option>
-                        <option>slovenčina</option>
-                        <option>slovenščina</option>
-                        <option>Shqip</option>
-                        <option>Српски</option>
-                        <option>Kiswahili</option>
-                        <option>Svenska</option>
-                        <option>தமிழ்</option>
-                        <option>தமிழ் (இலங்கை)</option>
-                        <option>తెలుగు</option>
-                        <option>ไทย</option>
-                        <option>Setswana</option>
-                        <option>Türkçe</option>
-                        <option>Українська</option>
-                        <option>اُردو</option>
-                        <option>Tiếng Việt</option>
-                        <option>Wolof</option>
-                        <option>isiXhosa</option>
-                        <option>èdè Yorùbá</option>
-                        <option>中文 (简体)</option>
-                        <option>正體中文 (繁體)</option>
-                        <option>isiZulu</option>
-                    </select>
-                    <small class="form-text text-muted" data-i18n="choose_language_description"></small>
-                </div>
-                <div class="form-group">
-                    <label data-i18n="polling" for="frequencySeekNewQuestions" style="margin-top:10px;"></label>
-                    <select class="form-control" id="frequencySeekNewQuestions" disabled>
-                        <option>5</option>
-                        <option>10</option>
-                        <option>15</option>
-                        <option>20</option>
-                        <option>25</option>
-                        <option>30</option>
-                    </select>
-                    <small class="form-text text-muted" data-i18n="frequency_questions"></small>
-                </div>
-
-                <div style="text-align: center">
-                    <button type="submit" class="btn btn-primary" data-i18n="save_preferences"></button>
-                </div>
-            </form>
-    </fieldset>
-    <script src="../js/language.js"></script>
-    <!--<script src="../js/preferences.js"></script>-->
+<header class="col-md-12">
+    <nav class="icons">
+        <ul>
+            <div>
+                <img  class="img-settings" src="../res/icons/icon.png">
+                <h4><strong id="version"></strong></h4>
+            </div>
+        </ul>
+    </nav>
+</header>
+<body class="col-md-12 padding-body">
+<fieldset class="padding-fieldset">
+    <div>
+        <h4><strong id="settings" data-i18n="settings"></strong></h4>
+    </div>
+    <br>
+    <div class="custom-control custom-checkbox">
+        <input type="checkbox" class="custom-control-input" id="showNewQuestions" checked disabled>
+        <label class="custom-control-label" data-i18n="watch_questions" for="showNewQuestions"></label>
+        <small class="form-text text-muted" data-i18n="description_questions"></small>
+    </div>
+    <div class="form-group" style="margin-top:10px;">
+        <label class="label-language" data-i18n="choose_language" for="chooseLanguage"></label>
+        <select class="form-control input-settings custom-select select-distances" name="chooseLanguage" id="chooseLanguage">
+            <option value="af">Afrikaans</option>
+            <option value="ar">عربي</option>
+            <option value="az">Azərbaycanca</option>
+            <option value="bg">Български</option>
+            <option value="bm">Bamanankan</option>
+            <option value="bn-BD">বাংলা (বাংলাদেশ)</option>
+            <option value="bn-IN">বাংলা (ভারত)</option>
+            <option value="bs">Bosanski</option>
+            <option value="ca">català</option>
+            <option value="cs">Čeština</option>
+            <option value="da">Dansk</option>
+            <option value="de">Deutsch</option>
+            <option value="ee">Èʋegbe</option>
+            <option value="el">Ελληνικά</option>
+            <option value="en-US">English</option>
+            <option value="es">Español</option>
+            <option value="et">eesti keel</option>
+            <option value="eu">Euskara</option>
+            <option value="fa">فارسی</option>
+            <option value="fi">suomi</option>
+            <option value="fr">Français</option>
+            <option value="fy-NL">Frysk</option>
+            <option value="ga-IE">Gaeilge (Éire)</option>
+            <option value="gl">Galego</option>
+            <option value="gn">Avañe'ẽ</option>
+            <option value="gu-IN">ગુજરાતી</option>
+            <option value="ha">هَرْشَن هَوْسَ</option>
+            <option value="he">עברית</option>
+            <option value="hi-IN">हिन्दी (भारत)</option>
+            <option value="hr">Hrvatski</option>
+            <option value="hu">Magyar</option>
+            <option value="dsb">Dolnoserbšćina</option>
+            <option value="hsb">Hornjoserbsce</option>
+            <option value="id">Bahasa Indonesia</option>
+            <option value="ig">Asụsụ Igbo</option>
+            <option value="it">Italiano</option>
+            <option value="ja">日本語</option>
+            <option value="ka">ქართული</option>
+            <option value="km">ខ្មែរ</option>
+            <option value="kn">ಕನ್ನಡ</option>
+            <option value="ko">한국어</option>
+            <option value="ln">Lingála</option>
+            <option value="lt">lietuvių kalba</option>
+            <option value="mg">Malagasy</option>
+            <option value="mk">Македонски</option>
+            <option value="ml">മലയാളം</option>
+            <option value="ms">Bahasa Melayu</option>
+            <option value="ne-NP">नेपाली</option>
+            <option value="nl">Nederlands</option>
+            <option value="no">Norsk</option>
+            <option value="pl">Polski</option>
+            <option value="pt-BR">Português (do Brasil)</option>
+            <option value="pt-PT">Português (Europeu)</option>
+            <option value="ro">română</option>
+            <option value="ru">Русский</option>
+            <option value="si">සිංහල</option>
+            <option value="sk">slovenčina</option>
+            <option value="sl">slovenščina</option>
+            <option value="sq">Shqip</option>
+            <option value="sr">Српски</option>
+            <option value="sw">Kiswahili</option>
+            <option value="sv">Svenska</option>
+            <option value="ta">தமிழ்</option>
+            <option value="ta-LK">தமிழ் (இலங்கை)</option>
+            <option value="te">తెలుగు</option>
+            <option value="th">ไทย</option>
+            <option value="tn">Setswana</option>
+            <option value="tr">Türkçe</option>
+            <option value="uk">Українська</option>
+            <option value="ur">اُردو</option>
+            <option value="vi">Tiếng Việt</option>
+            <option value="wo">Wolof</option>
+            <option value="xh">isiXhosa</option>
+            <option value="yo">èdè Yorùbá</option>
+            <option value="zh-CN">中文 (简体)</option>
+            <option value="zh-TW">正體中文 (繁體)</option>
+            <option value="zu">isiZulu</option>
+        </select>
+        <small class="form-text text-muted small-language-distances" data-i18n="choose_language_description"></small>
+    </div>
+    <div class="form-group col-md-12">
+        <label class="label-frequency" data-i18n="polling" for="frequencySeekNewQuestions"></label>
+        <input class="btn input-settings" type="number" id="frequencySeekNewQuestions" name="frequencySeekNewQuestions" value="15" min="1" max="30">
+        <small class="form-text text-muted small-frequency-distances" data-i18n="frequency_questions"></small>
+    </div>
+</fieldset>
+<script src="../js/language.js"></script>
+<script src="../js/preferences.js"></script>
 </body>
 </html>

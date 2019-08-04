@@ -1,47 +1,53 @@
-function salvarPreferencias(e) {
-    e.preventDefault();
-    let preferencias = {
-        buscarQuestoesAtivamente: document.getElementById("showNewQuestions").checked,
-        frequenciaBuscaQuestoes: document.getElementById("frequencySeekNewQuestions").value
-    };
+var backgroundPage = browser.extension.getBackgroundPage();
 
-    browser.storage.sync.set(preferencias);
+// version
+var version = document.getElementById("version");
+version.textContent = browser.runtime.getManifest().name + " (v"+ browser.runtime.getManifest().version + ")";
 
-    bootbox.alert({
-        message: browser.i18n.getMessage('saved_preferences'),
-        size: "small"
+// show or not the new questions
+//$(document).ready(function(){
+//  var radios = document.getElementsByName("showNewQuestions");
+//  var val = localStorage.getItem('showNewQuestions');
+//  for(var i=0;i<radios.length;i++){
+//    if(radios[i].value == val){
+//      radios[i].checked = true;
+//    }
+//  }
+//$('input[name="showNewQuestions"]').on('change', function(){
+//    localStorage.setItem('showNewQuestions', $(this).val());
+//    backgroundPage.request.onload();//  });
+//});
+
+// language questions
+$(document).ready(function(){
+  var language = document.getElementById("chooseLanguage");
+  var val = localStorage.getItem('chooseLanguage');
+
+  if (typeof val !== 'undefined' && val !== null){
+    language.value = localStorage.getItem('chooseLanguage');
+  }else{
+    language.value = navigator.language;
+  }
+
+  $('select[name="chooseLanguage"]').on('change', function(){
+    localStorage.setItem('chooseLanguage', $(this).val());
+    backgroundPage.request.onload();
+  });
+ });
+
+// frequency new questions
+$(document).ready(function(){
+  var timer = document.getElementById("frequencySeekNewQuestions");
+  var val = localStorage.getItem('frequencySeekNewQuestions');
+
+  if (typeof val !== 'undefined' && val !== null){
+    timer.value = localStorage.getItem('frequencySeekNewQuestions');
+  }else{
+    timer.value = 15;
+  }
+
+  $('input[name="frequencySeekNewQuestions"]').on('change', function(){
+    localStorage.setItem('frequencySeekNewQuestions', $(this).val());
+    backgroundPage.request.onload();
     });
-
-    console.log(browser.i18n.getMessage('saved_preferences'));
-}
-
-function carregarPreferencias() {
-    function definirBuscarQuestoesAtivamente(dados) {
-        console.log(dados);
-        if (dados.buscarQuestoesAtivamente == true) {
-            document.getElementById("showNewQuestions").checked = true
-        }
-    }
-
-    function definirFrequenciaBuscaQuestoes(dados) {
-        if (dados.frequenciaBuscaQuestoes) {
-            document.getElementById("frequencySeekNewQuestions").value = dados.frequenciaBuscaQuestoes;
-        }
-    }
-
-    function onError(error) {
-        console.log(`Error: ${error}`);
-    }
-
-    var promiseBuscarQuestoesAtivamente = browser.storage.sync.get("showNewQuestions");
-    var promiseFrequenciaBuscaQuestoes = browser.storage.sync.get("frequencySeekNewQuestions");
-
-    promiseBuscarQuestoesAtivamente.then(definirBuscarQuestoesAtivamente, onError);
-    promiseFrequenciaBuscaQuestoes.then(definirFrequenciaBuscaQuestoes, onError);
-
-
-    console.log(browser.i18n.getMessage('preferences_loaded'));
-}
-
-document.addEventListener("DOMContentLoaded", carregarPreferencias);
-document.querySelector("form").addEventListener("submit", salvarPreferencias);
+ });

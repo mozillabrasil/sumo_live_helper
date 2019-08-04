@@ -448,3 +448,48 @@ td.empty {
 .itemField + .itemField {
     margin-top: 3rem
 }
+
+.input-settings {
+    float:right;
+    width:200px;
+    margin-top:15px;
+    margin-left:15px;
+}
+
+.img-settings {
+    margin-left:-15px;
+    float:left;
+    margin-top:-17px;
+    margin-right:10px;
+}
+
+.select-distances {
+    margin-top:2px;
+    margin-right:15px;
+}
+
+.label-frequency {
+    margin-top:10px;
+    margin-left:-15px;
+}
+
+.label-language {
+   margin-top:12px;
+}
+
+.small-frequency-distances {
+    margin-left:-15px;
+    margin-top:-5px;
+}
+
+.small-language-distances {
+    margin-top:-5px;
+}
+
+.padding-body {
+    padding:40px;
+}
+
+.padding-fieldset{
+    padding:20px;
+}

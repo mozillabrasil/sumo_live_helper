@@ -1,9 +1,21 @@
-let locale = navigator.language;
 let request = new XMLHttpRequest();
 let savedQuestions = browser.storage.local.get('questions');
 savedQuestions.then(loaded);
 var requestAPI = "";
 var numberOfQuestionsOpened = 0;
+var frequencySeekNewQuestions = localStorage.getItem("frequencySeekNewQuestions");
+var locale = localStorage.getItem("chooseLanguage");
+
+// set the preferences settings
+if (typeof frequencySeekNewQuestions === 'undefined' || frequencySeekNewQuestions === null){
+    frequencySeekNewQuestions = 15;
+    localStorage.setItem("frequencySeekNewQuestions", frequencySeekNewQuestions);
+}
+
+if (typeof locale === 'undefined' || locale === null){
+    locale = navigator.language;
+    localStorage.setItem("chooseLanguage", locale);
+}
 
 // settings to search questions using the Kitsune API
 var product = "Firefox";
@@ -42,7 +54,7 @@ questions.addEventListener('click', function(e) {
 }, false);
 
 // automatically refresh
-browser.alarms.create('checkSUMO',{delayInMinutes:15}); // checks every 15 minutes
+browser.alarms.create('checkSUMO',{delayInMinutes: parseInt(frequencySeekNewQuestions)}); // checks every X minutes
 browser.alarms.onAlarm.addListener(function(){
     request.onload();
 });

@@ -77,8 +77,5 @@
   },
   "clear_notifications": {
     "message": "Limpar notificações"
-  },
-  "version":{
-    "message": "SUMO Live Helper (v1.0.1)"
   }
 }
