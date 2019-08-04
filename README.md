@@ -1,7 +1,7 @@
 [<img align="right" src="https://img.shields.io/github/issues/mozillabrasil/sumo_live_helper.svg">](https://github.com/mozillabrasil/sumo_live_helper/issues)
 [<img align="right" src="https://img.shields.io/github/license/mozillabrasil/sumo_live_helper.svg">](https://github.com/mozillabrasil/sumo_live_helper/blob/master/LICENSE)
-[<img align="right" src="https://img.shields.io/github/forks/mozillabrasil/sumo_live_helper.svg">]()
-[<img align="right" src="https://img.shields.io/github/stars/mozillabrasil/sumo_live_helper.svg">]()
+[<img align="right" src="https://img.shields.io/github/forks/mozillabrasil/sumo_live_helper.svg">](https://github.com/mozillabrasil/sumo_live_helper/network/members)
+[<img align="right" src="https://img.shields.io/github/stars/mozillabrasil/sumo_live_helper.svg">](https://github.com/mozillabrasil/sumo_live_helper/stargazers)
 [<img align="right" src="https://img.shields.io/github/release/mozillabrasil/sumo_live_helper.svg">](https://github.com/mozillabrasil/sumo_live_helper/releases)
 
 ![SUMO_Live_Helper_icon](src/res/icons/icon.png)
