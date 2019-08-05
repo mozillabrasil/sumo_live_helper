@@ -15,7 +15,7 @@ version.textContent = browser.runtime.getManifest().name + " (v"+ browser.runtim
 //  }
 //$('input[name="showNewQuestions"]').on('change', function(){
 //    localStorage.setItem('showNewQuestions', $(this).val());
-//    backgroundPage.request.onload();//  });
+//    backgroundPage.location.reload(); });
 //});
 
 // language questions
@@ -31,7 +31,7 @@ $(document).ready(function(){
 
   $('select[name="chooseLanguage"]').on('change', function(){
     localStorage.setItem('chooseLanguage', $(this).val());
-    backgroundPage.request.onload();
+    backgroundPage.location.reload();
   });
  });
 
@@ -48,7 +48,7 @@ $(document).ready(function(){
 
   $('input[name="frequencySeekNewQuestions"]').on('change', function(){
     localStorage.setItem('frequencySeekNewQuestions', $(this).val());
-    backgroundPage.request.onload();
+    backgroundPage.location.reload();
     });
  });
  
@@ -56,12 +56,18 @@ $(document).ready(function(){
 $(document).ready(function(){
     var checkbox = document.getElementById("showNotifications");
     var val = localStorage.getItem('showNotifications');
-    if (val) {
+    if (val){
         checkbox.checked = val;
-    } else {
+    }else{
         checkbox.checked = false;
     }
+    //
     $('#showNotifications').on('change', function(){
-        localStorage.setItem('showNotifications', $(this).val());
+        if(checkbox.checked == true){
+            localStorage.setItem('showNotifications', true);
+        }else{
+            localStorage.setItem('showNotifications', false);
+        }
+        backgroundPage.location.reload();
     });
 });
