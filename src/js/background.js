@@ -3,8 +3,11 @@ let savedQuestions = browser.storage.local.get('questions');
 savedQuestions.then(loaded);
 var requestAPI = "";
 var numberOfQuestionsOpened = 0;
+
+// stored values
 var frequencySeekNewQuestions = localStorage.getItem("frequencySeekNewQuestions");
 var locale = localStorage.getItem("chooseLanguage");
+var showNotifications = localStorage.getItem("showNotifications");
 
 // set the preferences settings
 if (typeof frequencySeekNewQuestions === 'undefined' || frequencySeekNewQuestions === null){
@@ -276,10 +279,10 @@ request.onload = function() {
         savedQuestions = newQuestionList.concat(savedQuestions);
         browser.storage.local.set({'questions':savedQuestions});
         
-        if (localStorage.getItem("showNotifications") && newQuestionList.length > 0) {
+        if (showNotifications === 'true' && newQuestionList.length > 0) {
             showNotification(newQuestionList);
         }
-    
+
         toggleScreen();
         questionCount();
         load.style.display = 'none';
