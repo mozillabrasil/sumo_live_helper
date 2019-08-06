@@ -141,7 +141,15 @@ a.active {
 .clear-notifications {
     width:16px;
     height:16px;
-    margin-left:58px;
+    margin-left:20px;
+    cursor:pointer;
+    margin-top:-8px;
+}
+
+.show-settings {
+    width:16px;
+    height:16px;
+    margin-left:20px;
     cursor:pointer;
     margin-top:-8px;
 }

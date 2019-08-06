@@ -95,5 +95,8 @@
   },
   "notification_message_click": {
     "message": "Click the SUMO Live Helper toolbar icon to view the question list..."
+  },
+  "open_preferences": {
+    "message": "Open preferences"
   }
 }

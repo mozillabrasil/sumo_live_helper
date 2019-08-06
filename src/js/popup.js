@@ -12,6 +12,7 @@ var locale;
 
 // popup menu items
 var refresh = document.getElementById('refresh');
+var settings = document.getElementById('settings');
 var openTab = document.getElementById('open_tab');
 var load = document.getElementById('load');
 var empty = document.getElementById('empty');
@@ -21,6 +22,7 @@ var clear = document.getElementById('clear');
 // title i18n
 clear.title = browser.i18n.getMessage('clear_notifications');
 refresh.title = browser.i18n.getMessage('refresh');
+settings.title = browser.i18n.getMessage('open_preferences');
 
 // clear notifications button
 clear.addEventListener('click', clearNotifications, false);
@@ -28,6 +30,13 @@ clear.addEventListener('click', clearNotifications, false);
 // refresh button
 refresh.addEventListener('click', function(){
     location.reload();
+}, false);
+
+// open prefernces button
+settings.addEventListener('click', function() {
+    browser.tabs.create({
+        url: 'preferences.html'
+    });
 }, false);
 
 // view button
