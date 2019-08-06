@@ -1,26 +1,32 @@
 let request = new XMLHttpRequest();
-let savedQuestions = browser.storage.local.get('questions');
+var frequencySeekNewQuestions, locale, showNotifications;
+let savedQuestions = browser.storage.local.get();
 savedQuestions.then(loaded);
 var numberOfQuestionsOpened = 0;
 var popup = null;
 browser.runtime.onConnect.addListener(connected);
+browser.alarms.onAlarm.addListener(callAPI);
 
-// stored values
-var frequencySeekNewQuestions = localStorage.getItem('frequencySeekNewQuestions');
-var locale = localStorage.getItem('chooseLanguage');
-var showNotifications = localStorage.getItem('showNotifications');
-
-// set the preferences settings
-if (typeof frequencySeekNewQuestions === 'undefined' || frequencySeekNewQuestions === null){
-    frequencySeekNewQuestions = 15;
-    localStorage.setItem('frequencySeekNewQuestions', frequencySeekNewQuestions);
+// detects changes to the settings
+function settingsUpdated(changes, area) {
+    var changedItems = Object.keys(changes);
+    for (var item of changedItems) {
+        switch (item) {
+            case 'frequencySeekNewQuestions':
+                frequencySeekNewQuestions = changes[item].newValue;
+                createAlarm(changes[item].newValue);
+                break;
+            case 'chooseLanguage':
+                locale = changes[item].newValue;
+                break;
+            case 'showNotifications':
+                showNotifications = changes[item].newValue;
+                break;
+            default:
+                return;
+        }
+    }
 }
-
-if (typeof locale === 'undefined' || locale === null){
-    locale = navigator.language;
-    localStorage.setItem('chooseLanguage', locale);
-}
-
 
 // settings to search questions using the Kitsune API
 var product = 'Firefox';
@@ -36,9 +42,10 @@ var questionOpened = '';
     browser.browserAction.openPopup();
 });*/
 
-// automatically refresh
-browser.alarms.create('checkSUMO',{delayInMinutes: parseInt(frequencySeekNewQuestions)}); // checks every X minutes
-browser.alarms.onAlarm.addListener(callAPI);
+// creates API check
+function createAlarm(time) {
+    browser.alarms.create('checkSUMO', {periodInMinutes: parseInt(time)}); // checks every X minutes
+}
 
 // creates connection to popup
 function connected(connection) {
@@ -67,7 +74,8 @@ function messageListener(message) {
             if (popup != null) {
                 popup.postMessage({
                     code: 'popup_open',
-                    questions: savedQuestions
+                    questions: savedQuestions,
+                    language: locale
                 });
             }
             break;
@@ -94,6 +102,29 @@ function loaded(data) {
         savedQuestions = [];
     }
     
+    if (typeof data.frequencySeekNewQuestions === 'undefined' || data.frequencySeekNewQuestions === null){
+        frequencySeekNewQuestions = 15;
+        browser.storage.local.set({frequencySeekNewQuestions: frequencySeekNewQuestions});
+    } else {
+        frequencySeekNewQuestions = data.frequencySeekNewQuestions;
+    }
+
+    if (typeof data.chooseLanguage === 'undefined' || data.chooseLanguage === null){
+        locale = navigator.language;
+        browser.storage.local.set({chooseLanguage: locale});
+    } else {
+        locale = data.chooseLanguage;
+    }
+    
+    if (typeof data.showNotifications === 'undefined' || data.showNotifications === null){
+        showNotifications = false;
+        browser.storage.local.set({showNotifications: showNotifications});
+    } else {
+        showNotifications = data.showNotifications;
+    }
+    
+    browser.storage.onChanged.addListener(settingsUpdated);
+    createAlarm(frequencySeekNewQuestions);
     questionCount();
     callAPI();
 }
@@ -148,6 +179,7 @@ function removeOld(list) {
             i++;
         }
     }
+    browser.storage.local.set({'questions':savedQuestions});
     syncQuestions();
 }
 
@@ -223,7 +255,8 @@ function syncQuestions() {
     if (popup != null) {
         popup.postMessage({
             code: 'sync_questions',
-            questions: savedQuestions
+            questions: savedQuestions,
+            language: locale
         });
     }
 }

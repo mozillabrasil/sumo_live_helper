@@ -8,7 +8,7 @@ connection.postMessage({
 });
 
 // load locale
-var locale = localStorage.getItem('chooseLanguage');
+var locale;
 
 // popup menu items
 var refresh = document.getElementById('refresh');
@@ -45,12 +45,14 @@ function handleMessage(message) {
             break;
         case 'sync_questions':
             savedQuestions = message.questions;
+            locale = message.language;
             break;
         case 'hide_question':
             removeQuestion(message.id);
             break;
         case 'popup_open':
             savedQuestions = message.questions;
+            locale = message.language;
             loaded();
             break;
         default:
@@ -105,6 +107,7 @@ function createItem(title, id, isNew) {
     
     // url of question
     var url = 'https://support.mozilla.org/'+locale+'/questions/'+id;
+    console.log(url);
 
     // marks the question as read
     if (isNew) {
