@@ -95,5 +95,8 @@
   },
   "notification_message_click": {
     "message": "Clique no ícone do SUMO Live Helper na barra de ferramentas para ver a lista de questões..."
+  },
+  "open_preferences": {
+    "message": "Abrir preferências"
   }
 }
