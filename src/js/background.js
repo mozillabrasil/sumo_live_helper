@@ -4,6 +4,7 @@ let savedQuestions = browser.storage.local.get();
 savedQuestions.then(loaded);
 var numberOfQuestionsOpened = 0;
 var popup = null;
+var popupOpen = false;
 browser.runtime.onConnect.addListener(connected);
 browser.alarms.onAlarm.addListener(callAPI);
 
@@ -50,6 +51,7 @@ function createAlarm(time) {
 
 // creates connection to popup
 function connected(connection) {
+    popupOpen = true;
     popup = connection;
     popup.onMessage.addListener(messageListener);
     popup.onDisconnect.addListener(closeConnection);
@@ -57,6 +59,7 @@ function connected(connection) {
 
 // closes connection to popup
 function closeConnection() {
+    popupOpen = false;
     popup.onMessage.removeListener(messageListener);
     popup.onDisconnect.removeListener(closeConnection);
     popup = null;
@@ -220,7 +223,7 @@ request.onload = function() {
     savedQuestions = newQuestionList.concat(savedQuestions);
     browser.storage.local.set({'questions':savedQuestions});
 
-    if (showNotifications === 'true' && newQuestionList.length > 0) {
+    if (!popupOpen && showNotifications && newQuestionList.length > 0) {
         showNotification(newQuestionList);
     }
 

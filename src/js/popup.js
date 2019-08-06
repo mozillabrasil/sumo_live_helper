@@ -107,7 +107,6 @@ function createItem(title, id, isNew) {
     
     // url of question
     var url = 'https://support.mozilla.org/'+locale+'/questions/'+id;
-    console.log(url);
 
     // marks the question as read
     if (isNew) {
