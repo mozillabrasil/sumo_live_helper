@@ -18,6 +18,7 @@ function settingsUpdated(changes, area) {
                 break;
             case 'chooseLanguage':
                 locale = changes[item].newValue;
+                callAPI();
                 break;
             case 'showNotifications':
                 showNotifications = changes[item].newValue;
