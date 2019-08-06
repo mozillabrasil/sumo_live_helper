@@ -3,6 +3,7 @@ let savedQuestions = browser.storage.local.get('questions');
 savedQuestions.then(loaded);
 var requestAPI = "";
 var numberOfQuestionsOpened = 0;
+var isPopup = isPopup();
 
 // stored values
 var frequencySeekNewQuestions = localStorage.getItem("frequencySeekNewQuestions");
@@ -279,7 +280,7 @@ request.onload = function() {
         savedQuestions = newQuestionList.concat(savedQuestions);
         browser.storage.local.set({'questions':savedQuestions});
         
-        if (showNotifications === 'true' && newQuestionList.length > 0) {
+        if (!isPopup && showNotifications && newQuestionList.length > 0) {
             showNotification(newQuestionList);
         }
 

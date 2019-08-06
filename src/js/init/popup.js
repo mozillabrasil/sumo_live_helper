@@ -1,0 +1,3 @@
+function isPopup() {
+    return true;
+}

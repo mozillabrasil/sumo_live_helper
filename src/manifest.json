@@ -25,7 +25,7 @@
     "default_popup": "/html/popup.html"
   },
   "background": {
-    "page": "/html/popup.html"
+    "page": "/html/background.html"
   },
   "options_ui": {
     "browser_style": false,
