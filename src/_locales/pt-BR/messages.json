@@ -60,11 +60,23 @@
   "choose_language_description": {
     "message": "Escolha um idioma para procurar por questões abertas"
   },
+  "choose_product": {
+    "message": "Escolha um produto"
+  },
+  "choose_product_description": {
+    "message": "Escolha um produto para procurar por questões abertas"
+  },
   "open_tab": {
     "message": "Abrir"
   },
   "firefox_for_desktop": {
     "message": "Firefox para Desktop"
+  },
+  "thunderbird": {
+    "message": "Thunderbird"
+  },
+  "firefox_for_mobile": {
+    "message": "Firefox para dispositivos móveis"
   },
   "congratulations": {
     "message": "Parabéns! Todas as perguntas foram respondidas!"

@@ -6,6 +6,7 @@ version.textContent = browser.runtime.getManifest().name + " (v"+ browser.runtim
 var language = document.getElementById("chooseLanguage");
 var timer = document.getElementById("frequencySeekNewQuestions");
 var notifications = document.getElementById("showNotifications");
+var product = document.getElementById("chooseProduct");
 
 // load data
 var data = browser.storage.local.get();
@@ -33,7 +34,14 @@ function loadSettings(data) {
     } else {
         notifications.checked = false;
     }
-    
+
+    // load product
+    if (typeof data.chooseProduct !== 'undefined' && data.chooseProduct !== null) {
+        product.value = data.chooseProduct;
+    } else {
+        product.value = "Firefox";
+    }
+
     language.addEventListener('change', function() {
         browser.storage.local.set({chooseLanguage: language.value});
     });
@@ -42,5 +50,8 @@ function loadSettings(data) {
     });
     notifications.addEventListener('change', function() {
         browser.storage.local.set({showNotifications: showNotifications.checked});
+    });
+    product.addEventListener('change', function() {
+        browser.storage.local.set({chooseProduct: product.value});
     });
 }

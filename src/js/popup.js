@@ -32,7 +32,7 @@ refresh.addEventListener('click', function(){
     location.reload();
 }, false);
 
-// open prefernces button
+// open preferences button
 settings.addEventListener('click', function() {
     browser.tabs.create({
         url: 'preferences.html'
@@ -130,8 +130,20 @@ function createItem(title, id, isNew) {
     questionTitle.className = 'text-justify question-settings';
     questionTitle.textContent = title;
     iconProduct.className = 'icon-size-and-distance';
-    iconProduct.title = browser.i18n.getMessage('firefox_for_desktop');
-    iconProduct.src = '../res/products/firefox.png';
+
+    browser.storage.local.get().then(res => {
+        if(res.chooseProduct == "Firefox"){
+            iconProduct.src = '../res/products/firefox.png';
+            iconProduct.title = browser.i18n.getMessage('firefox_for_desktop');
+        }else if (res.chooseProduct == "Thunderbird"){
+            iconProduct.src = '../res/products/thunderbird.png';
+            iconProduct.title = browser.i18n.getMessage('thunderbird');
+        }else {
+            iconProduct.src = '../res/products/mobile.png';
+            iconProduct.title = browser.i18n.getMessage('firefox_for_mobile');
+        }
+    });
+
     buttonOpen.className = 'btn btn-primary btn-settings';
     buttonOpen.id = id;
     buttonOpen.text = browser.i18n.getMessage('open_tab');
