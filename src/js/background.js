@@ -24,20 +24,35 @@ function settingsUpdated(changes, area) {
             case 'showNotifications':
                 showNotifications = changes[item].newValue;
                 break;
+            case 'chooseProduct':
+                product = changes[item].newValue;
+                break;
             default:
                 return;
         }
     }
+    callAPI();
 }
 
 // settings to search questions using the Kitsune API
-var product = 'Firefox';
+var product;
 var is_solved = 'False';
 var is_spam = 'False';
 var is_locked = 'False';
 var is_taken = 'False';
 var is_archived = 'False';
 var questionOpened = '';
+
+var data = browser.storage.local.get();
+
+if(data.chooseProduct == 'undefined' || data.chooseProduct == null){
+    product = "Firefox";
+    browser.storage.local.set({chooseProduct: product})
+}else if (data.chooseProduct == "Thunderbird"){
+    product = data.chooseProduct;
+}else {
+    product = data.chooseProduct;
+}
 
 // API limitations prevent this
 /*browser.notifications.onClicked.addListener(function() {
@@ -126,7 +141,14 @@ function loaded(data) {
     } else {
         showNotifications = data.showNotifications;
     }
-    
+
+    if (typeof data.chooseProduct === 'undefined' || data.chooseProduct === null){
+        product = "Firefox";
+        browser.storage.local.set({chooseProduct: product});
+    } else {
+        product = data.chooseProduct;
+    }
+
     browser.storage.onChanged.addListener(settingsUpdated);
     createAlarm(frequencySeekNewQuestions);
     questionCount();
@@ -193,8 +215,6 @@ request.onload = function() {
     var newQuestionList = [];
     for(var i = 0; i < 20; i++){
         if(responseSUMO.results[i].num_answers == 0){
-            for(var j = 0; j < responseSUMO.results[i].tags.length; j++){
-                if(responseSUMO.results[i].tags[j].name == 'desktop' && responseSUMO.results[i].tags[j].slug == 'desktop'){
                     var id = responseSUMO.results[i].id;
                     var title = responseSUMO.results[i].title;
 
@@ -207,14 +227,12 @@ request.onload = function() {
 
                     if (!questionExists) {
                         var newItem = {
-                            product: 'firefox_for_desktop',
+                            product: product,
                             title: responseSUMO.results[i].title,
                             id: id,
                             new: true
                         }
                         newQuestionList.push(newItem);
-                    }
-                }
             }
         }
     }
