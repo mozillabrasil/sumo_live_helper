@@ -129,7 +129,7 @@ function loaded(data) {
     }
 
     if (typeof data.chooseLanguage === 'undefined' || data.chooseLanguage === null){
-        locale = navigator.language;
+        locale = "en-US";
         browser.storage.local.set({chooseLanguage: locale});
     } else {
         locale = data.chooseLanguage;

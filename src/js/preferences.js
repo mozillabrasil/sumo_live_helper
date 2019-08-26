@@ -18,7 +18,7 @@ function loadSettings(data) {
     if (typeof data.chooseLanguage !== 'undefined' && data.chooseLanguage !== null) {
         language.value = data.chooseLanguage;
     } else {
-        language.value = navigator.language;
+        language.value = "en-US";
     }
     
     // load check frequency
