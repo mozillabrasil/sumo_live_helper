@@ -1,0 +1,114 @@
+{
+  "extensionName": {
+    "message": "SUMO Live Helper",
+    "description": "Extension name."
+  },
+  "extensionDescription": {
+    "message": "Cette extension est pour les volontaires dans SUMO (Support Mozilla) pour qu'ils puissent voir les nouvelles demande d'aide pour Firefox pour Ordinateur qui sont encore sans réponse."
+  },
+  "notify_involved": {
+    "message": "M'avertir quand il y a une mise à jour d'une question à laquelle j'ai participé"
+  },
+  "watch_questions": {
+    "message": "Regarder pour de nouvelles questions"
+  },
+  "watch_firefox": {
+    "message": "Inclure les questions de Firefox"
+  },
+  "watch_mobile": {
+    "message": "Inclure les questions de Firefox pour Android"
+  },
+  "watch_thunderbird": {
+    "message": "Inclure les questions de Thunderbird"
+  },
+  "preferences_loaded": {
+    "message": "préférences activées"
+  },
+  "saved_preferences": {
+    "message": "préférences sauvegardées"
+  },
+  "watch_webmaker": {
+    "message": "Inclure les questions de Webmaker"
+  },
+  "description_questions":{
+    "message": "Déterminer si SUMO Live Helper doit avertir lors de la réception de nouvelles questions"
+  },
+  "frequency_questions": {
+    "message": "Déterminer l'interval de temps auquel SUMO Live Helper doit chercher pour de nouvelles questions"
+  },
+  "save_preferences": {
+    "message": "Sauvegarder les préférences"
+  },
+  "polling": {
+    "message": "Interval en minutes pour contacter l'API"
+  },
+  "preferences": {
+    "message": "Préférences"
+  },
+  "settings": {
+    "message": "Paramètres"
+  },
+  "one_question_without_answer": {
+    "message": " question sans réponse (Cliquer pour ouvrir)"
+  },
+  "more_than_one_question_without_answer": {
+    "message": " questions sans réponse (Cliquer pour ouvrir)"
+  },
+  "choose_language": {
+    "message": "Choisir une langage"
+  },
+  "choose_language_description": {
+    "message": "Choisir une langage dans laquelle chercher pour des questions qui sont ouvertes"
+  },
+  "choose_product": {
+    "message": "Choisir un produit"
+  },
+  "choose_product_description": {
+    "message": "Choisir un produit dans lequel chercher pour des questions qui sont ouvertes"
+  },
+  "open_tab": {
+    "message": "Ouvrir"
+  },
+  "firefox_for_desktop": {
+    "message": "Firefox pour Ordinateur"
+  },
+  "thunderbird": {
+    "message": "Thunderbird"
+  },
+  "firefox_for_mobile": {
+    "message": "Firefox pour Mobile"
+  },
+  "congratulations": {
+    "message": "félicitations! Toutes les questions ont étés répondues!"
+  },
+  "searching_for_opened_questions": {
+    "message": "Recherche pour des questions ouvertes en cours..."
+  },
+  "refresh": {
+    "message": "Rafraîchir"
+  },
+  "clear_notifications": {
+    "message": "Effacer les notifications"
+  },
+  "show_notifications": {
+    "message": "Voir les notifications du navigateur"
+  },
+  "description_notifications": {
+    "message": "Détermine si vous recevrez des notifications de type popups lorsque de nouvelles questions sont trouvées"
+  },
+  "notification_title_single": {
+    "message": "Une nouvelle question a été trouvée!"
+  },
+  "notification_title_multiple": {
+    "message": "De nouvelles questions ont été trouvées!"
+  },
+  "notification_message_more": {
+    "message": "Besoin de plus d'aide."
+  },
+  "notification_message_click": {
+    "message": "Cliquer l'icône de SUMO Live Helper dans la barre d'outils pour voir la liste de questions..."
+  },
+  "open_preferences": {
+    "message": "Ouvrir les préférences"
+  }
+}
