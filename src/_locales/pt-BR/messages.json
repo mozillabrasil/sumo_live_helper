@@ -81,6 +81,9 @@
   "product_ios": {
     "message": "Firefox para iOS"
   },
+  "product_firefox-enterprise": {
+    "message": "Firefox para Empresas"
+  },
   "congratulations": {
     "message": "Parabéns! Todas as perguntas foram respondidas!"
   },
