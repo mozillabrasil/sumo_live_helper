@@ -78,6 +78,9 @@
   "product_mobile": {
     "message": "Firefox for Android"
   },
+  "product_ios": {
+    "message": "Firefox for iOS"
+  },
   "congratulations": {
     "message": "Congratulations! All questions have been answered!"
   },
