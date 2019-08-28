@@ -36,11 +36,11 @@ function settingsUpdated(changes, area) {
 
 // settings to search questions using the Kitsune API
 var product;
-var is_solved = 'False';
-var is_spam = 'False';
-var is_locked = 'False';
-var is_taken = 'False';
-var is_archived = 'False';
+var is_solved = 'false';
+var is_spam = 'false';
+var is_locked = 'false';
+var is_taken = 'false';
+var is_archived = 'false';
 var questionOpened = '';
 
 var data = browser.storage.local.get();
