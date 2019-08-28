@@ -69,14 +69,20 @@
   "open_tab": {
     "message": "Open"
   },
-  "firefox_for_desktop": {
+  "product_firefox": {
     "message": "Firefox for Desktop"
   },
-  "thunderbird": {
+  "product_thunderbird": {
     "message": "Thunderbird"
   },
-  "firefox_for_android": {
+  "product_mobile": {
     "message": "Firefox for Android"
+  },
+  "product_ios": {
+    "message": "Firefox for iOS"
+  },
+  "product_firefox-enterprise": {
+    "message": "Firefox for Enterprise"
   },
   "congratulations": {
     "message": "Congratulations! All questions have been answered!"
