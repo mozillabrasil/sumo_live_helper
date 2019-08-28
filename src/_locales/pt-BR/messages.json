@@ -69,13 +69,13 @@
   "open_tab": {
     "message": "Abrir"
   },
-  "firefox_for_desktop": {
+  "product_firefox": {
     "message": "Firefox para Desktop"
   },
-  "thunderbird": {
+  "product_thunderbird": {
     "message": "Thunderbird"
   },
-  "firefox_for_android": {
+  "product_mobile": {
     "message": "Firefox para Android"
   },
   "congratulations": {

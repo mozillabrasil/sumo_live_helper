@@ -132,16 +132,8 @@ function createItem(title, id, isNew) {
     iconProduct.className = 'icon-size-and-distance';
 
     browser.storage.local.get().then(res => {
-        if(res.chooseProduct == "Firefox"){
-            iconProduct.src = '../res/products/firefox.png';
-            iconProduct.title = browser.i18n.getMessage('firefox_for_desktop');
-        }else if (res.chooseProduct == "Thunderbird"){
-            iconProduct.src = '../res/products/thunderbird.png';
-            iconProduct.title = browser.i18n.getMessage('thunderbird');
-        }else {
-            iconProduct.src = '../res/products/mobile.png';
-            iconProduct.title = browser.i18n.getMessage('firefox_for_mobile');
-        }
+        iconProduct.src = '../res/products/' + res.chooseProduct.toLowerCase() + '.png';
+        iconProduct.title = browser.i18n.getMessage('product_' + res.chooseProduct.toLowerCase());
     });
 
     buttonOpen.className = 'btn btn-primary btn-settings';
