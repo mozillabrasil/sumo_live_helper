@@ -73,10 +73,11 @@ function handleMessage(message) {
 function loaded() {
     // loads items from saved data
     for (var i = 0; i < savedQuestions.length; i++) {
+        var product = savedQuestions[i].product.toLowerCase();
         var title = savedQuestions[i].title;
         var id = savedQuestions[i].id;
         var isNew = savedQuestions[i].new;
-        createItem(title, id, isNew);
+        createItem(product, title, id, isNew);
     }
     
     toggleScreen();
@@ -93,14 +94,14 @@ function callAPI() {
 // add new questions to the list
 function addQuestions(questions) {
     for (i = 0; i < questions.length; i++) {
-        createItem(questions[i].title, questions[i].id, true);
+        createItem(questions[i].product, questions[i].title, questions[i].id, true);
     }
     toggleScreen();
     load.style.display = 'none';
 }
 
 // creates question item
-function createItem(title, id, isNew) {
+function createItem(product, title, id, isNew) {
     // create elements
     var questionOrder = document.createElement('div');
     var questionTitle = document.createElement('label');
@@ -132,8 +133,8 @@ function createItem(title, id, isNew) {
     iconProduct.className = 'icon-size-and-distance';
 
     browser.storage.local.get().then(res => {
-        iconProduct.src = '../res/products/' + res.chooseProduct.toLowerCase() + '.png';
-        iconProduct.title = browser.i18n.getMessage('product_' + res.chooseProduct.toLowerCase());
+        iconProduct.src = '../res/products/' + product + '.png';
+        iconProduct.title = browser.i18n.getMessage('product_' + product);
     });
 
     buttonOpen.className = 'btn btn-primary btn-settings';
