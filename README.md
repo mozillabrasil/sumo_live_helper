@@ -6,7 +6,7 @@
 
 ![SUMO_Live_Helper_icon](src/res/icons/icon.png)
 # SUMO Live Helper [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/sumo-live-helper-/)
-The goal of this Add-on is for volunteers in SUMO (Support Mozilla) to see when there are new support questions for Firefox Desktop that have not yet been answered. This will help improve the Firefox user experience by getting answers to their problem more quickly.
+The goal of this Add-on is give to all volunteers of SUMO (Support Mozilla) a tool to see when there are new support questions in the forums that have not yet been answered. This will help to improve the Mozilla products user experience by getting answers to their problems more quickly.
 
 ![SUMO_Live_Helper gif](sumo_live_helper.gif)
 
@@ -14,11 +14,22 @@ The goal of this Add-on is for volunteers in SUMO (Support Mozilla) to see when 
 * Firefox 58.0 or later
 
 ## Features
-Initially this Add-on shows how many questions are open and without answer to the user of Firefox for Desktop and by clicking the Add-on on the toolbar a menu will be opened to choose a question and open in a new tab.
+This Add-on shows how many questions are open and without answer on the support forum, by clicking the Add-on on the toolbar a menu will be opened to choose a question to open in a new tab. Some preferences can be changed at preferences page:
+- Choose a language to search for questions opened recently and without answer
+    - English
+    - Português (do Brasil)
+- Time in minutes to query the API
+- Show browser notifications when a new question is opened
+- Choose a product to search for opened questions
+    - Firefox for Desktop
+    - Firefox for Enterprise
+    - Firefox for Android
+    - Firefox for iOS
+    - Thunderbird
 
 ## Informations
-1. The search of new questions at Support Forum to Firefox for Desktop is based on the language of the Firefox you are using (search each 15 minutes)
-2. The Add-on will show to you the questions that have been opened giving to you the oportunity to choose and open in a new tab.
+1. The search of new opened questions at support forum is in English for default, but you can change in the preferences page and set the time to search for questions as well (the default is each 15 minutes).
+2. The Add-on will show to you the questions that have been opened giving to you the option to choose and open in a new tab.
 
 ## Future implementations
 We are looking forward to see what you think is a good idea implement in the future, please to do that open a new [issue](https://github.com/mozillabrasil/sumo_live_helper/issues).
