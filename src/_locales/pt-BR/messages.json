@@ -4,7 +4,7 @@
     "description": "Extension name."
   },
   "extensionDescription": {
-    "message": "Esta extensão é para voluntários no SUMO (Support Mozilla) para ver quando há novas perguntas de suporte para o Firefox para Desktop que ainda não foram respondidas."
+    "message": "Esta extensão é para voluntários no SUMO (Support Mozilla) que poderão ver quando houver novas perguntas no fórum de suporte que ainda não foram respondidas."
   },
   "notify_involved": {
     "message": "Notificar quando houver uma atualização de uma questão em que estou envolvido"

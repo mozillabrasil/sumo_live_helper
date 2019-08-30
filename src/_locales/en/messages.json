@@ -4,7 +4,7 @@
     "description": "Extension name."
   },
   "extensionDescription": {
-    "message": "This Add-on is for volunteers in SUMO (Support Mozilla) to see when there are new support questions for Firefox Desktop that have not yet been answered."
+    "message": "This Add-on is for volunteers in SUMO (Support Mozilla) to see when there are new forum support questions that have not yet been answered."
   },
   "notify_involved": {
     "message": "Alert me when there's an update in a question where I've been involved in before"
