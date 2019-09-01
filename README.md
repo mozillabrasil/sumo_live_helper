@@ -4,7 +4,7 @@
 [<img align="right" src="https://img.shields.io/github/stars/mozillabrasil/sumo_live_helper.svg">](https://github.com/mozillabrasil/sumo_live_helper/stargazers)
 [<img align="right" src="https://img.shields.io/github/release/mozillabrasil/sumo_live_helper.svg">](https://github.com/mozillabrasil/sumo_live_helper/releases)
 
-![SUMO_Live_Helper_icon](src/res/icons/icon.png)
+![SUMO_Live_Helper_icon](src/res/icons/icon-64.png)
 # SUMO Live Helper [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/sumo-live-helper-/)
 The goal of this Add-on is give to all volunteers of SUMO (Support Mozilla) a tool to see when there are new support questions in the forums that have not yet been answered. This will help to improve the Mozilla products user experience by getting answers to their problems more quickly.
 
