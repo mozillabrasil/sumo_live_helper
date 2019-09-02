@@ -3,8 +3,8 @@
     "message": "SUMO Live Helper",
     "description": "Extension name."
   },
-  "extensionDescription": {
-    "message": "Cette extension est pour les volontaires dans SUMO (Support Mozilla) pour qu'ils puissent voir les nouvelles demande d'aide pour Firefox pour Ordinateur qui sont encore sans réponse."
+ "extensionDescription": {
+    "message": "Cette extension est pour les volontaires dans SUMO (Support Mozilla) pour qu'ils puissent voir lorsqu'il y a des nouvelles questions sur le forum de support qui n'ont pas encore de réponse."
   },
   "notify_involved": {
     "message": "M'avertir quand il y a une mise à jour d'une question à laquelle j'ai participé"
