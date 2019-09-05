@@ -3,41 +3,17 @@
     "message": "SUMO Live Helper",
     "description": "Extension name."
   },
- "extensionDescription": {
+  "extensionDescription": {
     "message": "Cette extension est pour les volontaires dans SUMO (Support Mozilla) pour qu'ils puissent voir lorsqu'il y a des nouvelles questions sur le forum de support qui n'ont pas encore de réponse."
-  },
-  "notify_involved": {
-    "message": "M'avertir quand il y a une mise à jour d'une question à laquelle j'ai participé"
   },
   "watch_questions": {
     "message": "Regarder pour de nouvelles questions"
   },
-  "watch_firefox": {
-    "message": "Inclure les questions de Firefox"
-  },
-  "watch_mobile": {
-    "message": "Inclure les questions de Firefox pour Android"
-  },
-  "watch_thunderbird": {
-    "message": "Inclure les questions de Thunderbird"
-  },
-  "preferences_loaded": {
-    "message": "préférences activées"
-  },
-  "saved_preferences": {
-    "message": "préférences sauvegardées"
-  },
-  "watch_webmaker": {
-    "message": "Inclure les questions de Webmaker"
-  },
-  "description_questions":{
+  "description_questions": {
     "message": "Déterminer si SUMO Live Helper doit avertir lors de la réception de nouvelles questions"
   },
   "frequency_questions": {
     "message": "Déterminer l'interval de temps auquel SUMO Live Helper doit chercher pour de nouvelles questions"
-  },
-  "save_preferences": {
-    "message": "Sauvegarder les préférences"
   },
   "polling": {
     "message": "Interval en minutes pour contacter l'API"
@@ -86,9 +62,6 @@
   },
   "congratulations": {
     "message": "félicitations! Toutes les questions ont étés répondues!"
-  },
-  "searching_for_opened_questions": {
-    "message": "Recherche pour des questions ouvertes en cours..."
   },
   "refresh": {
     "message": "Rafraîchir"

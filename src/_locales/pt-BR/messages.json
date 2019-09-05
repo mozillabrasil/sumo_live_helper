@@ -6,38 +6,14 @@
   "extensionDescription": {
     "message": "Esta extensão é para voluntários no SUMO (Support Mozilla) que poderão ver quando houver novas perguntas no fórum de suporte que ainda não foram respondidas."
   },
-  "notify_involved": {
-    "message": "Notificar quando houver uma atualização de uma questão em que estou envolvido"
-  },
   "watch_questions": {
     "message": "Notificar novas questões"
   },
-  "watch_firefox": {
-    "message": "Incluir questões do Firefox"
-  },
-  "watch_mobile": {
-    "message": "Incluir questões do Firefox para Android"
-  },
-  "watch_thunderbird": {
-    "message": "Incluir questões do Thunderbird"
-  },
-  "watch_webmaker": {
-    "message": "Incluir questões do Webmaker"
-  },
-  "description_questions":{
+  "description_questions": {
     "message": "Determina se o SUMO Live Helper deve alertar o recebimento de novas questões"
   },
   "frequency_questions": {
     "message": "Determina o intervalo de tempo em que o SUMO Live Helper deve buscar novas perguntas"
-  },
-  "save_preferences": {
-    "message": "Salvar Preferências"
-  },
-  "saved_preferences": {
-    "message": "Preferências salvas"
-  },
-  "preferences_loaded": {
-    "message": "Preferências carregadas"
   },
   "polling": {
     "message": "Tempo em minutos para consultar a API"
@@ -86,9 +62,6 @@
   },
   "congratulations": {
     "message": "Parabéns! Todas as perguntas foram respondidas!"
-  },
-  "searching_for_opened_questions": {
-    "message": "Buscando por questões abertas..."
   },
   "refresh": {
     "message": "Atualizar"
