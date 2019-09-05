@@ -21,9 +21,6 @@
   "preferences": {
     "message": "Preferences"
   },
-  "settings": {
-    "message": "Settings"
-  },
   "one_question_without_answer": {
     "message": " question without answer (Click to open)"
   },
