@@ -9,7 +9,7 @@
   "watch_questions": {
     "message": "Look out for new questions"
   },
-  "description_questions":{
+  "description_questions": {
     "message": "Determines whether the SUMO Live Helper should alert the receipt of new questions"
   },
   "frequency_questions": {
