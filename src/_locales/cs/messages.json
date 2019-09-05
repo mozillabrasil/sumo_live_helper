@@ -6,38 +6,14 @@
   "extensionDescription": {
     "message": "This Add-on is for volunteers in SUMO (Support Mozilla) to see when there are new forum support questions that have not yet been answered."
   },
-  "notify_involved": {
-    "message": "Alert me when there's an update in a question where I've been involved in before"
-  },
   "watch_questions": {
     "message": "Look out for new questions"
   },
-  "watch_firefox": {
-    "message": "Include Firefox questions"
-  },
-  "watch_mobile": {
-    "message": "Include Firefox for Android questions"
-  },
-  "watch_thunderbird": {
-    "message": "Include Thunderbird questions"
-  },
-  "preferences_loaded": {
-    "message": "Preferences loaded"
-  },
-  "saved_preferences": {
-    "message": "Saved preferences"
-  },
-  "watch_webmaker": {
-    "message": "Include Webmaker questions"
-  },
-  "description_questions":{
+  "description_questions": {
     "message": "Determines whether the SUMO Live Helper should alert the receipt of new questions"
   },
   "frequency_questions": {
     "message": "Determines the time interval at which the SUMO Live Helper should seek new questions"
-  },
-  "save_preferences": {
-    "message": "Save Preferences"
   },
   "polling": {
     "message": "Time in minutes to query the API"
@@ -86,9 +62,6 @@
   },
   "congratulations": {
     "message": "Congratulations! All questions have been answered!"
-  },
-  "searching_for_opened_questions": {
-    "message": "Searching for opened questions..."
   },
   "refresh": {
     "message": "Refresh"
