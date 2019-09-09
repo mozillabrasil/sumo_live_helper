@@ -16,8 +16,11 @@ The goal of this Add-on is give to all volunteers of SUMO (Support Mozilla) a to
 ## Features
 This Add-on shows how many questions are open and without answer on the support forum, by clicking the Add-on on the toolbar a menu will be opened to choose a question to open in a new tab. Some preferences can be changed at preferences page:
 - Choose a language to search for questions opened recently and without answer
+    - Čeština
+    - Español
     - English
     - Português (do Brasil)
+    - Magyar
 - Time in minutes to query the API
 - Show browser notifications when a new question is opened
 - Choose a product to search for opened questions
@@ -26,6 +29,10 @@ This Add-on shows how many questions are open and without answer on the support 
     - Firefox for Android
     - Firefox for iOS
     - Thunderbird
+- Localized for the following languages
+    - Español
+    - English
+    - Português (do Brasil)
 
 ## Informations
 1. The search of new opened questions at support forum is in English for default, but you can change in the preferences page and set the time to search for questions as well (the default is each 15 minutes).
