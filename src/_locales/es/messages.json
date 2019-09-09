@@ -1,90 +1,90 @@
 {
   "extensionName": {
     "message": "SUMO Live Helper",
-    "description": "Extension name."
+    "description": "Nombre del complemento."
   },
   "extensionDescription": {
-    "message": "This Add-on is for volunteers in SUMO (Support Mozilla) to see when there are new forum support questions that have not yet been answered."
+    "message": "Este complemento es para los voluntarios en SUMO (Support Mozilla) para ver cuando hay nuevas preguntas sin respuesta en el foro de soporte."
   },
   "watch_questions": {
-    "message": "Look out for new questions"
+    "message": "Buscar nuevas preguntas"
   },
   "description_questions": {
-    "message": "Determines whether the SUMO Live Helper should alert the receipt of new questions"
+    "message": "Determina si SUMO Live Helper debe alertar la recepción de nuevas preguntas"
   },
   "frequency_questions": {
-    "message": "Determines the time interval at which the SUMO Live Helper should seek new questions"
+    "message": "Determina el intervalo de tiempo en el que SUMO Live Helper debe buscar nuevas preguntas"
   },
   "polling": {
-    "message": "Time in minutes to query the API"
+    "message": "Tiempo en minutos para consultar la API"
   },
   "preferences": {
-    "message": "Preferences"
+    "message": "Preferencias"
   },
   "one_question_without_answer": {
-    "message": " question without answer (Click to open)"
+    "message": " pregunta sin respuesta (Clic para abrir)"
   },
   "more_than_one_question_without_answer": {
-    "message": " questions without answer (Click to open)"
+    "message": " preguntas sin respuesta (Clic para abrir)"
   },
   "choose_language": {
-    "message": "Choose a language"
+    "message": "Elegir idioma"
   },
   "choose_language_description": {
-    "message": "Choose a language to search for opened questions"
+    "message": "Elegir un idioma para buscar preguntas abiertas"
   },
   "choose_product": {
-    "message": "Choose a product"
+    "message": "Elegir producto"
   },
   "choose_product_description": {
-    "message": "Choose a product to search for opened questions"
+    "message": "Elegir un producto para buscar preguntas abiertas"
   },
   "open_tab": {
-    "message": "Open"
+    "message": "Abrir"
   },
   "product_firefox": {
-    "message": "Firefox for Desktop"
+    "message": "Firefox para Escritorio"
   },
   "product_thunderbird": {
     "message": "Thunderbird"
   },
   "product_mobile": {
-    "message": "Firefox for Android"
+    "message": "Firefox para Android"
   },
   "product_ios": {
-    "message": "Firefox for iOS"
+    "message": "Firefox para iOS"
   },
   "product_firefox-enterprise": {
-    "message": "Firefox for Enterprise"
+    "message": "Firefox para Enterprise"
   },
   "congratulations": {
-    "message": "Congratulations! All questions have been answered!"
+    "message": "¡Felicidades! ¡Todas las preguntas han sido respondidas!"
   },
   "refresh": {
-    "message": "Refresh"
+    "message": "Actualizar"
   },
   "clear_notifications": {
-    "message": "Clear notifications"
+    "message": "Eliminar notificaciones"
   },
   "show_notifications": {
-    "message": "Show browser notifications"
+    "message": "Mostrar notificaciones en el navegador"
   },
   "description_notifications": {
-    "message": "Determines whether you will receive notification popups when new questions are found"
+    "message": "Determina si recibiras notificaciones cuando se encuentren nuevas preguntas"
   },
   "notification_title_single": {
-    "message": "new question found!"
+    "message": "¡Nueva pregunta encontrada!"
   },
   "notification_title_multiple": {
-    "message": "new questions found!"
+    "message": "¡Nuevas preguntas encontradas!"
   },
   "notification_message_more": {
-    "message": "more need help."
+    "message": "más necesitan ayuda."
   },
   "notification_message_click": {
-    "message": "Click the SUMO Live Helper toolbar icon to view the question list..."
+    "message": "Haz clic en el icono de SUMO Live Helper para ver la lista de preguntas..."
   },
   "open_preferences": {
-    "message": "Open preferences"
+    "message": "Abrir preferencias"
   }
 }
