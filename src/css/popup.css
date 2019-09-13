@@ -1,6 +1,6 @@
 html, body {
 	width:520px;
-	min-height:180px;
+	min-height:600px;
 	height:100%;
 	overflow: hidden;
     margin: 0px;
@@ -133,7 +133,7 @@ a.active {
 .refresh-size-and-click {
     width:16px;
     height:16px;
-    margin-left:203px;
+    margin-left:196px;
     margin-top:-8px;
     cursor:pointer;
 }
