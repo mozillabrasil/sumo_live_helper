@@ -4,87 +4,87 @@
     "description": "Extension name."
   },
   "extensionDescription": {
-    "message": "This Add-on is for volunteers in SUMO (Support Mozilla) to see when there are new forum support questions that have not yet been answered."
+    "message": "SUMO Live Helper je doplněk pro zobrazení nových dotazů na fóru serveru Podpora Mozilly (SUMO)."
   },
   "watch_questions": {
-    "message": "Look out for new questions"
+    "message": "Sledovat nové dotazy"
   },
   "description_questions": {
-    "message": "Determines whether the SUMO Live Helper should alert the receipt of new questions"
+    "message": "Určuje, zda má SUMO Live Helper upozorňovat při nalezení nového dotazu"
   },
   "frequency_questions": {
-    "message": "Determines the time interval at which the SUMO Live Helper should seek new questions"
+    "message": "Určuje interval kontroly nových dotazů na serveru"
   },
   "polling": {
-    "message": "Time in minutes to query the API"
+    "message": "Minutový interval pro kontrolu API"
   },
   "preferences": {
-    "message": "Preferences"
+    "message": "Nastavení"
   },
   "one_question_without_answer": {
-    "message": " question without answer (Click to open)"
+    "message": " dotaz bez odpovědi (klepněte pro otevření)"
   },
   "more_than_one_question_without_answer": {
-    "message": " questions without answer (Click to open)"
+    "message": " dotazů bez odpovědi (klepněte pro otevření)"
   },
   "choose_language": {
-    "message": "Choose a language"
+    "message": "Vyberte jazyk"
   },
   "choose_language_description": {
-    "message": "Choose a language to search for opened questions"
+    "message": "Vyberte jazyk, pro který chcete vyhledat nové dotazy"
   },
   "choose_product": {
-    "message": "Choose a product"
+    "message": "Vyberte produkt"
   },
   "choose_product_description": {
-    "message": "Choose a product to search for opened questions"
+    "message": "Vyberte produkt, pro který chcete vyhledat nové dotazy"
   },
   "open_tab": {
-    "message": "Open"
+    "message": "OTevřít"
   },
   "product_firefox": {
-    "message": "Firefox for Desktop"
+    "message": "Firefox pro počítač"
   },
   "product_thunderbird": {
     "message": "Thunderbird"
   },
   "product_mobile": {
-    "message": "Firefox for Android"
+    "message": "Firefox pro Android"
   },
   "product_ios": {
-    "message": "Firefox for iOS"
+    "message": "Firefox pro iOS"
   },
   "product_firefox-enterprise": {
-    "message": "Firefox for Enterprise"
+    "message": "Firefox pro firmy"
   },
   "congratulations": {
-    "message": "Congratulations! All questions have been answered!"
+    "message": "Gratulujeme, všechny dotazy byly zodpovězeny."
   },
   "refresh": {
-    "message": "Refresh"
+    "message": "Obnovit"
   },
   "clear_notifications": {
-    "message": "Clear notifications"
+    "message": "Vymazat oznámení"
   },
   "show_notifications": {
-    "message": "Show browser notifications"
+    "message": "Zobrazovat oznámení prohlížeče"
   },
   "description_notifications": {
-    "message": "Determines whether you will receive notification popups when new questions are found"
+    "message": "Určujte, zda chcete dostávat oznámení při nalezení nového dotazu"
   },
   "notification_title_single": {
-    "message": "new question found!"
+    "message": "nalezen nový dotaz!"
   },
   "notification_title_multiple": {
-    "message": "new questions found!"
+    "message": "nalezeny nové dotazy!"
   },
   "notification_message_more": {
-    "message": "more need help."
+    "message": "další potřebují vaši pomoc."
   },
   "notification_message_click": {
-    "message": "Click the SUMO Live Helper toolbar icon to view the question list..."
+    "message": "Pro zobrazení seznamu dotazů klepněte na ikonu SUMO Live Helper v liště prohlížeče"
   },
   "open_preferences": {
-    "message": "Open preferences"
+    "message": "Otevřít nastavení"
   }
 }
