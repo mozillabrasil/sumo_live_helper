@@ -30,6 +30,7 @@ This Add-on shows how many questions are open and without answer on the support 
     - Firefox for iOS
     - Thunderbird
 - Localized for the following languages
+    - Čeština
     - Español
     - English
     - Português (do Brasil)
