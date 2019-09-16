@@ -19,8 +19,8 @@ This Add-on shows how many questions are open and without answer on the support 
     - Čeština
     - Español
     - English
-    - Português (do Brasil)
     - Magyar
+    - Português (do Brasil)
 - Time in minutes to query the API
 - Show browser notifications when a new question is opened
 - Choose a product to search for opened questions
