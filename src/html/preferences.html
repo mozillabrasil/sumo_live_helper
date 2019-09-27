@@ -54,17 +54,30 @@
         <label class="custom-control-label" data-i18n="show_notifications" for="showNotifications"></label>
         <small class="form-text text-muted" data-i18n="description_notifications"></small>
     </div>
-     <div class="form-group" style="margin-top:10px;">
-        <label class="label-language" data-i18n="choose_product" for="chooseProduct"></label>
-        <select class="form-control input-settings custom-select select-distances" name="chooseProduct" id="chooseProduct">
-            <option value="Firefox" data-i18n="product_firefox"></option>
-            <option value="mobile" data-i18n="product_mobile"></option>
-            <option value="ios" data-i18n="product_ios"></option>
-            <option value="firefox-enterprise" data-i18n="product_firefox-enterprise"></option>
-            <option value="Thunderbird" data-i18n="product_thunderbird"></option>
-        </select>
-         <small class="form-text text-muted small-language-distances" data-i18n="choose_product_description"></small>
-     </div>
+    <div class="form-group col-md-12">
+        <label class="label-frequency" data-i18n="choose_product"></label>
+        <small class="form-text text-muted small-frequency-distances" data-i18n="choose_product_description"></small>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input input-settings product-selection" id="firefox" value="Firefox">
+            <label class="custom-control-label" data-i18n="product_firefox" for="firefox"></label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input input-settings product-selection" id="mobile" value="mobile">
+            <label class="custom-control-label" data-i18n="product_mobile" for="mobile"></label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input input-settings product-selection" id="ios" value="ios">
+            <label class="custom-control-label" data-i18n="product_ios" for="ios"></label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input input-settings product-selection" id="firefox-enterprise" value="firefox-enterprise">
+            <label class="custom-control-label" data-i18n="product_firefox-enterprise" for="firefox-enterprise"></label>
+        </div>
+        <div class="custom-control custom-checkbox">
+            <input type="checkbox" class="custom-control-input input-settings product-selection" id="thunderbird" value="Thunderbird">
+            <label class="custom-control-label" data-i18n="product_thunderbird" for="thunderbird"></label>
+        </div>
+    </div>
 </fieldset>
 <script src="../js/language.js"></script>
 <script src="../js/preferences.js"></script>

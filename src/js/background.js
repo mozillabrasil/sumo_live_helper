@@ -43,15 +43,17 @@ var is_taken = 'false';
 var is_archived = 'false';
 var questionOpened = '';
 
-var data = browser.storage.local.get();
-
-if(data.chooseProduct == 'undefined' || data.chooseProduct == null){
-    product = "Firefox";
-    browser.storage.local.set({chooseProduct: product})
-}else if (data.chooseProduct == "Thunderbird"){
-    product = data.chooseProduct;
-}else {
-    product = data.chooseProduct;
+// Checks integrity of product setting
+function checkProduct(data) {
+    if (Array.isArray(data.chooseProduct)) {
+        product = data.chooseProduct;
+    } else if (typeof data.chooseProduct == 'string') {
+        product = [data.chooseProduct];
+        browser.storage.local.set({chooseProduct: product});
+    } else {
+        product = ['Firefox'];
+        browser.storage.local.set({chooseProduct: product});
+    }
 }
 
 // API limitations prevent this
@@ -107,10 +109,12 @@ function messageListener(message) {
 function callAPI() {
     // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
     // and using the language based of the Firefox used
-    var requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved='+is_solved+'&is_spam='+is_spam+'&is_locked='+is_locked+'&product='+product+'&is_taken='+is_taken+'&is_archived='+is_archived+'&locale='+locale;
-    request.open('GET', requestAPI, true);
-    request.responseType = 'json';
-    request.send();
+    for (i = 0; i < product.length; i++) {
+        var requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved='+is_solved+'&is_spam='+is_spam+'&is_locked='+is_locked+'&product='+product[i]+'&is_taken='+is_taken+'&is_archived='+is_archived+'&locale='+locale;
+        request.open('GET', requestAPI, true);
+        request.responseType = 'json';
+        request.send();
+    }
 }
 
 // runs when the browser loads the saved questions
@@ -151,6 +155,7 @@ function loaded(data) {
 
     browser.storage.onChanged.addListener(settingsUpdated);
     createAlarm(frequencySeekNewQuestions);
+    checkProduct(data);
     questionCount();
     callAPI();
 }
@@ -182,17 +187,29 @@ function questionCount() {
 }
 
 // removes old questions from storage
-function removeOld(list) {
+function removeOld(list, prod) {
+    var temp = product.map(function(value) {
+        return value.toLowerCase();
+    });
     var i = 0;
     while (i < savedQuestions.length) {
         var x = 0;
         var found = false;
-        while (x < list.length && !found) {
+        var skip = false;
+        var matchesList = (savedQuestions[i].product.toLowerCase() == prod);
+        var isPossible = temp.includes(savedQuestions[i].product.toLowerCase());
+        
+        if (isPossible && !matchesList) {
+            found = true;
+        }
+        
+        while (x < list.length && !found && matchesList) {
             if (savedQuestions[i].id == list[x].id) {
                 found = true;
             }
             x++;
         }
+        
         if (!found) {
             if (popup != null) {
                 popup.postMessage({
@@ -205,6 +222,9 @@ function removeOld(list) {
             i++;
         }
     }
+    
+    savedQuestions.sort(function(a, b) {return b.id - a.id});
+    
     browser.storage.local.set({'questions':savedQuestions});
     syncQuestions();
 }
@@ -227,7 +247,7 @@ request.onload = function() {
 
                     if (!questionExists) {
                         var newItem = {
-                            product: product,
+                            product: responseSUMO.results[i].product,
                             title: responseSUMO.results[i].title,
                             id: id,
                             new: true
@@ -237,7 +257,7 @@ request.onload = function() {
         }
     }
 
-    removeOld(responseSUMO.results);
+    removeOld(responseSUMO.results, responseSUMO.results[0].product);
     savedQuestions = newQuestionList.concat(savedQuestions);
     browser.storage.local.set({'questions':savedQuestions});
 
@@ -297,7 +317,7 @@ function showNotification(questions) {
     message += '\n\n' + browser.i18n.getMessage('notification_message_click');
     browser.notifications.create({
         type: 'basic',
-        iconUrl: chrome.extension.getURL('/res/icons/icon-32.png'),
+        iconUrl: chrome.extension.getURL('/res/products/' + questions[0].product + '.png'),
         title: title,
         message: message
     });
