@@ -6,7 +6,7 @@ version.textContent = browser.runtime.getManifest().name + " (v"+ browser.runtim
 var language = document.getElementById("chooseLanguage");
 var timer = document.getElementById("frequencySeekNewQuestions");
 var notifications = document.getElementById("showNotifications");
-var product = document.getElementById("chooseProduct");
+var products = document.getElementsByClassName("product-selection");
 
 // load data
 var data = browser.storage.local.get();
@@ -37,9 +37,12 @@ function loadSettings(data) {
 
     // load product
     if (typeof data.chooseProduct !== 'undefined' && data.chooseProduct !== null) {
-        product.value = data.chooseProduct;
+        var temp = data.chooseProduct;
+        for (i = 0; i < temp.length; i++) {
+            document.getElementById(temp[i].toLowerCase()).checked = true;
+        }
     } else {
-        product.value = "Firefox";
+        document.getElementById('firefox').checked = true;
     }
 
     language.addEventListener('change', function() {
@@ -51,7 +54,20 @@ function loadSettings(data) {
     notifications.addEventListener('change', function() {
         browser.storage.local.set({showNotifications: showNotifications.checked});
     });
-    product.addEventListener('change', function() {
-        browser.storage.local.set({chooseProduct: product.value});
-    });
+    for (i = 0; i < products.length; i++) {
+        products[i].addEventListener('change', function() {
+            saveProducts();
+        });
+    }
+}
+
+// Saves user product selection
+function saveProducts() {
+    var temp = [];
+    for (i = 0; i < products.length; i++) {
+        if (products[i].checked) {
+            temp.push(products[i].value);
+        }
+    }
+    browser.storage.local.set({chooseProduct: temp});
 }

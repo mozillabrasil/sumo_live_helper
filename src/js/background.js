@@ -46,10 +46,10 @@ var questionOpened = '';
 var data = browser.storage.local.get();
 
 if(data.chooseProduct == 'undefined' || data.chooseProduct == null){
-    product = "Firefox";
-    browser.storage.local.set({chooseProduct: product})
-}else if (data.chooseProduct == "Thunderbird"){
-    product = data.chooseProduct;
+    product = ['Firefox'];
+    browser.storage.local.set({chooseProduct: product});
+}else if (typeof data.chooseProduct === 'string'){
+    product = [data.chooseProduct];
 }else {
     product = data.chooseProduct;
 }
