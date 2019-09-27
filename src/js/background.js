@@ -184,17 +184,29 @@ function questionCount() {
 }
 
 // removes old questions from storage
-function removeOld(list) {
+function removeOld(list, prod) {
+    var temp = product.map(function(value) {
+        return value.toLowerCase();
+    });
     var i = 0;
     while (i < savedQuestions.length) {
         var x = 0;
         var found = false;
-        while (x < list.length && !found) {
+        var skip = false;
+        var matchesList = (savedQuestions[i].product.toLowerCase() == prod);
+        var isPossible = temp.includes(savedQuestions[i].product.toLowerCase());
+        
+        if (isPossible && !matchesList) {
+            found = true;
+        }
+        
+        while (x < list.length && !found && matchesList) {
             if (savedQuestions[i].id == list[x].id) {
                 found = true;
             }
             x++;
         }
+        
         if (!found) {
             if (popup != null) {
                 popup.postMessage({
@@ -207,6 +219,7 @@ function removeOld(list) {
             i++;
         }
     }
+    
     browser.storage.local.set({'questions':savedQuestions});
     syncQuestions();
 }
@@ -229,7 +242,7 @@ request.onload = function() {
 
                     if (!questionExists) {
                         var newItem = {
-                            product: product,
+                            product: responseSUMO.results[i].product,
                             title: responseSUMO.results[i].title,
                             id: id,
                             new: true
@@ -239,7 +252,7 @@ request.onload = function() {
         }
     }
 
-    removeOld(responseSUMO.results);
+    removeOld(responseSUMO.results, responseSUMO.results[0].product);
     savedQuestions = newQuestionList.concat(savedQuestions);
     browser.storage.local.set({'questions':savedQuestions});
 
