@@ -137,7 +137,7 @@ function createItem(product, title, id, isNew) {
         iconProduct.title = browser.i18n.getMessage('product_' + product);
     });
 
-    buttonOpen.className = 'btn btn-primary btn-settings';
+    buttonOpen.className = 'btn btn-primary btn-settings open-question';
     buttonOpen.id = id;
     buttonOpen.text = browser.i18n.getMessage('open_tab');
     buttonOpen.href = url;
@@ -168,7 +168,19 @@ function createItem(product, title, id, isNew) {
     questionOrder.appendChild(firstDiv);
     questionOrder.appendChild(secondDiv);
 
-    section.appendChild(questionOrder);
+    var buttons = document.getElementsByClassName('open-question');
+    var i = 0;
+    while (buttons[i] && buttons[i].id > id) {
+        i++;
+    }
+
+    if (i >= buttons.length) {
+        var pos = null;
+    } else {
+        var pos = section.childNodes[i];
+    }
+
+    section.insertBefore(questionOrder, pos);
 }
 
 // shows/hides the question list
