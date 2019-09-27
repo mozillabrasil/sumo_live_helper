@@ -220,6 +220,8 @@ function removeOld(list, prod) {
         }
     }
     
+    savedQuestions.sort(function(a, b) {return b.id - a.id});
+    
     browser.storage.local.set({'questions':savedQuestions});
     syncQuestions();
 }
