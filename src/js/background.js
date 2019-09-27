@@ -107,10 +107,12 @@ function messageListener(message) {
 function callAPI() {
     // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
     // and using the language based of the Firefox used
-    var requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved='+is_solved+'&is_spam='+is_spam+'&is_locked='+is_locked+'&product='+product+'&is_taken='+is_taken+'&is_archived='+is_archived+'&locale='+locale;
-    request.open('GET', requestAPI, true);
-    request.responseType = 'json';
-    request.send();
+    for (i = 0; i < product.length; i++) {
+        var requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved='+is_solved+'&is_spam='+is_spam+'&is_locked='+is_locked+'&product='+product[i]+'&is_taken='+is_taken+'&is_archived='+is_archived+'&locale='+locale;
+        request.open('GET', requestAPI, true);
+        request.responseType = 'json';
+        request.send();
+    }
 }
 
 // runs when the browser loads the saved questions
