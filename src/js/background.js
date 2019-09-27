@@ -317,7 +317,7 @@ function showNotification(questions) {
     message += '\n\n' + browser.i18n.getMessage('notification_message_click');
     browser.notifications.create({
         type: 'basic',
-        iconUrl: chrome.extension.getURL('/res/icons/icon-32.png'),
+        iconUrl: chrome.extension.getURL('/res/products/' + questions[0].product + '.png'),
         title: title,
         message: message
     });
