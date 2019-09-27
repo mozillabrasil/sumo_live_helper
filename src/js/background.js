@@ -43,15 +43,17 @@ var is_taken = 'false';
 var is_archived = 'false';
 var questionOpened = '';
 
-var data = browser.storage.local.get();
-
-if(data.chooseProduct == 'undefined' || data.chooseProduct == null){
-    product = ['Firefox'];
-    browser.storage.local.set({chooseProduct: product});
-}else if (typeof data.chooseProduct === 'string'){
-    product = [data.chooseProduct];
-}else {
-    product = data.chooseProduct;
+// Checks integrity of product setting
+function checkProduct(data) {
+    if (Array.isArray(data.chooseProduct)) {
+        product = data.chooseProduct;
+    } else if (typeof data.chooseProduct == 'string') {
+        product = [data.chooseProduct];
+        browser.storage.local.set({chooseProduct: product});
+    } else {
+        product = ['Firefox'];
+        browser.storage.local.set({chooseProduct: product});
+    }
 }
 
 // API limitations prevent this
@@ -153,6 +155,7 @@ function loaded(data) {
 
     browser.storage.onChanged.addListener(settingsUpdated);
     createAlarm(frequencySeekNewQuestions);
+    checkProduct(data);
     questionCount();
     callAPI();
 }
