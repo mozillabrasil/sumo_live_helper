@@ -168,7 +168,7 @@ function questionCount() {
             numberOfQuestionsOpened++;
         }
     }
-    
+
     // verifies if have any questions opened
     if (numberOfQuestionsOpened > 0) {
         browser.browserAction.setBadgeText({text: numberOfQuestionsOpened.toString()});
@@ -182,7 +182,7 @@ function questionCount() {
     }else if (numberOfQuestionsOpened == 1){
         browser.browserAction.setTitle({title: numberOfQuestionsOpened+browser.i18n.getMessage('one_question_without_answer')});
     }else{
-        browser.browserAction.setBadgeText({text: ''});
+        browser.browserAction.setTitle({title: ''});
     }
 }
 

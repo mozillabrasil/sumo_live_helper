@@ -382,6 +382,10 @@ input[type=text] {
     padding: 0.5rem 1.25rem
 }
 
+.font-checkbox {
+    font-size: 14px
+}
+
 * + .note {
     margin-top: 1rem
 }
