@@ -14,26 +14,30 @@ The goal of this Add-on is give to all volunteers of SUMO (Support Mozilla) a to
 * Firefox 58.0 or later
 
 ## Features
-This Add-on shows how many questions are open and without answer on the support forum, by clicking the Add-on on the toolbar a menu will be opened to choose a question to open in a new tab. Some preferences can be changed at preferences page:
-- Choose a language to search for questions opened recently and without answer
+This Add-on shows how many questions are open and without answer on the support forum. By clicking the extension icon on the toolbar, a popup will open, allowing you to select an unanswered question. Selecting an unanswered question will open it in a new tab.
+
+There are additional settings that can be accessed through the wrench in the popup or through the Add-ons Manager. These settings are:
+- Language: Choose a language to search for questions opened recently and without answer
     - Čeština
     - Español
     - English
     - Magyar
     - Português (do Brasil)
-- Time in minutes to query the API
-- Show browser notifications when a new question is opened
-- Choose a product to search for opened questions
+- Time in minutes to query the API: set how often the extension should check for new questions posted to the forum
+- Show browser notifications: receive a browser notification when a new question is opened
+- Choose one or more products to search for opened questions, the following products are supported:
     - Firefox for Desktop
     - Firefox for Enterprise
     - Firefox for Android
     - Firefox for iOS
     - Thunderbird
-- Localized for the following languages
+- SUMO Live Helper has also been localized in the following languages
     - Čeština
     - Español
     - English
     - Português (do Brasil)
+
+If you have any suggestions, would like to see your locale added, or want to see the Add-on localized in your language, feel free to open a PR or an issue. 
 
 ## Informations
 1. The search of new opened questions at support forum is in English for default, but you can change in the preferences page and set the time to search for questions as well (the default is each 15 minutes).
