@@ -13,16 +13,16 @@
         }
     },
     "icons": {
-        "16": "/res/icons/icon-16.png",
-        "32": "/res/icons/icon-32.png",
-        "64": "/res/icons/icon-64.png"
+        "16": "",
+        "32": "",
+        "64": ""
     },
     "browser_action": {
         "browser_style": true,
         "default_icon": {
-            "16": "/res/icons/icon-16.png",
-            "32": "/res/icons/icon-32.png",
-            "64": "/res/icons/icon-64.png"
+            "16": "",
+            "32": "",
+            "64": ""
         },
         "default_title": "__MSG_extensionName__",
         "default_popup": "/html/popup.html"
