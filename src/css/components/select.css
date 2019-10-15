@@ -1,0 +1,47 @@
+/* ------------------------------ */
+/* Select                         */
+/* ------------------------------ */
+
+select {
+  -moz-appearance: none;
+  background-color: var(--button-background);
+  background-image: url('../../img/arrow-down-black.svg');
+  background-repeat: no-repeat no-repeat;
+  background-position: left calc(100% - 8px) bottom 50%;
+  background-size: 13px;
+  border: none;
+  border-radius: 2px;
+  color: var(--button-foreground);
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 400;
+  height: 32px;
+  line-height: 2rem;
+  min-width: 132px;
+  padding: 0 8px;
+}
+
+@media (prefers-color-scheme: dark) {
+  select {
+    background-image: url('../../img/arrow-down-white.svg');
+  }
+}
+
+/* Hover state */
+select:hover {
+  background-color: var(--button-background-hover);
+}
+
+/* Pressed state */
+select:active {
+  background-color: var(--button-background-pressed);
+}
+
+/* Focused state */
+select:focus {
+  box-shadow: 
+    0 0 0 1px #0a84ff inset, 
+    0 0 0 1px #0a84ff, 
+    0 0 0 4px rgba(10, 132, 255, 0.3);
+  outline: none;
+}
