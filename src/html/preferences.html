@@ -36,7 +36,9 @@
       
       <h3>Synchronisation</h3>
       <label for="sync_interval">
+        <span>
         Set the interval to search for new questions
+        </span>
         <select id="sync_interval" name="#">
           <option value="#">5</option>
           <option value="#" selected>15 (default)</option>
@@ -46,7 +48,9 @@
       </label>
       <label for="#">
         <input id="#" type="checkbox" name="#">
+        <span>
         Show browser notifications when new questions are found
+        </span>
       </label>
 
       <h3>Products</h3>
@@ -77,8 +81,11 @@
 
       <h3>Language</h3>
       <label for="select_language#">
+        <span>
         Choose the language in which you want to search for questions
-        <select id="select_language" name="#">
+        </span>
+        <!-- Use style to temporarily fix text overflow -->
+        <select id="select_language" name="#" style="width: 200px">
           <option value="#">Čeština</option>
           <option value="#" selected>English</option>
           <option value="#">Español</option>
