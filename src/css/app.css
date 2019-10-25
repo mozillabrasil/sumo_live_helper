@@ -16,6 +16,7 @@
 @import "components/button.css";
 @import "components/checkbox.css";
 @import "components/input.css";
+@import "components/menu.css";
 @import "components/radio.css";
 @import "components/select.css";
 
@@ -25,4 +26,18 @@ body {
   color: var(--page-foreground);
   font-family: var(--page-font-family);
   font-size: var(--page-font-size);
+}
+
+#page-preferences {
+  display: grid;
+  grid-gap: 16px;
+  margin-left: 32px;
+}
+
+@media (min-width: 40em) {
+  #page-preferences {
+    grid-template-columns: 12em 1fr;
+  }
+  header {
+    grid-column: span 2;
 }

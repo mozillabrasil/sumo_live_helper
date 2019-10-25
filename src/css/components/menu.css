@@ -1,0 +1,13 @@
+/* ------------------------------ */
+/* Menu                           */
+/* ------------------------------ */
+
+.menu {
+  list-style: none;
+}
+
+.menu a {
+  color: var(--page-foreground);
+  font-size: 1.07rem;
+  text-decoration: none;
+}
