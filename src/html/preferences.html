@@ -35,61 +35,58 @@
       <h2>General</h2>  
       
       <h3>Synchronisation</h3>
-      <label for="sync_interval">
-        <span>
-        Set the interval to search for new questions
-        </span>
-        <select id="sync_interval" name="#">
-          <option value="#">5</option>
-          <option value="#" selected>15 (default)</option>
-          <option value="#">30</option>
-          <option value="#">Never</option>
+      <label for="frequencySeekNewQuestions">
+        <span data-i18n="polling"></span>
+        <select name="frequencySeekNewQuestions" 
+                id="frequencySeekNewQuestions">
+          <option value="15" selected>15 (default)</option>
+          <option value="30">30</option>
+          <option value="45">45</option>
+          <option value="60">60</option>
         </select>
       </label>
-      <label for="#">
-        <input id="#" type="checkbox" name="#">
-        <span>
-        Show browser notifications when new questions are found
-        </span>
+      <label for="showNotifications">
+        <input id="showNotifications" type="checkbox" name="showNotifications">
+        <span data-i18n="show_notifications"></span>
       </label>
 
       <h3>Products</h3>
       <!-- Add a aria label to link the p to the checkbox list below -->
       <p>
-        Select the product(s) for which to want to find questions.
+        <span data-i18n="choose_product_description"></span>
       </p>
-      <label for="product_firefox">
-        <input id="product_firefox" type="checkbox" name="#">
+      <label for="firefox">
+        <input id="firefox" type="checkbox" value="Firefox">
         <span data-i18n="product_firefox"></span>
       </label>
-      <label for="product_firefox-enterprise">
-        <input id="product_firefox-enterprise" type="checkbox" name="#">
+      <label for="firefox-enterprise">
+        <input id="firefox-enterprise" 
+               type="checkbox" 
+               value="firefox-enterprise">
         <span data-i18n="product_firefox-enterprise"></span>
       </label>
-      <label for="product_mobile">
-        <input id="product_mobile" type="checkbox" name="#">
+      <label for="mobile">
+        <input id="mobile" type="checkbox" value="mobile">
         <span data-i18n="product_mobile"></span>
       </label>
-      <label for="product_ios">
-        <input id="product_ios" type="checkbox" name="#">
+      <label for="ios">
+        <input id="ios" type="checkbox" value="ios">
         <span data-i18n="product_ios"></span>
       </label>
-      <label for="product_thunderbird">
-        <input id="product_thunderbird" type="checkbox" name="#">
+      <label for="thunderbird">
+        <input id="thunderbird" type="checkbox" value="Thunderbird">
         <span data-i18n="product_thunderbird"></span>
       </label>
 
       <h3>Language</h3>
-      <label for="select_language#">
-        <span>
-        Choose the language in which you want to search for questions
-        </span>
-        <!-- Use style to temporarily fix text overflow -->
-        <select id="select_language" name="#" style="width: 200px">
-          <option value="#">Čeština</option>
-          <option value="#" selected>English</option>
-          <option value="#">Español</option>
-          <option value="#">Português (do Brasil)</option>
+      <label for="chooseLanguage">
+        <span data-i18n="choose_language_description"></span>
+        <!-- Use style width to temporarily fix text overflow -->
+        <select id="chooseLanguage" name="chooseLanguage" style="width: 200px">
+          <option value="cs">Čeština</option>
+          <option value="en-US" selected>English</option>
+          <option value="hu">Español</option>
+          <option value="pt-BR">Português (do Brasil)</option>
         </select>
       </label>
     </main>
