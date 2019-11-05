@@ -28,6 +28,10 @@ body {
   font-size: var(--page-font-size);
 }
 
+header {
+  margin: 0 32px;
+}
+
 input,
 label,
 select {
@@ -35,10 +39,20 @@ select {
   font-size: 1rem;
 }
 
+label {
+  align-content: center;
+  display: flex;
+  margin: 8px 0;
+  max-width: 664px;
+}
+
+label > * {
+  margin-right: 8px;
+}
+
 #page-preferences {
   display: grid;
   grid-gap: 16px;
-  margin-left: 32px;
 }
 
 @media (min-width: 40em) {
@@ -47,4 +61,5 @@ select {
   }
   header {
     grid-column: span 2;
+  }
 }
