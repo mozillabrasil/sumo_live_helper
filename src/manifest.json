@@ -13,16 +13,16 @@
         }
     },
     "icons": {
-        "16": "",
-        "32": "",
-        "64": ""
+        "16": "/img/logo/sumo.svg",
+        "32": "/img/logo/sumo.svg",
+        "64": "/img/logo/sumo.svg"
     },
     "browser_action": {
         "browser_style": true,
         "default_icon": {
-            "16": "",
-            "32": "",
-            "64": ""
+          "16": "/img/logo/sumo.svg",
+          "32": "/img/logo/sumo.svg",
+          "64": "/img/logo/sumo.svg"
         },
         "default_title": "__MSG_extensionName__",
         "default_popup": "/html/popup.html"
