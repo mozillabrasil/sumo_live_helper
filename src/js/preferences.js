@@ -1,6 +1,6 @@
 // version
 var version = document.getElementById("version");
-version.textContent = browser.runtime.getManifest().name + " (v"+ browser.runtime.getManifest().version + ")";
+version.textContent = " (v" + browser.runtime.getManifest().version + ")";
 
 // store option UI elements
 var language = document.getElementById("chooseLanguage");
