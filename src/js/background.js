@@ -1,4 +1,3 @@
-let request = new XMLHttpRequest();
 var frequencySeekNewQuestions, locale, showNotifications;
 let savedQuestions = browser.storage.local.get();
 savedQuestions.then(loaded);
@@ -109,11 +108,16 @@ function messageListener(message) {
 function callAPI() {
     // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
     // and using the language based of the Firefox used
+    let requests = Array(product.length);
     for (i = 0; i < product.length; i++) {
-        var requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved='+is_solved+'&is_spam='+is_spam+'&is_locked='+is_locked+'&product='+product[i]+'&is_taken='+is_taken+'&is_archived='+is_archived+'&locale='+locale;
-        request.open('GET', requestAPI, true);
-        request.responseType = 'json';
-        request.send();
+        requests[i] = new XMLHttpRequest();
+        var requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved=' + is_solved + '&is_spam=' + is_spam + '&is_locked=' + is_locked + '&product=' + product[i] + '&is_taken=' + is_taken + '&is_archived=' + is_archived + '&locale=' + locale;
+        requests[i].open('GET', requestAPI, true);
+        requests[i].responseType = 'json';
+        requests[i].send();
+        requests[i].onload = function() {
+            loadRequest(this);
+        };;
     }
 }
 
@@ -230,7 +234,7 @@ function removeOld(list, prod) {
 }
 
 // search for new questions
-request.onload = function() {
+function loadRequest(request) {
     var responseSUMO = request.response;
     var newQuestionList = [];
     
