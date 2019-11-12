@@ -14,7 +14,7 @@ input[type=checkbox] {
 }
 
 input[type=checkbox]:checked {
-  background: url('../../img/check.svg') center / 18px;
+  background: url('../../res/icons/light/check.svg') center / 18px;
   background-color: var(--input-background);
 }
 

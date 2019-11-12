@@ -14,7 +14,7 @@ input[type=radio] {
 }
 
 input[type=radio]:checked {
-  background: url('../../img/radio.svg') center / 18px;
+  background: url('../../res/icons/light/radio.svg') center / 18px;
   background-color: var(--input-background);
 }
 

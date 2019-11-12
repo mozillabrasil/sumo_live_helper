@@ -5,7 +5,7 @@
 select {
   -moz-appearance: none;
   background-color: var(--button-background);
-  background-image: url('../../img/arrow-down-black.svg');
+  background-image: url('../../res/icons/dark/arrow-down.svg');
   background-repeat: no-repeat no-repeat;
   background-position: left calc(100% - 8px) bottom 50%;
   background-size: 13px;
@@ -23,7 +23,7 @@ select {
 
 @media (prefers-color-scheme: dark) {
   select {
-    background-image: url('../../img/arrow-down-white.svg');
+    background-image: url('../../res/icons/light/arrow-down.svg');
   }
 }
 
