@@ -233,7 +233,7 @@ function removeOld(list, prod) {
 request.onload = function() {
     var responseSUMO = request.response;
     var newQuestionList = [];
-    for(var i = 0; i < 20; i++){
+    for(var i = 0; i < responseSUMO.results.length; i++){
         if(responseSUMO.results[i].num_answers == 0){
                     var id = responseSUMO.results[i].id;
                     var title = responseSUMO.results[i].title;
