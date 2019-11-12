@@ -233,26 +233,26 @@ function removeOld(list, prod) {
 request.onload = function() {
     var responseSUMO = request.response;
     var newQuestionList = [];
+    
     for(var i = 0; i < responseSUMO.results.length; i++){
         if(responseSUMO.results[i].num_answers == 0){
-                    var id = responseSUMO.results[i].id;
-                    var title = responseSUMO.results[i].title;
+            var id = responseSUMO.results[i].id;
+            var title = responseSUMO.results[i].title;
+            var x = 0;
+            var questionExists = false;
+            while (x < savedQuestions.length && !questionExists) {
+                questionExists = (id == savedQuestions[x].id);
+                x++;
+            }
 
-                    var x = 0;
-                    var questionExists = false;
-                    while (x < savedQuestions.length && !questionExists) {
-                        questionExists = (id == savedQuestions[x].id);
-                        x++;
-                    }
-
-                    if (!questionExists) {
-                        var newItem = {
-                            product: responseSUMO.results[i].product,
-                            title: responseSUMO.results[i].title,
-                            id: id,
-                            new: true
-                        }
-                        newQuestionList.push(newItem);
+            if (!questionExists) {
+                var newItem = {
+                    product: responseSUMO.results[i].product,
+                    title: responseSUMO.results[i].title,
+                    id: id,
+                    new: true
+                }
+                newQuestionList.push(newItem);
             }
         }
     }
