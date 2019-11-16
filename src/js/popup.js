@@ -64,6 +64,10 @@ function handleMessage(message) {
             locale = message.language;
             loaded();
             break;
+        case 'no_api_call':
+            savedQuestions = [];
+            addQuestions([], true);
+            break;
         default:
             return;
     }
