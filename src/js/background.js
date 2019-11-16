@@ -26,12 +26,12 @@ function settingsUpdated(changes, area) {
                 break;
             case 'chooseProduct':
                 product = changes[item].newValue;
+                callAPI();
                 break;
             default:
                 return;
         }
     }
-    callAPI();
 }
 
 // settings to search questions using the Kitsune API
