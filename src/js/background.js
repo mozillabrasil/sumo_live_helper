@@ -4,6 +4,7 @@ savedQuestions.then(loaded);
 var numberOfQuestionsOpened = 0;
 var popup = null;
 var popupOpen = false;
+var numberOfAPIRequests = 0;
 browser.runtime.onConnect.addListener(connected);
 browser.alarms.onAlarm.addListener(callAPI);
 
@@ -25,12 +26,12 @@ function settingsUpdated(changes, area) {
                 break;
             case 'chooseProduct':
                 product = changes[item].newValue;
+                callAPI();
                 break;
             default:
                 return;
         }
     }
-    callAPI();
 }
 
 // settings to search questions using the Kitsune API
@@ -109,6 +110,7 @@ function callAPI() {
     // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
     // and using the language based of the Firefox used
     let requests = Array(product.length);
+    numberOfAPIRequests = product.length;
     for (i = 0; i < product.length; i++) {
         requests[i] = new XMLHttpRequest();
         var requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved=' + is_solved + '&is_spam=' + is_spam + '&is_locked=' + is_locked + '&product=' + product[i] + '&is_taken=' + is_taken + '&is_archived=' + is_archived + '&locale=' + locale;
@@ -235,6 +237,12 @@ function removeOld(list, prod) {
 
 // search for new questions
 function loadRequest(request) {
+    var finishedLoading = false;
+    numberOfAPIRequests--;
+    if (numberOfAPIRequests <= 0) {
+        finishedLoading = true;
+    }
+
     var responseSUMO = request.response;
     var newQuestionList = [];
     
@@ -275,7 +283,8 @@ function loadRequest(request) {
         syncQuestions();
         popup.postMessage({
             code: 'new_questions',
-            questions: newQuestionList
+            questions: newQuestionList,
+            finishedLoading: finishedLoading
         });
     }
 }
