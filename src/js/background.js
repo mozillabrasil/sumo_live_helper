@@ -121,6 +121,16 @@ function callAPI() {
             loadRequest(this);
         };;
     }
+    // If the user doesn't have any products selected
+    if (product.length < 1) {
+        if (popupOpen) {
+            popup.postMessage({
+                code: 'no_api_call'
+            });
+        }
+        savedQuestions = [];
+        questionCount();
+    }
 }
 
 // runs when the browser loads the saved questions
