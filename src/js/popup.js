@@ -50,7 +50,7 @@ questions.addEventListener('click', function(e) {
 function handleMessage(message) {
     switch (message.code){
         case 'new_questions':
-            addQuestions(message.questions);
+            addQuestions(message.questions, message.finishedLoading);
             break;
         case 'sync_questions':
             savedQuestions = message.questions;
@@ -92,12 +92,14 @@ function callAPI() {
 }
 
 // add new questions to the list
-function addQuestions(questions) {
+function addQuestions(questions, finishedLoading) {
     for (i = 0; i < questions.length; i++) {
         createItem(questions[i].product, questions[i].title, questions[i].id, true);
     }
     toggleScreen();
-    load.style.display = 'none';
+    if (finishedLoading) {
+        load.style.display = 'none';
+    }
 }
 
 // creates question item
