@@ -20,6 +20,15 @@ button {
   text-decoration: none;
 }
 
+.button.button-icon,
+button.button-icon {
+  min-width: 32px;
+}
+
+.button.button-icon img {
+  margin: 8px;
+}
+
 .button.primary,
 button.primary {
   background-color: var(--button-primary-background);

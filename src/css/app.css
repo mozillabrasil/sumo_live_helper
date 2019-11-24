@@ -67,3 +67,48 @@ label > select {
     grid-column: span 2;
   }
 }
+
+/* Popup window */
+#popup {
+  display: grid;
+  grid-template-areas:
+    'header header nav'
+    'main   main   main';
+  max-width: 500px;
+}
+
+#popup header {
+  grid-area: header;
+}
+
+#popup nav {
+  grid-area: nav;
+}
+
+#popup main {
+  grid-area: main;
+}
+
+#items ul li {
+  margin: 0;
+}
+
+#items li {
+  align-items: center;
+  display: flex;
+}
+
+#items li div {
+  flex-grow: 1;
+  padding: 8px;
+}
+
+#items li div:first-child,
+#items li div:last-child {
+  flex-grow: 0;
+}
+
+.item__icon {
+  width: 32px;
+}
+

@@ -94,94 +94,135 @@ function callAPI() {
 // add new questions to the list
 function addQuestions(questions) {
     for (i = 0; i < questions.length; i++) {
-        createItem(questions[i].product, questions[i].title, questions[i].id, true);
+        createItem(questions[i].product, 
+                   questions[i].title, 
+                   questions[i].id, true);
     }
     toggleScreen();
     load.style.display = 'none';
 }
 
-// creates question item
 function createItem(product, title, id, isNew) {
-    // create elements
-    var questionOrder = document.createElement('div');
-    var questionTitle = document.createElement('label');
-    var iconProduct = document.createElement('img');
-    var zeroDiv = document.createElement('div');
-    var firstDiv = document.createElement('div');
-    var secondDiv = document.createElement('div');
-    var buttonOpen = document.createElement('a');
-    var section = document.querySelector('section');
-    var container = document.createElement('div');
-    var verticalContainer = document.createElement('div');
-    var spacer = document.createElement('div');
-    
-    // url of question
-    var url = 'https://support.mozilla.org/'+locale+'/questions/'+id;
+  var items = document.getElementById('items');
+  var item = document.createElement('li');
+  var itemProduct = document.createElement('div');
+  var itemTitle = document.createElement('div');
+  var itemButton = document.createElement('div');
+  var iconProduct = document.createElement('img');
+  var button = document.createElement('a');
+  var buttonIcon = document.createElement('img');
+  var url = 'https://support.mozilla.org/'+locale+'/questions/'+id;
 
-    // marks the question as read
-    if (isNew) {
-        questionOrder.className = 'new';
-    } else {
-        questionOrder.className = 'old';
-    }
-    
-    zeroDiv.className = 'col-md-12 margin-and-top-distance';
-    firstDiv.className = 'col-md-12 margin-and-top-distance';
-    secondDiv.className = 'panel-section-separator'
-    questionTitle.className = 'text-justify question-settings';
-    questionTitle.textContent = title;
-    iconProduct.className = 'icon-size-and-distance';
+  // Generate question's elements
+  browser.storage.local.get().then(res => {
+    iconProduct.src = '../res/products/' + product + '.png';
+    iconProduct.title = browser.i18n.getMessage('product_' + product);
+  });
+  iconProduct.className = 'item__icon';
+  itemProduct.appendChild(iconProduct);
 
-    browser.storage.local.get().then(res => {
-        iconProduct.src = '../res/products/' + product + '.png';
-        iconProduct.title = browser.i18n.getMessage('product_' + product);
-    });
+  itemTitle.textContent = title;
+  
+  button.className = 'button button-icon primary';
+  button.id = id;
+  //button.text = browser.i18n.getMessage('open_tab');
+  button.href = url;
+  browser.storage.local.get().then(res => {
+    buttonIcon.src = '../res/icons/light/preferences.svg';
+  });
+  button.appendChild(buttonIcon);
+  itemButton.appendChild(button);
 
-    buttonOpen.className = 'btn btn-primary btn-settings open-question';
-    buttonOpen.id = id;
-    buttonOpen.text = browser.i18n.getMessage('open_tab');
-    buttonOpen.href = url;
-    container.className = 'question-container';
-    verticalContainer.className = 'vertical-container';
+  // Merge question's elements together
+  item.appendChild(itemProduct);
+  item.appendChild(itemTitle);
+  item.appendChild(itemButton);
 
-    var verticalContainer2 = verticalContainer.cloneNode(true);
-    var spacer2 = spacer.cloneNode(true);
-    var spacer3 = spacer.cloneNode(true);
-    var spacer4 = spacer.cloneNode(true);
-
-    questionOrder.appendChild(zeroDiv);
-
-    container.appendChild(verticalContainer);
-    verticalContainer.appendChild(spacer);
-    verticalContainer.appendChild(iconProduct);
-    verticalContainer.appendChild(spacer2);
-
-    container.appendChild(questionTitle);
-
-    container.appendChild(verticalContainer2);
-    verticalContainer2.appendChild(spacer3);
-    verticalContainer2.appendChild(buttonOpen);
-    verticalContainer2.appendChild(spacer4);
-
-    questionOrder.appendChild(container);
-    questionOrder.appendChild(firstDiv);
-    questionOrder.appendChild(firstDiv);
-    questionOrder.appendChild(secondDiv);
-
-    var buttons = document.getElementsByClassName('open-question');
-    var i = 0;
-    while (buttons[i] && buttons[i].id > id) {
-        i++;
-    }
-
-    if (i >= buttons.length) {
-        var pos = null;
-    } else {
-        var pos = section.childNodes[i];
-    }
-
-    section.insertBefore(questionOrder, pos);
+  items.appendChild(item);
 }
+
+// creates question item
+//function createItem(product, title, id, isNew) {
+//    // create elements
+//    var questionOrder = document.createElement('div');
+//    var questionTitle = document.createElement('label');
+//    var iconProduct = document.createElement('img');
+//    var zeroDiv = document.createElement('div');
+//    var firstDiv = document.createElement('div');
+//    var secondDiv = document.createElement('div');
+//    var buttonOpen = document.createElement('a');
+//    var section = document.querySelector('section');
+//    var container = document.createElement('div');
+//    var verticalContainer = document.createElement('div');
+//    var spacer = document.createElement('div');
+//    
+//    // url of question
+//    var url = 'https://support.mozilla.org/'+locale+'/questions/'+id;
+//
+//    // marks the question as read
+//    if (isNew) {
+//        questionOrder.className = 'new';
+//    } else {
+//        questionOrder.className = 'old';
+//    }
+//    
+//    zeroDiv.className = 'margin-and-top-distance';
+//    firstDiv.className = 'margin-and-top-distance';
+//    secondDiv.className = 'panel-section-separator'
+//    questionTitle.className = 'question-settings';
+//    questionTitle.textContent = title;
+//    iconProduct.className = 'popup-icon';
+//
+//    browser.storage.local.get().then(res => {
+//        iconProduct.src = '../res/products/' + product + '.png';
+//        iconProduct.title = browser.i18n.getMessage('product_' + product);
+//    });
+//
+//    buttonOpen.className = 'button primary open-question';
+//    buttonOpen.id = id;
+//    buttonOpen.text = browser.i18n.getMessage('open_tab');
+//    buttonOpen.href = url;
+//    container.className = 'question-container';
+//    verticalContainer.className = 'vertical-container';
+//
+//    var verticalContainer2 = verticalContainer.cloneNode(true);
+//    var spacer2 = spacer.cloneNode(true);
+//    var spacer3 = spacer.cloneNode(true);
+//    var spacer4 = spacer.cloneNode(true);
+//
+//    questionOrder.appendChild(zeroDiv);
+//
+//    container.appendChild(verticalContainer);
+//    verticalContainer.appendChild(spacer);
+//    verticalContainer.appendChild(iconProduct);
+//    verticalContainer.appendChild(spacer2);
+//
+//    container.appendChild(questionTitle);
+//
+//    container.appendChild(verticalContainer2);
+//    verticalContainer2.appendChild(spacer3);
+//    verticalContainer2.appendChild(buttonOpen);
+//    verticalContainer2.appendChild(spacer4);
+//
+//    questionOrder.appendChild(container);
+//    questionOrder.appendChild(firstDiv);
+//    questionOrder.appendChild(firstDiv);
+//    questionOrder.appendChild(secondDiv);
+//
+//    var buttons = document.getElementsByClassName('open-question');
+//    var i = 0;
+//    while (buttons[i] && buttons[i].id > id) {
+//        i++;
+//    }
+//
+//    if (i >= buttons.length) {
+//        var pos = null;
+//    } else {
+//        var pos = section.childNodes[i];
+//    }
+//
+//    section.insertBefore(questionOrder, pos);
+//}
 
 // shows/hides the question list
 function toggleScreen() {
