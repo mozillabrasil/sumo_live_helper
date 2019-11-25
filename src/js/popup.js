@@ -110,7 +110,7 @@ function createItem(product, title, id, isNew) {
   var itemButton = document.createElement('div');
   var iconProduct = document.createElement('img');
   var button = document.createElement('a');
-  var buttonIcon = document.createElement('img');
+  var buttonIcon = document.createElement('span');
   var url = 'https://support.mozilla.org/'+locale+'/questions/'+id;
 
   // Generate question's elements
@@ -125,11 +125,8 @@ function createItem(product, title, id, isNew) {
   
   button.className = 'button button-icon primary';
   button.id = id;
-  //button.text = browser.i18n.getMessage('open_tab');
   button.href = url;
-  browser.storage.local.get().then(res => {
-    buttonIcon.src = '../res/icons/light/preferences.svg';
-  });
+  buttonIcon.className = 'pf-open-in-new';
   button.appendChild(buttonIcon);
   itemButton.appendChild(button);
 

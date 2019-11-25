@@ -10,6 +10,7 @@
 
 /* Settings */
 @import "vendor/normalize.css";
+@import "font.css";
 @import "settings.css";
 
 /* Components */
