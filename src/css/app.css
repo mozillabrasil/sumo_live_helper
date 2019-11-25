@@ -80,23 +80,41 @@ label > select {
 
 #popup header {
   grid-area: header;
+  margin: 0;
+  padding: 0 16px;
 }
 
 #popup nav {
   grid-area: nav;
+  padding-top: 24px;
 }
 
 #popup main {
   grid-area: main;
 }
 
-#items ul li {
+#popup nav .menu {
+  padding: 0 16px;
+  text-align: right;
+}
+
+#popup nav .menu li{
+  padding: 0 8px;
+}
+
+#items {
   margin: 0;
+  padding: 8px;
 }
 
 #items li {
   align-items: center;
+  border-bottom: solid 1px #202023;
   display: flex;
+}
+
+#items li:last-child {
+  border: none;
 }
 
 #items li div {
