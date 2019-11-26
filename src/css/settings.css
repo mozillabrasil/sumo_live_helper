@@ -109,7 +109,7 @@
 
   --popup-background: var(--grey-10);
   --popup-foreground: var(--grey-90);
-  --popup-item-border: var(--grey-10);
+  --popup-item-border: var(--grey-30);
   
   --input-background: var(--white-100);
   --input-border-color: var(--grey-90-a20);
@@ -132,9 +132,9 @@
     --page-background: var(--grey-80);
     --page-foreground: var(--grey-10);
     
-    --popup-background: var(--grey-80);
+    --popup-background: var(--grey-60);
     --popup-foreground: var(--grey-10);
-    --popup-item-border: var(--grey-85);
+    --popup-item-border: var(--grey-70);
 
     --input-background: var(--grey-85);
     --input-border-color: var(--grey-10-a20);
