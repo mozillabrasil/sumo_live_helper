@@ -88,7 +88,7 @@ label > select {
 
 #popup nav {
   grid-area: nav;
-  padding-top: 24px;
+  padding-top: 16px;
 }
 
 #popup main {
