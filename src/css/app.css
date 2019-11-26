@@ -71,6 +71,8 @@ label > select {
 
 /* Popup window */
 #popup {
+  background-color: var(--popup-background);
+  color: var(--popup-foreground);
   display: grid;
   grid-template-areas:
     'header header nav'
@@ -109,7 +111,7 @@ label > select {
 
 #items li {
   align-items: center;
-  border-bottom: solid 1px #202023;
+  border-bottom: solid 1px var(--popup-item-border);
   display: flex;
 }
 
