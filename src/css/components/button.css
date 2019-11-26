@@ -23,11 +23,13 @@ button {
 .button.button-icon,
 button.button-icon {
   min-width: 32px;
-  line-height: 2.5rem;
+  display: flex;
+  align-items: center;
 }
 
-.button.button-icon img {
-  margin: 8px;
+.button.button-icon span {
+  text-align: center;
+  width: 100%;
 }
 
 .button.primary,
