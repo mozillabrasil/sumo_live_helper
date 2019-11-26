@@ -119,11 +119,12 @@ function createItem(product, title, id, isNew) {
   var buttonIcon = document.createElement('span');
   var url = 'https://support.mozilla.org/'+locale+'/questions/'+id;
 
+  // Add item identifier
+  item.className = 'item--' + id;
+  
   // Marks  questions as (un)read
   if (isNew) {
-    item.className = 'item--unread';
-  } else {
-    item.classList.remove('item--unread');
+    item.classList.add('item--unread');
   }
 
   // Generate question's elements
@@ -179,7 +180,7 @@ function toggleScreen() {
 
 // marks question as read
 function changeStatus(id) {
-    document.getElementById(id).parentNode.parentNode.parentNode.className = 'old';
+    document.getElementsByClassName('item--' + id)[0].classList.remove('item--unread');
     connection.postMessage({
         code: 'change_status',
         id: id
@@ -188,7 +189,7 @@ function changeStatus(id) {
 
 // remove a question
 function removeQuestion(id) {
-    document.getElementById(id).parentNode.parentNode.parentNode.style.display = 'none';
+    document.getElementsByClassName('item--' + id)[0].style.display = 'none !important';
 }
 
 // clears the notification and sets the title
