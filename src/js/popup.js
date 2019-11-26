@@ -124,9 +124,7 @@ function createItem(product, title, id, isNew) {
   
   // Marks  questions as (un)read
   if (isNew) {
-    item.className = 'item--unread';
-  } else {
-    item.classList.remove('item--unread');
+    item.classList.add('item--unread');
   }
 
   // Generate question's elements
@@ -182,7 +180,7 @@ function toggleScreen() {
 
 // marks question as read
 function changeStatus(id) {
-    document.getElementById(id).parentNode.parentNode.parentNode.className = 'old';
+    document.getElementsByClassName('item--' + id)[0].classList.remove('item--unread');
     connection.postMessage({
         code: 'change_status',
         id: id
