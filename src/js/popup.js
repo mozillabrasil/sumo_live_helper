@@ -104,7 +104,7 @@ function addQuestions(questions, finishedLoading) {
     }
     toggleScreen();
     if (finishedLoading) {
-        load.style.display = 'none';
+        load.style.opacity = '0';
     }
 }
 
