@@ -119,6 +119,9 @@ function createItem(product, title, id, isNew) {
   var buttonIcon = document.createElement('span');
   var url = 'https://support.mozilla.org/'+locale+'/questions/'+id;
 
+  // Add item identifier
+  item.className = 'item--' + id;
+  
   // Marks  questions as (un)read
   if (isNew) {
     item.className = 'item--unread';
