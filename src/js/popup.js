@@ -123,7 +123,7 @@ function createItem(product, title, id, isNew) {
   if (isNew) {
     item.className = 'item--unread';
   } else {
-    item.classList.remove("item--unread")
+    item.classList.remove('item--unread');
   }
 
   // Generate question's elements
