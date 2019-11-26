@@ -133,6 +133,10 @@ label > select {
   width: 32px;
 }
 
+.item--unread {
+  font-weight: bold;
+}
+
 /* Load */
 #load {
   height: 4px;

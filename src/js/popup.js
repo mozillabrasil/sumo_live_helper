@@ -113,6 +113,13 @@ function createItem(product, title, id, isNew) {
   var buttonIcon = document.createElement('span');
   var url = 'https://support.mozilla.org/'+locale+'/questions/'+id;
 
+  // Marks  questions as (un)read
+  if (isNew) {
+    item.className = 'item--unread';
+  } else {
+    item.classList.remove("item--unread")
+  }
+
   // Generate question's elements
   browser.storage.local.get().then(res => {
     iconProduct.src = '../res/products/' + product + '.png';
