@@ -23,6 +23,7 @@ button {
 .button.button-icon,
 button.button-icon {
   min-width: 32px;
+  line-height: 2.5rem;
 }
 
 .button.button-icon img {
