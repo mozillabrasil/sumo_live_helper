@@ -189,7 +189,7 @@ function changeStatus(id) {
 
 // remove a question
 function removeQuestion(id) {
-    document.getElementById(id).parentNode.parentNode.parentNode.style.display = 'none';
+    document.getElementsByClassName('item--' + id)[0].style.display = 'none !important';
 }
 
 // clears the notification and sets the title
