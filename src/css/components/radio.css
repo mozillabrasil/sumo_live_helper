@@ -8,6 +8,7 @@ input[type=radio] {
   background-color: var(--input-background);
   border: 1px solid var(--input-border-color);
   border-radius: 20px;
+  cursor: pointer;
   display: inline-block;
   height: 20px;
   width: 20px;

@@ -8,7 +8,7 @@ button {
   border: none;
   border-radius: 2px;
   color: var(--button-foreground);
-  cursor: default;
+  cursor: pointer;
   display: inline-block;
   font-family: var(--font-family);
   font-size: 13px;

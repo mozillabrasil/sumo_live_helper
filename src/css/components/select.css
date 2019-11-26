@@ -12,6 +12,7 @@ select {
   border: none;
   border-radius: 2px;
   color: var(--button-foreground);
+  cursor: pointer;
   font-family: var(--font-family);
   font-size: 13px;
   font-weight: 400;
