@@ -113,6 +113,9 @@
   
   --input-background: var(--white-100);
   --input-border-color: var(--grey-90-a20);
+
+  --load-background: var(--grey-20);
+  --load-foreground: var(--blue-60);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -138,5 +141,8 @@
 
     --input-background: var(--grey-85);
     --input-border-color: var(--grey-10-a20);
+
+    --load-background: var(--grey-70);
+    --load-foreground: var(--blue-60);
   }
 }
