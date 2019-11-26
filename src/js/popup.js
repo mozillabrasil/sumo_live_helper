@@ -147,8 +147,23 @@ function createItem(product, title, id, isNew) {
   item.appendChild(itemProduct);
   item.appendChild(itemTitle);
   item.appendChild(itemButton);
+    
+  // Place items in correct order
+  var buttons = items.getElementsByClassName('button');
+  var i = 0;
+  while (buttons[i] && buttons[i].id > id) {
+    i++;
+  }
+  
+  // Check that item isn't last on the list
+  if (i >= buttons.length) {
+    var pos = null;
+  } else {
+    var pos = items.childNodes[i];
+  }
 
-  items.appendChild(item);
+  // Add item to list
+  items.insertBefore(item, pos);
 }
 
 // shows/hides the question list
