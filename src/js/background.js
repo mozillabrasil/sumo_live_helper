@@ -5,6 +5,7 @@ var numberOfQuestionsOpened = 0;
 var numberOfAPIRequests = 0;
 browser.alarms.onAlarm.addListener(callAPI);
 browser.runtime.onMessage.addListener(messageListener);
+var apiFromPopup = false;
 
 // detects changes to the settings
 function settingsUpdated(changes, area) {
@@ -70,6 +71,7 @@ function messageListener(message, sender, sendResponse) {
   console.log(message);
     switch (message.code) {
         case 'call_api':
+            apiFromPopup = true;
             callAPI();
             break;
         case 'change_status':
@@ -268,8 +270,12 @@ function loadRequest(request) {
     savedQuestions = newQuestionList.concat(savedQuestions);
     browser.storage.local.set({'questions':savedQuestions});
 
-    if (showNotifications && newQuestionList.length > 0) {
+    if (!apiFromPopup && showNotifications && newQuestionList.length > 0) {
         showNotification(newQuestionList);
+    }
+  
+    if (finishedLoading) {
+        apiFromPopup = false;
     }
 
     questionCount();
