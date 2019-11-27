@@ -42,3 +42,6 @@
 .pf-reminders:before {
   content: "\e905";
 }
+.pf-sidebar:before {
+  content: "\e906";
+}

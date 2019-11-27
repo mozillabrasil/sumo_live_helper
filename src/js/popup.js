@@ -8,6 +8,7 @@ var locale;
 // popup menu items
 var refresh = document.getElementById('refresh');
 var settings = document.getElementById('settings');
+var openSidebar = document.getElementById('sidebar');
 var openTab = document.getElementById('open_tab');
 var load = document.getElementById('load');
 var empty = document.getElementById('empty');
@@ -33,6 +34,11 @@ settings.addEventListener('click', function() {
         url: 'preferences.html'
     });
 }, false);
+
+// sidebar button
+openSidebar.addEventListener('click', function() {
+    browser.sidebarAction.open();
+})
 
 // view button
 questions.addEventListener('click', function(e) {

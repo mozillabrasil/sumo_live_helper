@@ -3,7 +3,6 @@ let savedQuestions = browser.storage.local.get();
 savedQuestions.then(loaded);
 var numberOfQuestionsOpened = 0;
 var numberOfAPIRequests = 0;
-browser.runtime.onConnect.addListener(connected);
 browser.alarms.onAlarm.addListener(callAPI);
 browser.runtime.onMessage.addListener(messageListener);
 
