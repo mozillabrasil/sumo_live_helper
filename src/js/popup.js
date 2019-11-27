@@ -1,11 +1,6 @@
 // create connection to background.js
-var connection = browser.runtime.connect();
-connection.onMessage.addListener(handleMessage);
-
-// load previously saved questions
-connection.postMessage({
-    code: 'popup_open'
-});
+//var connection = browser.runtime.connect();
+browser.runtime.onMessage.addListener(handleMessage);
 
 // load locale
 var locale;
@@ -42,12 +37,28 @@ settings.addEventListener('click', function() {
 // view button
 questions.addEventListener('click', function(e) {
     if (e.target.id) {
-        changeStatus(e.target.id);
+        browser.runtime.sendMessage({
+            code: 'change_status',
+            id: e.target.id
+        });
+    } else if (e.target.parentNode.id) {
+        browser.runtime.sendMessage({
+            code: 'change_status',
+            id: e.target.parentNode.id
+        });
     }
 }, false);
 
+// load previously saved questions
+var init = browser.runtime.sendMessage({
+    code: 'popup_open'
+});
+init.then(loaded);
+
 // handle messages from background.js
 function handleMessage(message) {
+  console.log("Popup got message");
+  console.log(message);
     switch (message.code){
         case 'new_questions':
             addQuestions(message.questions, message.finishedLoading);
@@ -59,22 +70,26 @@ function handleMessage(message) {
         case 'hide_question':
             removeQuestion(message.id);
             break;
-        case 'popup_open':
-            savedQuestions = message.questions;
-            locale = message.language;
-            loaded();
+        case 'start-loading':
+            load.style.opacity = '1';
             break;
         case 'no_api_call':
             savedQuestions = [];
             addQuestions([], true);
             break;
+        case 'change_status':
+          changeStatus(message.id);
+          break;
         default:
             return;
     }
 }
 
 // runs when the browser loads the saved questions
-function loaded() {
+function loaded(data) {
+    savedQuestions = data.questions;
+    locale = data.language;
+  
     // loads items from saved data
     for (var i = 0; i < savedQuestions.length; i++) {
         var product = savedQuestions[i].product.toLowerCase();
@@ -90,7 +105,7 @@ function loaded() {
 
 // asks background.js to use SUMO API
 function callAPI() {
-    connection.postMessage({
+    browser.runtime.sendMessage({
         code: 'call_api'
     });
 }
@@ -181,10 +196,6 @@ function toggleScreen() {
 // marks question as read
 function changeStatus(id) {
     document.getElementsByClassName('item--' + id)[0].classList.remove('item--unread');
-    connection.postMessage({
-        code: 'change_status',
-        id: id
-    });
 }
 
 // remove a question

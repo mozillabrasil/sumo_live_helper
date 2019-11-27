@@ -2,11 +2,10 @@ var frequencySeekNewQuestions, locale, showNotifications;
 let savedQuestions = browser.storage.local.get();
 savedQuestions.then(loaded);
 var numberOfQuestionsOpened = 0;
-var popup = null;
-var popupOpen = false;
 var numberOfAPIRequests = 0;
 browser.runtime.onConnect.addListener(connected);
 browser.alarms.onAlarm.addListener(callAPI);
+browser.runtime.onMessage.addListener(messageListener);
 
 // detects changes to the settings
 function settingsUpdated(changes, area) {
@@ -66,39 +65,27 @@ function createAlarm(time) {
     browser.alarms.create('checkSUMO', {periodInMinutes: parseInt(time)}); // checks every X minutes
 }
 
-// creates connection to popup
-function connected(connection) {
-    popupOpen = true;
-    popup = connection;
-    popup.onMessage.addListener(messageListener);
-    popup.onDisconnect.addListener(closeConnection);
-}
-
-// closes connection to popup
-function closeConnection() {
-    popupOpen = false;
-    popup.onMessage.removeListener(messageListener);
-    popup.onDisconnect.removeListener(closeConnection);
-    popup = null;
-}
-
 // handles messages from popup
-function messageListener(message) {
+function messageListener(message, sender, sendResponse) {
+  console.log("Background got message");
+  console.log(message);
     switch (message.code) {
         case 'call_api':
             callAPI();
             break;
         case 'change_status':
             changeStatus(message.id);
+            browser.runtime.sendMessage({
+              code: 'change_status',
+              id: message.id
+            });
             break;
         case 'popup_open':
-            if (popup != null) {
-                popup.postMessage({
-                    code: 'popup_open',
-                    questions: savedQuestions,
-                    language: locale
-                });
-            }
+            sendResponse({
+                code: 'popup_open',
+                questions: savedQuestions,
+                language: locale
+            });
             break;
         default:
             return;
@@ -109,6 +96,9 @@ function messageListener(message) {
 function callAPI() {
     // request for questions not solved, not spam, not locked, product Firefox, not taken, not archived
     // and using the language based of the Firefox used
+    browser.runtime.sendMessage({
+      code: 'start-loading'
+    });
     let requests = Array(product.length);
     numberOfAPIRequests = product.length;
     for (i = 0; i < product.length; i++) {
@@ -123,11 +113,9 @@ function callAPI() {
     }
     // If the user doesn't have any products selected
     if (product.length < 1) {
-        if (popupOpen) {
-            popup.postMessage({
-                code: 'no_api_call'
-            });
-        }
+          browser.runtime.sendMessage({
+              code: 'no_api_call'
+          });
         savedQuestions = [];
         questionCount();
     }
@@ -227,12 +215,10 @@ function removeOld(list, prod) {
         }
         
         if (!found) {
-            if (popup != null) {
-                popup.postMessage({
-                    code: 'hide_question',
-                    id: savedQuestions[i].id
-                });
-            }
+              browser.runtime.sendMessage({
+                  code: 'hide_question',
+                  id: savedQuestions[i].id
+              });
             savedQuestions.splice(i,1);
         } else {
             i++;
@@ -283,20 +269,17 @@ function loadRequest(request) {
     savedQuestions = newQuestionList.concat(savedQuestions);
     browser.storage.local.set({'questions':savedQuestions});
 
-    if (!popupOpen && showNotifications && newQuestionList.length > 0) {
+    if (showNotifications && newQuestionList.length > 0) {
         showNotification(newQuestionList);
     }
 
     questionCount();
-
-    if (popup) {
-        syncQuestions();
-        popup.postMessage({
-            code: 'new_questions',
-            questions: newQuestionList,
-            finishedLoading: finishedLoading
-        });
-    }
+    syncQuestions();
+    browser.runtime.sendMessage({
+        code: 'new_questions',
+        questions: newQuestionList,
+        finishedLoading: finishedLoading
+    });
 }
 
 // marks question as read
@@ -317,13 +300,11 @@ function changeStatus(id) {
 }
 
 function syncQuestions() {
-    if (popup != null) {
-        popup.postMessage({
-            code: 'sync_questions',
-            questions: savedQuestions,
-            language: locale
-        });
-    }
+    browser.runtime.sendMessage({
+        code: 'sync_questions',
+        questions: savedQuestions,
+        language: locale
+    });
 }
 
 function showNotification(questions) {
@@ -344,4 +325,10 @@ function showNotification(questions) {
         title: title,
         message: message
     });
+}
+
+// Checks if the sidebar is open
+async function isSidebarOpen() {
+  var result = await browser.sidebarAction.isOpen({});
+  return result;
 }
