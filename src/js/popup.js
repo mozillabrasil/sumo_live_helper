@@ -43,6 +43,8 @@ settings.addEventListener('click', function() {
 questions.addEventListener('click', function(e) {
     if (e.target.id) {
         changeStatus(e.target.id);
+    } else if (e.target.parentNode.id) {
+        changeStatus(e.target.parentNode.id);
     }
 }, false);
 
