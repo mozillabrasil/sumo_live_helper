@@ -63,8 +63,6 @@ init.then(loaded);
 
 // handle messages from background.js
 function handleMessage(message) {
-  console.log("Popup got message");
-  console.log(message);
     switch (message.code){
         case 'new_questions':
             addQuestions(message.questions, message.finishedLoading);
@@ -210,8 +208,11 @@ function removeQuestion(id) {
 }
 
 // clears the notification and sets the title
-function clearNotifications() {
+async function clearNotifications() {
     for (var i = 0; i < savedQuestions.length; i++) {
-        changeStatus(savedQuestions[i].id);
+        await browser.runtime.sendMessage({
+            code: 'change_status',
+            id: savedQuestions[i].id
+        });
     }
 }

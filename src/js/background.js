@@ -67,8 +67,6 @@ function createAlarm(time) {
 
 // handles messages from popup
 function messageListener(message, sender, sendResponse) {
-  console.log("Background got message");
-  console.log(message);
     switch (message.code) {
         case 'call_api':
             apiFromPopup = true;
