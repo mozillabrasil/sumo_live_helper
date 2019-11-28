@@ -1,84 +1,61 @@
-// version
+// Insert version number
 var version = document.getElementById("version");
 version.textContent = " (v" + browser.runtime.getManifest().version + ")";
 
-// store option UI elements
-var language = document.getElementById("chooseLanguage");
-var timer = document.getElementById("frequencySeekNewQuestions");
-var notifications = document.getElementById("showNotifications");
-var products = document.getElementsByClassName("product-selection");
-var preferSidebar = document.getElementById('preferSidebar');
-
-// load data
+// Load data
 var data = browser.storage.local.get();
 data.then(loadSettings);
+document.settings.addEventListener('change', saveChange);
 
-// insert settings into UI
+// Load data from storage
 function loadSettings(data) {
-    // load language
-    if (typeof data.chooseLanguage !== 'undefined' && data.chooseLanguage !== null) {
-        language.value = data.chooseLanguage;
-    } else {
-        language.value = "en-US";
-    }
-
-    // load check frequency
-    if (typeof data.frequencySeekNewQuestions !== 'undefined' && data.frequencySeekNewQuestions !== null) {
-        timer.value = data.frequencySeekNewQuestions;
-    } else {
-        timer.value = 15;
+    if (data.chooseLanguage) {
+        document.settings.chooseLanguage.value = data.chooseLanguage;
     }
     
-    // load show notifications
-    if (typeof data.showNotifications !== 'undefined' && data.showNotifications !== null) {
-        notifications.checked = data.showNotifications;
-    } else {
-        notifications.checked = false;
+    if (data.frequencySeekNewQuestions) {
+        document.settings.frequencySeekNewQuestions.value = data.frequencySeekNewQuestions;
     }
     
-    // load replace popup
-    if (typeof data.preferSidebar !== 'undefined' && data.preferSidebar !== null) {
-        preferSidebar.checked = data.preferSidebar;
-    } else {
-        preferSidebar.checked = false;
+    if (data.showNotifications) {
+        document.settings.showNotifications.checked = data.showNotifications;
     }
-
-    // load product
-    if (typeof data.chooseProduct !== 'undefined' && data.chooseProduct !== null) {
+    
+    if (data.preferSidebar) {
+        document.settings.preferSidebar.checked = data.preferSidebar;
+    }
+    
+    if (data.chooseProduct) {
         var temp = data.chooseProduct;
         for (i = 0; i < temp.length; i++) {
             document.getElementById(temp[i].toLowerCase()).checked = true;
         }
     } else {
-        document.getElementById('firefox').checked = true;
-    }
-
-    language.addEventListener('change', function() {
-        browser.storage.local.set({chooseLanguage: language.value});
-    });
-    timer.addEventListener('change', function() {
-        browser.storage.local.set({frequencySeekNewQuestions: timer.value});
-    });
-    notifications.addEventListener('change', function() {
-        browser.storage.local.set({showNotifications: showNotifications.checked});
-    });
-    preferSidebar.addEventListener('change', function() {
-        browser.storage.local.set({preferSidebar: preferSidebar.checked});
-    });
-    for (i = 0; i < products.length; i++) {
-        products[i].addEventListener('change', function() {
-            saveProducts();
-        });
+        document.settings.chooseProduct[i].checked = true;
     }
 }
 
-// Saves user product selection
+// Save a setting
+function saveChange(e) {
+    if (e.target.name == 'chooseProduct') {
+        var pref = saveProducts();
+    } else if (e.target.type == 'checkbox') {
+        var pref = e.target.checked;
+    } else {
+        var pref = e.target.value;
+    }
+    var preference = {};
+    preference[e.target.name] = pref;
+    browser.storage.local.set(preference);
+}
+
+// Saves products
 function saveProducts() {
-    var temp = [];
-    for (i = 0; i < products.length; i++) {
-        if (products[i].checked) {
-            temp.push(products[i].value);
+    var pref = [];
+    for (i = 0; i < document.settings.chooseProduct.length; i++) {
+        if (document.settings.chooseProduct[i].checked) {
+            pref.push(document.settings.chooseProduct[i].value);
         }
     }
-    browser.storage.local.set({chooseProduct: temp});
+    return pref;
 }
