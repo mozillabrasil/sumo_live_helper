@@ -24,8 +24,7 @@
           "32": "/res/logo/sumo.svg",
           "64": "/res/logo/sumo.svg"
         },
-        "default_title": "__MSG_extensionName__",
-        "default_popup": "/html/popup.html"
+        "default_title": "__MSG_extensionName__"
     },
     "background": {
         "scripts": ["/js/background.js"]

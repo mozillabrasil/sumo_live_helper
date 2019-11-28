@@ -1,10 +1,12 @@
-var frequencySeekNewQuestions, locale, showNotifications;
+var frequencySeekNewQuestions, locale, showNotifications, preferSidebar;
 let savedQuestions = browser.storage.local.get();
 savedQuestions.then(loaded);
 var numberOfQuestionsOpened = 0;
 var numberOfAPIRequests = 0;
 browser.alarms.onAlarm.addListener(callAPI);
 browser.runtime.onMessage.addListener(messageListener);
+browser.browserAction.onClicked.addListener(toggleDisplay);
+//browser.notifications.onClicked.addListener(toggleDisplay); API limitation
 var apiFromPopup = false;
 
 // detects changes to the settings
@@ -27,9 +29,31 @@ function settingsUpdated(changes, area) {
                 product = changes[item].newValue;
                 callAPI();
                 break;
+            case 'preferSidebar':
+                preferSidebar = changes[item].newValue;
+                toggleSidebarPreference();
+                break;
             default:
                 return;
         }
+    }
+}
+
+// Toggles sidebar setting
+function toggleSidebarPreference() {
+    if (!preferSidebar) {
+        browser.browserAction.setPopup({popup: '/html/popup.html'});
+    } else {
+        browser.browserAction.setPopup({popup: ''});
+    }
+}
+
+// Open/closes sidebar
+function toggleDisplay() {
+    if (preferSidebar) {
+        browser.sidebarAction.open();
+    } else {
+        browser.browserAction.openPopup();
     }
 }
 
@@ -55,11 +79,6 @@ function checkProduct(data) {
     }
 }
 
-// API limitations prevent this
-/*browser.notifications.onClicked.addListener(function() {
-    browser.browserAction.openPopup();
-});*/
-
 // creates API check
 function createAlarm(time) {
     browser.alarms.create('checkSUMO', {periodInMinutes: parseInt(time)}); // checks every X minutes
@@ -80,6 +99,7 @@ function messageListener(message, sender, sendResponse) {
             });
             break;
         case 'popup_open':
+            isSidebarOpen();
             sendResponse({
                 code: 'popup_open',
                 questions: savedQuestions,
@@ -155,8 +175,15 @@ function loaded(data) {
     } else {
         product = data.chooseProduct;
     }
+    
+    if (typeof data.preferSidebar === 'undefined' || data.preferSidebar === null) {
+        preferSidebar = false;
+    } else {
+        preferSidebar = data.preferSidebar;
+    }
 
     browser.storage.onChanged.addListener(settingsUpdated);
+    toggleSidebarPreference();
     createAlarm(frequencySeekNewQuestions);
     checkProduct(data);
     questionCount();
@@ -333,5 +360,6 @@ function showNotification(questions) {
 // Checks if the sidebar is open
 async function isSidebarOpen() {
   var result = await browser.sidebarAction.isOpen({});
+  sidebarOpen = result;
   return result;
 }

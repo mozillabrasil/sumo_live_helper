@@ -7,6 +7,7 @@ var language = document.getElementById("chooseLanguage");
 var timer = document.getElementById("frequencySeekNewQuestions");
 var notifications = document.getElementById("showNotifications");
 var products = document.getElementsByClassName("product-selection");
+var preferSidebar = document.getElementById('preferSidebar');
 
 // load data
 var data = browser.storage.local.get();
@@ -34,6 +35,13 @@ function loadSettings(data) {
     } else {
         notifications.checked = false;
     }
+    
+    // load replace popup
+    if (typeof data.preferSidebar !== 'undefined' && data.preferSidebar !== null) {
+        preferSidebar.checked = data.preferSidebar;
+    } else {
+        preferSidebar.checked = false;
+    }
 
     // load product
     if (typeof data.chooseProduct !== 'undefined' && data.chooseProduct !== null) {
@@ -53,6 +61,9 @@ function loadSettings(data) {
     });
     notifications.addEventListener('change', function() {
         browser.storage.local.set({showNotifications: showNotifications.checked});
+    });
+    preferSidebar.addEventListener('change', function() {
+        browser.storage.local.set({preferSidebar: preferSidebar.checked});
     });
     for (i = 0; i < products.length; i++) {
         products[i].addEventListener('change', function() {
