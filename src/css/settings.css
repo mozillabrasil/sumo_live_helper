@@ -109,6 +109,7 @@
 
   --popup-background: var(--white-100);
   --popup-foreground: var(--grey-90);
+  --popup-header-border: var(--grey-30);
   --popup-item-border: var(--grey-30);
   
   --input-background: var(--white-100);
@@ -137,6 +138,7 @@
     
     --popup-background: var(--grey-60);
     --popup-foreground: var(--grey-10);
+    --popup-header-border: var(--grey-70);
     --popup-item-border: var(--grey-70);
 
     --input-background: var(--grey-85);

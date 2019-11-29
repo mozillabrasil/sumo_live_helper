@@ -91,6 +91,14 @@ label > select {
   padding-top: 16px;
 }
 
+#popup header,
+#popup nav {
+  background-color: var(--popup-background);
+  border-bottom: solid 1px var(--popup-header-border);
+  position: sticky;
+  top: 0;
+}
+
 #popup main {
   grid-area: main;
 }
@@ -141,9 +149,11 @@ label > select {
 #load {
   height: 4px;
   width: 100%;
-  position: relative;
+  position: fixed;
+  top: 0;
+  left: 0;
   overflow: hidden;
-  background-color: var(--load-background);
+  transition: ease opacity .5s;
 }
 
 #load:before{
