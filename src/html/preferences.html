@@ -32,7 +32,7 @@
         </li>
       </ul>
     </nav>
-    <main>
+    <form name="settings">
       <h2>General</h2>  
       
       <h3>Synchronisation</h3>
@@ -50,6 +50,10 @@
         <input id="showNotifications" type="checkbox" name="showNotifications">
         <span data-i18n="show_notifications"></span>
       </label>
+      <label for="preferSidebar">
+        <input id="preferSidebar" type="checkbox" name="preferSidebar">
+        <span data-i18n="prefer_sidebar"></span>
+      </label>
 
       <h3>Products</h3>
       <!-- Add a aria label to link the p to the checkbox list below -->
@@ -57,36 +61,36 @@
         <span data-i18n="choose_product_description"></span>
       </p>
       <label for="firefox">
-        <input id="firefox" 
-               class="product-selection"
+        <input id="firefox"
+               name="chooseProduct"
                type="checkbox" 
                value="Firefox">
         <span data-i18n="product_firefox"></span>
       </label>
       <label for="firefox-enterprise">
-        <input id="firefox-enterprise" 
-               class="product-selection"
+        <input id="firefox-enterprise"
+               name="chooseProduct"
                type="checkbox" 
                value="firefox-enterprise">
         <span data-i18n="product_firefox-enterprise"></span>
       </label>
       <label for="mobile">
         <input id="mobile" 
-               class="product-selection"
+               name="chooseProduct" 
                type="checkbox" 
                value="mobile">
         <span data-i18n="product_mobile"></span>
       </label>
       <label for="ios">
         <input id="ios" 
-               class="product-selection"
+               name="chooseProduct"
                type="checkbox" 
                value="ios">
         <span data-i18n="product_ios"></span>
       </label>
       <label for="thunderbird">
         <input id="thunderbird" 
-               class="product-selection"
+               name="chooseProduct"
                type="checkbox" 
                value="Thunderbird">
         <span data-i18n="product_thunderbird"></span>
@@ -104,7 +108,7 @@
           <option value="pt-BR">Português (do Brasil)</option>
         </select>
       </label>
-    </main>
+    </form>
 
     <script src="../js/language.js"></script>
     <script src="../js/preferences.js"></script>

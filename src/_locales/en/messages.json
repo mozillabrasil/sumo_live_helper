@@ -86,5 +86,11 @@
   },
   "open_preferences": {
     "message": "Open preferences"
+  },
+  "prefer_sidebar": {
+    "message": "Always open questions in sidebar"
+  },
+  "open_sidebar": {
+    "message": "Open sidebar"
   }
 }

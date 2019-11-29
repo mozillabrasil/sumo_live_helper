@@ -24,8 +24,7 @@
           "32": "/res/logo/sumo.svg",
           "64": "/res/logo/sumo.svg"
         },
-        "default_title": "__MSG_extensionName__",
-        "default_popup": "/html/popup.html"
+        "default_title": "__MSG_extensionName__"
     },
     "background": {
         "scripts": ["/js/background.js"]
@@ -34,6 +33,19 @@
         "browser_style": false,
         "open_in_tab": true,
         "page": "html/preferences.html"
+    },
+    "sidebar_action": {
+        "default_icon": "/res/logo/sumo.svg",
+        "default_title": "__MSG_extensionName__",
+        "default_panel": "html/popup.html?view=sidebar",
+        "open_at_install": false
+    },
+    "commands": {
+        "_execute_sidebar_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+L"
+            }
+        }
     },
     "permissions": [
         "alarms",

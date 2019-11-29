@@ -1,11 +1,6 @@
 // create connection to background.js
-var connection = browser.runtime.connect();
-connection.onMessage.addListener(handleMessage);
-
-// load previously saved questions
-connection.postMessage({
-    code: 'popup_open'
-});
+//var connection = browser.runtime.connect();
+browser.runtime.onMessage.addListener(handleMessage);
 
 // load locale
 var locale;
@@ -13,6 +8,7 @@ var locale;
 // popup menu items
 var refresh = document.getElementById('refresh');
 var settings = document.getElementById('settings');
+var openSidebar = document.getElementById('sidebar');
 var openTab = document.getElementById('open_tab');
 var load = document.getElementById('load');
 var empty = document.getElementById('empty');
@@ -23,14 +19,13 @@ var clear = document.getElementById('clear');
 clear.title = browser.i18n.getMessage('clear_notifications');
 refresh.title = browser.i18n.getMessage('refresh');
 settings.title = browser.i18n.getMessage('open_preferences');
+openSidebar.title = browser.i18n.getMessage('open_sidebar');
 
 // clear notifications button
 clear.addEventListener('click', clearNotifications, false);
 
 // refresh button
-refresh.addEventListener('click', function(){
-    location.reload();
-}, false);
+refresh.addEventListener('click', callAPI, false);
 
 // open preferences button
 settings.addEventListener('click', function() {
@@ -39,14 +34,34 @@ settings.addEventListener('click', function() {
     });
 }, false);
 
+// sidebar button
+openSidebar.addEventListener('click', function() {
+    browser.sidebarAction.open();
+})
+
 // view button
 questions.addEventListener('click', function(e) {
     if (e.target.id) {
-        changeStatus(e.target.id);
+        browser.runtime.sendMessage({
+            code: 'change_status',
+            id: e.target.id
+        });
     } else if (e.target.parentNode.id) {
-        changeStatus(e.target.parentNode.id);
+        browser.runtime.sendMessage({
+            code: 'change_status',
+            id: e.target.parentNode.id
+        });
     }
 }, false);
+
+// Adjust UI
+isSidebar();
+
+// load previously saved questions
+var init = browser.runtime.sendMessage({
+    code: 'popup_open'
+});
+init.then(loaded);
 
 // handle messages from background.js
 function handleMessage(message) {
@@ -61,22 +76,26 @@ function handleMessage(message) {
         case 'hide_question':
             removeQuestion(message.id);
             break;
-        case 'popup_open':
-            savedQuestions = message.questions;
-            locale = message.language;
-            loaded();
+        case 'start-loading':
+            load.style.opacity = '1';
             break;
         case 'no_api_call':
             savedQuestions = [];
             addQuestions([], true);
             break;
+        case 'change_status':
+          changeStatus(message.id);
+          break;
         default:
             return;
     }
 }
 
 // runs when the browser loads the saved questions
-function loaded() {
+function loaded(data) {
+    savedQuestions = data.questions;
+    locale = data.language;
+  
     // loads items from saved data
     for (var i = 0; i < savedQuestions.length; i++) {
         var product = savedQuestions[i].product.toLowerCase();
@@ -85,14 +104,15 @@ function loaded() {
         var isNew = savedQuestions[i].new;
         createItem(product, title, id, isNew);
     }
-    
+
     toggleScreen();
     callAPI();
 }
 
 // asks background.js to use SUMO API
 function callAPI() {
-    connection.postMessage({
+    load.style.opacity = '1';
+    browser.runtime.sendMessage({
         code: 'call_api'
     });
 }
@@ -183,10 +203,6 @@ function toggleScreen() {
 // marks question as read
 function changeStatus(id) {
     document.getElementsByClassName('item--' + id)[0].classList.remove('item--unread');
-    connection.postMessage({
-        code: 'change_status',
-        id: id
-    });
 }
 
 // remove a question
@@ -195,8 +211,24 @@ function removeQuestion(id) {
 }
 
 // clears the notification and sets the title
-function clearNotifications() {
+async function clearNotifications() {
     for (var i = 0; i < savedQuestions.length; i++) {
-        changeStatus(savedQuestions[i].id);
+        await browser.runtime.sendMessage({
+            code: 'change_status',
+            id: savedQuestions[i].id
+        });
+    }
+}
+
+// determines if the page is the sidebar
+function isSidebar() {
+    let queries = window.location.href;
+    queries = queries.substring(queries.indexOf('?') + 1, queries.length);
+    if (queries.indexOf('popup') >= 0) {
+        document.body.className = 'popup';
+        return false;
+    } else {
+        document.body.className = 'sidebar';
+        return true;
     }
 }

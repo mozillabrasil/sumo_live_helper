@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'photon-font';
   src:
-    url('../fonts/photon-font.ttf?tcnujv') format('truetype'),
-    url('../fonts/photon-font.woff?tcnujv') format('woff'),
-    url('../fonts/photon-font.svg?tcnujv#photon-font') format('svg');
+    url('../fonts/photon-font.ttf?r50hwb') format('truetype'),
+    url('../fonts/photon-font.woff?r50hwb') format('woff'),
+    url('../fonts/photon-font.svg?r50hwb#photon-font') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -41,4 +41,7 @@
 }
 .pf-reminders:before {
   content: "\e905";
+}
+.pf-sidebar-left:before {
+  content: "\e906";
 }
