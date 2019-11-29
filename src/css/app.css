@@ -153,6 +153,7 @@ label > select {
   top: 0;
   left: 0;
   overflow: hidden;
+  transition: ease opacity .5s;
 }
 
 #load:before{
