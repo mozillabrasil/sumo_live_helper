@@ -1,4 +1,4 @@
 .sidebar nav li:last-of-type,
-.sidebar header h1 span {
+.sidebar header h1 {
     display: none !important;
 }
