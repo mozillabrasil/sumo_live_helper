@@ -40,6 +40,13 @@
         "default_panel": "html/popup.html?view=sidebar",
         "open_at_install": false
     },
+    "commands": {
+        "_execute_sidebar_action": {
+            "suggested_key": {
+                "default": "Ctrl+Shift+L"
+            }
+        }
+    },
     "permissions": [
         "alarms",
         "tabs",
