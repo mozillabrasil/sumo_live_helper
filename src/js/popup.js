@@ -19,6 +19,7 @@ var clear = document.getElementById('clear');
 clear.title = browser.i18n.getMessage('clear_notifications');
 refresh.title = browser.i18n.getMessage('refresh');
 settings.title = browser.i18n.getMessage('open_preferences');
+openSidebar.title = browser.i18n.getMessage('open_sidebar');
 
 // clear notifications button
 clear.addEventListener('click', clearNotifications, false);
