@@ -25,9 +25,7 @@ openSidebar.title = browser.i18n.getMessage('open_sidebar');
 clear.addEventListener('click', clearNotifications, false);
 
 // refresh button
-refresh.addEventListener('click', function(){
-    location.reload();
-}, false);
+refresh.addEventListener('click', callAPI, false);
 
 // open preferences button
 settings.addEventListener('click', function() {
@@ -113,6 +111,7 @@ function loaded(data) {
 
 // asks background.js to use SUMO API
 function callAPI() {
+    load.style.opacity = '1';
     browser.runtime.sendMessage({
         code: 'call_api'
     });
