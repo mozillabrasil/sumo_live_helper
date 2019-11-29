@@ -37,7 +37,7 @@
     "sidebar_action": {
         "default_icon": "/res/logo/sumo.svg",
         "default_title": "__MSG_extensionName__",
-        "default_panel": "html/popup.html",
+        "default_panel": "html/popup.html?view=sidebar",
         "open_at_install": false
     },
     "permissions": [

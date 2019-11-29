@@ -42,7 +42,7 @@ function settingsUpdated(changes, area) {
 // Toggles sidebar setting
 function toggleSidebarPreference() {
     if (!preferSidebar) {
-        browser.browserAction.setPopup({popup: '/html/popup.html'});
+        browser.browserAction.setPopup({popup: '/html/popup.html?view=popup'});
     } else {
         browser.browserAction.setPopup({popup: ''});
     }

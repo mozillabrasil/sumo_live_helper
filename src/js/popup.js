@@ -55,6 +55,9 @@ questions.addEventListener('click', function(e) {
     }
 }, false);
 
+// Adjust UI
+isSidebar();
+
 // load previously saved questions
 var init = browser.runtime.sendMessage({
     code: 'popup_open'
@@ -102,7 +105,7 @@ function loaded(data) {
         var isNew = savedQuestions[i].new;
         createItem(product, title, id, isNew);
     }
-    
+
     toggleScreen();
     callAPI();
 }
@@ -214,5 +217,18 @@ async function clearNotifications() {
             code: 'change_status',
             id: savedQuestions[i].id
         });
+    }
+}
+
+// determines if the page is the sidebar
+function isSidebar() {
+    let queries = window.location.href;
+    queries = queries.substring(queries.indexOf('?') + 1, queries.length);
+    if (queries.indexOf('popup') >= 0) {
+        document.body.className = 'popup';
+        return false;
+    } else {
+        document.body.className = 'sidebar';
+        return true;
     }
 }

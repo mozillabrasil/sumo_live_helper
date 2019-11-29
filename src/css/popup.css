@@ -1,0 +1,3 @@
+.sidebar nav li:last-of-type {
+    display: none !important;
+}
