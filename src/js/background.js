@@ -235,7 +235,9 @@ function removeOld(list, prod) {
         
         while (x < list.length && !found && matchesList) {
             if (savedQuestions[i].id == list[x].id) {
-                found = true;
+                if (list[x].is_locked == false && list[x].is_spam == false) {
+                    found = true;
+                }
             }
             x++;
         }
@@ -269,7 +271,7 @@ function loadRequest(request) {
     var newQuestionList = [];
     
     for(var i = 0; i < responseSUMO.results.length; i++){
-        if(responseSUMO.results[i].num_answers == 0){
+        if(responseSUMO.results[i].num_answers == 0 && responseSUMO.results[i].is_spam == false && responseSUMO.results[i].is_locked == false){
             var id = responseSUMO.results[i].id;
             var title = responseSUMO.results[i].title;
             var x = 0;
