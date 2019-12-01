@@ -1,234 +1,289 @@
-// create connection to background.js
-//var connection = browser.runtime.connect();
+// Create message handler
 browser.runtime.onMessage.addListener(handleMessage);
 
-// load locale
-var locale;
+// Declaration of UI elements
+const clear = document.getElementById('clear');
+const refresh = document.getElementById('refresh');
+const settings = document.getElementById('settings');
+const sidebar = document.getElementById('sidebar');
+const questionListUI = document.getElementById('questions');
 
-// popup menu items
-var refresh = document.getElementById('refresh');
-var settings = document.getElementById('settings');
-var openSidebar = document.getElementById('sidebar');
-var openTab = document.getElementById('open_tab');
-var load = document.getElementById('load');
-var empty = document.getElementById('empty');
-var questions = document.getElementById('questions');
-var clear = document.getElementById('clear');
-
-// title i18n
+// Button localized text
 clear.title = browser.i18n.getMessage('clear_notifications');
 refresh.title = browser.i18n.getMessage('refresh');
 settings.title = browser.i18n.getMessage('open_preferences');
-openSidebar.title = browser.i18n.getMessage('open_sidebar');
+sidebar.title = browser.i18n.getMessage('open_sidebar');
 
-// clear notifications button
-clear.addEventListener('click', clearNotifications, false);
-
-// refresh button
+// Button click handlers
+clear.addEventListener('click', markAllAsRead, false);
 refresh.addEventListener('click', callAPI, false);
-
-// open preferences button
-settings.addEventListener('click', function() {
-    browser.tabs.create({
-        url: 'preferences.html'
-    });
-}, false);
-
-// sidebar button
-openSidebar.addEventListener('click', function() {
-    browser.sidebarAction.open();
-})
-
-// view button
-questions.addEventListener('click', function(e) {
-    if (e.target.id) {
-        browser.runtime.sendMessage({
-            code: 'change_status',
-            id: e.target.id
-        });
-    } else if (e.target.parentNode.id) {
-        browser.runtime.sendMessage({
-            code: 'change_status',
-            id: e.target.parentNode.id
-        });
-    }
-}, false);
+settings.addEventListener('click', openPreferences, false);
+sidebar.addEventListener('click', openSidebar, false);
+questionListUI.addEventListener('click', openQuestion, false);
 
 // Adjust UI
 isSidebar();
 
-// load previously saved questions
-var init = browser.runtime.sendMessage({
-    code: 'popup_open'
+// Request current question list
+let getQuestionList = browser.runtime.sendMessage({
+    task: 'get_question_list'
 });
-init.then(loaded);
+getQuestionList.then(dataLoaded);
 
-// handle messages from background.js
-function handleMessage(message) {
-    switch (message.code){
-        case 'new_questions':
-            addQuestions(message.questions, message.finishedLoading);
-            break;
-        case 'sync_questions':
-            savedQuestions = message.questions;
-            locale = message.language;
-            break;
-        case 'hide_question':
-            removeQuestion(message.id);
-            break;
-        case 'start-loading':
-            load.style.opacity = '1';
-            break;
-        case 'no_api_call':
-            savedQuestions = [];
-            addQuestions([], true);
-            break;
-        case 'change_status':
-          changeStatus(message.id);
-          break;
-        default:
-            return;
-    }
-}
-
-// runs when the browser loads the saved questions
-function loaded(data) {
-    savedQuestions = data.questions;
-    locale = data.language;
-  
-    // loads items from saved data
-    for (var i = 0; i < savedQuestions.length; i++) {
-        var product = savedQuestions[i].product.toLowerCase();
-        var title = savedQuestions[i].title;
-        var id = savedQuestions[i].id;
-        var isNew = savedQuestions[i].new;
-        createItem(product, title, id, isNew);
-    }
-
-    toggleScreen();
-    callAPI();
-}
-
-// asks background.js to use SUMO API
-function callAPI() {
-    load.style.opacity = '1';
-    browser.runtime.sendMessage({
-        code: 'call_api'
+/**
+ * Open extension preferences page
+ */
+function openPreferences() {
+    browser.tabs.create({
+        url: 'preferences.html'
     });
 }
 
-// add new questions to the list
-function addQuestions(questions, finishedLoading) {
-    for (i = 0; i < questions.length; i++) {
-        createItem(questions[i].product, 
-                   questions[i].title, 
-                   questions[i].id, true);
-    }
-    toggleScreen();
-    if (finishedLoading) {
-        load.style.opacity = '0';
-    }
+/**
+ * Open sidebar
+ */
+function openSidebar() {
+    browser.sidebarAction.open();
 }
 
-function createItem(product, title, id, isNew) {
-  var items = document.getElementById('items');
-  var item = document.createElement('li');
-  var itemProduct = document.createElement('div');
-  var itemTitle = document.createElement('div');
-  var itemButton = document.createElement('div');
-  var iconProduct = document.createElement('img');
-  var button = document.createElement('a');
-  var buttonIcon = document.createElement('span');
-  var url = 'https://support.mozilla.org/'+locale+'/questions/'+id;
-
-  // Add item identifier
-  item.className = 'item--' + id;
-  
-  // Marks  questions as (un)read
-  if (isNew) {
-    item.classList.add('item--unread');
-  }
-
-  // Generate question's elements
-  browser.storage.local.get().then(res => {
-    iconProduct.src = '../res/products/' + product + '.png';
-    iconProduct.title = browser.i18n.getMessage('product_' + product);
-  });
-  iconProduct.className = 'item__icon';
-  itemProduct.appendChild(iconProduct);
-
-  itemTitle.textContent = title;
-  
-  button.className = 'button button-icon primary';
-  button.id = id;
-  button.href = url;
-  buttonIcon.className = 'pf-open-in-new';
-  button.appendChild(buttonIcon);
-  itemButton.appendChild(button);
-
-  // Merge question's elements together
-  item.appendChild(itemProduct);
-  item.appendChild(itemTitle);
-  item.appendChild(itemButton);
-    
-  // Place items in correct order
-  var buttons = items.getElementsByClassName('button');
-  var i = 0;
-  while (buttons[i] && buttons[i].id > id) {
-    i++;
-  }
-  
-  // Check that item isn't last on the list
-  if (i >= buttons.length) {
-    var pos = null;
-  } else {
-    var pos = items.childNodes[i];
-  }
-
-  // Add item to list
-  items.insertBefore(item, pos);
-}
-
-// shows/hides the question list
-function toggleScreen() {
-    if (savedQuestions.length > 0) {
-        questions.style.display = 'block';
-        empty.style.display = 'none';
-    } else {
-        questions.style.display = 'none';
-        empty.style.display = 'block';
-    }
-}
-
-// marks question as read
-function changeStatus(id) {
-    document.getElementsByClassName('item--' + id)[0].classList.remove('item--unread');
-}
-
-// remove a question
-function removeQuestion(id) {
-    document.getElementsByClassName('item--' + id)[0].style.display = 'none !important';
-}
-
-// clears the notification and sets the title
-async function clearNotifications() {
-    for (var i = 0; i < savedQuestions.length; i++) {
-        await browser.runtime.sendMessage({
-            code: 'change_status',
-            id: savedQuestions[i].id
+/**
+ * Open question
+ * @param {object} question Question item button
+ */
+function openQuestion(question) {
+    if (question.target.id) {
+        browser.runtime.sendMessage({
+            task: 'mark_as_read',
+            id: question.target.id
+        });
+    } else if (question.target.parentNode.id) {
+        browser.runtime.sendMessage({
+            task: 'mark_as_read',
+            id: question.target.parentNode.id
         });
     }
 }
 
-// determines if the page is the sidebar
+/**
+ * Handle incoming messages
+ * @param {object} message
+ */
+function handleMessage(message) {
+    switch (message.task) {
+        case 'add_new_questions':
+            addQuestions(message.questions, message.isFinishedLoading);
+            return;
+        case 'update_question_list':
+            questionList = message.questions;
+            return;
+        case 'remove_question':
+            removeQuestion(message.id);
+            return;
+        case 'start_loading':
+            showLoadingBar(true);
+            return;
+        case 'mark_as_read':
+            markAsRead(message.id);
+            return;
+        case 'no_api_call':
+            questionList = [];
+            addQuestions([], true);
+            return;
+    }
+}
+
+/**
+ * Run when browser loaded data from Storage API
+ * @param {object} data
+ */
+function dataLoaded(data) {
+    questionList = data.questions;
+
+    for (i = 0; i < questionList.length; i++) {
+        createQuestionUI(
+            questionList[i].product.toLowerCase(),
+            questionList[i].title,
+            questionList[i].id,
+            data.locale,
+            questionList[i].new
+        );
+    }
+
+    toggleQuestionList();
+    callAPI();
+}
+
+/**
+ * Trigger call to SUMO API
+ */
+function callAPI() {
+    showLoadingBar(true);
+    browser.runtime.sendMessage({
+        task: 'call_api'
+    });
+}
+
+/**
+ * Add new questions to list
+ * @param {Array} questions
+ * @param {boolean} isFinishedLoading
+ */
+function addQuestions(questions, isFinishedLoading) {
+    for (i = 0; i < questions.length; i++) {
+        createQuestionUI(
+            questions[i].product,
+            questions[i].title,
+            questions[i].id,
+            questions[i].locale,
+            true
+        );
+    }
+
+    toggleQuestionList();
+
+    if (isFinishedLoading) {
+        showLoadingBar(false);
+    }
+}
+
+/**
+ * Create question list UI element
+ * @param {string} product
+ * @param {string} title
+ * @param {number} id
+ * @param {boolean} isNew
+ */
+function createQuestionUI(product, title, id, locale, isNew) {
+    // Create UI elements
+    let list = document.getElementById('items');
+    let item = document.createElement('li');
+    let productIconContainer = document.createElement('div');
+    let productIcon = document.createElement('img');
+    let questionTitle = document.createElement('div');
+    let buttonContainer = document.createElement('div');
+    let button = document.createElement('a');
+    let buttonIcon = document.createElement('span');
+    let url = 'https://support.mozilla.org/' + locale + '/questions/' + id;
+
+    // Add item ID
+    item.className = 'item--' + id;
+
+    // Mark questions as unread
+    if (isNew) {
+        item.classList.add('item--unread');
+    }
+
+    // Add question icon
+    productIcon.src = '../res/products/' + product + '.png';
+    productIcon.title = browser.i18n.getMessage('product_' + product);
+    productIcon.className = 'item__icon';
+    productIconContainer.appendChild(productIcon);
+    item.appendChild(productIconContainer);
+
+    // Add question title
+    questionTitle.textContent = title;
+    item.appendChild(questionTitle);
+
+    // Add question button
+    button.className = 'button button-icon primary';
+    button.id = id;
+    button.href = url;
+    buttonIcon.className = 'pf-open-in-new';
+    button.appendChild(buttonIcon);
+    buttonContainer.appendChild(button);
+    item.appendChild(buttonContainer);
+
+    // Determine question order
+    let allButtons = list.getElementsByClassName('button');
+    let i = 0;
+    while (allButtons[i] && allButtons[i].id > id) {
+        i++;
+    }
+
+    // Create question position value
+    let position;
+    if (i >= allButtons.length) {
+        position = null;
+    } else {
+        position = list.childNodes[i];
+    }
+
+    // Add item to list
+    list.insertBefore(item, position);
+}
+
+/**
+ * Show question list if there are questions to display
+ */
+function toggleQuestionList() {
+    let empty = document.getElementById('empty');
+
+    if (questionList.length > 0) {
+        questionListUI.style.display = 'block';
+        empty.style.display = 'none';
+    } else {
+        questionListUI.style.display = 'none';
+        empty.style.display = 'block';
+    }
+}
+
+/**
+ * Mark a question as read
+ * @param {number} id
+ */
+function markAsRead(id) {
+    document.getElementsByClassName('item--' + id)[0].classList.remove('item--unread');
+}
+
+/**
+ * Mark all questions as read
+ * @async
+ */
+async function markAllAsRead() {
+    for (i = 0; i < questionList.length; i++) {
+        await browser.runtime.sendMessage({
+            task: 'mark_as_read',
+            id: questionList[i].id
+        });
+    }
+}
+
+/**
+ * Remove a question from the list
+ * @param {number} id
+ */
+function removeQuestion(id) {
+    let question = document.getElementsByClassName('item--' + id)[0];
+    question.parentElement.removeChild(question);
+}
+
+/**
+ * Determine if this window is sidebar
+ * @returns {boolean}
+ */
 function isSidebar() {
     let queries = window.location.href;
     queries = queries.substring(queries.indexOf('?') + 1, queries.length);
+
     if (queries.indexOf('popup') >= 0) {
         document.body.className = 'popup';
         return false;
     } else {
         document.body.className = 'sidebar';
         return true;
+    }
+}
+
+/**
+ * Show/hide the loading bar
+ * @param {boolean} state
+ */
+function showLoadingBar(state) {
+    let load = document.getElementById('load');
+
+    if (state) {
+        load.style.opacity = '1';
+    } else {
+        load.style.opacity = '0';
     }
 }

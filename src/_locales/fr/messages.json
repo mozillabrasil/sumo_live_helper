@@ -1,96 +1,96 @@
 {
-  "extensionName": {
-    "message": "SUMO Live Helper",
-    "description": "Extension name."
-  },
-  "extensionDescription": {
-    "message": "Cette extension est pour les volontaires dans SUMO (Support Mozilla) pour qu'ils puissent voir lorsqu'il y a des nouvelles questions sur le forum de support qui n'ont pas encore de réponse."
-  },
-  "watch_questions": {
-    "message": "Regarder pour de nouvelles questions"
-  },
-  "description_questions": {
-    "message": "Déterminer si SUMO Live Helper doit avertir lors de la réception de nouvelles questions"
-  },
-  "frequency_questions": {
-    "message": "Déterminer l'interval de temps auquel SUMO Live Helper doit chercher pour de nouvelles questions"
-  },
-  "polling": {
-    "message": "Interval en minutes pour contacter l'API"
-  },
-  "preferences": {
-    "message": "Préférences"
-  },
-  "one_question_without_answer": {
-    "message": " question sans réponse (Cliquer pour ouvrir)"
-  },
-  "more_than_one_question_without_answer": {
-    "message": " questions sans réponse (Cliquer pour ouvrir)"
-  },
-  "choose_language": {
-    "message": "Choisir une langage"
-  },
-  "choose_language_description": {
-    "message": "Choisir une langage dans laquelle chercher pour des questions qui sont ouvertes"
-  },
-  "choose_product": {
-    "message": "Choisir un produit"
-  },
-  "choose_product_description": {
-    "message": "Choisir un produit dans lequel chercher pour des questions qui sont ouvertes"
-  },
-  "open_tab": {
-    "message": "Ouvrir"
-  },
-  "product_firefox": {
-    "message": "Firefox pour Ordinateur"
-  },
-  "product_thunderbird": {
-    "message": "Thunderbird"
-  },
-  "product_mobile": {
-    "message": "Firefox pour Android"
-  },
-  "product_ios": {
-    "message": "Firefox pour iOS"
-  },
-  "product_firefox-enterprise": {
-    "message": "Firefox pour entreprise"
-  },
-  "congratulations": {
-    "message": "félicitations! Toutes les questions ont étés répondues!"
-  },
-  "refresh": {
-    "message": "Rafraîchir"
-  },
-  "clear_notifications": {
-    "message": "Effacer les notifications"
-  },
-  "show_notifications": {
-    "message": "Voir les notifications du navigateur"
-  },
-  "description_notifications": {
-    "message": "Détermine si vous recevrez des notifications de type popups lorsque de nouvelles questions sont trouvées"
-  },
-  "notification_title_single": {
-    "message": "Une nouvelle question a été trouvée!"
-  },
-  "notification_title_multiple": {
-    "message": "De nouvelles questions ont été trouvées!"
-  },
-  "notification_message_more": {
-    "message": "Besoin de plus d'aide."
-  },
-  "notification_message_click": {
-    "message": "Cliquer l'icône de SUMO Live Helper dans la barre d'outils pour voir la liste de questions..."
-  },
-  "open_preferences": {
-    "message": "Ouvrir les préférences"
-  },
-  "prefer_sidebar": {
-    "message": "Always open questions in sidebar"
-  },
-  "open_sidebar": {
-    "message": "Open sidebar"
-  }
+    "extensionName": {
+        "message": "SUMO Live Helper",
+        "description": "Extension name."
+    },
+    "extensionDescription": {
+        "message": "Cette extension est pour les volontaires dans SUMO (Support Mozilla) pour qu'ils puissent voir lorsqu'il y a des nouvelles questions sur le forum de support qui n'ont pas encore de réponse."
+    },
+    "watch_questions": {
+        "message": "Regarder pour de nouvelles questions"
+    },
+    "description_questions": {
+        "message": "Déterminer si SUMO Live Helper doit avertir lors de la réception de nouvelles questions"
+    },
+    "frequency_questions": {
+        "message": "Déterminer l'interval de temps auquel SUMO Live Helper doit chercher pour de nouvelles questions"
+    },
+    "polling": {
+        "message": "Interval en minutes pour contacter l'API"
+    },
+    "preferences": {
+        "message": "Préférences"
+    },
+    "one_question_without_answer": {
+        "message": " question sans réponse (Cliquer pour ouvrir)"
+    },
+    "more_than_one_question_without_answer": {
+        "message": " questions sans réponse (Cliquer pour ouvrir)"
+    },
+    "choose_language": {
+        "message": "Choisir une langage"
+    },
+    "choose_language_description": {
+        "message": "Choisir une langage dans laquelle chercher pour des questions qui sont ouvertes"
+    },
+    "choose_product": {
+        "message": "Choisir un produit"
+    },
+    "choose_product_description": {
+        "message": "Choisir un produit dans lequel chercher pour des questions qui sont ouvertes"
+    },
+    "open_tab": {
+        "message": "Ouvrir"
+    },
+    "product_firefox": {
+        "message": "Firefox pour Ordinateur"
+    },
+    "product_thunderbird": {
+        "message": "Thunderbird"
+    },
+    "product_mobile": {
+        "message": "Firefox pour Android"
+    },
+    "product_ios": {
+        "message": "Firefox pour iOS"
+    },
+    "product_firefox-enterprise": {
+        "message": "Firefox pour entreprise"
+    },
+    "congratulations": {
+        "message": "félicitations! Toutes les questions ont étés répondues!"
+    },
+    "refresh": {
+        "message": "Rafraîchir"
+    },
+    "clear_notifications": {
+        "message": "Effacer les notifications"
+    },
+    "show_notifications": {
+        "message": "Voir les notifications du navigateur"
+    },
+    "description_notifications": {
+        "message": "Détermine si vous recevrez des notifications de type popups lorsque de nouvelles questions sont trouvées"
+    },
+    "notification_title_single": {
+        "message": "Une nouvelle question a été trouvée!"
+    },
+    "notification_title_multiple": {
+        "message": "De nouvelles questions ont été trouvées!"
+    },
+    "notification_message_more": {
+        "message": "Besoin de plus d'aide."
+    },
+    "notification_message_click": {
+        "message": "Cliquer l'icône de SUMO Live Helper dans la barre d'outils pour voir la liste de questions..."
+    },
+    "open_preferences": {
+        "message": "Ouvrir les préférences"
+    },
+    "prefer_sidebar": {
+        "message": "Always open questions in sidebar"
+    },
+    "open_sidebar": {
+        "message": "Open sidebar"
+    }
 }

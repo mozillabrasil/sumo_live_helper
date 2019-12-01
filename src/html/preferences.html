@@ -1,116 +1,96 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="preferencesTitle" data-i18n="preferences"></title>
-    <link rel="shortcut icon" 
-          href="/res/logo/sumo.svg" 
-          type="image/x-icon">
-    <link rel="icon" href="/res/logo/sumo.svg" type="image/x-icon">
-    <link href="/css/app.css" rel="stylesheet">
-  </head>
-  <body id="page-preferences">
-    <header>
-      <h1>
-        <img src="/res/logo/sumo.svg" 
-             aria-hidden="true"
-             alt="SUMO LiveHelper. Logo."
-             width="32"
-             style="vertical-align: bottom">
-        <span data-i18n="extensionName"></span>
-        <span id="version"></span>
-      </h1>
-    </header>
-    <nav>
-      <ul class="menu">
-        <li>
-          <a href="#">
-            <span class="pf-preferences"></span>
-            General
-          </a>
-        </li>
-      </ul>
-    </nav>
-    <form name="settings">
-      <h2>General</h2>  
-      
-      <h3>Synchronisation</h3>
-      <label for="frequencySeekNewQuestions">
-        <span data-i18n="polling"></span>
-        <select name="frequencySeekNewQuestions" 
-                id="frequencySeekNewQuestions">
-          <option value="15" selected>15 (default)</option>
-          <option value="30">30</option>
-          <option value="45">45</option>
-          <option value="60">60</option>
-        </select>
-      </label>
-      <label for="showNotifications">
-        <input id="showNotifications" type="checkbox" name="showNotifications">
-        <span data-i18n="show_notifications"></span>
-      </label>
-      <label for="preferSidebar">
-        <input id="preferSidebar" type="checkbox" name="preferSidebar">
-        <span data-i18n="prefer_sidebar"></span>
-      </label>
 
-      <h3>Products</h3>
-      <!-- Add a aria label to link the p to the checkbox list below -->
-      <p>
-        <span data-i18n="choose_product_description"></span>
-      </p>
-      <label for="firefox">
-        <input id="firefox"
-               name="chooseProduct"
-               type="checkbox" 
-               value="Firefox">
-        <span data-i18n="product_firefox"></span>
-      </label>
-      <label for="firefox-enterprise">
-        <input id="firefox-enterprise"
-               name="chooseProduct"
-               type="checkbox" 
-               value="firefox-enterprise">
-        <span data-i18n="product_firefox-enterprise"></span>
-      </label>
-      <label for="mobile">
-        <input id="mobile" 
-               name="chooseProduct" 
-               type="checkbox" 
-               value="mobile">
-        <span data-i18n="product_mobile"></span>
-      </label>
-      <label for="ios">
-        <input id="ios" 
-               name="chooseProduct"
-               type="checkbox" 
-               value="ios">
-        <span data-i18n="product_ios"></span>
-      </label>
-      <label for="thunderbird">
-        <input id="thunderbird" 
-               name="chooseProduct"
-               type="checkbox" 
-               value="Thunderbird">
-        <span data-i18n="product_thunderbird"></span>
-      </label>
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title id="preferencesTitle" data-i18n="preferences"></title>
+        <link rel="shortcut icon" href="/res/logo/sumo.svg" type="image/x-icon">
+        <link rel="icon" href="/res/logo/sumo.svg" type="image/x-icon">
+        <link href="/css/app.css" rel="stylesheet">
+    </head>
 
-      <h3>Language</h3>
-      <label for="chooseLanguage">
-        <span data-i18n="choose_language_description"></span>
-        <!-- Use style width to temporarily fix text overflow -->
-        <select id="chooseLanguage" name="chooseLanguage" style="width: 200px">
-          <option value="cs">Čeština</option>
-          <option value="en-US" selected>English</option>
-          <option value="es">Español</option>
-          <option value="hu">Magyar</option>
-          <option value="pt-BR">Português (do Brasil)</option>
-        </select>
-      </label>
-    </form>
+    <body id="page-preferences">
+        <header>
+            <h1>
+                <img src="/res/logo/sumo.svg" aria-hidden="true" alt="SUMO LiveHelper. Logo." width="32" style="vertical-align: bottom">
+                <span data-i18n="extensionName"></span>
+                <span id="version"></span>
+            </h1>
+        </header>
+        <nav>
+            <ul class="menu">
+                <li>
+                    <a href="#">
+                        <span class="pf-preferences"></span>
+                        General
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <form name="settings">
+            <h2>General</h2>
 
-    <script src="../js/language.js"></script>
-    <script src="../js/preferences.js"></script>
-  </body>
+            <h3>Synchronisation</h3>
+            <label for="frequencySeekNewQuestions">
+                <span data-i18n="polling"></span>
+                <select name="frequencySeekNewQuestions" id="frequencySeekNewQuestions">
+                    <option value="15" selected>15 (default)</option>
+                    <option value="30">30</option>
+                    <option value="45">45</option>
+                    <option value="60">60</option>
+                </select>
+            </label>
+            <label for="showNotifications">
+                <input id="showNotifications" type="checkbox" name="showNotifications">
+                <span data-i18n="show_notifications"></span>
+            </label>
+            <label for="onlySidebar">
+                <input id="onlySidebar" type="checkbox" name="onlySidebar">
+                <span data-i18n="prefer_sidebar"></span>
+            </label>
+
+            <h3>Products</h3>
+            <p>
+                <span data-i18n="choose_product_description"></span>
+            </p>
+            <label for="firefox">
+                <input id="firefox" name="chooseProduct" type="checkbox" value="Firefox">
+                <span data-i18n="product_firefox"></span>
+            </label>
+            <label for="firefox-enterprise">
+                <input id="firefox-enterprise" name="chooseProduct" type="checkbox" value="firefox-enterprise">
+                <span data-i18n="product_firefox-enterprise"></span>
+            </label>
+            <label for="mobile">
+                <input id="mobile" name="chooseProduct" type="checkbox" value="mobile">
+                <span data-i18n="product_mobile"></span>
+            </label>
+            <label for="ios">
+                <input id="ios" name="chooseProduct" type="checkbox" value="ios">
+                <span data-i18n="product_ios"></span>
+            </label>
+            <label for="thunderbird">
+                <input id="thunderbird" name="chooseProduct" type="checkbox" value="Thunderbird">
+                <span data-i18n="product_thunderbird"></span>
+            </label>
+
+            <h3>Language</h3>
+            <label for="chooseLanguage">
+                <span data-i18n="choose_language_description"></span>
+                <!-- Use style width to temporarily fix text overflow -->
+                <select id="chooseLanguage" name="chooseLanguage" style="width: 200px">
+                    <option value="cs">Čeština</option>
+                    <option value="en-US" selected>English</option>
+                    <option value="es">Español</option>
+                    <option value="hu">Magyar</option>
+                    <option value="pt-BR">Português (do Brasil)</option>
+                </select>
+            </label>
+        </form>
+
+        <script src="../js/language.js"></script>
+        <script src="../js/preferences.js"></script>
+    </body>
+
 </html>

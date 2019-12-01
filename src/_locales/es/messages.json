@@ -1,96 +1,96 @@
 {
-  "extensionName": {
-    "message": "SUMO Live Helper",
-    "description": "Nombre del complemento."
-  },
-  "extensionDescription": {
-    "message": "Este complemento es para los voluntarios en SUMO (Support Mozilla) para ver cuando hay nuevas preguntas sin respuesta en el foro de soporte."
-  },
-  "watch_questions": {
-    "message": "Buscar nuevas preguntas"
-  },
-  "description_questions": {
-    "message": "Determina si SUMO Live Helper debe alertar la recepción de nuevas preguntas"
-  },
-  "frequency_questions": {
-    "message": "Determina el intervalo de tiempo en el que SUMO Live Helper debe buscar nuevas preguntas"
-  },
-  "polling": {
-    "message": "Tiempo en minutos para consultar la API"
-  },
-  "preferences": {
-    "message": "Preferencias"
-  },
-  "one_question_without_answer": {
-    "message": " pregunta sin respuesta (Clic para abrir)"
-  },
-  "more_than_one_question_without_answer": {
-    "message": " preguntas sin respuesta (Clic para abrir)"
-  },
-  "choose_language": {
-    "message": "Elegir idioma"
-  },
-  "choose_language_description": {
-    "message": "Elegir un idioma para buscar preguntas abiertas"
-  },
-  "choose_product": {
-    "message": "Elegir producto"
-  },
-  "choose_product_description": {
-    "message": "Elegir un producto para buscar preguntas abiertas"
-  },
-  "open_tab": {
-    "message": "Abrir"
-  },
-  "product_firefox": {
-    "message": "Firefox para Escritorio"
-  },
-  "product_thunderbird": {
-    "message": "Thunderbird"
-  },
-  "product_mobile": {
-    "message": "Firefox para Android"
-  },
-  "product_ios": {
-    "message": "Firefox para iOS"
-  },
-  "product_firefox-enterprise": {
-    "message": "Firefox para Enterprise"
-  },
-  "congratulations": {
-    "message": "¡Felicidades! ¡Todas las preguntas han sido respondidas!"
-  },
-  "refresh": {
-    "message": "Actualizar"
-  },
-  "clear_notifications": {
-    "message": "Eliminar notificaciones"
-  },
-  "show_notifications": {
-    "message": "Mostrar notificaciones en el navegador"
-  },
-  "description_notifications": {
-    "message": "Determina si recibiras notificaciones cuando se encuentren nuevas preguntas"
-  },
-  "notification_title_single": {
-    "message": "¡Nueva pregunta encontrada!"
-  },
-  "notification_title_multiple": {
-    "message": "¡Nuevas preguntas encontradas!"
-  },
-  "notification_message_more": {
-    "message": "más necesitan ayuda."
-  },
-  "notification_message_click": {
-    "message": "Haz clic en el icono de SUMO Live Helper para ver la lista de preguntas..."
-  },
-  "open_preferences": {
-    "message": "Abrir preferencias"
-  },
-  "prefer_sidebar": {
-    "message": "Always open questions in sidebar"
-  },
-  "open_sidebar": {
-    "message": "Open sidebar"
-  }
+    "extensionName": {
+        "message": "SUMO Live Helper",
+        "description": "Nombre del complemento."
+    },
+    "extensionDescription": {
+        "message": "Este complemento es para los voluntarios en SUMO (Support Mozilla) para ver cuando hay nuevas preguntas sin respuesta en el foro de soporte."
+    },
+    "watch_questions": {
+        "message": "Buscar nuevas preguntas"
+    },
+    "description_questions": {
+        "message": "Determina si SUMO Live Helper debe alertar la recepción de nuevas preguntas"
+    },
+    "frequency_questions": {
+        "message": "Determina el intervalo de tiempo en el que SUMO Live Helper debe buscar nuevas preguntas"
+    },
+    "polling": {
+        "message": "Tiempo en minutos para consultar la API"
+    },
+    "preferences": {
+        "message": "Preferencias"
+    },
+    "one_question_without_answer": {
+        "message": " pregunta sin respuesta (Clic para abrir)"
+    },
+    "more_than_one_question_without_answer": {
+        "message": " preguntas sin respuesta (Clic para abrir)"
+    },
+    "choose_language": {
+        "message": "Elegir idioma"
+    },
+    "choose_language_description": {
+        "message": "Elegir un idioma para buscar preguntas abiertas"
+    },
+    "choose_product": {
+        "message": "Elegir producto"
+    },
+    "choose_product_description": {
+        "message": "Elegir un producto para buscar preguntas abiertas"
+    },
+    "open_tab": {
+        "message": "Abrir"
+    },
+    "product_firefox": {
+        "message": "Firefox para Escritorio"
+    },
+    "product_thunderbird": {
+        "message": "Thunderbird"
+    },
+    "product_mobile": {
+        "message": "Firefox para Android"
+    },
+    "product_ios": {
+        "message": "Firefox para iOS"
+    },
+    "product_firefox-enterprise": {
+        "message": "Firefox para Enterprise"
+    },
+    "congratulations": {
+        "message": "¡Felicidades! ¡Todas las preguntas han sido respondidas!"
+    },
+    "refresh": {
+        "message": "Actualizar"
+    },
+    "clear_notifications": {
+        "message": "Eliminar notificaciones"
+    },
+    "show_notifications": {
+        "message": "Mostrar notificaciones en el navegador"
+    },
+    "description_notifications": {
+        "message": "Determina si recibiras notificaciones cuando se encuentren nuevas preguntas"
+    },
+    "notification_title_single": {
+        "message": "¡Nueva pregunta encontrada!"
+    },
+    "notification_title_multiple": {
+        "message": "¡Nuevas preguntas encontradas!"
+    },
+    "notification_message_more": {
+        "message": "más necesitan ayuda."
+    },
+    "notification_message_click": {
+        "message": "Haz clic en el icono de SUMO Live Helper para ver la lista de preguntas..."
+    },
+    "open_preferences": {
+        "message": "Abrir preferencias"
+    },
+    "prefer_sidebar": {
+        "message": "Always open questions in sidebar"
+    },
+    "open_sidebar": {
+        "message": "Open sidebar"
+    }
 }

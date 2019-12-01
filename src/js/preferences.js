@@ -1,61 +1,75 @@
 // Insert version number
-var version = document.getElementById("version");
-version.textContent = " (v" + browser.runtime.getManifest().version + ")";
+let versionUI = document.getElementById("version");
+versionUI.textContent = " (v" + browser.runtime.getManifest().version + ")";
 
 // Load data
-var data = browser.storage.local.get();
+let data = browser.storage.local.get();
 data.then(loadSettings);
 document.settings.addEventListener('change', saveChange);
 
-// Load data from storage
+/**
+ * Inject settings into options UI from Storage API
+ * @param {object} data
+ */
 function loadSettings(data) {
     if (data.chooseLanguage) {
         document.settings.chooseLanguage.value = data.chooseLanguage;
     }
-    
+
     if (data.frequencySeekNewQuestions) {
         document.settings.frequencySeekNewQuestions.value = data.frequencySeekNewQuestions;
     }
-    
+
     if (data.showNotifications) {
         document.settings.showNotifications.checked = data.showNotifications;
     }
-    
-    if (data.preferSidebar) {
-        document.settings.preferSidebar.checked = data.preferSidebar;
+
+    if (data.onlySidebar) {
+        document.settings.onlySidebar.checked = data.onlySidebar;
     }
-    
+
     if (data.chooseProduct) {
-        var temp = data.chooseProduct;
-        for (i = 0; i < temp.length; i++) {
-            document.getElementById(temp[i].toLowerCase()).checked = true;
+        let products = data.chooseProduct;
+        for (i = 0; i < products.length; i++) {
+            document.getElementById(products[i].toLowerCase()).checked = true;
         }
     } else {
         document.settings.chooseProduct[i].checked = true;
     }
 }
 
-// Save a setting
-function saveChange(e) {
-    if (e.target.name == 'chooseProduct') {
-        var pref = saveProducts();
-    } else if (e.target.type == 'checkbox') {
-        var pref = e.target.checked;
+/**
+ * Save a setting
+ * @param {object} e
+ */
+function saveChange(element) {
+    let preference;
+    let preferenceObject = {};
+
+    if (element.target.name == 'chooseProduct') {
+        preference = getProductList();
+    } else if (element.target.type == 'checkbox') {
+        preference = element.target.checked;
     } else {
-        var pref = e.target.value;
+        preference = element.target.value;
     }
-    var preference = {};
-    preference[e.target.name] = pref;
-    browser.storage.local.set(preference);
+
+    preferenceObject[element.target.name] = preference;
+    browser.storage.local.set(preferenceObject);
 }
 
-// Saves products
-function saveProducts() {
-    var pref = [];
+/**
+ * Generate list of products to watch
+ * @return {Array.<string>}
+ */
+function getProductList() {
+    let preference = [];
+
     for (i = 0; i < document.settings.chooseProduct.length; i++) {
         if (document.settings.chooseProduct[i].checked) {
-            pref.push(document.settings.chooseProduct[i].value);
+            preference.push(document.settings.chooseProduct[i].value);
         }
     }
-    return pref;
+
+    return preference;
 }
