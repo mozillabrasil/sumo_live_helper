@@ -1,96 +1,96 @@
 {
-  "extensionName": {
-    "message": "SUMO Live Helper",
-    "description": "Extension name."
-  },
-  "extensionDescription": {
-    "message": "SUMO Live Helper je doplněk pro zobrazení nových dotazů na fóru serveru Podpora Mozilly (SUMO)."
-  },
-  "watch_questions": {
-    "message": "Sledovat nové dotazy"
-  },
-  "description_questions": {
-    "message": "Určuje, zda má SUMO Live Helper upozorňovat při nalezení nového dotazu"
-  },
-  "frequency_questions": {
-    "message": "Určuje interval kontroly nových dotazů na serveru"
-  },
-  "polling": {
-    "message": "Minutový interval pro kontrolu API"
-  },
-  "preferences": {
-    "message": "Nastavení"
-  },
-  "one_question_without_answer": {
-    "message": " dotaz bez odpovědi (klepněte pro otevření)"
-  },
-  "more_than_one_question_without_answer": {
-    "message": " dotazů bez odpovědi (klepněte pro otevření)"
-  },
-  "choose_language": {
-    "message": "Vyberte jazyk"
-  },
-  "choose_language_description": {
-    "message": "Vyberte jazyk, pro který chcete vyhledat nové dotazy"
-  },
-  "choose_product": {
-    "message": "Vyberte produkt"
-  },
-  "choose_product_description": {
-    "message": "Vyberte produkt, pro který chcete vyhledat nové dotazy"
-  },
-  "open_tab": {
-    "message": "OTevřít"
-  },
-  "product_firefox": {
-    "message": "Firefox pro počítač"
-  },
-  "product_thunderbird": {
-    "message": "Thunderbird"
-  },
-  "product_mobile": {
-    "message": "Firefox pro Android"
-  },
-  "product_ios": {
-    "message": "Firefox pro iOS"
-  },
-  "product_firefox-enterprise": {
-    "message": "Firefox pro firmy"
-  },
-  "congratulations": {
-    "message": "Gratulujeme, všechny dotazy byly zodpovězeny."
-  },
-  "refresh": {
-    "message": "Obnovit"
-  },
-  "clear_notifications": {
-    "message": "Vymazat oznámení"
-  },
-  "show_notifications": {
-    "message": "Zobrazovat oznámení prohlížeče"
-  },
-  "description_notifications": {
-    "message": "Určujte, zda chcete dostávat oznámení při nalezení nového dotazu"
-  },
-  "notification_title_single": {
-    "message": "nalezen nový dotaz!"
-  },
-  "notification_title_multiple": {
-    "message": "nalezeny nové dotazy!"
-  },
-  "notification_message_more": {
-    "message": "další potřebují vaši pomoc."
-  },
-  "notification_message_click": {
-    "message": "Pro zobrazení seznamu dotazů klepněte na ikonu SUMO Live Helper v liště prohlížeče"
-  },
-  "open_preferences": {
-    "message": "Otevřít nastavení"
-  },
-  "prefer_sidebar": {
-    "message": "Always open questions in sidebar"
-  },
-  "open_sidebar": {
-    "message": "Open sidebar"
-  }
+    "extensionName": {
+        "message": "SUMO Live Helper",
+        "description": "Extension name."
+    },
+    "extensionDescription": {
+        "message": "SUMO Live Helper je doplněk pro zobrazení nových dotazů na fóru serveru Podpora Mozilly (SUMO)."
+    },
+    "watch_questions": {
+        "message": "Sledovat nové dotazy"
+    },
+    "description_questions": {
+        "message": "Určuje, zda má SUMO Live Helper upozorňovat při nalezení nového dotazu"
+    },
+    "frequency_questions": {
+        "message": "Určuje interval kontroly nových dotazů na serveru"
+    },
+    "polling": {
+        "message": "Minutový interval pro kontrolu API"
+    },
+    "preferences": {
+        "message": "Nastavení"
+    },
+    "one_question_without_answer": {
+        "message": " dotaz bez odpovědi (klepněte pro otevření)"
+    },
+    "more_than_one_question_without_answer": {
+        "message": " dotazů bez odpovědi (klepněte pro otevření)"
+    },
+    "choose_language": {
+        "message": "Vyberte jazyk"
+    },
+    "choose_language_description": {
+        "message": "Vyberte jazyk, pro který chcete vyhledat nové dotazy"
+    },
+    "choose_product": {
+        "message": "Vyberte produkt"
+    },
+    "choose_product_description": {
+        "message": "Vyberte produkt, pro který chcete vyhledat nové dotazy"
+    },
+    "open_tab": {
+        "message": "OTevřít"
+    },
+    "product_firefox": {
+        "message": "Firefox pro počítač"
+    },
+    "product_thunderbird": {
+        "message": "Thunderbird"
+    },
+    "product_mobile": {
+        "message": "Firefox pro Android"
+    },
+    "product_ios": {
+        "message": "Firefox pro iOS"
+    },
+    "product_firefox-enterprise": {
+        "message": "Firefox pro firmy"
+    },
+    "congratulations": {
+        "message": "Gratulujeme, všechny dotazy byly zodpovězeny."
+    },
+    "refresh": {
+        "message": "Obnovit"
+    },
+    "clear_notifications": {
+        "message": "Vymazat oznámení"
+    },
+    "show_notifications": {
+        "message": "Zobrazovat oznámení prohlížeče"
+    },
+    "description_notifications": {
+        "message": "Určujte, zda chcete dostávat oznámení při nalezení nového dotazu"
+    },
+    "notification_title_single": {
+        "message": "nalezen nový dotaz!"
+    },
+    "notification_title_multiple": {
+        "message": "nalezeny nové dotazy!"
+    },
+    "notification_message_more": {
+        "message": "další potřebují vaši pomoc."
+    },
+    "notification_message_click": {
+        "message": "Pro zobrazení seznamu dotazů klepněte na ikonu SUMO Live Helper v liště prohlížeče"
+    },
+    "open_preferences": {
+        "message": "Otevřít nastavení"
+    },
+    "prefer_sidebar": {
+        "message": "Always open questions in sidebar"
+    },
+    "open_sidebar": {
+        "message": "Open sidebar"
+    }
 }

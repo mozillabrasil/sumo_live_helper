@@ -3,20 +3,20 @@
 /* ------------------------------ */
 
 input[type=radio] {
-	-moz-appearance:none;
-	appearance:none;
-  background-color: var(--input-background);
-  border: 1px solid var(--input-border-color);
-  border-radius: 20px;
-  cursor: pointer;
-  display: inline-block;
-  height: 20px;
-  width: 20px;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: var(--input-background);
+    border: 1px solid var(--input-border-color);
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
 }
 
 input[type=radio]:checked {
-  background: url('../../res/icons/light/radio.svg') center / 18px;
-  background-color: var(--input-background);
+    background: url('../../res/icons/light/radio.svg') center / 18px;
+    background-color: var(--input-background);
 }
 
 /* Hover state */
@@ -25,8 +25,8 @@ input[type=radio]:checked {
 
 /* Focused state */
 input[type=radio]:focus {
-  box-shadow: 
-    0 0 0 2px #0a84ff inset, 
-    0 0 0 2px rgba(10, 132, 255, 0.3);
-  outline: none;
+    box-shadow:
+        0 0 0 2px #0a84ff inset,
+        0 0 0 2px rgba(10, 132, 255, 0.3);
+    outline: none;
 }

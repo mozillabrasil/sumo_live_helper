@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------------- */
 /* Photon Library                                                            */
 /*                                                                           */
-/* Copyright (c) 2019 Danny Colin                                            */ 
+/* Copyright (c) 2019 Danny Colin                                            */
 /*                                                                           */
 /* This Source Code Form is subject to the terms of the Mozilla Public       */
 /* License, v. 2.0. If a copy of the MPL was not distributed with this file, */
@@ -23,155 +23,174 @@
 
 /* Typography */
 body {
-  background-color: var(--page-background);
-  color: var(--page-foreground);
-  font-family: var(--page-font-family);
-  font-size: var(--page-font-size);
+    background-color: var(--page-background);
+    color: var(--page-foreground);
+    font-family: var(--page-font-family);
+    font-size: var(--page-font-size);
 }
 
 header {
-  margin: 0 32px;
+    margin: 0 32px;
 }
 
 input,
 label,
 select {
-  font-family: inherit;
-  font-size: 1rem;
+    font-family: inherit;
+    font-size: 1rem;
 }
 
 label {
-  align-content: center;
-  display: flex;
-  margin: 8px 0;
-  max-width: 664px;
+    align-content: center;
+    display: flex;
+    margin: 8px 0;
+    max-width: 664px;
 }
 
 label > * {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 
 label > select {
-  margin-top: -8px;
+    margin-top: -8px;
 }
 
 #page-preferences {
-  display: grid;
-  grid-gap: 16px;
+    display: grid;
+    grid-gap: 16px;
 }
 
 @media (min-width: 40em) {
-  #page-preferences {
-    grid-template-columns: 12em 1fr;
-  }
-  header {
-    grid-column: span 2;
-  }
+    #page-preferences {
+        grid-template-columns: 12em 1fr;
+    }
+
+    header {
+        grid-column: span 2;
+    }
 }
 
 /* Popup window */
 #popup {
-  background-color: var(--popup-background);
-  color: var(--popup-foreground);
-  display: grid;
-  grid-template-areas:
-    'header header nav'
-    'main   main   main';
-  max-width: 500px;
+    background-color: var(--popup-background);
+    color: var(--popup-foreground);
+    display: grid;
+    grid-template-areas:
+        'header header nav'
+        'main   main   main';
+    max-width: 500px;
 }
 
 #popup header {
-  grid-area: header;
-  margin: 0;
-  padding: 0 16px;
+    grid-area: header;
+    margin: 0;
+    padding: 0 16px;
 }
 
 #popup nav {
-  grid-area: nav;
-  padding-top: 16px;
+    grid-area: nav;
+    padding-top: 16px;
 }
 
 #popup header,
 #popup nav {
-  background-color: var(--popup-background);
-  border-bottom: solid 1px var(--popup-header-border);
-  position: sticky;
-  top: 0;
+    background-color: var(--popup-background);
+    border-bottom: solid 1px var(--popup-header-border);
+    position: sticky;
+    top: 0;
 }
 
 #popup main {
-  grid-area: main;
+    grid-area: main;
 }
 
 #popup nav .menu {
-  padding: 0 16px;
-  text-align: right;
+    padding: 0 16px;
+    text-align: right;
 }
 
-#popup nav .menu li{
-  padding: 0 8px;
+#popup nav .menu li {
+    padding: 0 8px;
 }
 
 #items {
-  margin: 0;
-  padding: 8px;
+    margin: 0;
+    padding: 8px;
 }
 
 #items li {
-  align-items: center;
-  border-bottom: solid 1px var(--popup-item-border);
-  display: flex;
+    align-items: center;
+    border-bottom: solid 1px var(--popup-item-border);
+    display: flex;
 }
 
 #items li:last-child {
-  border: none;
+    border: none;
 }
 
 #items li div {
-  flex-grow: 1;
-  padding: 8px;
+    flex-grow: 1;
+    padding: 8px;
 }
 
 #items li div:first-child,
 #items li div:last-child {
-  flex-grow: 0;
+    flex-grow: 0;
 }
 
 .item__icon {
-  width: 32px;
+    width: 32px;
 }
 
 .item--unread {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 /* Load */
 #load {
-  height: 4px;
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  overflow: hidden;
-  transition: ease opacity .5s;
+    height: 4px;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    transition: ease opacity .5s;
 }
 
-#load:before{
-  display: block;
-  position: absolute;
-  content: "";
-  left: -200px;
-  width: 200px;
-  height: 4px;
-  background-color: var(--load-foreground);
-  animation: loading 2s linear infinite;
+#load:before {
+    display: block;
+    position: absolute;
+    content: "";
+    left: -200px;
+    width: 200px;
+    height: 4px;
+    background-color: var(--load-foreground);
+    animation: loading 2s linear infinite;
 }
 
 @keyframes loading {
-    from {left: -200px; width: 30%;}
-    50% {width: 30%;}
-    70% {width: 70%;}
-    80% { left: 50%;}
-    95% {left: 120%;}
-    to {left: 100%;}
+    from {
+        left: -200px;
+        width: 30%;
+    }
+
+    50% {
+        width: 30%;
+    }
+
+    70% {
+        width: 70%;
+    }
+
+    80% {
+        left: 50%;
+    }
+
+    95% {
+        left: 120%;
+    }
+
+    to {
+        left: 100%;
+    }
 }

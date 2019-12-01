@@ -3,15 +3,15 @@
 /* ------------------------------ */
 
 .menu {
-  list-style: none;
+    list-style: none;
 }
 
 .menu a {
-  color: var(--page-foreground);
-  font-size: 1.07rem;
-  text-decoration: none;
+    color: var(--page-foreground);
+    font-size: 1.07rem;
+    text-decoration: none;
 }
 
 .menu.vertical li {
-  display: inline-block;
+    display: inline-block;
 }

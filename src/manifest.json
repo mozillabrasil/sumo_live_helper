@@ -20,9 +20,9 @@
     "browser_action": {
         "browser_style": true,
         "default_icon": {
-          "16": "/res/logo/sumo.svg",
-          "32": "/res/logo/sumo.svg",
-          "64": "/res/logo/sumo.svg"
+            "16": "/res/logo/sumo.svg",
+            "32": "/res/logo/sumo.svg",
+            "64": "/res/logo/sumo.svg"
         },
         "default_title": "__MSG_extensionName__"
     },
