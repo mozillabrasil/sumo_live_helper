@@ -92,5 +92,20 @@
     },
     "open_sidebar": {
         "message": "Open sidebar"
+    },
+    "language": {
+        "message": "Language"
+    },
+    "products": {
+        "message": "Products"
+    },
+    "synchronisation": {
+        "message": "Synchronisation"
+    },
+    "general": {
+        "message": " General"
+    },
+    "default_time": {
+        "message": "15 (default)"
     }
 }
