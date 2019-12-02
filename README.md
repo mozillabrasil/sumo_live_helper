@@ -24,6 +24,7 @@ There are additional settings that can be accessed through the wrench in the pop
     - Português (do Brasil)
 - Time in minutes to query the API: set how often the extension should check for new questions posted to the forum
 - Show browser notifications: receive a browser notification when a new question is opened
+- Sidebar you can open the questions in a sidebar
 - Choose one or more products to search for opened questions, the following products are supported:
     - Firefox for Desktop
     - Firefox for Enterprise

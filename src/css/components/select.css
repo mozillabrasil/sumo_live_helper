@@ -4,7 +4,7 @@
 
 select {
     -moz-appearance: none;
-    background-color: var(--button-background);
+    background-color: #4A4A4F;
     background-image: url('../../res/icons/dark/arrow-down.svg');
     background-repeat: no-repeat no-repeat;
     background-position: left calc(100% - 8px) bottom 50%;
@@ -30,7 +30,7 @@ select {
 
 /* Hover state */
 select:hover {
-    background-color: var(--button-background-hover);
+    background-color: #4A4A4F;
 }
 
 /* Pressed state */
@@ -43,6 +43,6 @@ select:focus {
     box-shadow:
         0 0 0 1px #0a84ff inset,
         0 0 0 1px #0a84ff,
-        0 0 0 4px rgba(10, 132, 255, 0.3);
+        0 0 0 4px rgba(74, 74, 79, 0.3);
     outline: none;
 }
