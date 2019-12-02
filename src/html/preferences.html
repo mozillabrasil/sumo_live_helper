@@ -13,7 +13,7 @@
     <body id="page-preferences">
         <header>
             <h1>
-                <img src="/res/logo/sumo.svg" aria-hidden="true" alt="SUMO LiveHelper. Logo." width="32" style="vertical-align: bottom">
+                <img src="/res/logo/sumo.svg" aria-hidden="true" alt="SUMO LiveHelper. Logo." width="40" style="vertical-align: bottom;">
                 <span data-i18n="extensionName"></span>
                 <span id="version"></span>
             </h1>
@@ -22,20 +22,19 @@
             <ul class="menu">
                 <li>
                     <a href="#">
-                        <span class="pf-preferences"></span>
-                        General
+                        <span class="pf-preferences"><a href="#" data-i18n="general"></a></span>
                     </a>
                 </li>
             </ul>
         </nav>
         <form name="settings">
-            <h2>General</h2>
+            <h2 data-i18n="general"></h2>
 
-            <h3>Synchronisation</h3>
+            <h3 data-i18n="synchronisation"></h3>
             <label for="frequencySeekNewQuestions">
                 <span data-i18n="polling"></span>
                 <select name="frequencySeekNewQuestions" id="frequencySeekNewQuestions">
-                    <option value="15" selected>15 (default)</option>
+                    <option value="15" selected data-i18n="default_time"></option>
                     <option value="30">30</option>
                     <option value="45">45</option>
                     <option value="60">60</option>
@@ -50,7 +49,7 @@
                 <span data-i18n="prefer_sidebar"></span>
             </label>
 
-            <h3>Products</h3>
+            <h3 data-i18n="products"></h3>
             <p>
                 <span data-i18n="choose_product_description"></span>
             </p>
@@ -75,7 +74,7 @@
                 <span data-i18n="product_thunderbird"></span>
             </label>
 
-            <h3>Language</h3>
+            <h3 data-i18n="language"></h3>
             <label for="chooseLanguage">
                 <span data-i18n="choose_language_description"></span>
                 <!-- Use style width to temporarily fix text overflow -->

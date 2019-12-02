@@ -88,9 +88,24 @@
         "message": "Abrir preferências"
     },
     "prefer_sidebar": {
-        "message": "Always open questions in sidebar"
+        "message": "Sempre abrir questões na barra lateral"
     },
     "open_sidebar": {
-        "message": "Open sidebar"
+        "message": "Abrir barra lateral"
+    },
+    "language": {
+        "message": "Idioma"
+    },
+    "products": {
+        "message": "Produtos"
+    },
+    "synchronisation": {
+        "message": "Sincronização"
+    },
+    "general": {
+        "message": " Geral"
+    },
+    "default_time": {
+        "message": "15 (padrão)"
     }
 }
