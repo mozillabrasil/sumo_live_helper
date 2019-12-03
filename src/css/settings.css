@@ -119,6 +119,9 @@
 
     --load-background: var(--grey-20);
     --load-foreground: var(--blue-60);
+    
+    --select-background: var(--grey-90-a10);
+    --select-background-hover: var(--grey-90-a20);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -148,5 +151,8 @@
 
         --load-background: var(--grey-70);
         --load-foreground: var(--blue-60);
+        
+        --select-background: var(--grey-60);
+        --select-background-hover: var(--grey-10-a20);
     }
 }
