@@ -120,13 +120,6 @@ function handleMessage(message, sender, sendResponse) {
                 id: message.id
             });
             return;
-        case 'get_question_list':
-            sendResponse({
-                task: 'get_question_list',
-                questions: questionList,
-                locale: locale
-            });
-            return;
     }
 }
 

@@ -24,10 +24,8 @@ questionListUI.addEventListener('click', openQuestion, false);
 // Adjust UI
 isSidebar();
 
-// Request current question list
-let getQuestionList = browser.runtime.sendMessage({
-    task: 'get_question_list'
-});
+// Request current question list from Storage API
+let getQuestionList = browser.storage.local.get();
 getQuestionList.then(dataLoaded);
 
 /**
@@ -104,7 +102,7 @@ function dataLoaded(data) {
             questionList[i].product.toLowerCase(),
             questionList[i].title,
             questionList[i].id,
-            data.locale,
+            data.chooseLanguage,
             questionList[i].new
         );
     }
