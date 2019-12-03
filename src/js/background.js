@@ -252,8 +252,10 @@ function loadRequest(request) {
     for (i = 0; i < responseSUMO.results.length; i++) {
         // Check if question should be shown on the question list
         if (responseSUMO.results[i].num_answers == 0 && responseSUMO.results[i].is_spam == false && responseSUMO.results[i].is_locked == false) {
-            let id = responseSUMO.results[i].id;
-            let title = responseSUMO.results[i].title;
+            let qID = responseSUMO.results[i].id;
+            let qTitle = responseSUMO.results[i].title;
+			let qLocale = responseSUMO.results[i].locale;
+			let qProduct = responseSUMO.results[i].product;
             let x = 0;
             let questionExists = false;
 
@@ -266,9 +268,10 @@ function loadRequest(request) {
             // Add to the question list (if needed)
             if (!questionExists) {
                 let newItem = {
-                    product: responseSUMO.results[i].product,
-                    title: responseSUMO.results[i].title,
-                    id: id,
+                    product: qProduct,
+                    title: qTitle,
+                    id: qID,
+					locale: qLocale,
                     new: true
                 }
                 newQuestionList.push(newItem);
