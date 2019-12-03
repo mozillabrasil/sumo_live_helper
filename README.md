@@ -7,7 +7,11 @@
 # SUMO Live Helper [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/sumo-live-helper-/)
 The goal of this Add-on is give to all volunteers of SUMO (Support Mozilla) a tool to see when there are new support questions in the forums that have not yet been answered. This will help to improve the Mozilla products user experience by getting answers to their problems more quickly.
 
+![Interface of SUMO Live Helper](sumo-live-helper.png)
+
+<!--
 ![SUMO_Live_Helper gif](sumo_live_helper.gif)
+-->
 
 ## Requirements
 * Firefox 62.0 or later
