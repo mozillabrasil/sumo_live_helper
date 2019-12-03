@@ -4,7 +4,7 @@
 
 select {
     -moz-appearance: none;
-    background-color: #4A4A4F;
+    background-color: var(--select-background);
     background-image: url('../../res/icons/dark/arrow-down.svg');
     background-repeat: no-repeat no-repeat;
     background-position: left calc(100% - 8px) bottom 50%;
@@ -30,7 +30,7 @@ select {
 
 /* Hover state */
 select:hover {
-    background-color: #4A4A4F;
+    background-color: var(--select-background-hover);
 }
 
 /* Pressed state */

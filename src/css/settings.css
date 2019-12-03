@@ -148,5 +148,7 @@
 
         --load-background: var(--grey-70);
         --load-foreground: var(--blue-60);
+        --select-background: var(--grey-60);
+        --select-background-hover: var(--grey-60);
     }
 }
