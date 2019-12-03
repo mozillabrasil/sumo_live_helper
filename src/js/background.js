@@ -261,7 +261,7 @@ function loadRequest(request) {
 
             // Check if question is already on the question list
             while (x < questionList.length && !questionExists) {
-                questionExists = (id == questionList[x].id);
+                questionExists = (qID == questionList[x].id);
                 x++;
             }
 
