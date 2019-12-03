@@ -10,7 +10,7 @@ The goal of this Add-on is give to all volunteers of SUMO (Support Mozilla) a to
 ![SUMO_Live_Helper gif](sumo_live_helper.gif)
 
 ## Requirements
-* Firefox 58.0 or later
+* Firefox 62.0 or later
 
 ## Features
 This Add-on shows how many questions are open and without answer on the support forum. By clicking the extension icon on the toolbar, a popup will open, allowing you to select an unanswered question. Selecting an unanswered question will open it in a new tab.
