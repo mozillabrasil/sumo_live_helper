@@ -201,6 +201,7 @@ function callAPI() {
     let is_locked = 'false';
     let is_taken = 'false';
     let is_archived = 'false';
+    let max_answers = '0';
 
     // Tell window(s) that API is loading
     browser.runtime.sendMessage({
@@ -213,7 +214,7 @@ function callAPI() {
 
     for (i = 0; i < product.length; i++) {
         requests[i] = new XMLHttpRequest();
-        let requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved=' + is_solved + '&is_spam=' + is_spam + '&is_locked=' + is_locked + '&product=' + product[i] + '&is_taken=' + is_taken + '&is_archived=' + is_archived + '&locale=' + locale;
+        let requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved=' + is_solved + '&is_spam=' + is_spam + '&is_locked=' + is_locked + '&product=' + product[i] + '&is_taken=' + is_taken + '&is_archived=' + is_archived + '&locale=' + locale + '&num_answers=' + max_answers;
         requests[i].open('GET', requestAPI, true);
         requests[i].responseType = 'json';
         requests[i].send();
