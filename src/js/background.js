@@ -252,7 +252,10 @@ function loadRequest(request) {
 
     for (i = 0; i < responseSUMO.results.length; i++) {
         // Check if question should be shown on the question list
-        if (responseSUMO.results[i].num_answers == 0 && responseSUMO.results[i].is_spam == false && responseSUMO.results[i].is_locked == false) {
+        if (responseSUMO.results[i].num_answers == 0 &&
+            responseSUMO.results[i].is_spam == false &&
+            responseSUMO.results[i].is_locked == false &&
+            isWithinTimeRange(responseSUMO.results[i].created)) {
             let qID = responseSUMO.results[i].id;
             let qTitle = responseSUMO.results[i].title;
 			let qLocale = responseSUMO.results[i].locale;
@@ -373,7 +376,11 @@ function removeOld(questions, productToCheck) {
 
         // Check if question is still on list
         while (x < questions.length && !found && matchesList) {
-            if (questionList[i].id == questions[x].id && questions[x].num_answers == 0 && questions[x].is_locked == false && questions[x].is_spam == false) {
+            if (questionList[i].id == questions[x].id &&
+                questions[x].num_answers == 0 &&
+                questions[x].is_locked == false &&
+                questions[x].is_spam == false &&
+                isWithinTimeRange(questions[i].created)) {
                 found = true;
             }
             x++;
@@ -412,6 +419,21 @@ function updateQuestionList() {
         task: 'update_question_list',
         questions: questionList
     });
+}
+
+/**
+ * Checks if the question is within the 24 hour time limit
+ * @param {string} timeString
+ * @returns {boolean}
+ */
+function isWithinTimeRange(timeString) {
+    let timeLimit = 24;                                               // In hours
+    let currentTime = new Date();
+    let timezone = currentTime.getTimezoneOffset() * 60 * 1000;       // Must manually remove the timezone offset
+    currentTime = new Date(currentTime - timezone);                   // because SUMO API displays a local timestamp, but labels it UTC
+    let minimumTime = currentTime.getTime() - (timeLimit * 3600000);
+    let questionTime = new Date(timeString).getTime();
+    return questionTime >= minimumTime;
 }
 
 /**
