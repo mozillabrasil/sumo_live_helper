@@ -380,7 +380,7 @@ function removeOld(questions, productToCheck) {
                 questions[x].num_answers == 0 &&
                 questions[x].is_locked == false &&
                 questions[x].is_spam == false &&
-                isWithinTimeRange(questions[i].created)) {
+                isWithinTimeRange(questions[x].created)) {
                 found = true;
             }
             x++;
