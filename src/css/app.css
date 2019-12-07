@@ -131,6 +131,8 @@ label > select {
 #items li div {
     flex-grow: 1;
     padding: 8px;
+    word-break: normal;
+    overflow-wrap: anywhere;
 }
 
 #items li div:first-child,
