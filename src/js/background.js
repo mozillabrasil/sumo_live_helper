@@ -201,6 +201,7 @@ function callAPI() {
     let is_locked = 'false';
     let is_taken = 'false';
     let is_archived = 'false';
+    let max_answers = '0';
 
     // Tell window(s) that API is loading
     browser.runtime.sendMessage({
@@ -213,7 +214,7 @@ function callAPI() {
 
     for (i = 0; i < product.length; i++) {
         requests[i] = new XMLHttpRequest();
-        let requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved=' + is_solved + '&is_spam=' + is_spam + '&is_locked=' + is_locked + '&product=' + product[i] + '&is_taken=' + is_taken + '&is_archived=' + is_archived + '&locale=' + locale;
+        let requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved=' + is_solved + '&is_spam=' + is_spam + '&is_locked=' + is_locked + '&product=' + product[i] + '&is_taken=' + is_taken + '&is_archived=' + is_archived + '&locale=' + locale + '&num_answers=' + max_answers;
         requests[i].open('GET', requestAPI, true);
         requests[i].responseType = 'json';
         requests[i].send();
@@ -251,7 +252,10 @@ function loadRequest(request) {
 
     for (i = 0; i < responseSUMO.results.length; i++) {
         // Check if question should be shown on the question list
-        if (responseSUMO.results[i].num_answers == 0 && responseSUMO.results[i].is_spam == false && responseSUMO.results[i].is_locked == false) {
+        if (responseSUMO.results[i].num_answers == 0 &&
+            responseSUMO.results[i].is_spam == false &&
+            responseSUMO.results[i].is_locked == false &&
+            isWithinTimeRange(responseSUMO.results[i].created)) {
             let qID = responseSUMO.results[i].id;
             let qTitle = responseSUMO.results[i].title;
 			let qLocale = responseSUMO.results[i].locale;
@@ -372,7 +376,11 @@ function removeOld(questions, productToCheck) {
 
         // Check if question is still on list
         while (x < questions.length && !found && matchesList) {
-            if (questionList[i].id == questions[x].id && questions[x].num_answers == 0 && questions[x].is_locked == false && questions[x].is_spam == false) {
+            if (questionList[i].id == questions[x].id &&
+                questions[x].num_answers == 0 &&
+                questions[x].is_locked == false &&
+                questions[x].is_spam == false &&
+                isWithinTimeRange(questions[x].created)) {
                 found = true;
             }
             x++;
@@ -411,6 +419,21 @@ function updateQuestionList() {
         task: 'update_question_list',
         questions: questionList
     });
+}
+
+/**
+ * Checks if the question is within the 24 hour time limit
+ * @param {string} timeString
+ * @returns {boolean}
+ */
+function isWithinTimeRange(timeString) {
+    let timeLimit = 24;                                               // In hours
+    let currentTime = new Date();
+    let timezone = currentTime.getTimezoneOffset() * 60 * 1000;       // Must manually remove the timezone offset
+    currentTime = new Date(currentTime - timezone);                   // because SUMO API displays a local timestamp, but labels it UTC
+    let minimumTime = currentTime.getTime() - (timeLimit * 3600000);
+    let questionTime = new Date(timeString).getTime();
+    return questionTime >= minimumTime;
 }
 
 /**
