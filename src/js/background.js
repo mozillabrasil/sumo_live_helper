@@ -1,5 +1,10 @@
 // Variable declaration
-let frequencySeekNewQuestions, locale, showNotifications, onlySidebar, product;
+let frequencySeekNewQuestions, 
+    locale, 
+    showNotifications, 
+    onlySidebar, 
+    product,
+    theme;
 let numberOfAPIRequests = 0;
 let apiFromPopup = false;
 
@@ -40,6 +45,9 @@ function settingsUpdated(changes, area) {
             case 'onlySidebar':
                 onlySidebar = changes[item].newValue;
                 toggleSidebarPreference();
+                return;
+            case 'chooseTheme':
+                theme = changes[item].newValue;
                 return;
         }
     }
@@ -180,6 +188,13 @@ function dataLoaded(data) {
         onlySidebar = false;
     } else {
         onlySidebar = data.onlySidebar;
+    }
+
+    // Load theme setting
+    if (typeof data.chooseTheme === 'undefined' || data.chooseTheme === null) {
+        theme = "auto";
+    } else {
+        theme = data.chooseTheme;
     }
 
     browser.storage.onChanged.addListener(settingsUpdated);

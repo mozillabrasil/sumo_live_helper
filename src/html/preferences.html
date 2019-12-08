@@ -44,10 +44,6 @@
                 <input id="showNotifications" type="checkbox" name="showNotifications">
                 <span data-i18n="show_notifications"></span>
             </label>
-            <label for="onlySidebar">
-                <input id="onlySidebar" type="checkbox" name="onlySidebar">
-                <span data-i18n="prefer_sidebar"></span>
-            </label>
 
             <h3 data-i18n="products"></h3>
             <p>
@@ -73,6 +69,9 @@
                 <input id="thunderbird" name="chooseProduct" type="checkbox" value="Thunderbird">
                 <span data-i18n="product_thunderbird"></span>
             </label>
+            
+
+            <h2>Language and Appearance</h2>
 
             <h3 data-i18n="language"></h3>
             <label for="chooseLanguage">
@@ -85,6 +84,20 @@
                     <option value="hu">Magyar</option>
                     <option value="pt-BR">Português (do Brasil)</option>
                 </select>
+            </label>
+
+            <h3>Theme</h3>
+            <label for="chooseTheme">
+              Choose the default theme
+              <select id="chooseTheme" name="chooseTheme" style="width: 200px">
+                <option value="auto">Auto-detect (default)</option>
+                <option value="dark">Dark</option>
+                <option value="light">Light</option>
+              </select>
+            </label>
+            <label for="onlySidebar">
+                <input id="onlySidebar" type="checkbox" name="onlySidebar">
+                <span data-i18n="prefer_sidebar"></span>
             </label>
         </form>
 

@@ -36,6 +36,10 @@ function loadSettings(data) {
     } else {
         document.settings.chooseProduct[i].checked = true;
     }
+    
+    if (data.chooseTheme) {
+        document.settings.chooseTheme.value = data.chooseTheme;
+    }
 }
 
 /**
