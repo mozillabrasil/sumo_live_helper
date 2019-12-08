@@ -48,6 +48,7 @@ function settingsUpdated(changes, area) {
                 return;
             case 'chooseTheme':
                 theme = changes[item].newValue;
+                browser.tabs.reload();
                 return;
         }
     }
