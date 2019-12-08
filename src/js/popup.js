@@ -28,6 +28,29 @@ isSidebar();
 let getQuestionList = browser.storage.local.get();
 getQuestionList.then(dataLoaded);
 
+// Get the
+let getCurrentTheme = browser.storage.local.get("chooseTheme");
+getCurrentTheme.then(setCurrentTheme);
+
+// Set theme
+function setCurrentTheme(data) {
+  let addClassTheme = document.getElementsByTagName('body');
+
+  if (data.chooseTheme == "auto") {
+    let isSystemThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let isSystemThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (isSystemThemeDark == true) {
+      addClassTheme[0].className = "theme-dark";
+    } else if (isSystemThemeLight == true) {
+      addClassTheme[0].className = "theme-light";
+    } else {
+      addClassTheme[0].className = "theme-light";
+    }
+  } else {
+    addClassTheme[0].className = "theme-" + data.chooseTheme;
+  }
+}
+
 /**
  * Open extension preferences page
  */

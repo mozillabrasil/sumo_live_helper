@@ -7,6 +7,29 @@ let data = browser.storage.local.get();
 data.then(loadSettings);
 document.settings.addEventListener('change', saveChange);
 
+// Get theme
+let getCurrentTheme = browser.storage.local.get("chooseTheme");
+getCurrentTheme.then(setCurrentTheme);
+
+// Set theme
+function setCurrentTheme(data) {
+  let addClassTheme = document.getElementsByTagName('body');
+
+  if (data.chooseTheme == "auto") {
+    let isSystemThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let isSystemThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (isSystemThemeDark == true) {
+      addClassTheme[0].className = "theme-dark";
+    } else if (isSystemThemeLight == true) {
+      addClassTheme[0].className = "theme-light";
+    } else {
+      addClassTheme[0].className = "theme-light";
+    }
+  } else {
+    addClassTheme[0].className = "theme-" + data.chooseTheme;
+  }
+}
+
 /**
  * Inject settings into options UI from Storage API
  * @param {object} data
