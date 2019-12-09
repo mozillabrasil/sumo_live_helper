@@ -4,46 +4,46 @@
         "description": "Extension name."
     },
     "extensionDescription": {
-        "message": "Cette extension est pour les volontaires dans SUMO (Support Mozilla) pour qu'ils puissent voir lorsqu'il y a des nouvelles questions sur le forum de support qui n'ont pas encore de réponse."
+        "message": "Cette extension est destinée aux volontaires de SUMO (Support Mozilla) qui peuvent voir s’il y a des questions sans réponses sur les forums d’assistance."
     },
     "watch_questions": {
-        "message": "Regarder pour de nouvelles questions"
+        "message": "Rechercher de nouvelles questions"
     },
     "description_questions": {
-        "message": "Déterminer si SUMO Live Helper doit avertir lors de la réception de nouvelles questions"
+        "message": "Détermine si SUMO Live Helper doit avertir de la réception de nouvelles questions"
     },
     "frequency_questions": {
-        "message": "Déterminer l'interval de temps auquel SUMO Live Helper doit chercher pour de nouvelles questions"
+        "message": "Déterminer l’intervalle de temps au terme duquel SUMO Live Helper doit chercher de nouvelles questions"
     },
     "polling": {
-        "message": "Interval en minutes pour contacter l'API"
+        "message": "Intervalle en minutes pour contacter l’API"
     },
     "preferences": {
         "message": "Préférences"
     },
     "one_question_without_answer": {
-        "message": " question sans réponse (Cliquer pour ouvrir)"
+        "message": " question sans réponse (cliquer pour ouvrir)"
     },
     "more_than_one_question_without_answer": {
-        "message": " questions sans réponse (Cliquer pour ouvrir)"
+        "message": " questions sans réponse (cliquer pour ouvrir)"
     },
     "choose_language": {
-        "message": "Choisir une langage"
+        "message": "Choisir une langue"
     },
     "choose_language_description": {
-        "message": "Choisir une langage dans laquelle chercher pour des questions qui sont ouvertes"
+        "message": "Choisir une langue dans laquelle chercher des questions ouvertes"
     },
     "choose_product": {
         "message": "Choisir un produit"
     },
     "choose_product_description": {
-        "message": "Choisir un produit dans lequel chercher pour des questions qui sont ouvertes"
+        "message": "Choisir un produit pour lequel chercher des questions ouvertes"
     },
     "open_tab": {
         "message": "Ouvrir"
     },
     "product_firefox": {
-        "message": "Firefox pour Ordinateur"
+        "message": "Firefox pour ordinateur"
     },
     "product_thunderbird": {
         "message": "Thunderbird"
@@ -58,69 +58,69 @@
         "message": "Firefox pour entreprise"
     },
     "congratulations": {
-        "message": "félicitations! Toutes les questions ont étés répondues!"
+        "message": "Félicitations ! Toutes les questions ont reçu une réponse !"
     },
     "refresh": {
-        "message": "Rafraîchir"
+        "message": "Actualiser"
     },
     "clear_notifications": {
         "message": "Effacer les notifications"
     },
     "show_notifications": {
-        "message": "Voir les notifications du navigateur"
+        "message": "Voir les notifications dans le navigateur"
     },
     "description_notifications": {
-        "message": "Détermine si vous recevrez des notifications de type popups lorsque de nouvelles questions sont trouvées"
+        "message": "Détermine si vous recevez des notifications de type popups lorsque de nouvelles questions sont trouvées"
     },
     "notification_title_single": {
-        "message": "Une nouvelle question a été trouvée!"
+        "message": "Une nouvelle question a été trouvée !"
     },
     "notification_title_multiple": {
-        "message": "De nouvelles questions ont été trouvées!"
+        "message": "De nouvelles questions ont été trouvées !"
     },
     "notification_message_more": {
-        "message": "Besoin de plus d'aide."
+        "message": "Besoin de plus d’aide."
     },
     "notification_message_click": {
-        "message": "Cliquer l'icône de SUMO Live Helper dans la barre d'outils pour voir la liste de questions..."
+        "message": "Cliquer sur l’icône de SUMO Live Helper dans la barre d’outils pour voir la liste de questions…"
     },
     "open_preferences": {
         "message": "Ouvrir les préférences"
     },
     "prefer_sidebar": {
-        "message": "Always open questions in sidebar"
+        "message": "Toujours ouvrir les questions dans le panneau latéral"
     },
     "open_sidebar": {
-        "message": "Open sidebar"
+        "message": "Ouvrir le panneau latéral"
     },
      "language": {
-        "message": "Language"
+        "message": "Langue"
     },
     "products": {
-        "message": "Products"
+        "message": "Produits"
     },
     "synchronisation": {
         "message": "Synchronisation"
     },
     "general": {
-        "message": " General"
+        "message": " Général"
     },
     "default_time": {
-        "message": "15 (default)"
+        "message": "15 (par défaut)"
     },
     "theme": {
-        "message": "Theme"
+        "message": "Thème"
     },
     "choose_theme": {
-        "message": "Choose a theme"
+        "message": "Choisir un thème"
     },
     "theme_auto": {
-        "message": "Auto-detect (default)"
+        "message": "Détection automatique (par défaut)"
     },
     "theme_dark": {
-        "message": "Dark"
+        "message": "Sombre"
     },
     "theme_light": {
-        "message": "Light"
+        "message": "Clair"
     }
 }
