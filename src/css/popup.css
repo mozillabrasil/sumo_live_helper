@@ -2,3 +2,7 @@
 .sidebar header h1 {
     display: none !important;
 }
+
+.sidebar nav {
+    padding-top: 0 !important;
+}
