@@ -1,49 +1,49 @@
 {
     "extensionName": {
         "message": "SUMO Live Helper",
-        "description": "Extension name."
+        "description": "A kiegészítő neve."
     },
     "extensionDescription": {
-        "message": "This Add-on is for volunteers in SUMO (Support Mozilla) to see when there are new forum support questions that have not yet been answered."
+        "message": "Ez a kiegészítő a SUMO (Mozilla Támogatás) önkénteseinek szól, hogy láthassák az új, nem megválaszolt támogatási kéréseket."
     },
     "watch_questions": {
-        "message": "Look out for new questions"
+        "message": "Figyeljen az új kérésekre"
     },
     "description_questions": {
-        "message": "Determines whether the SUMO Live Helper should alert the receipt of new questions"
+        "message": "Meghatározza, hogy a SUMO Live Helper értesítésben küldje-e el az új kéréseket"
     },
     "frequency_questions": {
-        "message": "Determines the time interval at which the SUMO Live Helper should seek new questions"
+        "message": "Meghatározza, hogy a SUMO Live Helper milyen időszakonként keressen új kérdéseket"
     },
     "polling": {
-        "message": "Time in minutes to query the API"
+        "message": "Hány percenként kérdezze le az API-t"
     },
     "preferences": {
-        "message": "Preferences"
+        "message": "Beállítások"
     },
     "one_question_without_answer": {
-        "message": " question without answer (Click to open)"
+        "message": " kérdés válasz nélkül (Kattintson a megnyitáshoz)"
     },
     "more_than_one_question_without_answer": {
-        "message": " questions without answer (Click to open)"
+        "message": " kérdés válasz nélkül (Kattintson a megnyitáshoz)"
     },
     "choose_language": {
-        "message": "Choose a language"
+        "message": "Válasszon nyelvet"
     },
     "choose_language_description": {
-        "message": "Choose a language to search for opened questions"
+        "message": "Válassza ki, hogy mely nyelven akar nyitott kérdéseket keresni"
     },
     "choose_product": {
-        "message": "Choose a product"
+        "message": "Válasszon terméket"
     },
     "choose_product_description": {
-        "message": "Choose a product to search for opened questions"
+        "message": "Válassza ki a termékeket, melyekhez nyitott kérdéseket akar keresni"
     },
     "open_tab": {
-        "message": "Open"
+        "message": "Megnyitás"
     },
     "product_firefox": {
-        "message": "Firefox for Desktop"
+        "message": "Asztali Firefox"
     },
     "product_thunderbird": {
         "message": "Thunderbird"
@@ -55,72 +55,72 @@
         "message": "Firefox for iOS"
     },
     "product_firefox-enterprise": {
-        "message": "Firefox for Enterprise"
+        "message": "Vállalati Firefox"
     },
     "congratulations": {
-        "message": "Congratulations! All questions have been answered!"
+        "message": "Gratulálunk! Az összes kérdés megválaszolva!"
     },
     "refresh": {
-        "message": "Refresh"
+        "message": "Frissítés"
     },
     "clear_notifications": {
-        "message": "Clear notifications"
+        "message": "Értesítések törlése"
     },
     "show_notifications": {
-        "message": "Show browser notifications"
+        "message": "Böngészőértesítések megjelenítése"
     },
     "description_notifications": {
         "message": "Determines whether you will receive notification popups when new questions are found"
     },
     "notification_title_single": {
-        "message": "new question found!"
+        "message": "új kérdés találva!"
     },
     "notification_title_multiple": {
-        "message": "new questions found!"
+        "message": "új kérdés találva!"
     },
     "notification_message_more": {
-        "message": "more need help."
+        "message": "további vár segítségre."
     },
     "notification_message_click": {
-        "message": "Click the SUMO Live Helper toolbar icon to view the question list..."
+        "message": "A kérdések listájának megtekintéséhez kattintson a SUMO Live Helper eszköztár ikonra…"
     },
     "open_preferences": {
-        "message": "Open preferences"
+        "message": "Beállítások megnyitása"
     },
     "prefer_sidebar": {
-        "message": "Always open questions in sidebar"
+        "message": "A kérdéseket mindig az oldalsávban nyissa meg"
     },
     "open_sidebar": {
-        "message": "Open sidebar"
+        "message": "Oldalsáv megnyitása"
     },
      "language": {
-        "message": "Language"
+        "message": "Nyelv"
     },
     "products": {
-        "message": "Products"
+        "message": "Termékek"
     },
     "synchronisation": {
-        "message": "Synchronisation"
+        "message": "Szinkronizálás"
     },
     "general": {
-        "message": " General"
+        "message": " Általános"
     },
     "default_time": {
-        "message": "15 (default)"
+        "message": "15 (alapértelmezett)"
     },
     "theme": {
-        "message": "Theme"
+        "message": "Téma"
     },
     "choose_theme": {
-        "message": "Choose a theme"
+        "message": "Válasszon témát"
     },
     "theme_auto": {
-        "message": "Auto-detect (default)"
+        "message": "Automatikus felismerés (alapértelmezett)"
     },
     "theme_dark": {
-        "message": "Dark"
+        "message": "Sötét"
     },
     "theme_light": {
-        "message": "Light"
+        "message": "Világos"
     }
 }
