@@ -40,14 +40,14 @@ function setCurrentTheme(data) {
     let isSystemThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
     let isSystemThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
     if (isSystemThemeDark == true) {
-      addClassTheme[0].className = "theme-dark";
+      addClassTheme[0].classList.add('theme-dark');
     } else if (isSystemThemeLight == true) {
-      addClassTheme[0].className = "theme-light";
+      addClassTheme[0].classList.add('theme-light');
     } else {
-      addClassTheme[0].className = "theme-light";
+      addClassTheme[0].classList.add('theme-light');
     }
   } else {
-    addClassTheme[0].className = "theme-" + data.chooseTheme;
+    addClassTheme[0].classList.add('theme-' + data.chooseTheme);
   }
 }
 
@@ -287,10 +287,10 @@ function isSidebar() {
     queries = queries.substring(queries.indexOf('?') + 1, queries.length);
 
     if (queries.indexOf('popup') >= 0) {
-        document.body.className = 'popup';
+        document.body.classList.add('popup');
         return false;
     } else {
-        document.body.className = 'sidebar';
+        document.body.classList.add('sidebar');
         return true;
     }
 }
