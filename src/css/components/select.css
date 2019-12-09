@@ -6,6 +6,7 @@ select {
     -moz-appearance: none;
     background-color: var(--select-background);
     background-image: url('../../res/icons/dark/arrow-down.svg');
+    background-image: var(--select-arrow-image);
     background-repeat: no-repeat no-repeat;
     background-position: left calc(100% - 8px) bottom 50%;
     background-size: 13px;
@@ -21,13 +22,13 @@ select {
     min-width: 132px;
     padding: 0 8px;
 }
-
+/*
 @media (prefers-color-scheme: dark) {
     select {
         background-image: url('../../res/icons/light/arrow-down.svg');
     }
 }
-
+*/
 /* Hover state */
 select:hover {
     background-color: var(--select-background-hover);
