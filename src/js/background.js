@@ -48,7 +48,10 @@ function settingsUpdated(changes, area) {
                 return;
             case 'chooseTheme':
                 theme = changes[item].newValue;
-                browser.tabs.reload();
+                browser.runtime.sendMessage({
+                    task: 'update_theme',
+                    theme: theme
+                });
                 return;
         }
     }

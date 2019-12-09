@@ -28,29 +28,6 @@ isSidebar();
 let getQuestionList = browser.storage.local.get();
 getQuestionList.then(dataLoaded);
 
-// Get the
-let getCurrentTheme = browser.storage.local.get("chooseTheme");
-getCurrentTheme.then(setCurrentTheme);
-
-// Set theme
-function setCurrentTheme(data) {
-  let addClassTheme = document.getElementsByTagName('body');
-
-  if (data.chooseTheme == "auto") {
-    let isSystemThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    let isSystemThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    if (isSystemThemeDark == true) {
-      addClassTheme[0].classList.add('theme-dark');
-    } else if (isSystemThemeLight == true) {
-      addClassTheme[0].classList.add('theme-light');
-    } else {
-      addClassTheme[0].classList.add('theme-light');
-    }
-  } else {
-    addClassTheme[0].classList.add('theme-' + data.chooseTheme);
-  }
-}
-
 /**
  * Open extension preferences page
  */
@@ -106,6 +83,9 @@ function handleMessage(message) {
         case 'mark_as_read':
             markAsRead(message.id);
             return;
+        case 'update_theme':
+            setCurrentTheme(message.theme);
+            return;
         case 'no_api_call':
             questionList = [];
             addQuestions([], true);
@@ -118,6 +98,8 @@ function handleMessage(message) {
  * @param {object} data
  */
 function dataLoaded(data) {
+    setCurrentTheme(data.chooseTheme);
+    
     questionList = data.questions;
 
     for (i = 0; i < questionList.length; i++) {
@@ -132,6 +114,29 @@ function dataLoaded(data) {
 
     toggleQuestionList();
     callAPI();
+}
+
+/**
+ * Set the UI theme
+ * @param {string} theme
+ */
+function setCurrentTheme(theme) {
+    document.body.classList.remove('theme-dark', 'theme-light');
+
+    if (theme == 'auto') {
+        let isSystemThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        let isSystemThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+
+        if (isSystemThemeDark == true) {
+            document.body.classList.add('theme-dark');
+        } else if (isSystemThemeLight == true) {
+            document.body.classList.add('theme-light');
+        } else {
+            document.body.classList.add('theme-light');
+        }
+    } else {
+        document.body.classList.add('theme-' + theme);
+    }
 }
 
 /**

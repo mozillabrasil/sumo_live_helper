@@ -1,3 +1,6 @@
+// Create message handler
+browser.runtime.onMessage.addListener(handleMessage);
+
 // Insert version number
 let versionUI = document.getElementById("version");
 versionUI.textContent = " (v" + browser.runtime.getManifest().version + ")";
@@ -7,27 +10,39 @@ let data = browser.storage.local.get();
 data.then(loadSettings);
 document.settings.addEventListener('change', saveChange);
 
-// Get theme
-let getCurrentTheme = browser.storage.local.get("chooseTheme");
-getCurrentTheme.then(setCurrentTheme);
+/**
+ * Set the UI theme
+ * @param {string} theme
+ */
+function setCurrentTheme(theme) {
+    document.body.classList.remove('theme-dark', 'theme-light');
 
-// Set theme
-function setCurrentTheme(data) {
-  let addClassTheme = document.getElementsByTagName('body');
+    if (theme == 'auto') {
+        let isSystemThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        let isSystemThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
 
-  if (data.chooseTheme == "auto") {
-    let isSystemThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    let isSystemThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
-    if (isSystemThemeDark == true) {
-      addClassTheme[0].className = "theme-dark";
-    } else if (isSystemThemeLight == true) {
-      addClassTheme[0].className = "theme-light";
+        if (isSystemThemeDark == true) {
+            document.body.classList.add('theme-dark');
+        } else if (isSystemThemeLight == true) {
+            document.body.classList.add('theme-light');
+        } else {
+            document.body.classList.add('theme-light');
+        }
     } else {
-      addClassTheme[0].className = "theme-light";
+        document.body.classList.add('theme-' + theme);
     }
-  } else {
-    addClassTheme[0].className = "theme-" + data.chooseTheme;
-  }
+}
+
+/**
+ * Handle incoming messages
+ * @param {object} message
+ */
+function handleMessage(message) {
+    switch(message.task) {
+        case 'update_theme':
+            setCurrentTheme(message.theme);
+            return;
+    }
 }
 
 /**
@@ -35,6 +50,8 @@ function setCurrentTheme(data) {
  * @param {object} data
  */
 function loadSettings(data) {
+    setCurrentTheme(data.chooseTheme);
+    
     if (data.chooseLanguage) {
         document.settings.chooseLanguage.value = data.chooseLanguage;
     }
