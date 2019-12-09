@@ -194,6 +194,9 @@ function dataLoaded(data) {
     // Load theme setting
     if (typeof data.chooseTheme === 'undefined' || data.chooseTheme === null) {
         theme = "auto";
+        browser.storage.local.set({
+            chooseTheme: theme
+        });
     } else {
         theme = data.chooseTheme;
     }
