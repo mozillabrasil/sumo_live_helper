@@ -107,5 +107,20 @@
     },
     "default_time": {
         "message": "15 (padrão)"
+    },
+    "theme": {
+        "message": "Tema"
+    },
+    "choose_theme": {
+        "message": "Escolha um tema"
+    },
+    "theme_auto": {
+        "message": "Automático (padrão)"
+    },
+    "theme_dark": {
+        "message": "Escuro"
+    },
+    "theme_light": {
+        "message": "Claro"
     }
 }
