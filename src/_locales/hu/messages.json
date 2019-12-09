@@ -70,7 +70,7 @@
         "message": "Böngészőértesítések megjelenítése"
     },
     "description_notifications": {
-        "message": "Determines whether you will receive notification popups when new questions are found"
+        "message": "Meghatározza, hogy fog-e felugró értesíteseket kapni, ha új kérdések találhatók"
     },
     "notification_title_single": {
         "message": "új kérdés találva!"
