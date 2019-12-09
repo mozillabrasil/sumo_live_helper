@@ -125,6 +125,7 @@
   --select-background: var(--grey-90-a10);
   --select-background-hover: var(--grey-90-a20);
   --select-arrow-image: url('../../res/icons/dark/arrow-down.svg');
+  --option-background: var(--white-100);
 }
 
 .theme-dark {
@@ -157,4 +158,5 @@
   --select-background: var(--grey-60);
   --select-background-hover: var(--grey-10-a20);
   --select-arrow-image: url('../../res/icons/light/arrow-down.svg');
+  --option-background: var(--grey-70);
 }

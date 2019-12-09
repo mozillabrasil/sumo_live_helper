@@ -47,3 +47,7 @@ select:focus {
         0 0 0 4px rgba(10, 132, 255, 0.3);
     outline: none;
 }
+
+option {
+    background-color: var(--option-background);
+}
