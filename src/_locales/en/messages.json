@@ -107,5 +107,23 @@
     },
     "default_time": {
         "message": "15 (default)"
+    },
+    "theme": {
+        "message": "Theme"
+    },
+    "theme_and_appearance": {
+        "message": "Theme and Appearance"
+    },
+    "choose_theme": {
+        "message": "Choose a theme"
+    },
+    "theme_auto": {
+        "message": "Auto-detect (default)"
+    },
+    "theme_dark": {
+        "message": "Dark"
+    },
+    "theme_light": {
+        "message": "Light"
     }
 }
