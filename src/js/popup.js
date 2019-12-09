@@ -28,6 +28,29 @@ isSidebar();
 let getQuestionList = browser.storage.local.get();
 getQuestionList.then(dataLoaded);
 
+// Get the
+let getCurrentTheme = browser.storage.local.get("chooseTheme");
+getCurrentTheme.then(setCurrentTheme);
+
+// Set theme
+function setCurrentTheme(data) {
+  let addClassTheme = document.getElementsByTagName('body');
+
+  if (data.chooseTheme == "auto") {
+    let isSystemThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    let isSystemThemeLight = window.matchMedia('(prefers-color-scheme: light)').matches;
+    if (isSystemThemeDark == true) {
+      addClassTheme[0].classList.add('theme-dark');
+    } else if (isSystemThemeLight == true) {
+      addClassTheme[0].classList.add('theme-light');
+    } else {
+      addClassTheme[0].classList.add('theme-light');
+    }
+  } else {
+    addClassTheme[0].classList.add('theme-' + data.chooseTheme);
+  }
+}
+
 /**
  * Open extension preferences page
  */
@@ -264,10 +287,10 @@ function isSidebar() {
     queries = queries.substring(queries.indexOf('?') + 1, queries.length);
 
     if (queries.indexOf('popup') >= 0) {
-        document.body.className = 'popup';
+        document.body.classList.add('popup');
         return false;
     } else {
-        document.body.className = 'sidebar';
+        document.body.classList.add('sidebar');
         return true;
     }
 }
