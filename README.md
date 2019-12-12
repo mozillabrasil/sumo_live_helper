@@ -4,6 +4,7 @@
 [<img align="right" src="https://img.shields.io/github/stars/mozillabrasil/sumo_live_helper.svg">](https://github.com/mozillabrasil/sumo_live_helper/stargazers)
 [<img align="right" src="https://img.shields.io/github/release/mozillabrasil/sumo_live_helper.svg">](https://github.com/mozillabrasil/sumo_live_helper/releases)
 
+![SUMO Live Helper](/src/res/logo/sumo64.png)
 # SUMO Live Helper [<img align="right" src="https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png">](https://addons.mozilla.org/en-US/firefox/addon/sumo-live-helper-/)
 The goal of this Add-on is give to all volunteers of SUMO (Support Mozilla) a tool to see when there are new support questions in the forums that have not yet been answered. This will help to improve the Mozilla products user experience by getting answers to their problems more quickly.
 
@@ -29,6 +30,7 @@ There are additional settings that can be accessed through the wrench in the pop
 - Time in minutes to query the API: set how often the extension should check for new questions posted to the forum
 - Show browser notifications: receive a browser notification when a new question is opened
 - Sidebar you can open the questions in a sidebar
+- Choose one theme to use "Dark" or "Light"
 - Choose one or more products to search for opened questions, the following products are supported:
     - Firefox for Desktop
     - Firefox for Enterprise
@@ -39,6 +41,8 @@ There are additional settings that can be accessed through the wrench in the pop
     - Čeština
     - Español
     - English
+    - French
+    - Magyar
     - Português (do Brasil)
 
 If you have any suggestions, would like to see your locale added, or want to see the Add-on localized in your language, feel free to open a PR or an issue. 
