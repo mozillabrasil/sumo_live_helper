@@ -345,6 +345,11 @@ function loadRequest(request) {
  * Update question count on browserAction button
  */
 function updateQuestionCount() {
+	// Cancel if it's Android
+	if (isMobile) {
+		return;
+	}
+
     let numberOfQuestionsOpened = 0;
 
     // Count new questions
