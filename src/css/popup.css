@@ -1,8 +1,35 @@
 .sidebar nav li:last-of-type,
-.sidebar header h1 {
+.sidebar header h1,
+.mobile nav li:last-of-type,
+.mobile header h1 {
     display: none !important;
 }
 
-.sidebar nav {
+.sidebar nav,
+.mobile nav {
     padding-top: 0 !important;
+}
+
+#popup.mobile {
+	grid-template-areas:
+        'nav    nav    nav'
+        'main   main   main' !important;
+}
+
+.mobile > header {
+	display: none !important;
+}
+
+.mobile .menu {
+	display: flex;
+}
+
+.mobile .menu li {
+	flex: 1;
+	text-align: center;
+	border-left: solid 1px var(--popup-header-border);
+}
+
+.mobile .menu li:first-of-type {
+	border: none !important;
 }
