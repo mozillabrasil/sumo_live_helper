@@ -4,9 +4,14 @@ let frequencySeekNewQuestions,
     showNotifications, 
     onlySidebar, 
     product,
-    theme;
+    theme,
+    isMobile;
 let numberOfAPIRequests = 0;
 let apiFromPopup = false;
+
+// Detect operating system
+let detectOS = browser.runtime.getPlatformInfo();
+detectOS.then(setOS);
 
 // Load saved questions from storage
 let questionList = browser.storage.local.get();
@@ -61,9 +66,13 @@ function settingsUpdated(changes, area) {
  * Toggle browserAction button between sidebar and popup
  */
 function toggleSidebarPreference() {
-    if (onlySidebar) {
+    if (onlySidebar && !isMobile) {
         browser.browserAction.setPopup({
             popup: ''
+        });
+    } else if (isMobile) {
+        browser.browserAction.setPopup({
+            popup: '/html/popup.html?view=mobile'
         });
     } else {
         browser.browserAction.setPopup({
@@ -280,8 +289,8 @@ function loadRequest(request) {
             isWithinTimeRange(responseSUMO.results[i].created)) {
             let qID = responseSUMO.results[i].id;
             let qTitle = responseSUMO.results[i].title;
-			let qLocale = responseSUMO.results[i].locale;
-			let qProduct = responseSUMO.results[i].product;
+            let qLocale = responseSUMO.results[i].locale;
+            let qProduct = responseSUMO.results[i].product;
             let x = 0;
             let questionExists = false;
 
@@ -297,7 +306,7 @@ function loadRequest(request) {
                     product: qProduct,
                     title: qTitle,
                     id: qID,
-					locale: qLocale,
+                    locale: qLocale,
                     new: true
                 }
                 newQuestionList.push(newItem);
@@ -509,4 +518,12 @@ function markAsRead(id) {
 
     updateQuestionList();
     updateQuestionCount();
+}
+
+/**
+ * Sets the OS information variable
+ * @param {object} info
+ */
+function setOS(info) {
+    isMobile = info.os == browser.runtime.PlatformOs.ANDROID;
 }

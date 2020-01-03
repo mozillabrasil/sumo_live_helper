@@ -21,6 +21,9 @@ settings.addEventListener('click', openPreferences, false);
 sidebar.addEventListener('click', openSidebar, false);
 questionListUI.addEventListener('click', openQuestion, false);
 
+// Is it Android
+let isMobile = false;
+
 // Adjust UI
 isSidebar();
 
@@ -285,7 +288,6 @@ function removeQuestion(id) {
 
 /**
  * Determine if this window is sidebar
- * @returns {boolean}
  */
 function isSidebar() {
     let queries = window.location.href;
@@ -293,7 +295,9 @@ function isSidebar() {
 
     if (queries.indexOf('popup') >= 0) {
         document.body.classList.add('popup');
-        return false;
+    } else if (queries.indexOf('mobile') >= 0) {
+		isMobile = true;
+        document.body.classList.add('mobile');
     } else {
         document.body.classList.add('sidebar');
         return true;
