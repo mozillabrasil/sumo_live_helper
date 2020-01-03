@@ -14,6 +14,7 @@
 	grid-template-areas:
         'nav    nav    nav'
         'main   main   main' !important;
+	max-width: none !important;
 }
 
 .mobile > header {
