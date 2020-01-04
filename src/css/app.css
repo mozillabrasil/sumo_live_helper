@@ -41,7 +41,7 @@ select {
 }
 
 label {
-    align-content: center;
+    align-items: center;
     display: flex;
     margin: 8px 0;
     max-width: 664px;
@@ -51,13 +51,10 @@ label > * {
     margin-right: 8px;
 }
 
-label > select {
-    margin-top: -8px;
-}
-
 #page-preferences {
     display: grid;
     grid-gap: 16px;
+    margin: auto 1em;
 }
 
 @media (min-width: 40em) {
@@ -195,4 +192,9 @@ label > select {
     to {
         left: 100%;
     }
+}
+
+.mobile {
+    grid-template-columns: unset !important;
+    grid-gap: unset !important;
 }
