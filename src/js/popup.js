@@ -116,6 +116,7 @@ function dataLoaded(data) {
     }
 
     toggleQuestionList();
+    document.getElementById('page-loader').style.display = 'none';
     callAPI();
 }
 

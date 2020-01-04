@@ -85,6 +85,8 @@ function loadSettings(data) {
     if (data.chooseTheme) {
         document.settings.chooseTheme.value = data.chooseTheme;
     }
+    
+    document.getElementById('page-loader').style.display = 'none';
 }
 
 /**
