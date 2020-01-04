@@ -5,6 +5,11 @@ browser.runtime.onMessage.addListener(handleMessage);
 let versionUI = document.getElementById("version");
 versionUI.textContent = " (v" + browser.runtime.getManifest().version + ")";
 
+// Detect operating system
+let isMobile;
+let detectOS = browser.runtime.getPlatformInfo();
+detectOS.then(setOS);
+
 // Load data
 let data = browser.storage.local.get();
 data.then(loadSettings);
@@ -80,6 +85,8 @@ function loadSettings(data) {
     if (data.chooseTheme) {
         document.settings.chooseTheme.value = data.chooseTheme;
     }
+    
+    document.getElementById('page-loader').style.display = 'none';
 }
 
 /**
@@ -116,4 +123,15 @@ function getProductList() {
     }
 
     return preference;
+}
+
+/**
+ * Sets the OS information variable
+ * @param {object} info
+ */
+function setOS(info) {
+    isMobile = info.os == browser.runtime.PlatformOs.ANDROID;
+    if (isMobile) {
+        document.body.classList.add('mobile');
+    }
 }

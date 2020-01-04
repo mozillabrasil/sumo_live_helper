@@ -11,6 +11,12 @@
     </head>
 
     <body id="page-preferences">
+        <div id="page-loader">
+            <div class="spacer"></div>
+            <div class="wheel"></div>
+            <div class="spacer"></div>
+        </div>
+        
         <header>
             <h1>
                 <img src="/res/logo/sumo.svg" aria-hidden="true" alt="SUMO LiveHelper. Logo." width="40" style="vertical-align: bottom;">
@@ -18,7 +24,7 @@
                 <span id="version"></span>
             </h1>
         </header>
-        <nav>
+        <nav class="no-mobile">
             <ul class="menu">
                 <li>
                     <a href="#">
@@ -38,6 +44,7 @@
                     <option value="30">30</option>
                     <option value="45">45</option>
                     <option value="60">60</option>
+                    <option value="0" data-i18n="never"></option>
                 </select>
             </label>
             <label for="showNotifications">
@@ -94,7 +101,7 @@
                 <option value="light" data-i18n="theme_light"></option>
               </select>
             </label>
-            <label for="onlySidebar">
+            <label for="onlySidebar" class="no-mobile">
                 <input id="onlySidebar" type="checkbox" name="onlySidebar">
                 <span data-i18n="prefer_sidebar"></span>
             </label>
