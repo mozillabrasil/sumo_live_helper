@@ -117,9 +117,12 @@ function checkProductList(data) {
  * @param {number|string} time (in minutes)
  */
 function createAlarm(time) {
-    browser.alarms.create('checkSUMO', {
-        periodInMinutes: parseInt(time)
-    });
+    browser.alarms.clear('checkSUMO');
+    if (time != 0) {
+        browser.alarms.create('checkSUMO', {
+            periodInMinutes: parseInt(time)
+        });
+    }
 }
 
 /**

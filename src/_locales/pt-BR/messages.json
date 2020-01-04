@@ -122,5 +122,8 @@
     },
     "theme_light": {
         "message": "Claro"
+    },
+    "never": {
+        "message": "Never"
     }
 }

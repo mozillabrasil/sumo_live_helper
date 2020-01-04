@@ -122,5 +122,8 @@
     },
     "theme_light": {
         "message": "Világos"
+    },
+    "never": {
+        "message": "Never"
     }
 }
