@@ -12,9 +12,16 @@
 
 #popup.mobile {
 	grid-template-areas:
-        'nav    nav    nav'
-        'main   main   main' !important;
+        'main   main   main'
+        'nav    nav    nav' !important;
 	max-width: none !important;
+}
+
+.mobile nav {
+    top: unset;
+    bottom: 0;
+    border-top: solid 1px var(--popup-header-border);
+    border-bottom: none;
 }
 
 .mobile > header {
