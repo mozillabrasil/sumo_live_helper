@@ -194,6 +194,10 @@ label > * {
     }
 }
 
+.mobile .no-mobile {
+    display: none !important;
+}
+
 .mobile {
     grid-template-columns: unset !important;
     grid-gap: unset !important;
