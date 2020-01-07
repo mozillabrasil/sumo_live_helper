@@ -52,15 +52,18 @@ function openSidebar() {
  * @param {object} question Question item button
  */
 function openQuestion(question) {
+    let selectedQuestion = null;
+    
     if (question.target.id) {
-        browser.runtime.sendMessage({
-            task: 'mark_as_read',
-            id: question.target.id
-        });
+        selectedQuestion = question.target;
     } else if (question.target.parentNode.id) {
+        selectedQuestion = question.target.parentNode;
+    }
+    
+    if (selectedQuestion != null) {
         browser.runtime.sendMessage({
             task: 'mark_as_read',
-            id: question.target.parentNode.id
+            id: selectedQuestion.id
         });
     }
 }
