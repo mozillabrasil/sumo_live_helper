@@ -66,13 +66,9 @@ function settingsUpdated(changes, area) {
  * Toggle browserAction button between sidebar and popup
  */
 function toggleSidebarPreference() {
-    if (onlySidebar && !isMobile) {
+    if (onlySidebar || isMobile) {
         browser.browserAction.setPopup({
             popup: ''
-        });
-    } else if (isMobile) {
-        browser.browserAction.setPopup({
-            popup: '/html/popup.html?view=mobile'
         });
     } else {
         browser.browserAction.setPopup({
@@ -87,6 +83,10 @@ function toggleSidebarPreference() {
 function openWindow() {
     if (onlySidebar) {
         browser.sidebarAction.open();
+    } else if (isMobile) {
+        browser.tabs.create({
+            url: '/html/popup.html?view=mobile'
+        });
     } else {
         browser.browserAction.openPopup();
     }
