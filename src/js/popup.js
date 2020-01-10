@@ -221,6 +221,7 @@ function createQuestionUI(product, title, id, locale, isNew) {
     button.className = 'button button-icon primary';
     button.id = id;
     button.href = url;
+    button.setAttribute('target', '_blank');
     buttonIcon.className = 'pf-open-in-new';
     button.appendChild(buttonIcon);
     buttonContainer.appendChild(button);
