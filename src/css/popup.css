@@ -84,3 +84,30 @@
 .mobile #items li div:last-child a span {
     display: none;
 }
+
+@media (max-width: 300px) {
+    .sidebar #items li {
+        position: relative;
+    }
+
+    .sidebar #items li div:last-child {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        display: block;
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    .sidebar #items li div:last-child a {
+        background: transparent !important;
+        display: block;
+        height: 100%;
+    }
+
+    .sidebar #items li div:last-child a span {
+        display: none;
+    }
+}
