@@ -17,6 +17,13 @@
 	max-width: none !important;
 }
 
+#popup.sidebar {
+	grid-template-areas:
+        'nav    nav    nav'
+        'main   main   main' !important;
+	max-width: none !important;
+}
+
 .mobile nav {
     top: unset;
     bottom: 0;
@@ -25,7 +32,8 @@
     overflow: hidden;
 }
 
-.mobile > header {
+.mobile > header,
+.sidebar > header {
 	display: none !important;
 }
 

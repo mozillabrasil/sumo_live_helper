@@ -155,6 +155,7 @@ label > * {
     left: 0;
     overflow: hidden;
     transition: ease opacity .5s;
+    z-index: 200;
 }
 
 #load:before {
