@@ -39,8 +39,11 @@ getQuestionList.then(dataLoaded);
 
 /**
  * Open extension preferences page
+ * @param {Object} event
  */
-function openPreferences() {
+function openPreferences(event) {
+    event.preventDefault();
+    event.stopPropagation();
     browser.tabs.create({
         url: 'preferences.html'
     });
@@ -48,8 +51,11 @@ function openPreferences() {
 
 /**
  * Open sidebar
+ * @param {Object} event
  */
-function openSidebar() {
+function openSidebar(event) {
+    event.preventDefault();
+    event.stopPropagation();
     browser.sidebarAction.open();
 }
 
@@ -154,8 +160,11 @@ function setCurrentTheme(theme) {
 
 /**
  * Trigger call to SUMO API
+ * @param {Object} event
  */
-function callAPI() {
+function callAPI(event) {
+    event.preventDefault();
+    event.stopPropagation();
     showLoadingBar(true);
     browser.runtime.sendMessage({
         task: 'call_api'
@@ -277,8 +286,11 @@ function markAsRead(id) {
 /**
  * Mark all questions as read
  * @async
+ * @param {Object} event
  */
-async function markAllAsRead() {
+async function markAllAsRead(event) {
+    event.preventDefault();
+    event.stopPropagation();
     for (i = 0; i < questionList.length; i++) {
         await browser.runtime.sendMessage({
             task: 'mark_as_read',
