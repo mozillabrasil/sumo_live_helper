@@ -95,6 +95,7 @@ label > * {
     border-bottom: solid 1px var(--popup-header-border);
     position: sticky;
     top: 0;
+    z-index: 100;
 }
 
 #popup main {
