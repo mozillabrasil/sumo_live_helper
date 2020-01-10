@@ -21,6 +21,12 @@ settings.addEventListener('click', openPreferences, false);
 sidebar.addEventListener('click', openSidebar, false);
 questionListUI.addEventListener('click', openQuestion, false);
 
+window.oncontextmenu = function(event) {
+     event.preventDefault();
+     event.stopPropagation();
+     return false;
+};
+
 // Is it Android
 let isMobile = false;
 
