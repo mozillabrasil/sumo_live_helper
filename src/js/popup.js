@@ -163,8 +163,11 @@ function setCurrentTheme(theme) {
  * @param {Object} event
  */
 function callAPI(event) {
-    event.preventDefault();
-    event.stopPropagation();
+    if (event) {
+        event.preventDefault();
+        event.stopPropagation();
+    }
+
     showLoadingBar(true);
     browser.runtime.sendMessage({
         task: 'call_api'
