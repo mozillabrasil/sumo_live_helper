@@ -22,6 +22,7 @@
     bottom: 0;
     border-top: solid 1px var(--popup-header-border);
     border-bottom: none;
+    overflow: hidden;
 }
 
 .mobile > header {
@@ -41,3 +42,21 @@
 .mobile .menu li:first-of-type {
 	border: none !important;
 }
+
+.mobile .menu li a {
+    width: 100%;
+    display: block;
+    padding: -16px 0;
+}
+
+.mobile .menu li a span {
+    box-shadow: 0 0 0 0 var(--button-background-hover);
+    border-radius: 100%;
+    transition: ease .05s box-shadow;
+}
+
+.mobile .menu li a:active span {
+    box-shadow: 0 0 0 50px var(--button-background-hover);
+    background: var(--button-background-hover);
+}
+
