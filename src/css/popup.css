@@ -11,17 +11,19 @@
 }
 
 #popup.mobile {
-	grid-template-areas:
+    grid-template-areas:
         'main   main   main'
         'nav    nav    nav' !important;
-	max-width: none !important;
+    max-width: none !important;
+    grid-template-rows: 1fr auto;
+    min-height: 100%;
 }
 
 #popup.sidebar {
-	grid-template-areas:
+    grid-template-areas:
         'nav    nav    nav'
         'main   main   main' !important;
-	max-width: none !important;
+    max-width: none !important;
 }
 
 .mobile nav {
@@ -34,21 +36,21 @@
 
 .mobile > header,
 .sidebar > header {
-	display: none !important;
+    display: none !important;
 }
 
 .mobile .menu {
-	display: flex;
+    display: flex;
 }
 
 .mobile .menu li {
-	flex: 1;
-	text-align: center;
-	border-left: solid 1px var(--popup-header-border);
+    flex: 1;
+    text-align: center;
+    border-left: solid 1px var(--popup-header-border);
 }
 
 .mobile .menu li:first-of-type {
-	border: none !important;
+    border: none !important;
 }
 
 .mobile .menu li a {
@@ -91,6 +93,10 @@
 
 .mobile #items li div:last-child a span {
     display: none;
+}
+
+html {
+    height: 100%;
 }
 
 @media (max-width: 300px) {
