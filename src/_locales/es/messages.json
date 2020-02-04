@@ -4,28 +4,28 @@
         "description": "Nombre del complemento."
     },
     "extensionDescription": {
-        "message": "Este complemento es para los voluntarios en SUMO (Support Mozilla) para ver cuando hay nuevas preguntas sin respuesta en el foro de soporte."
+        "message": "Este complemento es para que los voluntarios de SUMO (Support Mozilla) vean cuando hay nuevas preguntas sin respuesta en el foro de soporte."
     },
     "watch_questions": {
         "message": "Buscar nuevas preguntas"
     },
     "description_questions": {
-        "message": "Determina si SUMO Live Helper debe alertar la recepción de nuevas preguntas"
+        "message": "Determinar si SUMO Live Helper debe alertar la recepción de nuevas preguntas"
     },
     "frequency_questions": {
-        "message": "Determina el intervalo de tiempo en el que SUMO Live Helper debe buscar nuevas preguntas"
+        "message": "Determinar el intervalo de tiempo en el que SUMO Live Helper debe buscar nuevas preguntas"
     },
     "polling": {
-        "message": "Tiempo en minutos para consultar la API"
+        "message": "Lapso en minutos para consultar la API"
     },
     "preferences": {
         "message": "Preferencias"
     },
     "one_question_without_answer": {
-        "message": " pregunta sin respuesta (Clic para abrir)"
+        "message": " Pregunta sin respuesta (Clic para abrir)"
     },
     "more_than_one_question_without_answer": {
-        "message": " preguntas sin respuesta (Clic para abrir)"
+        "message": " Preguntas sin respuesta (Clic para abrir)"
     },
     "choose_language": {
         "message": "Elegir idioma"
@@ -55,7 +55,7 @@
         "message": "Firefox para iOS"
     },
     "product_firefox-enterprise": {
-        "message": "Firefox para Enterprise"
+        "message": "Firefox para Empresas"
     },
     "congratulations": {
         "message": "¡Felicidades! ¡Todas las preguntas han sido respondidas!"
@@ -64,13 +64,13 @@
         "message": "Actualizar"
     },
     "clear_notifications": {
-        "message": "Eliminar notificaciones"
+        "message": "Limpiar notificaciones"
     },
     "show_notifications": {
         "message": "Mostrar notificaciones en el navegador"
     },
     "description_notifications": {
-        "message": "Determina si recibiras notificaciones cuando se encuentren nuevas preguntas"
+        "message": "Determinar si recibiras notificaciones cuando se encuentren nuevas preguntas"
     },
     "notification_title_single": {
         "message": "¡Nueva pregunta encontrada!"
@@ -79,7 +79,7 @@
         "message": "¡Nuevas preguntas encontradas!"
     },
     "notification_message_more": {
-        "message": "más necesitan ayuda."
+        "message": "Más preguntas necesitan ayuda."
     },
     "notification_message_click": {
         "message": "Haz clic en el icono de SUMO Live Helper para ver la lista de preguntas..."
@@ -88,19 +88,19 @@
         "message": "Abrir preferencias"
     },
     "prefer_sidebar": {
-        "message": "Always open questions in sidebar"
+        "message": "Siempre abrir las preguntas en la barra lateral"
     },
     "open_sidebar": {
-        "message": "Open sidebar"
+        "message": "Abrir barra lateral"
     },
      "language": {
-        "message": "Language"
+        "message": "Lenguaje"
     },
     "products": {
-        "message": "Products"
+        "message": "Productos"
     },
     "synchronisation": {
-        "message": "Synchronisation"
+        "message": "Sincronización"
     },
     "general": {
         "message": " General"
@@ -109,21 +109,21 @@
         "message": "15 (default)"
     },
     "theme": {
-        "message": "Theme"
+        "message": "Tema"
     },
     "choose_theme": {
-        "message": "Choose a theme"
+        "message": "Elegir un tema"
     },
     "theme_auto": {
-        "message": "Auto-detect (default)"
+        "message": "Auto detectar (default)"
     },
     "theme_dark": {
-        "message": "Dark"
+        "message": "Obscuro"
     },
     "theme_light": {
-        "message": "Light"
+        "message": "Claro"
     },
     "never": {
-        "message": "Never"
+        "message": "Nunca"
     }
 }
