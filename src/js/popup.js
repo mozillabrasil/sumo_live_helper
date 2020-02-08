@@ -7,6 +7,7 @@ const refresh = document.getElementById('refresh');
 const settings = document.getElementById('settings');
 const sidebar = document.getElementById('sidebar');
 const questionListUI = document.getElementById('questions');
+const questionTemplate = document.getElementsByClassName('question-template')[0];
 
 // Button localized text
 clear.title = browser.i18n.getMessage('clear_notifications');
@@ -207,13 +208,10 @@ function addQuestions(questions, isFinishedLoading) {
 function createQuestionUI(product, title, id, locale, isNew) {
     // Create UI elements
     let list = document.getElementById('items');
-    let item = document.createElement('li');
-    let productIconContainer = document.createElement('div');
-    let productIcon = document.createElement('img');
-    let questionTitle = document.createElement('div');
-    let buttonContainer = document.createElement('div');
-    let button = document.createElement('a');
-    let buttonIcon = document.createElement('span');
+    let item = questionTemplate.cloneNode(true);
+    let productIcon = item.getElementsByClassName('item__icon')[0];
+    let questionTitle = item.getElementsByClassName('item__title')[0];
+    let button = item.getElementsByClassName('item__link')[0];
     let url = 'https://support.mozilla.org/' + locale + '/questions/' + id;
 
     // Add item ID
@@ -227,23 +225,13 @@ function createQuestionUI(product, title, id, locale, isNew) {
     // Add question icon
     productIcon.src = '../res/products/' + product + '.png';
     productIcon.title = browser.i18n.getMessage('product_' + product);
-    productIcon.className = 'item__icon';
-    productIconContainer.appendChild(productIcon);
-    item.appendChild(productIconContainer);
 
     // Add question title
     questionTitle.textContent = title;
-    item.appendChild(questionTitle);
 
     // Add question button
-    button.className = 'button button-icon primary';
     button.id = id;
     button.href = url;
-    button.setAttribute('target', '_blank');
-    buttonIcon.className = 'pf-open-in-new';
-    button.appendChild(buttonIcon);
-    buttonContainer.appendChild(button);
-    item.appendChild(buttonContainer);
 
     // Determine question order
     let allButtons = list.getElementsByClassName('button');
