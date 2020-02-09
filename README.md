@@ -1,6 +1,6 @@
 [ ![Get Addon][amo-button] ][amo-website]
 
-# ![SUMO Live Helper](src/res/logo/sumo32.png) SUMO Live Helper
+# ![SUMO Live Helper](src/res/logo/sumo32.png) SUMO Live Helper ![Version][version]
 
 A WebExtension to help SUMO contributors to quickly and easily find unanswered 
 questions on support.mozilla.org forum.
@@ -42,3 +42,5 @@ to help revive this project.
 <!-- link references -->
 [amo-button]: https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png
 [amo-website]: https://addons.mozilla.org/en-US/firefox/addon/sumo-live-helper-/
+[version]: https://img.shields.io/github/v/tag/mozillabrasil/sumo_live_helper?label=Version&sort=semver&style=flat-square
+
