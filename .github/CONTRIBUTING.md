@@ -1,8 +1,10 @@
 # Contribution guide
 
 Everyone is welcome to contribute to SUMO Live Helper. If you have questions, you
-can reach us by joining #sumo-livehelper on 
-[chat.mozilla.org](https://chat.mozilla.org).
+can [reach us by joining #sumo-livehelper][matrix] on 
+Mozilla Matrix server.
+
+[matrix]: https://chat.mozilla.org/#/room/#sumo-livehelper:mozilla.org
 
 ## Setup
 
