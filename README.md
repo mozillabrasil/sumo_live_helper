@@ -2,8 +2,8 @@
 
 # ![SUMO Live Helper](src/res/logo/sumo32.png) SUMO Live Helper ![Version][version]
 
-A WebExtension to help SUMO contributors to quickly and easily find unanswered 
-questions on support.mozilla.org forum.
+An extension to help SUMO contributors to quickly and easily find unanswered 
+questions on [Mozilla Support](https://support.mozilla.org).
 
 ![Interface of SUMO Live Helper](screenshot.png)
 
@@ -16,7 +16,7 @@ questions on support.mozilla.org forum.
 
 * Find unanswered questions for Firefox Desktop, Firefox Enterprise, Firefox for
   Android, Firefox for iOS and Thunderbird
-* Naviguate unanswered questions in a toolbar popup or a sidebar
+* Navigate unanswered questions using the toolbar popup or a sidebar
 * Translated in 6 locales including Čeština, Español, English, French, Magyar and
   Português (do Brasil)
 * Include a dark and light theme
