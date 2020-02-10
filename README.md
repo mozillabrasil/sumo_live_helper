@@ -10,7 +10,7 @@ questions on [Mozilla Support](https://support.mozilla.org).
 ## Requirements
 
 * Operating system: Windows, MacOS, Linux and Android
-* Firefox version: ESR or greater
+* Firefox version: Latest ESR or greater
 
 ## Features
 
