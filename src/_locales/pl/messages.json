@@ -1,0 +1,129 @@
+{
+    "extensionName": {
+        "message": "SUMO Live Helper",
+        "description": "Nazwa rozszerzenia."
+    },
+    "extensionDescription": {
+        "message": "Ten dodatek jest przeznaczony dla wolontariuszy SUMO (Support Mozilla), aby sprawdzać, czy są nowe pytania na forum wsparcia, na które nie ma jeszcze odpowiedzi."
+    },
+    "watch_questions": {
+        "message": "Szukaj nowych pytań"
+    },
+    "description_questions": {
+        "message": "Określa, czy SUMO Live Helper powinien powiadamiać o otrzymaniu nowych pytań"
+    },
+    "frequency_questions": {
+        "message": "Określa przedział czasu, po którym SUMO Live Helper powinien szukać nowych pytań"
+    },
+    "polling": {
+        "message": "Odstęp czasu w minutach pomiędzy odpytaniami API"
+    },
+    "preferences": {
+        "message": "Opcje"
+    },
+    "one_question_without_answer": {
+        "message": " pytanie bez odpowiedzi (Kliknij aby otworzyć)"
+    },
+    "more_than_one_question_without_answer": {
+        "message": " pytania bez odpowiedzi (Kliknij aby otworzyć)"
+    },
+    "choose_language": {
+        "message": "Wybierz język"
+    },
+    "choose_language_description": {
+        "message": "Wybierz język zadawanych pytań"
+    },
+    "choose_product": {
+        "message": "Wybierz produkt"
+    },
+    "choose_product_description": {
+        "message": "Wybierz produkty, których będą dotyczyć pytania"
+    },
+    "open_tab": {
+        "message": "Otwórz"
+    },
+    "product_firefox": {
+        "message": "Firefox na komputery stacjonarne"
+    },
+    "product_thunderbird": {
+        "message": "Thunderbird"
+    },
+    "product_mobile": {
+        "message": "Firefox dla Androida"
+    },
+    "product_ios": {
+        "message": "Firefox dla iOS"
+    },
+    "product_firefox-enterprise": {
+        "message": "Firefox dla firm"
+    },
+    "congratulations": {
+        "message": "Gratulacje! Odpowiedzi na wszystkie pytania zostały udzielone!"
+    },
+    "refresh": {
+        "message": "Odśwież"
+    },
+    "clear_notifications": {
+        "message": "Wyczyść powiadomienia"
+    },
+    "show_notifications": {
+        "message": "Wyświetl powiadomienia"
+    },
+    "description_notifications": {
+        "message": "Określa, czy po znalezieniu nowych pytań będziesz otrzymywać powiadomienia w postaci wyskakujących okienek."
+    },
+    "notification_title_single": {
+        "message": "znaleziono nowe pytanie!"
+    },
+    "notification_title_multiple": {
+        "message": "znaleziono nowe pytania!"
+    },
+    "notification_message_more": {
+        "message": "more need help."
+    },
+    "notification_message_click": {
+        "message": "Kliknij ikonę dodatku SUMO Live Helper na pasku narzędzi, aby wyświetlić listę pytań…"
+    },
+    "open_preferences": {
+        "message": "Otwórz opcje"
+    },
+    "prefer_sidebar": {
+        "message": "Zawsze otwieraj pytania w panelu bocznym"
+    },
+    "open_sidebar": {
+        "message": "Otwórz panel boczny"
+    },
+    "language": {
+        "message": "Język"
+    },
+    "products": {
+        "message": "Produkty"
+    },
+    "synchronisation": {
+        "message": "Synchronizacja"
+    },
+    "general": {
+        "message": " Ogólne"
+    },
+    "default_time": {
+        "message": "15 (wartość domyślna)"
+    },
+    "theme": {
+        "message": "Motyw"
+    },
+    "choose_theme": {
+        "message": "Wybierz motyw"
+    },
+    "theme_auto": {
+        "message": "Automatyczny (wartość domyślna)"
+    },
+    "theme_dark": {
+        "message": "Ciemny"
+    },
+    "theme_light": {
+        "message": "Jasny"
+    },
+    "never": {
+        "message": "Nigdy"
+    }
+}
