@@ -17,7 +17,7 @@ questions on [Mozilla Support](https://support.mozilla.org).
 * Find unanswered questions for Firefox Desktop, Firefox Enterprise, Firefox for
   Android, Firefox for iOS and Thunderbird
 * Navigate unanswered questions using the toolbar popup or a sidebar
-* Translated in 6 locales including Čeština, Español, English, French, Magyar and
+* Translated in 7 locales including Čeština, Español, English, French, Magyar, Polish and
   Português (do Brasil)
 * Include a dark and light theme
 * Support browser notifications
