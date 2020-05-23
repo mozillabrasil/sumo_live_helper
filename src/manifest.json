@@ -5,7 +5,7 @@
     "version": "1.4.1",
     "homepage_url": "https://github.com/mozillabrasil/sumo_live_helper",
     "default_locale": "en",
-    "author": "Mozilla Brasil, Jhonatas Rodrigues, Wesley Branton, Danny Colin",
+    "author": "Mozilla Brasil, Jhonatas Machado, Wesley Branton, Danny Colin",
     "applications": {
         "gecko": {
             "strict_min_version": "62.0",
