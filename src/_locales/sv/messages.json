@@ -57,6 +57,9 @@
     "product_firefox-enterprise": {
         "message": "Firefox för företag"
     },
+    "product_firefox-preview": {
+        "message": "Firefox Preview"
+    },
     "congratulations": {
         "message": "Grattis! Alla frågor har blivit besvarade!"
     },

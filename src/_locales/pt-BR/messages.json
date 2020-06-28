@@ -57,6 +57,9 @@
     "product_firefox-enterprise": {
         "message": "Firefox para Empresas"
     },
+    "product_firefox-preview": {
+        "message": "Firefox Preview"
+    },
     "congratulations": {
         "message": "Parabéns! Todas as perguntas foram respondidas!"
     },
