@@ -109,6 +109,9 @@ function handleMessage(message) {
             questionList = [];
             addQuestions([], true);
             return;
+        case 'toggle_locale_labels':
+            showLocaleLabels(message.multiple);
+            return;
     }
 }
 
@@ -118,6 +121,7 @@ function handleMessage(message) {
  */
 function dataLoaded(data) {
     setCurrentTheme(data.chooseTheme);
+    showLocaleLabels(data.chooseLanguage.length != 1);
     
     questionList = data.questions;
 
@@ -126,7 +130,7 @@ function dataLoaded(data) {
             questionList[i].product.toLowerCase(),
             questionList[i].title,
             questionList[i].id,
-            data.chooseLanguage,
+            questionList[i].locale,
             questionList[i].new
         );
     }
@@ -210,6 +214,7 @@ function createQuestionUI(product, title, id, locale, isNew) {
     let list = document.getElementById('items');
     let item = questionTemplate.cloneNode(true);
     let productIcon = item.getElementsByClassName('item__icon')[0];
+    let productLocale = item.getElementsByClassName('item__locale')[0];
     let questionTitle = item.getElementsByClassName('item__title')[0];
     let button = item.getElementsByClassName('item__link')[0];
     let url = 'https://support.mozilla.org/' + locale + '/questions/' + id;
@@ -225,6 +230,9 @@ function createQuestionUI(product, title, id, locale, isNew) {
     // Add question icon
     productIcon.src = '../res/products/' + product + '.png';
     productIcon.title = browser.i18n.getMessage('product_' + product);
+
+    // Add question locale
+    productLocale.textContent = locale.substring(0, 2).toUpperCase();
 
     // Add question title
     questionTitle.textContent = title;
@@ -265,6 +273,15 @@ function toggleQuestionList() {
         questionListUI.style.display = 'none';
         empty.style.display = 'block';
     }
+}
+
+/**
+ * Show/Hide locale labels on question list
+ * @param {boolean} show 
+ */
+function showLocaleLabels(show) {
+    if (show) questionListUI.classList.remove('one-locale');
+    else questionListUI.classList.add('one-locale');
 }
 
 /**

@@ -138,8 +138,27 @@ label > * {
     flex-grow: 0;
 }
 
+#items li div:first-of-type {
+    position: relative;
+}
+
 .item__icon {
     width: 32px;
+}
+
+.one-locale .item__locale {
+    display: none !important;
+}
+
+.item__locale {
+    position: absolute;
+    bottom: 5px;
+    right: 0;
+    font-size: .7rem;
+    background: var(--blue-60);
+    padding: 2px 5px;
+    color: white;
+    border-radius: 100000px;
 }
 
 .item--unread {
