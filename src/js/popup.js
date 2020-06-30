@@ -233,6 +233,7 @@ function createQuestionUI(product, title, id, locale, isNew) {
 
     // Add question locale
     productLocale.textContent = locale.substring(0, 2).toUpperCase();
+    productLocale.classList.add(locale);
 
     // Add question title
     questionTitle.textContent = title;

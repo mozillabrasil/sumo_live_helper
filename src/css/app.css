@@ -155,10 +155,58 @@ label > * {
     bottom: 5px;
     right: 0;
     font-size: .7rem;
-    background: var(--blue-60);
     padding: 2px 5px;
-    color: white;
     border-radius: 100000px;
+}
+
+.item__locale.cs {
+    background: var(--purple-50);
+    color: white;
+}
+
+.item__locale.en-US {
+    background: var(--blue-60);
+    color: white;
+}
+
+.item__locale.es {
+    background: var(--green-70);
+    color: white;
+}
+
+.item__locale.fi {
+    background: var(--red-70);
+    color: white;
+}
+
+.item__locale.hu {
+    background: var(--orange-60);
+    color: white;
+}
+
+.item__locale.id {
+    background: var(--teal-50);
+    color: black;
+}
+
+.item__locale.pt-BR {
+    background: var(--yellow-50);
+    color: black;
+}
+
+.item__locale.sl {
+    background: var(--magenta-70);
+    color: white;
+}
+
+.item__locale.sr {
+    background: var(--grey-50);
+    color: white;
+}
+
+.item__locale.st {
+    background: #000;
+    color: white;
 }
 
 .item--unread {
