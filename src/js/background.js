@@ -38,6 +38,10 @@ function settingsUpdated(changes, area) {
                 return;
             case 'chooseLanguage':
                 locale = changes[item].newValue;
+                browser.runtime.sendMessage({
+                    task: 'toggle_locale_labels',
+                    multiple: locale.length != 1
+                });
                 callAPI();
                 return;
             case 'showNotifications':
@@ -171,7 +175,12 @@ function dataLoaded(data) {
 
     // Load locale
     if (typeof data.chooseLanguage === 'undefined' || data.chooseLanguage === null) {
-        locale = "en-US";
+        locale = ["en-US"];
+        browser.storage.local.set({
+            chooseLanguage: locale
+        });
+    } else if (typeof data.chooseLanguage === 'string') {
+        locale = [data.chooseLanguage];
         browser.storage.local.set({
             chooseLanguage: locale
         });
@@ -191,7 +200,7 @@ function dataLoaded(data) {
 
     // Load product watch list
     if (typeof data.chooseProduct === 'undefined' || data.chooseProduct === null) {
-        product = "Firefox";
+        product = ["Firefox"];
         browser.storage.local.set({
             chooseProduct: product
         });
@@ -243,26 +252,33 @@ function callAPI() {
     });
 
     // Send requests to SUMO API
-    let requests = Array(product.length);
-    numberOfAPIRequests = product.length;
+    numberOfAPIRequests = product.length * locale.length;
+    let requestCounter = 0;
+    let requests = Array(numberOfAPIRequests);
 
     for (i = 0; i < product.length; i++) {
-        requests[i] = new XMLHttpRequest();
-        let requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved=' + is_solved + '&is_spam=' + is_spam + '&is_locked=' + is_locked + '&product=' + product[i] + '&is_taken=' + is_taken + '&is_archived=' + is_archived + '&locale=' + locale + '&num_answers=' + max_answers;
-        requests[i].open('GET', requestAPI, true);
-        requests[i].responseType = 'json';
-        requests[i].send();
-        requests[i].onload = function () {
-            loadRequest(this);
-        };
+        for (j = 0; j < locale.length; j++) {
+            requests[requestCounter] = new XMLHttpRequest();
+            let requestAPI = 'https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved=' + is_solved + '&is_spam=' + is_spam + '&is_locked=' + is_locked + '&product=' + product[i] + '&is_taken=' + is_taken + '&is_archived=' + is_archived + '&locale=' + locale[j] + '&num_answers=' + max_answers;
+            requests[requestCounter].open('GET', requestAPI, true);
+            requests[requestCounter].responseType = 'json';
+            requests[requestCounter].send();
+            requests[requestCounter].onload = function () {
+                loadRequest(this);
+            };
+            requestCounter++;
+        }
     }
 
-    // If the user doesn't have any products selected
-    if (product.length < 1) {
+    // If the user doesn't have any products or locales selected
+    if (product.length < 1 || locale.length < 1) {
         browser.runtime.sendMessage({
             task: 'no_api_call'
         });
         questionList = [];
+        browser.storage.local.set({
+            'questions': questionList
+        });
         updateQuestionCount();
     }
 }
@@ -318,7 +334,7 @@ function loadRequest(request) {
     }
 
     // Clean and save question list in Storage API
-    removeOld(responseSUMO.results, responseSUMO.results[0].product);
+    removeOld(responseSUMO.results, responseSUMO.results[0].product, responseSUMO.results[0].locale);
     questionList = newQuestionList.concat(questionList);
     browser.storage.local.set({
         'questions': questionList
@@ -394,9 +410,12 @@ function updateQuestionCount() {
  * @param {Array} list
  * @param {string} prod Current product list to check
  */
-function removeOld(questions, productToCheck) {
+function removeOld(questions, productToCheck, localeToCheck) {
     // Convert watch list to lowercase
     let productList = product.map(function (value) {
+        return value.toLowerCase();
+    });
+    let localeList = locale.map(function (value) {
         return value.toLowerCase();
     });
 
@@ -405,8 +424,8 @@ function removeOld(questions, productToCheck) {
         let x = 0;
         let found = false;
         let skip = false;
-        let matchesList = (questionList[i].product.toLowerCase() == productToCheck);
-        let isPossible = productList.includes(questionList[i].product.toLowerCase());
+        let matchesList = (questionList[i].product.toLowerCase() == productToCheck) && (questionList[i].locale.toLowerCase() == localeToCheck.toLowerCase());
+        let isPossible = productList.includes(questionList[i].product.toLowerCase()) && localeList.includes(questionList[i].locale.toLowerCase());
 
         // Question is for a product on the watch list, but not for the product currently being checked (keep the question in the list)
         if (isPossible && !matchesList) {
