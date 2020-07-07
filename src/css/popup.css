@@ -95,9 +95,8 @@
     display: none;
 }
 
-html, body {
+html {
     height: 100%;
-    overflow: hidden;
 }
 
 @media (max-width: 300px) {
@@ -125,9 +124,4 @@ html, body {
     .sidebar #items li div:last-child a span {
         display: none;
     }
-}
-
-.hide-scroll-bar {
-    height: 100%;
-    overflow: hidden scroll;
 }
