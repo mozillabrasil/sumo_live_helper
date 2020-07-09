@@ -37,7 +37,7 @@
         "message": "Válasszon terméket"
     },
     "choose_product_description": {
-        "message": "Válassza ki a termékeket, melyekhez nyitott kérdéseket akar keresni"
+        "message": "Válassza ki, hogy mely termékekhez akar nyitott kérdéseket keresni"
     },
     "open_tab": {
         "message": "Megnyitás"
@@ -73,7 +73,7 @@
         "message": "Böngészőértesítések megjelenítése"
     },
     "description_notifications": {
-        "message": "Meghatározza, hogy fog-e felugró értesíteseket kapni, ha új kérdések találhatók"
+        "message": "Meghatározza, hogy kap-e felugró értesíteseket, ha új kérdések vannak"
     },
     "notification_title_single": {
         "message": "új kérdés találva!"
@@ -127,6 +127,6 @@
         "message": "Világos"
     },
     "never": {
-        "message": "Never"
+        "message": "Soha"
     }
 }
