@@ -60,6 +60,9 @@
     "product_firefox-preview": {
         "message": "Firefox Preview"
     },
+    "product_firefox-private-network-vpn": {
+        "message": "Mozilla VPN"
+    },
     "congratulations": {
         "message": "Gratulujeme, všechny dotazy byly zodpovězeny."
     },
