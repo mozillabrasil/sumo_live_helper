@@ -157,10 +157,13 @@ function handleMessage(message, sender, sendResponse) {
  */
 function dataLoaded(data) {
     // Load question list
-    if (data.questions) {
+    if (data.questions && data.questionVersion == 1) {
         questionList = data.questions;
     } else {
         questionList = [];
+        browser.storage.local.set({
+            questionVersion: 1
+        });
     }
 
     // Load question check frequency
@@ -299,6 +302,7 @@ function loadRequest(request) {
 
     let responseSUMO = request.response;
     let newQuestionList = [];
+    let reviveQuestionList = [];
 
     for (i = 0; i < responseSUMO.results.length; i++) {
         // Check if question should be shown on the question list
@@ -310,6 +314,7 @@ function loadRequest(request) {
             let qTitle = responseSUMO.results[i].title;
             let qLocale = responseSUMO.results[i].locale;
             let qProduct = responseSUMO.results[i].product;
+            let qTime = responseSUMO.results[i].created;
             let x = 0;
             let questionExists = false;
 
@@ -319,6 +324,12 @@ function loadRequest(request) {
                 x++;
             }
 
+            // If the question is on the list, make sure it's shown
+            if (questionExists && x < questionList.length) {
+                questionList[x].show = true;
+                reviveQuestionList.push(questionList[x]);
+            }
+
             // Add to the question list (if needed)
             if (!questionExists) {
                 let newItem = {
@@ -326,6 +337,8 @@ function loadRequest(request) {
                     title: qTitle,
                     id: qID,
                     locale: qLocale,
+                    created: qTime,
+                    show: true,
                     new: true
                 }
                 newQuestionList.push(newItem);
@@ -355,7 +368,7 @@ function loadRequest(request) {
     updateQuestionList();
     browser.runtime.sendMessage({
         task: 'add_new_questions',
-        questions: newQuestionList,
+        questions: newQuestionList.concat(reviveQuestionList),
         isFinishedLoading: isFinishedLoading
     });
 }
@@ -373,7 +386,7 @@ function updateQuestionCount() {
 
     // Count new questions
     for (var i = 0; i < questionList.length; i++) {
-        if (questionList[i].new) {
+        if (questionList[i].new && questionList[i].show) {
             numberOfQuestionsOpened++;
         }
     }
@@ -422,30 +435,39 @@ function removeOld(questions, productToCheck, localeToCheck) {
     let i = 0;
     while (i < questionList.length) {
         let x = 0;
-        let found = false;
-        let skip = false;
+        let keep = false;
         let matchesList = (questionList[i].product.toLowerCase() == productToCheck) && (questionList[i].locale.toLowerCase() == localeToCheck.toLowerCase());
         let isPossible = productList.includes(questionList[i].product.toLowerCase()) && localeList.includes(questionList[i].locale.toLowerCase());
 
         // Question is for a product on the watch list, but not for the product currently being checked (keep the question in the list)
         if (isPossible && !matchesList) {
-            found = true;
+            keep = true;
         }
 
         // Check if question is still on list
-        while (x < questions.length && !found && matchesList) {
+        while (x < questions.length && !keep && matchesList) {
             if (questionList[i].id == questions[x].id &&
                 questions[x].num_answers == 0 &&
                 questions[x].is_locked == false &&
                 questions[x].is_spam == false &&
                 isWithinTimeRange(questions[x].created)) {
-                found = true;
+                    keep = true;
             }
             x++;
         }
 
+        // Check if question is within 24 hours
+        if (!keep && isWithinTimeRange(questionList[i].created)) {
+            keep = true;
+            questionList[i].show = false;
+            browser.runtime.sendMessage({
+                task: 'remove_question',
+                id: questionList[i].id
+            });
+        }
+
         // Remove from question list (if not valid)
-        if (!found || !isPossible) {
+        if (!keep || !isPossible) {
             browser.runtime.sendMessage({
                 task: 'remove_question',
                 id: questionList[i].id
