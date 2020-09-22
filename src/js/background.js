@@ -49,6 +49,7 @@ function settingsUpdated(changes, area) {
                 return;
             case 'chooseProduct':
                 product = changes[item].newValue;
+                verifyQuestionStorage(product);
                 callAPI();
                 return;
             case 'onlySidebar':
@@ -304,11 +305,16 @@ function loadRequest(request) {
     let newQuestionList = [];
     let reviveQuestionList = [];
 
+    for (j = 0; j < questionList.length; j++) {
+        questionList.show = false;
+    }
+
     for (i = 0; i < responseSUMO.results.length; i++) {
         // Check if question should be shown on the question list
         if (responseSUMO.results[i].num_answers == 0 &&
             responseSUMO.results[i].is_spam == false &&
             responseSUMO.results[i].is_locked == false &&
+            responseSUMO.results[i].involved.length == 1 &&
             isWithinTimeRange(responseSUMO.results[i].created)) {
             let qID = responseSUMO.results[i].id;
             let qTitle = responseSUMO.results[i].title;
@@ -343,6 +349,11 @@ function loadRequest(request) {
                 }
                 newQuestionList.push(newItem);
             }
+        } else {
+            // Hides question from list if it's not valid
+            let index = 0;
+            while (index < questionList.length && questionList[index].id != responseSUMO.results[i].id) index++;
+            if (index < questionList.length) questionList[index].show = false;
         }
     }
 
@@ -456,6 +467,15 @@ function removeOld(questions, productToCheck, localeToCheck) {
             x++;
         }
 
+        if (x >= questions.length) {
+            keep = false;
+            questionList[i].show = false;
+            browser.runtime.sendMessage({
+                task: 'remove_question',
+                id: questionList[i].id
+            });
+        }
+
         // Check if question is within 24 hours
         if (!keep && isWithinTimeRange(questionList[i].created)) {
             keep = true;
@@ -567,6 +587,31 @@ function markAsRead(id) {
 
     updateQuestionList();
     updateQuestionCount();
+}
+
+/**
+ * Remove products from storage that the user is no longer following
+ * @param {Array} prod Product List
+ */
+function verifyQuestionStorage(prod) {
+    let newQuestionList = [];
+    for (let i = 0; i < questionList.length; i++) {
+        if (prod.indexOf(questionList[i].product) >= 0) {
+            newQuestionList.push(questionList[i]);
+        } else {
+            browser.runtime.sendMessage({
+                task: 'remove_question',
+                id: questionList[i].id
+            });
+        }
+    }
+
+    questionList = newQuestionList;
+    browser.storage.local.set({
+        'questions': questionList
+    });
+
+    updateQuestionList();
 }
 
 /**
