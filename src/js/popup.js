@@ -124,18 +124,8 @@ function dataLoaded(data) {
     showLocaleLabels(data.chooseLanguage.length != 1);
     
     questionList = data.questions;
-
-    for (i = 0; i < questionList.length; i++) {
-        createQuestionUI(
-            questionList[i].product.toLowerCase(),
-            questionList[i].title,
-            questionList[i].id,
-            questionList[i].locale,
-            questionList[i].new
-        );
-    }
-
-    toggleQuestionList();
+    addQuestions(questionList, false);
+    
     document.getElementById('page-loader').style.display = 'none';
     callAPI();
 }
@@ -186,13 +176,15 @@ function callAPI(event) {
  */
 function addQuestions(questions, isFinishedLoading) {
     for (i = 0; i < questions.length; i++) {
-        createQuestionUI(
-            questions[i].product,
-            questions[i].title,
-            questions[i].id,
-            questions[i].locale,
-            true
-        );
+        if (document.getElementsByClassName('item--' + questions[i].id)[0] == undefined && questions[i].show) {
+            createQuestionUI(
+                questions[i].product,
+                questions[i].title,
+                questions[i].id,
+                questions[i].locale,
+                questions[i].new
+            );
+        }
     }
 
     toggleQuestionList();
@@ -315,7 +307,7 @@ async function markAllAsRead(event) {
  */
 function removeQuestion(id) {
     let question = document.getElementsByClassName('item--' + id)[0];
-    question.parentElement.removeChild(question);
+    if (question) question.parentElement.removeChild(question);
 }
 
 /**
