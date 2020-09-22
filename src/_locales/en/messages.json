@@ -57,6 +57,9 @@
     "product_firefox-enterprise": {
         "message": "Firefox for Enterprise"
     },
+    "product_firefox-preview": {
+        "message": "Firefox Preview"
+    },
     "product_firefox-private-network-vpn": {
         "message": "Mozilla VPN"
     },
