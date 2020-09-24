@@ -145,6 +145,8 @@ label > * {
 
 .item__icon {
     width: 32px;
+    border-left: 5px solid transparent;
+    padding-left: 5px;
 }
 
 .one-locale .item__locale {
@@ -212,6 +214,10 @@ label > * {
 
 .item--unread {
     font-weight: bold;
+}
+
+.item--unread .item__icon {
+    border-color: var(--button-primary-background);
 }
 
 /* Load */
