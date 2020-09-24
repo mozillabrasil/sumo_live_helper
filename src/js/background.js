@@ -407,9 +407,15 @@ function updateQuestionCount() {
         browser.browserAction.setBadgeText({
             text: numberOfQuestionsOpened.toString()
         });
+        browser.sidebarAction.setTitle({
+            title: browser.i18n.getMessage('extensionName') + ' (' + numberOfQuestionsOpened + ')'
+        });
     } else {
         browser.browserAction.setBadgeText({
             text: ''
+        });
+        browser.sidebarAction.setTitle({
+            title: browser.i18n.getMessage('extensionName')
         });
     }
 
