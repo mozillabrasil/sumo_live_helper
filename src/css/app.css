@@ -118,6 +118,7 @@ label > * {
 
 #items li {
     align-items: center;
+    border-top: solid 1px transparent;
     border-bottom: solid 1px var(--popup-item-border);
     display: flex;
 }
