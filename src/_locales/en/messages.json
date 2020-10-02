@@ -75,6 +75,9 @@
     "show_notifications": {
         "message": "Show browser notifications"
     },
+    "open_in_new_tab": {
+        "message": "Open questions in new tab"
+    },
     "description_notifications": {
         "message": "Determines whether you will receive notification popups when new questions are found"
     },

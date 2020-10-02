@@ -65,6 +65,10 @@ function loadSettings(data) {
         document.settings.showNotifications.checked = data.showNotifications;
     }
 
+    if (data.openNewTab) {
+        document.settings.openNewTab.checked = data.openNewTab;
+    }
+
     if (data.onlySidebar) {
         document.settings.onlySidebar.checked = data.onlySidebar;
     }
