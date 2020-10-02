@@ -30,6 +30,7 @@ window.oncontextmenu = function(event) {
 
 // Is it Android
 let isMobile = false;
+let inNewTab = true;
 
 // Adjust UI
 isSidebar();
@@ -62,9 +63,19 @@ function openSidebar(event) {
 
 /**
  * Open question
+ * @async
  * @param {object} question Question item button
  */
-function openQuestion(question) {
+async function openQuestion(question) {
+    question.preventDefault();
+    question.stopPropagation();
+    const url = question.target.href;
+    let tabID = await browser.tabs.query({ active: true });
+    tabID = tabID[0].id;
+
+    if (inNewTab) browser.tabs.create({ url: url });
+    else browser.tabs.update(tabID, { url: url });
+
     let selectedQuestion = null;
     
     if (question.target.id) {
@@ -112,6 +123,9 @@ function handleMessage(message) {
         case 'toggle_locale_labels':
             showLocaleLabels(message.multiple);
             return;
+        case 'update_open_in_new_tab':
+            inNewTab = message.value;
+            return;
     }
 }
 
@@ -124,6 +138,7 @@ function dataLoaded(data) {
     showLocaleLabels(data.chooseLanguage.length != 1);
     
     questionList = data.questions;
+    inNewTab = data.openNewTab;
 
     addQuestions(questionList, false);
     
@@ -232,6 +247,7 @@ function createQuestionUI(product, title, id, locale, isNew) {
     // Add question button
     button.id = id;
     button.href = url;
+    button.addEventListener('click', openQuestion);
 
     // Determine question order
     const allButtons = list.getElementsByClassName('button');

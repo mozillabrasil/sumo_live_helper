@@ -75,6 +75,9 @@
     "show_notifications": {
         "message": "Wyświetl powiadomienia"
     },
+    "open_in_new_tab": {
+        "message": "Open questions in new tab"
+    },
     "description_notifications": {
         "message": "Określa, czy po znalezieniu nowych pytań będziesz otrzymywać powiadomienia w postaci wyskakujących okienek."
     },

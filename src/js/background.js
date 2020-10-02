@@ -2,6 +2,7 @@
 let frequencySeekNewQuestions, 
     locale, 
     showNotifications, 
+    openNewTab,
     onlySidebar, 
     product,
     theme,
@@ -46,6 +47,13 @@ function settingsUpdated(changes, area) {
                 return;
             case 'showNotifications':
                 showNotifications = changes[item].newValue;
+                return;
+            case 'openNewTab':
+                openNewTab = changes[item].newValue;
+                browser.runtime.sendMessage({
+                    task: 'update_open_in_new_tab',
+                    value: openNewTab
+                });
                 return;
             case 'chooseProduct':
                 product = changes[item].newValue;
@@ -199,6 +207,16 @@ function dataLoaded(data) {
         });
     } else {
         showNotifications = data.showNotifications;
+    }
+
+    // Load open in new tab setting
+    if (typeof data.openNewTab === 'undefined' || data.openNewTab === null) {
+        openNewTab = true;
+        browser.storage.local.set({
+            openNewTab: openNewTab
+        });
+    } else {
+        openNewTab = data.openNewTab;
     }
 
     // Load product watch list

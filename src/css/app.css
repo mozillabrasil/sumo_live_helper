@@ -212,6 +212,10 @@ label > * {
     color: white;
 }
 
+.item__link * {
+    pointer-events: none;
+}
+
 .item--unread {
     font-weight: bold;
 }
