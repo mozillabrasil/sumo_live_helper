@@ -69,7 +69,9 @@ function openSidebar(event) {
 async function openQuestion(question) {
     question.preventDefault();
     question.stopPropagation();
+
     const url = question.target.href;
+    if (!url) return;
     let tabID = await browser.tabs.query({ active: true });
     tabID = tabID[0].id;
 
