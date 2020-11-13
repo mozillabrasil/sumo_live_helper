@@ -344,7 +344,7 @@ function loadRequest(request) {
     }
 
     // Clean and save question list in Storage API
-    removeOld(responseSUMO.results, responseSUMO.results[0].product, responseSUMO.results[0].locale);
+    if (responseSUMO.results.length > 0) removeOld(responseSUMO.results, responseSUMO.results[0].product, responseSUMO.results[0].locale);
     questionList = newQuestionList.concat(questionList);
     browser.storage.local.set({
         'questions': questionList
