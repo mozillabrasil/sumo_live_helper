@@ -144,7 +144,7 @@ function dataLoaded(data) {
 
     addQuestions(questionList, false);
     
-    document.getElementById('page-loader').style.display = 'none';
+    showLoadingWheel(false);
     callAPI();
 }
 
@@ -207,6 +207,7 @@ function addQuestions(questions, isFinishedLoading) {
 
     if (isFinishedLoading) {
         showLoadingBar(false);
+        showLoadingWheel(false);
     }
 }
 
@@ -360,5 +361,13 @@ function showLoadingBar(state) {
         load.style.opacity = '1';
     } else {
         load.style.opacity = '0';
+    }
+}
+
+function showLoadingWheel(state) {
+    const load = document.getElementById('page-loader');
+
+    if (!state) {
+        load.style.display = 'none';
     }
 }
