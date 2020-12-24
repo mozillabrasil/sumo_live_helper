@@ -67,7 +67,10 @@
         "message": "Hubs"
     },
     "congratulations": {
-        "message": "Gratulálunk! Az összes kérdés megválaszolva!"
+        "message": "Gratulálunk!"
+    },
+    "no_questions_found": {
+        "message": "Az összes kérdés megválaszolva!"
     },
     "refresh": {
         "message": "Frissítés"

@@ -67,7 +67,10 @@
         "message": "Hubs"
     },
     "congratulations": {
-        "message": "¡Felicidades! ¡Todas las preguntas han sido respondidas!"
+        "message": "¡Felicidades!"
+    },
+    "no_questions_found": {
+        "message": "¡Todas las preguntas han sido respondidas!"
     },
     "refresh": {
         "message": "Actualizar"
