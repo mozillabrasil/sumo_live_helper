@@ -67,7 +67,10 @@
         "message": "Hubs"
     },
     "congratulations": {
-        "message": "Gratulujeme, všechny dotazy byly zodpovězeny."
+        "message": "Gratulujeme,"
+    },
+    "no_questions_found": {
+        "message": "všechny dotazy byly zodpovězeny."
     },
     "refresh": {
         "message": "Obnovit"

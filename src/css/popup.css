@@ -99,6 +99,17 @@ html {
     height: 100%;
 }
 
+#empty h1,
+#empty h3 {
+    text-align: center;
+}
+
+#empty img {
+    width: 75%;
+    margin: 1em auto;
+    display: block;
+}
+
 @media (max-width: 300px) {
     .sidebar #items li {
         position: relative;
