@@ -75,7 +75,9 @@ label > * {
     grid-template-areas:
         'header header nav'
         'main   main   main';
+    grid-auto-rows: minmax(min-content, max-content);
     max-width: 500px;
+    min-height: 600px;
 }
 
 #popup header {
@@ -284,6 +286,7 @@ label > * {
 }
 
 #page-loader {
+    min-width: 500px;
     width: 100%;
     height: 100%;
     top: 0;
@@ -293,6 +296,11 @@ label > * {
     z-index: 100;
     display: flex;
     align-items: center;
+}
+
+.sidebar #page-loader,
+.mobile #page-loader {
+    min-width: unset;
 }
 
 #page-loader .wheel {

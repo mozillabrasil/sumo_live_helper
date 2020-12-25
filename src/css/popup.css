@@ -10,6 +10,15 @@
     padding-top: 0 !important;
 }
 
+#empty {
+    min-width: 500px;
+}
+
+.sidebar #empty,
+.mobile #empty {
+    min-width: unset !important;
+}
+
 #popup.mobile {
     grid-template-areas:
         'main   main   main'
