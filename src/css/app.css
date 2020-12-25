@@ -300,7 +300,7 @@ label > * {
 
 .sidebar #page-loader,
 .mobile #page-loader {
-    min-width: unset !important;
+    min-width: unset;
 }
 
 #page-loader .wheel {
