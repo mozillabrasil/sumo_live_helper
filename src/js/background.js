@@ -316,9 +316,14 @@ function loadRequest(request) {
     const responseSUMO = request.response;
     const newQuestionList = [];
 
+    const validProducts = product.map(p => p.toLowerCase());
+    const validLocales = locale.map(l => l.toLowerCase());
+
     // Filter SUMO list to only unanswered
     const availableQuestions = responseSUMO.results.filter((q) => {
         return (
+            validProducts.includes(q.product.toLowerCase()) &&
+            validLocales.includes(q.locale.toLowerCase()) &&
             q.num_answers == 0 &&
             q.is_spam == false &&
             q.is_locked == false &&
