@@ -118,6 +118,7 @@
 
   --input-background: var(--white-100);
   --input-border-color: var(--grey-90-a20);
+  --input-border-color-hover: var(--blue-60);
 
   --load-background: var(--grey-20);
   --load-foreground: var(--blue-60);
@@ -151,6 +152,7 @@
 
   --input-background: var(--grey-85);
   --input-border-color: var(--grey-10-a20);
+  --input-border-color-hover: var(--blue-60);
 
   --load-background: var(--grey-70);
   --load-foreground: var(--blue-60);
