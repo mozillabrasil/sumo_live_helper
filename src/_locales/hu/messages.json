@@ -57,9 +57,6 @@
     "product_firefox-enterprise": {
         "message": "Vállalati Firefox"
     },
-    "product_firefox-preview": {
-        "message": "Firefox Preview"
-    },
     "product_firefox-private-network-vpn": {
         "message": "Mozilla VPN"
     },
