@@ -117,6 +117,9 @@
     "general": {
         "message": " General"
     },
+    "credits": {
+        "message": " Credits"
+    },
     "default_time": {
         "message": "15 (default)"
     },
