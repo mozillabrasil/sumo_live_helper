@@ -10,13 +10,13 @@
         "message": "Sledovat nové dotazy"
     },
     "description_questions": {
-        "message": "Určuje, zda má SUMO Live Helper upozorňovat při nalezení nového dotazu"
+        "message": "Určuje, zda má SUMO Live Helper zobrazit oznámení při nalezení nového dotazu"
     },
     "frequency_questions": {
         "message": "Určuje interval kontroly nových dotazů na serveru"
     },
     "polling": {
-        "message": "Minutový interval pro kontrolu API"
+        "message": "Interval kontroly nových dotazů (v minutách)"
     },
     "preferences": {
         "message": "Nastavení"
@@ -40,7 +40,7 @@
         "message": "Vyberte produkt, pro který chcete vyhledat nové dotazy"
     },
     "open_tab": {
-        "message": "OTevřít"
+        "message": "Otevřít"
     },
     "product_firefox": {
         "message": "Firefox pro počítač"
@@ -82,7 +82,7 @@
         "message": "Zobrazovat oznámení prohlížeče"
     },
     "open_in_new_tab": {
-        "message": "Open questions in new tab"
+        "message": "Otevírat dotazy v novém panelu"
     },
     "description_notifications": {
         "message": "Určujte, zda chcete dostávat oznámení při nalezení nového dotazu"
@@ -103,42 +103,42 @@
         "message": "Otevřít nastavení"
     },
     "prefer_sidebar": {
-        "message": "Always open questions in sidebar"
+        "message": "Vždy otevírat dotazy v postranní liště"
     },
     "open_sidebar": {
-        "message": "Open sidebar"
+        "message": "Otevřít postranní lištu"
     },
      "language": {
-        "message": "Language"
+        "message": "Jazyk"
     },
     "products": {
-        "message": "Products"
+        "message": "Produkty"
     },
     "synchronisation": {
-        "message": "Synchronisation"
+        "message": "Synchronizace"
     },
     "general": {
-        "message": " General"
+        "message": " Obecné"
     },
     "default_time": {
-        "message": "15 (default)"
+        "message": "15 (výchozí)"
     },
     "theme": {
-        "message": "Theme"
+        "message": "Vzhled"
     },
     "choose_theme": {
-        "message": "Choose a theme"
+        "message": "Vyberte motiv vzhledu"
     },
     "theme_auto": {
-        "message": "Auto-detect (default)"
+        "message": "Podle prohlížeče (výchozí)"
     },
     "theme_dark": {
-        "message": "Dark"
+        "message": "Tmavý"
     },
     "theme_light": {
-        "message": "Light"
+        "message": "Světlý"
     },
     "never": {
-        "message": "Never"
+        "message": "nikdy"
     }
 }
