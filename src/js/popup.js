@@ -346,6 +346,7 @@ function isSidebar() {
         document.body.classList.add('mobile');
     } else {
         document.body.classList.add('sidebar');
+        browser.runtime.connect();
         return true;
     }
 }

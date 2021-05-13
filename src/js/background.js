@@ -9,6 +9,7 @@ let frequencySeekNewQuestions,
     isMobile;
 let numberOfAPIRequests = 0;
 let apiFromPopup = false;
+let isSidebarOpen = false;
 
 // Detect operating system
 let detectOS = browser.runtime.getPlatformInfo();
@@ -22,6 +23,12 @@ questionList.then(dataLoaded);
 browser.alarms.onAlarm.addListener(callAPI);
 browser.runtime.onMessage.addListener(handleMessage);
 browser.browserAction.onClicked.addListener(openWindow);
+browser.runtime.onConnect.addListener((port) => {
+    isSidebarOpen = true;
+    port.onDisconnect.addListener(() => {
+        isSidebarOpen = false;
+    });
+});
 //browser.notifications.onClicked.addListener(openWindow); API limitation
 
 /**
@@ -94,7 +101,11 @@ function toggleSidebarPreference() {
  */
 function openWindow() {
     if (onlySidebar) {
-        browser.sidebarAction.open();
+        if (isSidebarOpen) {
+            browser.sidebarAction.close();
+        } else {
+            browser.sidebarAction.open();
+        }
     } else if (isMobile) {
         browser.tabs.create({
             url: '/html/popup.html?view=mobile'
