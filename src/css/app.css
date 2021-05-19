@@ -54,7 +54,58 @@ label > * {
 #page-preferences {
     display: grid;
     grid-gap: 16px;
-    margin: auto 1em;
+    margin: auto 1em 3em 1em;
+    grid-template-areas:
+        'nav   header'
+        'nav   main';
+}
+
+#page-preferences nav {
+    grid-area: nav;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding-top: 8em;
+    padding-bottom: 4em;
+    box-sizing: border-box;
+}
+
+#page-preferences nav ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+}
+
+#page-preferences nav .spacer {
+    flex: 1;
+}
+
+.smaller {
+    font-size: 90%;
+}
+
+#page-preferences header {
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    background: var(--page-background);
+    margin: 0;
+}
+
+#page-preferences .container {
+    grid-area: main;
+    display: none;
+}
+
+#page-preferences[page=general] #general,
+#page-preferences[page=credits] #credits {
+    display: block;
+}
+
+nav span[selected] {
+    color: var(--button-primary-background);
 }
 
 @media (min-width: 40em) {

@@ -120,6 +120,9 @@
     "general": {
         "message": " Geral"
     },
+    "credits": {
+        "message": " Credits"
+    },
     "default_time": {
         "message": "15 (padrão)"
     },

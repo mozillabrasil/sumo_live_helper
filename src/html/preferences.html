@@ -10,7 +10,7 @@
         <link href="/css/app.css" rel="stylesheet">
     </head>
 
-    <body id="page-preferences">
+    <body id="page-preferences" page="general">
         <div id="page-loader">
             <div class="spacer"></div>
             <div class="wheel"></div>
@@ -28,12 +28,18 @@
             <ul class="menu">
                 <li>
                     <a href="#">
-                        <span class="pf-preferences"><a href="#" data-i18n="general"></a></span>
+                        <span class="pf-preferences" data-i18n="general" selected></span>
+                    </a>
+                </li>
+                <li class="spacer"></li>
+                <li>
+                    <a href="#">
+                        <span class="smaller" data-i18n="credits"></span>
                     </a>
                 </li>
             </ul>
         </nav>
-        <form name="settings">
+        <form name="settings" class="container" id="general">
             <h2 data-i18n="general"></h2>
 
             <h3 data-i18n="synchronisation"></h3>
@@ -144,6 +150,19 @@
                 <span data-i18n="prefer_sidebar"></span>
             </label>
         </form>
+
+        <!-- Please do not update the information in this section. You will be asked if you want to be included in the credits when your pull request is approved.
+             If you have already made a previous contribution and would like to be included on this list, please create an issue on the GitHub repository. -->
+        <div class="container" id="credits">
+            <h2 data-i18n="credits"></h2>
+            <p>We would like to thank our contributors, whose efforts over many years have made this add-on what it is.</p>
+            <h3>Our Contributors</h3>
+            <p>Wesley Branton, Danny Colin, Krzysztof Głębowicz, Uriel Jurado, Jhonatas Machado, Wolfgang Marcos, Balázs Meskó, Michal Stanke</p>
+            <hr>
+            <p class="smaller">This is a list of people who have made a significant investment of time with useful results on this SUMO Live Helper add-on.
+                Any contributor who wishes to be added to this list should <a href="https://github.com/mozillabrasil/sumo_live_helper/issues" target="_blank">create an issue on GitHub</a>.
+                This list was last updated May 17, 2021.</p>
+        </div>
 
         <script src="../js/language.js"></script>
         <script src="../js/preferences.js"></script>
