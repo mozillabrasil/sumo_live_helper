@@ -34,11 +34,6 @@ This Source Code Form is subject to the terms of the Mozilla Public
 License, v. 2.0. If a copy of the MPL was not distributed with this
 file, You can obtain one at https://mozilla.org/MPL/2.0/.
 
-## Credits
-
-Thank you [philipp-sumo](https://github.com/philipp-sumo/) for your tips and time
-to help revive this project.
-
 <!-- link references -->
 [amo-button]: https://addons.cdn.mozilla.net/static/img/addons-buttons/AMO-button_2.png
 [amo-website]: https://addons.mozilla.org/en-US/firefox/addon/sumo-live-helper-/
