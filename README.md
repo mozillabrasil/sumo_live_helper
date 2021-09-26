@@ -18,34 +18,34 @@ questions on [Mozilla Support](https://support.mozilla.org).
 * Support browser notifications
 * Choose to open questions in new tab
 * Search unanswered questions for:
- * Firefox for Desktop
- * Firefox for Enterprise
- * Firefox for Android
- * Firefox for iOS
- * Mozilla VPN
- * Hubs
- * Thunderbird
+  * Firefox for Desktop
+  * Firefox for Enterprise
+  * Firefox for Android
+  * Firefox for iOS
+  * Mozilla VPN
+  * Hubs
+  * Thunderbird
 * Translated in 8 languages:
- * Čeština
- * Español
- * English
- * French
- * Magyar
- * Polski
- * Português (do Brasil)
- * Svenska
+  * Čeština
+  * Español
+  * English
+  * French
+  * Magyar
+  * Polski
+  * Português (do Brasil)
+  * Svenska
 * Select between 11 languages to search for unanswered questions:
- * Čeština
- * English
- * Español
- * Suomi
- * Magyar
- * Bahasa Indonesia
- * Italiano
- * Português (do Brasil)
- * Slovenščina
- * Српски
- * Sesotho
+  * Čeština
+  * English
+  * Español
+  * Suomi
+  * Magyar
+  * Bahasa Indonesia
+  * Italiano
+  * Português (do Brasil)
+  * Slovenščina
+  * Српски
+  * Sesotho
 * Choose to search unanswered questions for more than one language at the same time
 * Includes a dark and light theme
 * Navigate unanswered questions using the toolbar popup or a sidebar
