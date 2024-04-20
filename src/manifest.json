@@ -2,7 +2,7 @@
     "manifest_version": 2,
     "name": "__MSG_extensionName__",
     "description": "__MSG_extensionDescription__",
-    "version": "1.5.3",
+    "version": "1.5.8",
     "homepage_url": "https://github.com/mozillabrasil/sumo_live_helper",
     "default_locale": "en",
     "author": "Mozilla Brasil, Jhonatas Machado, Wesley Branton, Danny Colin",

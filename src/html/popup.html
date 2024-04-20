@@ -56,7 +56,9 @@
             </section>
             <!-- No questions -->
             <section  id="empty" style="display: none;">
-                <p style="text-align:center" data-i18n="congratulations"></p>
+                <img src="../res/noquestions.svg">
+                <h1 data-i18n="congratulations"></h1>
+                <h3 data-i18n="no_questions_found"></h3>
             </section>
         </main>
         <!-- Question template -->
@@ -67,7 +69,7 @@
             </div>
             <div class="item__title">{TITLE}</div>
             <div>
-                <a class="button button-icon primary item__link" href="{URL}" target="_blank">
+                <a class="button button-icon primary item__link" href="{URL}">
                     <span class="pf-open-in-new"></span>
                 </a>
             </div>

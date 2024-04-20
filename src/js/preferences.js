@@ -15,6 +15,12 @@ let data = browser.storage.local.get();
 data.then(loadSettings);
 document.settings.addEventListener('change', saveChange);
 
+// Activate menu buttons
+let menuItems = document.querySelectorAll('.menu a span');
+for (i = 0; i < menuItems.length; i++) {
+    menuItems[i].addEventListener('click', changeScreen);
+}
+
 /**
  * Set the UI theme
  * @param {string} theme
@@ -63,6 +69,10 @@ function loadSettings(data) {
 
     if (data.showNotifications) {
         document.settings.showNotifications.checked = data.showNotifications;
+    }
+
+    if (data.openNewTab) {
+        document.settings.openNewTab.checked = data.openNewTab;
     }
 
     if (data.onlySidebar) {
@@ -137,4 +147,20 @@ function setOS(info) {
     if (isMobile) {
         document.body.classList.add('mobile');
     }
+}
+
+/**
+ * Updates the screen displayed on the preferences page
+ * @param {object} event 
+ */
+function changeScreen(event) {
+    // Select menu item
+    for (i = 0; i < menuItems.length; i++) {
+        menuItems[i].removeAttribute('selected');
+    }
+    event.target.setAttribute('selected', true);
+
+    // Change visible screen
+    const newScreen = event.target.getAttribute('data-i18n');
+    document.body.setAttribute('page', newScreen);
 }

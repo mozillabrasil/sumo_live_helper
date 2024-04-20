@@ -20,6 +20,13 @@ input[type=checkbox]:checked {
 }
 
 /* Hover state */
+input[type=checkbox]:hover {
+    border: 1px solid var(--input-border-color-hover);
+}
+
+label.checkbox:hover {
+    cursor: pointer;
+}
 
 /* Pressed state */
 

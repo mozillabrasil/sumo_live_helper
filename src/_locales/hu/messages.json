@@ -60,8 +60,14 @@
     "product_firefox-private-network-vpn": {
         "message": "Mozilla VPN"
     },
+    "product_hubs": {
+        "message": "Hubs"
+    },
     "congratulations": {
-        "message": "Gratulálunk! Az összes kérdés megválaszolva!"
+        "message": "Gratulálunk!"
+    },
+    "no_questions_found": {
+        "message": "Az összes kérdés megválaszolva!"
     },
     "refresh": {
         "message": "Frissítés"
@@ -71,6 +77,9 @@
     },
     "show_notifications": {
         "message": "Böngészőértesítések megjelenítése"
+    },
+    "open_in_new_tab": {
+        "message": "Open questions in new tab"
     },
     "description_notifications": {
         "message": "Meghatározza, hogy kap-e felugró értesíteseket, ha új kérdések vannak"
@@ -107,6 +116,9 @@
     },
     "general": {
         "message": " Általános"
+    },
+    "credits": {
+        "message": " Credits"
     },
     "default_time": {
         "message": "15 (alapértelmezett)"
