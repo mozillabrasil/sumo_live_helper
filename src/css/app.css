@@ -260,6 +260,11 @@ nav span[selected] {
     color: white;
 }
 
+.item__locale.nl {
+    background: var(--blue-70);
+    color: white;
+}
+
 .item__locale.st {
     background: #000;
     color: white;
