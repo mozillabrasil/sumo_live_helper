@@ -257,6 +257,16 @@ function dataLoaded(data) {
         theme = data.chooseTheme;
     }
 
+    // Remove Firefox Preview
+    if (data.chooseProduct.indexOf('firefox-preview') >= 0) {
+        data.chooseProduct = data.chooseProduct.filter((v) => {
+            return v != 'firefox-preview';
+        });
+        browser.storage.local.set({
+            chooseProduct: data.chooseProduct
+        });
+    }
+
     browser.storage.onChanged.addListener(settingsUpdated);
 
     toggleSidebarPreference();
