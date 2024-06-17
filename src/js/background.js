@@ -268,7 +268,7 @@ function dataLoaded(data) {
             });
         }
     } catch (error) {
-        console.log(error);
+        console.error(error);
     }
 
     browser.storage.onChanged.addListener(settingsUpdated);
