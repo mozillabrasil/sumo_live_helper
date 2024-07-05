@@ -257,12 +257,8 @@ function dataLoaded(data) {
         theme = data.chooseTheme;
     }
 
-    // Remove Firefox Preview
     try {
-        if (data.chooseProduct.indexOf('firefox-preview') >= 0) {
-            data.chooseProduct = data.chooseProduct.filter((v) => {
-                return v != 'firefox-preview';
-            });
+        if (data.chooseProduct.length > 0) {
             browser.storage.local.set({
                 chooseProduct: data.chooseProduct
             });
