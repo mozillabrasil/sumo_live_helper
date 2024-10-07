@@ -1,9 +1,9 @@
 // Variable declaration
-let frequencySeekNewQuestions, 
-    locale, 
-    showNotifications, 
+let frequencySeekNewQuestions,
+    locale,
+    showNotifications,
     openNewTab,
-    onlySidebar, 
+    onlySidebar,
     product,
     theme,
     isMobile;
@@ -238,6 +238,20 @@ function dataLoaded(data) {
         });
     } else {
         product = data.chooseProduct;
+
+        // Remove 'firefox-preview' from chooseProduct list if it exists
+        if (product.includes('firefox-preview')) {
+            product = product.filter((productName) => productName !== 'firefox-preview');
+
+            // Update storage with the filtered list
+            browser.storage.local.set({
+                chooseProduct: product
+            }).then(() => {
+                console.log("'firefox-preview' was removed from chooseProduct.");
+            }).catch((error) => {
+                console.error('Error updating chooseProduct:', error);
+            });
+        }
     }
 
     // Load sidebar setting
@@ -255,16 +269,6 @@ function dataLoaded(data) {
         });
     } else {
         theme = data.chooseTheme;
-    }
-
-    try {
-        if (data.chooseProduct.length > 0) {
-            browser.storage.local.set({
-                chooseProduct: data.chooseProduct
-            });
-        }
-    } catch (error) {
-        console.error(error);
     }
 
     browser.storage.onChanged.addListener(settingsUpdated);
@@ -400,10 +404,10 @@ function loadRequest(request) {
  * Update question count on browserAction button
  */
 function updateQuestionCount() {
-	// Cancel if it's Android
-	if (isMobile) {
-		return;
-	}
+    // Cancel if it's Android
+    if (isMobile) {
+        return;
+    }
 
     let numberOfQuestionsOpened = 0;
 
