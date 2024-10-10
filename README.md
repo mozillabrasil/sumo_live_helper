@@ -34,7 +34,7 @@ questions on [Mozilla Support](https://support.mozilla.org).
   * Polski
   * Português (do Brasil)
   * Svenska
-* Select between 11 languages to search for unanswered questions:
+* Select between 12 languages to search for unanswered questions:
   * Čeština
   * English
   * Español
@@ -42,6 +42,7 @@ questions on [Mozilla Support](https://support.mozilla.org).
   * Magyar
   * Bahasa Indonesia
   * Italiano
+  * Nederlands
   * Português (do Brasil)
   * Slovenščina
   * Српски
