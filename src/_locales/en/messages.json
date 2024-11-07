@@ -57,12 +57,6 @@
     "product_firefox-enterprise": {
         "message": "Firefox for Enterprise"
     },
-    "product_firefox-private-network-vpn": {
-        "message": "Mozilla VPN"
-    },
-    "product_hubs": {
-        "message": "Hubs"
-    },
     "congratulations": {
         "message": "Congratulations!"
     },
