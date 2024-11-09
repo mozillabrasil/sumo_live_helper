@@ -239,19 +239,28 @@ function dataLoaded(data) {
     } else {
         product = data.chooseProduct;
 
-        // Remove 'firefox-preview' from chooseProduct list if it exists
-        if (product.includes('firefox-preview')) {
-            product = product.filter((productName) => productName !== 'firefox-preview');
 
-            // Update storage with the filtered list
-            browser.storage.local.set({
-                chooseProduct: product
-            }).then(() => {
-                console.log("'firefox-preview' was removed from chooseProduct.");
-            }).catch((error) => {
-                console.error('Error updating chooseProduct:', error);
-            });
-        }
+        // Remove unsupported products from localstorage
+        const removedProducts = [
+          "firefox-preview",
+          "firefox-private-network-vpn",
+          "hubs"
+        ]
+
+        removedProducts.map((removedProduct) => {
+          if (product.includes(removedProduct)) {
+              product = product.filter((productName) => productName !== removedProduct);
+
+              // Update storage with the filtered list
+              browser.storage.local.set({
+                  chooseProduct: product
+              }).then(() => {
+                  console.log(`${removedProduct} successfully removed from chooseProduct.`);
+              }).catch((error) => {
+                  console.error('Error updating chooseProduct:', error);
+              });
+          }
+        });
     }
 
     // Load sidebar setting
