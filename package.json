@@ -1,0 +1,40 @@
+{
+  "name": "sumo-live-helper",
+  "version": "1.6.0",
+  "description": "This Add-on is for volunteers in SUMO (Support Mozilla) to see when there are new forum support questions that have not yet been answered.",
+  "contributors": [
+    {
+      "name": "Wesley Branton"
+    },
+    {
+      "name": "Danny Colin"
+    },
+    {
+      "name": "Jhonatas Machado"
+    }
+  ],
+  "license": "MPL-2.0",
+  "homepage": "https://github.com/mozillabrasil/sumo_live_helper#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mozillabrasil/sumo_live_helper.git"
+  },
+  "keywords": [
+    "Mozilla",
+    "Support",
+    "Extension",
+    "Firefox",
+    "Thunderbird",
+    "SUMO"
+  ],
+  "bugs": {
+    "url": "https://github.com/mozillabrasil/sumo_live_helper/issues"
+  },
+  "scripts": {
+    "start": "npx web-ext run -s src/",
+    "build": "npx web-ext build -o -s src/ -a dist/"
+  },
+  "devDependencies": {
+    "web-ext": "^8.3.0"
+  }
+}
