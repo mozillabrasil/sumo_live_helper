@@ -1,9 +1,7 @@
-/* ------------------------------ */
-/* Select                         */
-/* ------------------------------ */
+/* Select */
 
 select {
-    -moz-appearance: none;
+    appearance: none;
     background-color: var(--select-background);
     background-image: url('../../res/icons/dark/arrow-down.svg');
     background-image: var(--select-arrow-image);
@@ -22,13 +20,7 @@ select {
     min-width: 132px;
     padding: 0 8px;
 }
-/*
-@media (prefers-color-scheme: dark) {
-    select {
-        background-image: url('../../res/icons/light/arrow-down.svg');
-    }
-}
-*/
+
 /* Hover state */
 select:hover {
     background-color: var(--select-background-hover);
@@ -44,7 +36,7 @@ select:focus {
     box-shadow:
         0 0 0 1px #0a84ff inset,
         0 0 0 1px #0a84ff,
-        0 0 0 4px rgba(10, 132, 255, 0.3);
+        0 0 0 4px rgb(10 132 255 / 30%);
     outline: none;
 }
 

@@ -1,5 +1,5 @@
 @font-face {
-    font-family: 'photon-font';
+    font-family: photon-font;
     src:
         url('../fonts/photon-font.ttf?r50hwb') format('truetype'),
         url('../fonts/photon-font.woff?r50hwb') format('woff'),
@@ -11,8 +11,12 @@
 
 [class^="pf-"],
 [class*=" pf-"] {
-    /* use !important to prevent issues with browser extensions that change fonts */
-    font-family: 'photon-font' !important;
+    /* use !important to prevent issues with browser extensions that change
+       fonts */
+
+    /* stylelint-disable-next-line
+       font-family-no-missing-generic-family-keyword */
+    font-family: photon-font !important;
     speak: none;
     font-style: normal;
     font-weight: normal;
@@ -20,35 +24,35 @@
     text-transform: none;
     line-height: 1;
 
-    /* Better Font Rendering =========== */
+    /* Better Font Rendering */
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
 
-.pf-arrowhead-down:before {
+.pf-arrowhead-down::before {
     content: "\e900";
 }
 
-.pf-checkmark:before {
+.pf-checkmark::before {
     content: "\e901";
 }
 
-.pf-open-in-new:before {
+.pf-open-in-new::before {
     content: "\e902";
 }
 
-.pf-preferences:before {
+.pf-preferences::before {
     content: "\e903";
 }
 
-.pf-refresh:before {
+.pf-refresh::before {
     content: "\e904";
 }
 
-.pf-reminders:before {
+.pf-reminders::before {
     content: "\e905";
 }
 
-.pf-sidebar-left:before {
+.pf-sidebar-left::before {
     content: "\e906";
 }
