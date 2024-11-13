@@ -1,3 +1,5 @@
+# Build outdir
+dist/
 
 .idea/workspace.xml
 .idea/vcs.xml

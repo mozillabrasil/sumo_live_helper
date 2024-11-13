@@ -1,25 +1,28 @@
-/* ------------------------------------------------------------------------- */
-/* Photon Library                                                            */
-/*                                                                           */
-/* Copyright (c) 2019 Danny Colin                                            */
-/*                                                                           */
-/* This Source Code Form is subject to the terms of the Mozilla Public       */
-/* License, v. 2.0. If a copy of the MPL was not distributed with this file, */
-/* You can obtain one at http://mozilla.org/MPL/2.0/.                        */
-/* ------------------------------------------------------------------------- */
+/*
+ * Photon Library
+ * Copyright (c) 2019 Danny Colin
+ * This Source Code Form is subject to the terms of the Mozilla Public
+ * License, v. 2.0. If a copy of the MPL was not distributed with this file,
+ * You can obtain one at http://mozilla.org/MPL/2.0/.
+ */
+
+/* stylelint-disable selector-class-pattern,
+                     no-descending-specificity
+                     --
+                     See gh#212 */
 
 /* Settings */
-@import "vendor/normalize.css";
-@import "font.css";
-@import "settings.css";
+@import url("vendor/normalize.css");
+@import url("font.css");
+@import url("settings.css");
 
 /* Components */
-@import "components/button.css";
-@import "components/checkbox.css";
-@import "components/input.css";
-@import "components/menu.css";
-@import "components/radio.css";
-@import "components/select.css";
+@import url("components/button.css");
+@import url("components/checkbox.css");
+@import url("components/input.css");
+@import url("components/menu.css");
+@import url("components/radio.css");
+@import url("components/select.css");
 
 /* Typography */
 body {
@@ -54,7 +57,7 @@ label > * {
 #page-preferences {
     display: grid;
     grid-gap: 16px;
-    margin: auto 1em 3em 1em;
+    margin: auto 1em 3em;
     grid-template-areas:
         'nav   header'
         'nav   main';
@@ -99,8 +102,8 @@ label > * {
     display: none;
 }
 
-#page-preferences[page=general] #general,
-#page-preferences[page=credits] #credits {
+#page-preferences[page="general"] #general,
+#page-preferences[page="credits"] #credits {
     display: block;
 }
 
@@ -108,7 +111,7 @@ nav span[selected] {
     color: var(--button-primary-background);
 }
 
-@media (min-width: 40em) {
+@media (width >= 40em) {
     #page-preferences {
         grid-template-columns: 12em 1fr;
     }
@@ -294,7 +297,7 @@ nav span[selected] {
     z-index: 200;
 }
 
-#load:before {
+#load::before {
     display: block;
     position: absolute;
     content: "";
@@ -306,7 +309,7 @@ nav span[selected] {
 }
 
 @keyframes loading {
-    from {
+    0% {
         left: -200px;
         width: 30%;
     }
@@ -327,7 +330,7 @@ nav span[selected] {
         left: 120%;
     }
 
-    to {
+    100% {
         left: 100%;
     }
 }
@@ -385,3 +388,5 @@ nav span[selected] {
     transform: rotate(360deg);
   }
 }
+
+/* stylelint-enable selector-class-pattern, no-descending-specificity */

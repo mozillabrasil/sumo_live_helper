@@ -1,9 +1,6 @@
-/* ------------------------------ */
-/* Radio                          */
-/* ------------------------------ */
+/* Radio */
 
-input[type=radio] {
-    -moz-appearance: none;
+input[type="radio"] {
     appearance: none;
     background-color: var(--input-background);
     border: 1px solid var(--input-border-color);
@@ -14,7 +11,7 @@ input[type=radio] {
     width: 20px;
 }
 
-input[type=radio]:checked {
+input[type="radio"]:checked {
     background: url('../../res/icons/light/radio.svg') center / 18px;
     background-color: var(--input-background);
 }
@@ -24,9 +21,9 @@ input[type=radio]:checked {
 /* Pressed state */
 
 /* Focused state */
-input[type=radio]:focus {
+input[type="radio"]:focus {
     box-shadow:
         0 0 0 2px #0a84ff inset,
-        0 0 0 2px rgba(10, 132, 255, 0.3);
+        0 0 0 2px rgb(10 132 255 / 30%);
     outline: none;
 }

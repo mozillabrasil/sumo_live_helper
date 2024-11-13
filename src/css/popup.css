@@ -1,3 +1,6 @@
+/* stylelint-disable no-descending-specificity
+                     --
+                     See gh#212 */
 .sidebar nav li:last-of-type,
 .sidebar header h1,
 .mobile nav li:last-of-type,
@@ -119,7 +122,7 @@ html {
     display: block;
 }
 
-@media (max-width: 300px) {
+@media (width <= 300px) {
     .sidebar #items li {
         position: relative;
     }
@@ -145,3 +148,5 @@ html {
         display: none;
     }
 }
+
+/* stylelint-enable */

@@ -1,8 +1,6 @@
-/* ------------------------------ */
-/* Input                          */
-/* ------------------------------ */
+/* Input */
 
-input[type=text],
+input[type="text"],
 textarea {
     background-color: var(--input-background);
     border: solid 1px var(--input-border-color);
@@ -19,16 +17,15 @@ textarea {
     padding: 4px 8px;
 }
 
-
 /* Hover state */
 
 /* Pressed state */
 
 /* Focused state */
-input[type=text]:focus,
+input[type="text"]:focus,
 textarea:focus {
     box-shadow:
         0 0 0 2px #0a84ff inset,
-        0 0 0 2px rgba(10, 132, 255, 0.3);
+        0 0 0 2px rgb(10 132 255 / 30%);
     outline: none;
 }
