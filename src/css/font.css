@@ -12,7 +12,10 @@
 [class^="pf-"],
 [class*=" pf-"] {
     /* use !important to prevent issues with browser extensions that change
-       fonts */
+       fonts
+
+       We are disabling the following font linting rule because we do not
+       want to fallback to a regular font for our icon font. */
 
     /* stylelint-disable-next-line
        font-family-no-missing-generic-family-keyword */

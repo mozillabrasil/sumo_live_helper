@@ -6,11 +6,6 @@
  * You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-/* stylelint-disable selector-class-pattern,
-                     no-descending-specificity
-                     --
-                     See gh#212 */
-
 /* Settings */
 @import url("vendor/normalize.css");
 @import url("font.css");
@@ -54,57 +49,8 @@ label > * {
     margin-right: 8px;
 }
 
-#page-preferences {
-    display: grid;
-    grid-gap: 16px;
-    margin: auto 1em 3em;
-    grid-template-areas:
-        'nav   header'
-        'nav   main';
-}
-
-#page-preferences nav {
-    grid-area: nav;
-    position: fixed;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    padding-top: 8em;
-    padding-bottom: 4em;
-    box-sizing: border-box;
-}
-
-#page-preferences nav ul {
-    display: flex;
-    flex-direction: column;
-    margin: 0;
-    height: 100%;
-}
-
-#page-preferences nav .spacer {
-    flex: 1;
-}
-
 .smaller {
     font-size: 90%;
-}
-
-#page-preferences header {
-    grid-area: header;
-    position: sticky;
-    top: 0;
-    background: var(--page-background);
-    margin: 0;
-}
-
-#page-preferences .container {
-    grid-area: main;
-    display: none;
-}
-
-#page-preferences[page="general"] #general,
-#page-preferences[page="credits"] #credits {
-    display: block;
 }
 
 nav span[selected] {
@@ -119,6 +65,39 @@ nav span[selected] {
     header {
         grid-column: span 2;
     }
+}
+
+/* items */
+#items {
+    margin: 0;
+    padding: 8px;
+}
+
+#items li {
+    align-items: center;
+    border-top: solid 1px transparent;
+    border-bottom: solid 1px var(--popup-item-border);
+    display: flex;
+}
+
+#items li:last-child {
+    border: none;
+}
+
+#items li div {
+    flex-grow: 1;
+    padding: 8px;
+    word-break: normal;
+    overflow-wrap: anywhere;
+}
+
+#items li div:first-child,
+#items li div:last-child {
+    flex-grow: 0;
+}
+
+#items li div:first-of-type {
+    position: relative;
 }
 
 /* Popup window */
@@ -167,49 +146,13 @@ nav span[selected] {
     padding: 0 8px;
 }
 
-#items {
-    margin: 0;
-    padding: 8px;
-}
-
-#items li {
-    align-items: center;
-    border-top: solid 1px transparent;
-    border-bottom: solid 1px var(--popup-item-border);
-    display: flex;
-}
-
-#items li:last-child {
-    border: none;
-}
-
-#items li div {
-    flex-grow: 1;
-    padding: 8px;
-    word-break: normal;
-    overflow-wrap: anywhere;
-}
-
-#items li div:first-child,
-#items li div:last-child {
-    flex-grow: 0;
-}
-
-#items li div:first-of-type {
-    position: relative;
-}
-
-.item__icon {
+.item-icon {
     width: 42px;
     border-left: 5px solid transparent;
     padding-left: 5px;
 }
 
-.one-locale .item__locale {
-    display: none !important;
-}
-
-.item__locale {
+.item-locale {
     position: absolute;
     bottom: 5px;
     right: 0;
@@ -218,70 +161,70 @@ nav span[selected] {
     border-radius: 100000px;
 }
 
-.item__locale.cs {
+.item-locale.cs {
     background: var(--purple-50);
     color: white;
 }
 
-.item__locale.en-US {
+.item-locale.en-us {
     background: var(--blue-60);
     color: white;
 }
 
-.item__locale.es {
+.item-locale.es {
     background: var(--green-70);
     color: white;
 }
 
-.item__locale.fi {
+.item-locale.fi {
     background: var(--red-70);
     color: white;
 }
 
-.item__locale.hu {
+.item-locale.hu {
     background: var(--orange-60);
     color: white;
 }
 
-.item__locale.id {
+.item-locale.id {
     background: var(--teal-50);
     color: black;
 }
 
-.item__locale.pt-BR {
+.item-locale.pt-br {
     background: var(--yellow-50);
     color: black;
 }
 
-.item__locale.sl {
+.item-locale.sl {
     background: var(--magenta-70);
     color: white;
 }
 
-.item__locale.sr {
+.item-locale.sr {
     background: var(--grey-50);
     color: white;
 }
 
-.item__locale.nl {
+.item-locale.nl {
     background: var(--blue-70);
     color: white;
 }
 
-.item__locale.st {
+.item-locale.st {
     background: #000;
     color: white;
 }
 
-.item__link * {
+.item-link * {
     pointer-events: none;
 }
 
-.item--unread {
+.item-unread {
     font-weight: bold;
 }
 
-.item--unread .item__icon {
+.item-unread .item-icon {
     border-color: var(--button-primary-background);
 }
 
@@ -357,11 +300,6 @@ nav span[selected] {
     align-items: center;
 }
 
-.sidebar #page-loader,
-.mobile #page-loader {
-    min-width: unset;
-}
-
 #page-loader .wheel {
   animation: spin .4s linear infinite;
   border: 7px solid transparent;
@@ -373,6 +311,60 @@ nav span[selected] {
 
 #page-loader .spacer {
     flex: 1;
+}
+
+#page-preferences {
+    display: grid;
+    grid-gap: 16px;
+    margin: auto 1em 3em;
+    grid-template-areas:
+        'nav   header'
+        'nav   main';
+}
+
+#page-preferences nav {
+    grid-area: nav;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    padding-top: 8em;
+    padding-bottom: 4em;
+    box-sizing: border-box;
+}
+
+#page-preferences nav ul {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    height: 100%;
+}
+
+#page-preferences nav .spacer {
+    flex: 1;
+}
+
+#page-preferences header {
+    grid-area: header;
+    position: sticky;
+    top: 0;
+    background: var(--page-background);
+    margin: 0;
+}
+
+#page-preferences .container {
+    grid-area: main;
+    display: none;
+}
+
+#page-preferences[page="general"] #general,
+#page-preferences[page="credits"] #credits {
+    display: block;
+}
+
+.sidebar #page-loader,
+.mobile #page-loader {
+    min-width: unset;
 }
 
 .template {
@@ -388,5 +380,3 @@ nav span[selected] {
     transform: rotate(360deg);
   }
 }
-
-/* stylelint-enable selector-class-pattern, no-descending-specificity */

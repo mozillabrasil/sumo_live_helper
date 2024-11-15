@@ -79,13 +79,13 @@ async function openQuestion(question) {
     else browser.tabs.update(tabID, { url: url });
 
     let selectedQuestion = null;
-    
+
     if (question.target.id) {
         selectedQuestion = question.target;
     } else if (question.target.parentNode.id) {
         selectedQuestion = question.target.parentNode;
     }
-    
+
     if (selectedQuestion != null) {
         browser.runtime.sendMessage({
             task: 'mark_as_read',
@@ -138,12 +138,12 @@ function handleMessage(message) {
 function dataLoaded(data) {
     setCurrentTheme(data.chooseTheme);
     showLocaleLabels(data.chooseLanguage.length != 1);
-    
+
     questionList = data.questions;
     inNewTab = data.openNewTab;
 
     addQuestions(questionList, false);
-    
+
     showLoadingWheel(false);
     callAPI();
 }
@@ -192,7 +192,7 @@ function callAPI(event) {
 function addQuestions(questions, isFinishedLoading) {
     // Create questions on the UI
     for (question of questions) {
-        if (question.show && document.getElementsByClassName('item--' + question.id)[0] == undefined) {
+        if (question.show && document.getElementsByClassName('item-' + question.id)[0] == undefined) {
             createQuestionUI(
                 question.product,
                 question.title,
@@ -218,22 +218,22 @@ function addQuestions(questions, isFinishedLoading) {
  * @param {number} id
  * @param {boolean} isNew
  */
-function createQuestionUI(product, title, id, locale, isNew) {
+async function createQuestionUI(product, title, id, locale, isNew) {
     // Create UI elements
     const list = document.getElementById('items');
     const item = questionTemplate.cloneNode(true);
-    const productIcon = item.getElementsByClassName('item__icon')[0];
-    const productLocale = item.getElementsByClassName('item__locale')[0];
-    const questionTitle = item.getElementsByClassName('item__title')[0];
-    const button = item.getElementsByClassName('item__link')[0];
+    const productIcon = item.getElementsByClassName('item-icon')[0];
+    const productLocale = item.getElementsByClassName('item-locale')[0];
+    const questionTitle = item.getElementsByClassName('item-title')[0];
+    const button = item.getElementsByClassName('item-link')[0];
     const url = 'https://support.mozilla.org/' + locale + '/questions/' + id;
 
     // Add item ID
-    item.className = 'item--' + id;
+    item.className = 'item-' + id;
 
     // Mark questions as unread
     if (isNew) {
-        item.classList.add('item--unread');
+        item.classList.add('item-unread');
     }
 
     // Add question icon
@@ -242,7 +242,7 @@ function createQuestionUI(product, title, id, locale, isNew) {
 
     // Add question locale
     productLocale.textContent = locale.substring(0, 2).toUpperCase();
-    productLocale.classList.add(locale);
+    productLocale.classList.add(locale.toLowerCase());
 
     // Add question title
     questionTitle.textContent = title;
@@ -288,13 +288,17 @@ function toggleQuestionList() {
 
 /**
  * Show/Hide locale labels on question list
- * @param {boolean} show 
+ * @param {boolean} show
  */
 function showLocaleLabels(show) {
+    let localeBadge = document.getElementsByClassName('item-locale')[0];
+
     if (show) {
-        questionListUI.classList.remove('one-locale');
+        //questionListUI.classList.remove('one-locale');
+        localeBadge.style.display = 'block';
     } else {
-        questionListUI.classList.add('one-locale');
+        //questionListUI.classList.add('one-locale');
+        localeBadge.style.display = 'none';
     }
 }
 
@@ -303,7 +307,7 @@ function showLocaleLabels(show) {
  * @param {number} id
  */
 function markAsRead(id) {
-    document.getElementsByClassName('item--' + id)[0].classList.remove('item--unread');
+    document.getElementsByClassName('item-' + id)[0].classList.remove('item-unread');
 }
 
 /**
@@ -328,7 +332,7 @@ function markAllAsRead(event) {
  * @param {number} id
  */
 function removeQuestion(id) {
-    const question = document.getElementsByClassName('item--' + id)[0];
+    const question = document.getElementsByClassName('item-' + id)[0];
     if (question) question.parentElement.removeChild(question);
 }
 
