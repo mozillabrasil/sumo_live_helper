@@ -567,7 +567,7 @@ function showNotification(questions) {
 
     browser.notifications.create({
         type: 'basic',
-        iconUrl: chrome.extension.getURL('/res/products/' + questions[0].product + '.png'),
+        iconUrl: browser.runtime.getURL('/res/products/' + questions[0].product + '.png'),
         title: title,
         message: message
     });
