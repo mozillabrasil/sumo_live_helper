@@ -10,7 +10,8 @@
         "gecko": {
             "strict_min_version": "79.0",
             "id": "sumo_live_helper@mozillabr.org"
-        }
+        },
+        "gecko_android": {}
     },
     "icons": {
         "16": "/res/logo/sumo16.png",
