@@ -1,59 +1,59 @@
 {
-    "manifest_version": 2,
-    "name": "__MSG_extensionName__",
-    "description": "__MSG_extensionDescription__",
-    "version": "1.6.0",
-    "homepage_url": "https://github.com/mozillabrasil/sumo_live_helper",
-    "default_locale": "en",
-    "author": "Mozilla Brasil, Jhonatas Machado, Wesley Branton, Danny Colin",
-    "browser_specific_settings": {
-        "gecko": {
-            "strict_min_version": "79.0",
-            "id": "sumo_live_helper@mozillabr.org"
-        },
-        "gecko_android": {}
+  "manifest_version": 2,
+  "name": "__MSG_extensionName__",
+  "description": "__MSG_extensionDescription__",
+  "version": "1.6.0",
+  "homepage_url": "https://github.com/mozillabrasil/sumo_live_helper",
+  "default_locale": "en",
+  "author": "Mozilla Brasil, Jhonatas Machado, Wesley Branton, Danny Colin",
+  "browser_specific_settings": {
+    "gecko": {
+      "strict_min_version": "79.0",
+      "id": "sumo_live_helper@mozillabr.org"
     },
-    "icons": {
-        "16": "/res/logo/sumo16.png",
-        "32": "/res/logo/sumo32.png",
-        "64": "/res/logo/sumo64.png"
+    "gecko_android": {}
+  },
+  "icons": {
+    "16": "/res/logo/sumo16.png",
+    "32": "/res/logo/sumo32.png",
+    "64": "/res/logo/sumo64.png"
+  },
+  "browser_action": {
+    "browser_style": true,
+    "default_icon": {
+      "16": "/res/logo/sumo16.png",
+      "32": "/res/logo/sumo32.png",
+      "64": "/res/logo/sumo64.png"
     },
-    "browser_action": {
-        "browser_style": true,
-        "default_icon": {
-            "16": "/res/logo/sumo16.png",
-            "32": "/res/logo/sumo32.png",
-            "64": "/res/logo/sumo64.png"
-        },
-        "default_title": "__MSG_extensionName__"
-    },
-    "background": {
-        "scripts": ["/js/background.js"]
-    },
-    "options_ui": {
-        "browser_style": false,
-        "open_in_tab": true,
-        "page": "html/preferences.html"
-    },
-    "sidebar_action": {
-        "default_icon": "/res/logo/sumo64.png",
-        "default_title": "__MSG_extensionName__",
-        "default_panel": "html/popup.html?view=sidebar",
-        "open_at_install": false
-    },
-    "commands": {
-        "_execute_sidebar_action": {
-            "suggested_key": {
-                "default": "Ctrl+Shift+L"
-            }
-        }
-    },
-    "permissions": [
-        "alarms",
-        "tabs",
-        "browserSettings",
-        "activeTab",
-        "storage",
-        "notifications"
-    ]
+    "default_title": "__MSG_extensionName__"
+  },
+  "background": {
+    "scripts": ["/js/background.js"]
+  },
+  "options_ui": {
+    "browser_style": false,
+    "open_in_tab": true,
+    "page": "html/preferences.html"
+  },
+  "sidebar_action": {
+    "default_icon": "/res/logo/sumo64.png",
+    "default_title": "__MSG_extensionName__",
+    "default_panel": "html/popup.html?view=sidebar",
+    "open_at_install": false
+  },
+  "commands": {
+    "_execute_sidebar_action": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L"
+      }
+    }
+  },
+  "permissions": [
+    "alarms",
+    "tabs",
+    "browserSettings",
+    "activeTab",
+    "storage",
+    "notifications"
+  ]
 }

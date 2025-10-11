@@ -1,144 +1,144 @@
 {
-    "extensionName": {
-        "message": "SUMO Live Helper",
-        "description": "Tilläggsnamn."
-    },
-    "extensionDescription": {
-        "message": "Detta tillägg är till för volontärer inom SUMO (Support Mozilla) för att se när där finns nya support frågor på support forumet som någon inte har svarat på än."
-    },
-    "watch_questions": {
-        "message": "Leta efter nya frågor"
-    },
-    "description_questions": {
-        "message": "Bestämmer om SUMO Live Helper ska notifiera vid mottagandet av nya frågor"
-    },
-    "frequency_questions": {
-        "message": "Bestämmer det tidsintervallet vilket/när SUMO Live Helper ska leta efter nya frågor"
-    },
-    "polling": {
-        "message": "Tid i minuter till API:t ska anropas"
-    },
-    "preferences": {
-        "message": "Inställningar"
-    },
-    "one_question_without_answer": {
-        "message": "fråga utan svar (Klicka för att öppna)"
-    },
-    "more_than_one_question_without_answer": {
-        "message": "frågor utan svar (Klicka för att öppna)"
-    },
-    "choose_language": {
-        "message": "Välj ett språk"
-    },
-    "choose_language_description": {
-        "message": "Välj ett språk för att söka efter öppna frågor"
-    },
-    "choose_product": {
-        "message": "Välj en produkt"
-    },
-    "choose_product_description": {
-        "message": "Välj en produkt för att söka efter öppna frågor"
-    },
-    "open_tab": {
-        "message": "Öppna"
-    },
-    "product_firefox": {
-        "message": "Firefox"
-    },
-    "product_thunderbird": {
-        "message": "Thunderbird"
-    },
-    "product_mobile": {
-        "message": "Firefox för Android"
-    },
-    "product_ios": {
-        "message": "Firefox för iOS"
-    },
-    "product_firefox-enterprise": {
-        "message": "Firefox för företag"
-    },
-    "product_firefox-private-network-vpn": {
-        "message": "Mozilla VPN"
-    },
-    "product_hubs": {
-        "message": "Hubs"
-    },
-    "congratulations": {
-        "message": "Grattis!"
-    },
-    "no_questions_found": {
-        "message": "Alla frågor har blivit besvarade!"
-    },
-    "refresh": {
-        "message": "Uppdatera"
-    },
-    "clear_notifications": {
-        "message": "Rensa notifikationer"
-    },
-    "show_notifications": {
-        "message": "Visa webbläsar notifikationer"
-    },
-    "open_in_new_tab": {
-        "message": "Open questions in new tab"
-    },
-    "description_notifications": {
-        "message": "Bestämmer om du kommer få notifikations popups när nya frågor har hittats eller inte"
-    },
-    "notification_title_single": {
-        "message": "ny fråga hittad!"
-    },
-    "notification_title_multiple": {
-        "message": "nya frågor hittades!"
-    },
-    "notification_message_more": {
-        "message": "mer behöver hjälp."
-    },
-    "notification_message_click": {
-        "message": "Klicka på SUMO Live Helper toolbarverktygsfälts ikonen för att visa listan över frågor..."
-    },
-    "open_preferences": {
-        "message": "Öppna inställningar"
-    },
-    "prefer_sidebar": {
-        "message": "Öppna alltid frågor i sidofält"
-    },
-    "open_sidebar": {
-        "message": "Öppna sidofält"
-    },
-    "language": {
-        "message": "Språk"
-    },
-    "products": {
-        "message": "Produkter"
-    },
-    "synchronisation": {
-        "message": "Synkronisering"
-    },
-    "general": {
-        "message": " Allmänt"
-    },
-    "credits": {
-        "message": " Credits"
-    },
-    "default_time": {
-        "message": "15 (standard)"
-    },
-    "theme": {
-        "message": "Tema"
-    },
-    "choose_theme": {
-        "message": "Välj ett tema"
-    },
-    "theme_auto": {
-        "message": "Välj automatiskt (standard)"
-    },
-    "theme_dark": {
-        "message": "Mörkt"
-    },
-    "theme_light": {
-        "message": "Ljust"
-    },
-    "never": {
-        "message": "Aldrig"
-    }
+  "extensionName": {
+    "message": "SUMO Live Helper",
+    "description": "Tilläggsnamn."
+  },
+  "extensionDescription": {
+    "message": "Detta tillägg är till för volontärer inom SUMO (Support Mozilla) för att se när där finns nya support frågor på support forumet som någon inte har svarat på än."
+  },
+  "watch_questions": {
+    "message": "Leta efter nya frågor"
+  },
+  "description_questions": {
+    "message": "Bestämmer om SUMO Live Helper ska notifiera vid mottagandet av nya frågor"
+  },
+  "frequency_questions": {
+    "message": "Bestämmer det tidsintervallet vilket/när SUMO Live Helper ska leta efter nya frågor"
+  },
+  "polling": {
+    "message": "Tid i minuter till API:t ska anropas"
+  },
+  "preferences": {
+    "message": "Inställningar"
+  },
+  "one_question_without_answer": {
+    "message": "fråga utan svar (Klicka för att öppna)"
+  },
+  "more_than_one_question_without_answer": {
+    "message": "frågor utan svar (Klicka för att öppna)"
+  },
+  "choose_language": {
+    "message": "Välj ett språk"
+  },
+  "choose_language_description": {
+    "message": "Välj ett språk för att söka efter öppna frågor"
+  },
+  "choose_product": {
+    "message": "Välj en produkt"
+  },
+  "choose_product_description": {
+    "message": "Välj en produkt för att söka efter öppna frågor"
+  },
+  "open_tab": {
+    "message": "Öppna"
+  },
+  "product_firefox": {
+    "message": "Firefox"
+  },
+  "product_thunderbird": {
+    "message": "Thunderbird"
+  },
+  "product_mobile": {
+    "message": "Firefox för Android"
+  },
+  "product_ios": {
+    "message": "Firefox för iOS"
+  },
+  "product_firefox-enterprise": {
+    "message": "Firefox för företag"
+  },
+  "product_firefox-private-network-vpn": {
+    "message": "Mozilla VPN"
+  },
+  "product_hubs": {
+    "message": "Hubs"
+  },
+  "congratulations": {
+    "message": "Grattis!"
+  },
+  "no_questions_found": {
+    "message": "Alla frågor har blivit besvarade!"
+  },
+  "refresh": {
+    "message": "Uppdatera"
+  },
+  "clear_notifications": {
+    "message": "Rensa notifikationer"
+  },
+  "show_notifications": {
+    "message": "Visa webbläsar notifikationer"
+  },
+  "open_in_new_tab": {
+    "message": "Open questions in new tab"
+  },
+  "description_notifications": {
+    "message": "Bestämmer om du kommer få notifikations popups när nya frågor har hittats eller inte"
+  },
+  "notification_title_single": {
+    "message": "ny fråga hittad!"
+  },
+  "notification_title_multiple": {
+    "message": "nya frågor hittades!"
+  },
+  "notification_message_more": {
+    "message": "mer behöver hjälp."
+  },
+  "notification_message_click": {
+    "message": "Klicka på SUMO Live Helper toolbarverktygsfälts ikonen för att visa listan över frågor..."
+  },
+  "open_preferences": {
+    "message": "Öppna inställningar"
+  },
+  "prefer_sidebar": {
+    "message": "Öppna alltid frågor i sidofält"
+  },
+  "open_sidebar": {
+    "message": "Öppna sidofält"
+  },
+  "language": {
+    "message": "Språk"
+  },
+  "products": {
+    "message": "Produkter"
+  },
+  "synchronisation": {
+    "message": "Synkronisering"
+  },
+  "general": {
+    "message": " Allmänt"
+  },
+  "credits": {
+    "message": " Credits"
+  },
+  "default_time": {
+    "message": "15 (standard)"
+  },
+  "theme": {
+    "message": "Tema"
+  },
+  "choose_theme": {
+    "message": "Välj ett tema"
+  },
+  "theme_auto": {
+    "message": "Välj automatiskt (standard)"
+  },
+  "theme_dark": {
+    "message": "Mörkt"
+  },
+  "theme_light": {
+    "message": "Ljust"
+  },
+  "never": {
+    "message": "Aldrig"
+  }
 }

@@ -1,45 +1,45 @@
 /* Select */
 
 select {
-    appearance: none;
-    background-color: var(--select-background);
-    background-image: url('../../res/icons/dark/arrow-down.svg');
-    background-image: var(--select-arrow-image);
-    background-repeat: no-repeat no-repeat;
-    background-position: left calc(100% - 8px) bottom 50%;
-    background-size: 13px;
-    border: none;
-    border-radius: 2px;
-    color: var(--button-foreground);
-    cursor: pointer;
-    font-family: var(--font-family);
-    font-size: 13px;
-    font-weight: 400;
-    height: 32px;
-    line-height: 2rem;
-    min-width: 132px;
-    padding: 0 8px;
+  appearance: none;
+  background-color: var(--select-background);
+  background-image: url("../../res/icons/dark/arrow-down.svg");
+  background-image: var(--select-arrow-image);
+  background-repeat: no-repeat no-repeat;
+  background-position: left calc(100% - 8px) bottom 50%;
+  background-size: 13px;
+  border: none;
+  border-radius: 2px;
+  color: var(--button-foreground);
+  cursor: pointer;
+  font-family: var(--font-family);
+  font-size: 13px;
+  font-weight: 400;
+  height: 32px;
+  line-height: 2rem;
+  min-width: 132px;
+  padding: 0 8px;
 }
 
 /* Hover state */
 select:hover {
-    background-color: var(--select-background-hover);
+  background-color: var(--select-background-hover);
 }
 
 /* Pressed state */
 select:active {
-    background-color: var(--button-background-pressed);
+  background-color: var(--button-background-pressed);
 }
 
 /* Focused state */
 select:focus {
-    box-shadow:
-        0 0 0 1px #0a84ff inset,
-        0 0 0 1px #0a84ff,
-        0 0 0 4px rgb(10 132 255 / 30%);
-    outline: none;
+  box-shadow:
+    0 0 0 1px #0a84ff inset,
+    0 0 0 1px #0a84ff,
+    0 0 0 4px rgb(10 132 255 / 30%);
+  outline: none;
 }
 
 option {
-    background-color: var(--option-background);
+  background-color: var(--option-background);
 }

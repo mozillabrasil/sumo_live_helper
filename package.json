@@ -31,13 +31,20 @@
     "url": "https://github.com/mozillabrasil/sumo_live_helper/issues"
   },
   "scripts": {
-    "start": "npx web-ext run -s src/",
     "build": "npx web-ext build -o -s src/ -a dist/",
-    "lint:css": "npx stylelint 'src/**/*.css'"
+    "lint:all": "npm run lint:css; npm run lint:js; npm run lint:webext",
+    "lint:css": "npx eslint src/**/*.css",
+    "lint:js": "npx eslint src/**/*.js",
+    "lint:webext": "npx web-ext lint -s src/",
+    "prettier": "npx prettier --write .",
+    "start": "npx web-ext run --devtools -s src/"
   },
   "devDependencies": {
-    "stylelint": "^16.10.0",
-    "stylelint-config-standard": "^36.0.1",
-    "web-ext": "^8.3.0"
+    "@eslint/css": "^0.11.0",
+    "@eslint/js": "^9.34.0",
+    "eslint": "^9.34.0",
+    "eslint-config-prettier": "^10.1.8",
+    "prettier": "3.6.2",
+    "web-ext": "^8.9.0"
   }
 }

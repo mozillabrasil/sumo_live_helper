@@ -1,173 +1,225 @@
-<!DOCTYPE html>
+<!doctype html>
 <html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title id="preferencesTitle" data-i18n="preferences"></title>
+    <link rel="shortcut icon" href="/res/logo/sumo.svg" type="image/x-icon" />
+    <link rel="icon" href="/res/logo/sumo.svg" type="image/x-icon" />
+    <link href="/css/app.css" rel="stylesheet" />
+  </head>
 
-    <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title id="preferencesTitle" data-i18n="preferences"></title>
-        <link rel="shortcut icon" href="/res/logo/sumo.svg" type="image/x-icon">
-        <link rel="icon" href="/res/logo/sumo.svg" type="image/x-icon">
-        <link href="/css/app.css" rel="stylesheet">
-    </head>
+  <body id="page-preferences" page="general">
+    <div id="page-loader">
+      <div class="spacer"></div>
+      <div class="wheel"></div>
+      <div class="spacer"></div>
+    </div>
 
-    <body id="page-preferences" page="general">
-        <div id="page-loader">
-            <div class="spacer"></div>
-            <div class="wheel"></div>
-            <div class="spacer"></div>
-        </div>
+    <header>
+      <h1>
+        <img
+          src="/res/logo/sumo.svg"
+          aria-hidden="true"
+          alt="SUMO LiveHelper. Logo."
+          width="40"
+          style="vertical-align: bottom" />
+        <span data-i18n="extensionName"></span>
+        <span id="version"></span>
+      </h1>
+    </header>
+    <nav class="no-mobile">
+      <ul class="menu">
+        <li>
+          <a href="#">
+            <span class="pf-preferences" data-i18n="general" selected></span>
+          </a>
+        </li>
+        <li class="spacer"></li>
+        <li>
+          <a href="#">
+            <span class="smaller" data-i18n="credits"></span>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <form name="settings" class="container" id="general">
+      <h2 data-i18n="general"></h2>
 
-        <header>
-            <h1>
-                <img src="/res/logo/sumo.svg" aria-hidden="true" alt="SUMO LiveHelper. Logo." width="40" style="vertical-align: bottom;">
-                <span data-i18n="extensionName"></span>
-                <span id="version"></span>
-            </h1>
-        </header>
-        <nav class="no-mobile">
-            <ul class="menu">
-                <li>
-                    <a href="#">
-                        <span class="pf-preferences" data-i18n="general" selected></span>
-                    </a>
-                </li>
-                <li class="spacer"></li>
-                <li>
-                    <a href="#">
-                        <span class="smaller" data-i18n="credits"></span>
-                    </a>
-                </li>
-            </ul>
-        </nav>
-        <form name="settings" class="container" id="general">
-            <h2 data-i18n="general"></h2>
+      <h3 data-i18n="synchronisation"></h3>
+      <label for="frequencySeekNewQuestions">
+        <span data-i18n="polling"></span>
+        <select name="frequencySeekNewQuestions" id="frequencySeekNewQuestions">
+          <option value="15" selected data-i18n="default_time"></option>
+          <option value="30">30</option>
+          <option value="45">45</option>
+          <option value="60">60</option>
+          <option value="0" data-i18n="never"></option>
+        </select>
+      </label>
+      <label for="showNotifications" class="checkbox">
+        <input
+          id="showNotifications"
+          type="checkbox"
+          name="showNotifications" />
+        <span data-i18n="show_notifications"></span>
+      </label>
+      <label for="openNewTab" class="checkbox">
+        <input id="openNewTab" type="checkbox" name="openNewTab" />
+        <span data-i18n="open_in_new_tab"></span>
+      </label>
 
-            <h3 data-i18n="synchronisation"></h3>
-            <label for="frequencySeekNewQuestions">
-                <span data-i18n="polling"></span>
-                <select name="frequencySeekNewQuestions" id="frequencySeekNewQuestions">
-                    <option value="15" selected data-i18n="default_time"></option>
-                    <option value="30">30</option>
-                    <option value="45">45</option>
-                    <option value="60">60</option>
-                    <option value="0" data-i18n="never"></option>
-                </select>
-            </label>
-            <label for="showNotifications" class="checkbox">
-                <input id="showNotifications" type="checkbox" name="showNotifications">
-                <span data-i18n="show_notifications"></span>
-            </label>
-            <label for="openNewTab" class="checkbox">
-                <input id="openNewTab" type="checkbox" name="openNewTab">
-                <span data-i18n="open_in_new_tab"></span>
-            </label>
+      <h3 data-i18n="products"></h3>
+      <p>
+        <span data-i18n="choose_product_description"></span>
+      </p>
+      <label for="firefox" class="checkbox">
+        <input
+          id="firefox"
+          name="chooseProduct"
+          type="checkbox"
+          value="firefox" />
+        <span data-i18n="product_firefox"></span>
+      </label>
+      <label for="firefox-enterprise" class="checkbox">
+        <input
+          id="firefox-enterprise"
+          name="chooseProduct"
+          type="checkbox"
+          value="firefox-enterprise" />
+        <span data-i18n="product_firefox-enterprise"></span>
+      </label>
+      <label for="focus-firefox" class="checkbox">
+        <input
+          id="focus-firefox"
+          name="chooseProduct"
+          type="checkbox"
+          value="focus-firefox" />
+        <span data-i18n="product_focus-firefox"></span>
+      </label>
+      <label for="mobile" class="checkbox">
+        <input
+          id="mobile"
+          name="chooseProduct"
+          type="checkbox"
+          value="mobile" />
+        <span data-i18n="product_mobile"></span>
+      </label>
+      <label for="ios" class="checkbox">
+        <input id="ios" name="chooseProduct" type="checkbox" value="ios" />
+        <span data-i18n="product_ios"></span>
+      </label>
+      <label for="thunderbird" class="checkbox">
+        <input
+          id="thunderbird"
+          name="chooseProduct"
+          type="checkbox"
+          value="thunderbird" />
+        <span data-i18n="product_thunderbird"></span>
+      </label>
+      <label for="thunderbird-android" class="checkbox">
+        <input
+          id="thunderbird-android"
+          name="chooseProduct"
+          type="checkbox"
+          value="thunderbird-android" />
+        <span data-i18n="product_thunderbird-android"></span>
+      </label>
 
-            <h3 data-i18n="products"></h3>
-            <p>
-                <span data-i18n="choose_product_description"></span>
-            </p>
-            <label for="firefox" class="checkbox">
-                <input id="firefox" name="chooseProduct" type="checkbox" value="firefox">
-                <span data-i18n="product_firefox"></span>
-            </label>
-            <label for="firefox-enterprise" class="checkbox">
-                <input id="firefox-enterprise" name="chooseProduct" type="checkbox" value="firefox-enterprise">
-                <span data-i18n="product_firefox-enterprise"></span>
-            </label>
-            <label for="focus-firefox" class="checkbox">
-                <input id="focus-firefox" name="chooseProduct" type="checkbox" value="focus-firefox">
-                <span data-i18n="product_focus-firefox"></span>
-            </label>
-            <label for="mobile" class="checkbox">
-                <input id="mobile" name="chooseProduct" type="checkbox" value="mobile">
-                <span data-i18n="product_mobile"></span>
-            </label>
-            <label for="ios" class="checkbox">
-                <input id="ios" name="chooseProduct" type="checkbox" value="ios">
-                <span data-i18n="product_ios"></span>
-            </label>
-            <label for="thunderbird" class="checkbox">
-                <input id="thunderbird" name="chooseProduct" type="checkbox" value="thunderbird">
-                <span data-i18n="product_thunderbird"></span>
-            </label>
-            <label for="thunderbird-android" class="checkbox">
-                <input id="thunderbird-android" name="chooseProduct" type="checkbox" value="thunderbird-android">
-                <span data-i18n="product_thunderbird-android"></span>
-            </label>
+      <h3 data-i18n="language"></h3>
+      <p>
+        <span data-i18n="choose_language_description"></span>
+      </p>
+      <label for="cs" class="checkbox">
+        <input id="cs" name="chooseLanguage" type="checkbox" value="cs" />
+        Čeština
+      </label>
+      <label for="en-US" class="checkbox">
+        <input id="en-US" name="chooseLanguage" type="checkbox" value="en-US" />
+        English
+      </label>
+      <label for="es" class="checkbox">
+        <input id="es" name="chooseLanguage" type="checkbox" value="es" />
+        Español
+      </label>
+      <label for="fi" class="checkbox">
+        <input id="fi" name="chooseLanguage" type="checkbox" value="fi" /> Suomi
+      </label>
+      <label for="hu" class="checkbox">
+        <input id="hu" name="chooseLanguage" type="checkbox" value="hu" />
+        Magyar
+      </label>
+      <label for="id" class="checkbox">
+        <input id="id" name="chooseLanguage" type="checkbox" value="id" />
+        Bahasa Indonesia
+      </label>
+      <label for="it" class="checkbox">
+        <input id="it" name="chooseLanguage" type="checkbox" value="it" />
+        Italiano
+      </label>
+      <label for="nl" class="checkbox">
+        <input id="nl" name="chooseLanguage" type="checkbox" value="nl" />
+        Nederlands
+      </label>
+      <label for="pt-BR" class="checkbox">
+        <input id="pt-BR" name="chooseLanguage" type="checkbox" value="pt-BR" />
+        Português (do Brasil)
+      </label>
+      <label for="sl" class="checkbox">
+        <input id="sl" name="chooseLanguage" type="checkbox" value="sl" />
+        Slovenščina
+      </label>
+      <label for="sr" class="checkbox">
+        <input id="sr" name="chooseLanguage" type="checkbox" value="sr" />
+        Српски
+      </label>
+      <label for="st" class="checkbox">
+        <input id="st" name="chooseLanguage" type="checkbox" value="st" />
+        Sesotho
+      </label>
 
-            <h3 data-i18n="language"></h3>
-            <p>
-                <span data-i18n="choose_language_description"></span>
-            </p>
-            <label for="cs" class="checkbox">
-                <input id="cs" name="chooseLanguage" type="checkbox" value="cs"> Čeština
-            </label>
-            <label for="en-US" class="checkbox">
-                <input id="en-US" name="chooseLanguage" type="checkbox" value="en-US"> English
-            </label>
-            <label for="es" class="checkbox">
-                <input id="es" name="chooseLanguage" type="checkbox" value="es"> Español
-            </label>
-            <label for="fi" class="checkbox">
-                <input id="fi" name="chooseLanguage" type="checkbox" value="fi"> Suomi
-            </label>
-            <label for="hu" class="checkbox">
-                <input id="hu" name="chooseLanguage" type="checkbox" value="hu"> Magyar
-            </label>
-            <label for="id" class="checkbox">
-                <input id="id" name="chooseLanguage" type="checkbox" value="id"> Bahasa Indonesia
-            </label>
-            <label for="it" class="checkbox">
-                <input id="it" name="chooseLanguage" type="checkbox" value="it"> Italiano
-            </label>
-            <label for="nl" class="checkbox">
-                <input id="nl" name="chooseLanguage" type="checkbox" value="nl"> Nederlands
-            </label>
-            <label for="pt-BR" class="checkbox">
-                <input id="pt-BR" name="chooseLanguage" type="checkbox" value="pt-BR"> Português (do Brasil)
-            </label>
-            <label for="sl" class="checkbox">
-                <input id="sl" name="chooseLanguage" type="checkbox" value="sl"> Slovenščina
-            </label>
-            <label for="sr" class="checkbox">
-                <input id="sr" name="chooseLanguage" type="checkbox" value="sr"> Српски
-            </label>
-            <label for="st" class="checkbox">
-                <input id="st" name="chooseLanguage" type="checkbox" value="st"> Sesotho
-            </label>
+      <h3 data-i18n="theme"></h3>
+      <label for="chooseTheme">
+        <span data-i18n="choose_theme"> Choose the default theme </span>
+        <select id="chooseTheme" name="chooseTheme" style="width: 200px">
+          <option value="auto" data-i18n="theme_auto"></option>
+          <option value="dark" data-i18n="theme_dark"></option>
+          <option value="light" data-i18n="theme_light"></option>
+        </select>
+      </label>
+      <label for="onlySidebar" class="no-mobile checkbox">
+        <input id="onlySidebar" type="checkbox" name="onlySidebar" />
+        <span data-i18n="prefer_sidebar"></span>
+      </label>
+    </form>
 
-            <h3 data-i18n="theme"></h3>
-            <label for="chooseTheme">
-              <span data-i18n="choose_theme">
-              Choose the default theme
-              </span>
-              <select id="chooseTheme" name="chooseTheme" style="width: 200px">
-                <option value="auto" data-i18n="theme_auto"></option>
-                <option value="dark" data-i18n="theme_dark"></option>
-                <option value="light" data-i18n="theme_light"></option>
-              </select>
-            </label>
-            <label for="onlySidebar" class="no-mobile checkbox">
-                <input id="onlySidebar" type="checkbox" name="onlySidebar">
-                <span data-i18n="prefer_sidebar"></span>
-            </label>
-        </form>
-
-        <!-- Please do not update the information in this section. You will be asked if you want to be included in the credits when your pull request is approved.
+    <!-- Please do not update the information in this section. You will be asked if you want to be included in the credits when your pull request is approved.
              If you have already made a previous contribution and would like to be included on this list, please create an issue on the GitHub repository. -->
-        <div class="container" id="credits">
-            <h2 data-i18n="credits"></h2>
-            <p>We would like to thank our contributors, whose efforts over many years have made this add-on what it is.</p>
-            <h3>Our Contributors</h3>
-            <p>Wesley Branton, Danny Colin, Krzysztof Głębowicz, Uriel Jurado, Jhonatas Machado, Wolfgang Marcos, Balázs Meskó, philipp-sumo, Michal Stanke</p>
-            <hr>
-            <p class="smaller">This is a list of people who have made a significant investment of time with useful results on this SUMO Live Helper add-on.
-                Any contributor who wishes to be added to this list should <a href="https://github.com/mozillabrasil/sumo_live_helper/issues" target="_blank">create an issue on GitHub</a>.
-                This list was last updated May 17, 2021.</p>
-        </div>
+    <div class="container" id="credits">
+      <h2 data-i18n="credits"></h2>
+      <p>
+        We would like to thank our contributors, whose efforts over many years
+        have made this add-on what it is.
+      </p>
+      <h3>Our Contributors</h3>
+      <p>
+        Wesley Branton, Danny Colin, Krzysztof Głębowicz, Uriel Jurado, Jhonatas
+        Machado, Wolfgang Marcos, Balázs Meskó, philipp-sumo, Michal Stanke
+      </p>
+      <hr />
+      <p class="smaller">
+        This is a list of people who have made a significant investment of time
+        with useful results on this SUMO Live Helper add-on. Any contributor who
+        wishes to be added to this list should
+        <a
+          href="https://github.com/mozillabrasil/sumo_live_helper/issues"
+          target="_blank"
+          >create an issue on GitHub</a
+        >. This list was last updated May 17, 2021.
+      </p>
+    </div>
 
-        <script src="../js/language.js"></script>
-        <script src="../js/preferences.js"></script>
-    </body>
-
+    <script src="../js/language.js"></script>
+    <script src="../js/preferences.js"></script>
+  </body>
 </html>

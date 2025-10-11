@@ -107,7 +107,7 @@
   --load-foreground: var(--blue-60);
   --select-background: var(--grey-90-a10);
   --select-background-hover: var(--grey-90-a20);
-  --select-arrow-image: url('../../res/icons/dark/arrow-down.svg');
+  --select-arrow-image: url("../../res/icons/dark/arrow-down.svg");
   --option-background: var(--white-100);
 }
 
@@ -135,6 +135,6 @@
   --load-foreground: var(--blue-60);
   --select-background: var(--grey-60);
   --select-background-hover: var(--grey-10-a20);
-  --select-arrow-image: url('../../res/icons/light/arrow-down.svg');
+  --select-arrow-image: url("../../res/icons/light/arrow-down.svg");
   --option-background: var(--grey-70);
 }
