@@ -1,144 +1,144 @@
 {
-    "extensionName": {
-        "message": "SUMO Live Helper",
-        "description": "Extension name."
-    },
-    "extensionDescription": {
-        "message": "Esta extensão é para voluntários no SUMO (Support Mozilla) que poderão ver quando houver novas perguntas no fórum de suporte que ainda não foram respondidas."
-    },
-    "watch_questions": {
-        "message": "Notificar novas questões"
-    },
-    "description_questions": {
-        "message": "Determina se o SUMO Live Helper deve alertar o recebimento de novas questões"
-    },
-    "frequency_questions": {
-        "message": "Determina o intervalo de tempo em que o SUMO Live Helper deve buscar novas perguntas"
-    },
-    "polling": {
-        "message": "Tempo em minutos para consultar a API"
-    },
-    "preferences": {
-        "message": "Preferências"
-    },
-    "one_question_without_answer": {
-        "message": " questão sem resposta (Clique para abrir)"
-    },
-    "more_than_one_question_without_answer": {
-        "message": " questões sem resposta (Clique para abrir)"
-    },
-    "choose_language": {
-        "message": "Escolha um idioma"
-    },
-    "choose_language_description": {
-        "message": "Escolha um idioma para procurar por questões abertas"
-    },
-    "choose_product": {
-        "message": "Escolha um produto"
-    },
-    "choose_product_description": {
-        "message": "Escolha um produto para procurar por questões abertas"
-    },
-    "open_tab": {
-        "message": "Abrir"
-    },
-    "product_firefox": {
-        "message": "Firefox para Desktop"
-    },
-    "product_thunderbird": {
-        "message": "Thunderbird"
-    },
-    "product_mobile": {
-        "message": "Firefox para Android"
-    },
-    "product_ios": {
-        "message": "Firefox para iOS"
-    },
-    "product_firefox-enterprise": {
-        "message": "Firefox para Empresas"
-    },
-    "product_firefox-private-network-vpn": {
-        "message": "Mozilla VPN"
-    },
-    "product_hubs": {
-        "message": "Hubs"
-    },
-    "congratulations": {
-        "message": "Parabéns!"
-    },
-    "no_questions_found": {
-        "message": "Todas as perguntas foram respondidas!"
-    },
-    "refresh": {
-        "message": "Atualizar"
-    },
-    "clear_notifications": {
-        "message": "Limpar notificações"
-    },
-    "show_notifications": {
-        "message": "Mostrar notificações no navegador"
-    },
-    "open_in_new_tab": {
-        "message": "Open questions in new tab"
-    },
-    "description_notifications": {
-        "message": "Determina se você receberá popups de notificação quando novas questões forem encontradas"
-    },
-    "notification_title_single": {
-        "message": "nova questão encontrada!"
-    },
-    "notification_title_multiple": {
-        "message": "novas questões encontradas!"
-    },
-    "notification_message_more": {
-        "message": "mais precisam de ajuda."
-    },
-    "notification_message_click": {
-        "message": "Clique no ícone do SUMO Live Helper na barra de ferramentas para ver a lista de questões..."
-    },
-    "open_preferences": {
-        "message": "Abrir preferências"
-    },
-    "prefer_sidebar": {
-        "message": "Sempre abrir questões na barra lateral"
-    },
-    "open_sidebar": {
-        "message": "Abrir barra lateral"
-    },
-    "language": {
-        "message": "Idioma"
-    },
-    "products": {
-        "message": "Produtos"
-    },
-    "synchronisation": {
-        "message": "Sincronização"
-    },
-    "general": {
-        "message": " Geral"
-    },
-    "credits": {
-        "message": " Credits"
-    },
-    "default_time": {
-        "message": "15 (padrão)"
-    },
-    "theme": {
-        "message": "Tema"
-    },
-    "choose_theme": {
-        "message": "Escolha um tema"
-    },
-    "theme_auto": {
-        "message": "Automático (padrão)"
-    },
-    "theme_dark": {
-        "message": "Escuro"
-    },
-    "theme_light": {
-        "message": "Claro"
-    },
-    "never": {
-        "message": "Nunca"
-    }
+  "extensionName": {
+    "message": "SUMO Live Helper",
+    "description": "Extension name."
+  },
+  "extensionDescription": {
+    "message": "Esta extensão é para voluntários no SUMO (Support Mozilla) que poderão ver quando houver novas perguntas no fórum de suporte que ainda não foram respondidas."
+  },
+  "watch_questions": {
+    "message": "Notificar novas questões"
+  },
+  "description_questions": {
+    "message": "Determina se o SUMO Live Helper deve alertar o recebimento de novas questões"
+  },
+  "frequency_questions": {
+    "message": "Determina o intervalo de tempo em que o SUMO Live Helper deve buscar novas perguntas"
+  },
+  "polling": {
+    "message": "Tempo em minutos para consultar a API"
+  },
+  "preferences": {
+    "message": "Preferências"
+  },
+  "one_question_without_answer": {
+    "message": " questão sem resposta (Clique para abrir)"
+  },
+  "more_than_one_question_without_answer": {
+    "message": " questões sem resposta (Clique para abrir)"
+  },
+  "choose_language": {
+    "message": "Escolha um idioma"
+  },
+  "choose_language_description": {
+    "message": "Escolha um idioma para procurar por questões abertas"
+  },
+  "choose_product": {
+    "message": "Escolha um produto"
+  },
+  "choose_product_description": {
+    "message": "Escolha um produto para procurar por questões abertas"
+  },
+  "open_tab": {
+    "message": "Abrir"
+  },
+  "product_firefox": {
+    "message": "Firefox para Desktop"
+  },
+  "product_thunderbird": {
+    "message": "Thunderbird"
+  },
+  "product_mobile": {
+    "message": "Firefox para Android"
+  },
+  "product_ios": {
+    "message": "Firefox para iOS"
+  },
+  "product_firefox-enterprise": {
+    "message": "Firefox para Empresas"
+  },
+  "product_firefox-private-network-vpn": {
+    "message": "Mozilla VPN"
+  },
+  "product_hubs": {
+    "message": "Hubs"
+  },
+  "congratulations": {
+    "message": "Parabéns!"
+  },
+  "no_questions_found": {
+    "message": "Todas as perguntas foram respondidas!"
+  },
+  "refresh": {
+    "message": "Atualizar"
+  },
+  "clear_notifications": {
+    "message": "Limpar notificações"
+  },
+  "show_notifications": {
+    "message": "Mostrar notificações no navegador"
+  },
+  "open_in_new_tab": {
+    "message": "Open questions in new tab"
+  },
+  "description_notifications": {
+    "message": "Determina se você receberá popups de notificação quando novas questões forem encontradas"
+  },
+  "notification_title_single": {
+    "message": "nova questão encontrada!"
+  },
+  "notification_title_multiple": {
+    "message": "novas questões encontradas!"
+  },
+  "notification_message_more": {
+    "message": "mais precisam de ajuda."
+  },
+  "notification_message_click": {
+    "message": "Clique no ícone do SUMO Live Helper na barra de ferramentas para ver a lista de questões..."
+  },
+  "open_preferences": {
+    "message": "Abrir preferências"
+  },
+  "prefer_sidebar": {
+    "message": "Sempre abrir questões na barra lateral"
+  },
+  "open_sidebar": {
+    "message": "Abrir barra lateral"
+  },
+  "language": {
+    "message": "Idioma"
+  },
+  "products": {
+    "message": "Produtos"
+  },
+  "synchronisation": {
+    "message": "Sincronização"
+  },
+  "general": {
+    "message": " Geral"
+  },
+  "credits": {
+    "message": " Credits"
+  },
+  "default_time": {
+    "message": "15 (padrão)"
+  },
+  "theme": {
+    "message": "Tema"
+  },
+  "choose_theme": {
+    "message": "Escolha um tema"
+  },
+  "theme_auto": {
+    "message": "Automático (padrão)"
+  },
+  "theme_dark": {
+    "message": "Escuro"
+  },
+  "theme_light": {
+    "message": "Claro"
+  },
+  "never": {
+    "message": "Nunca"
+  }
 }

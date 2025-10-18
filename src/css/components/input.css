@@ -2,19 +2,19 @@
 
 input[type="text"],
 textarea {
-    background-color: var(--input-background);
-    border: solid 1px var(--input-border-color);
-    border-radius: 2px;
-    color: var(--page-foreground);
-    font-size: 13px;
-    line-height: 1.5em;
-    min-height: 32px;
-    padding: 0 8px;
-    vertical-align: top;
+  background-color: var(--input-background);
+  border: solid 1px var(--input-border-color);
+  border-radius: 2px;
+  color: var(--page-foreground);
+  font-size: 13px;
+  line-height: 1.5em;
+  min-height: 32px;
+  padding: 0 8px;
+  vertical-align: top;
 }
 
 textarea {
-    padding: 4px 8px;
+  padding: 4px 8px;
 }
 
 /* Hover state */
@@ -24,8 +24,8 @@ textarea {
 /* Focused state */
 input[type="text"]:focus,
 textarea:focus {
-    box-shadow:
-        0 0 0 2px #0a84ff inset,
-        0 0 0 2px rgb(10 132 255 / 30%);
-    outline: none;
+  box-shadow:
+    0 0 0 2px #0a84ff inset,
+    0 0 0 2px rgb(10 132 255 / 30%);
+  outline: none;
 }

@@ -1,88 +1,133 @@
 #empty {
-    min-width: 500px;
+  min-width: 500px;
 }
 
 .sidebar #empty,
 .mobile #empty {
-    min-width: unset !important;
+  min-width: unset !important;
 }
 
 #popup.mobile {
-    grid-template-areas:
-        'main   main   main'
-        'nav    nav    nav' !important;
-    max-width: none !important;
-    grid-template-rows: 1fr auto;
-    min-height: 100%;
+  grid-template-areas:
+    "main   main   main"
+    "nav    nav    nav" !important;
+  max-width: none !important;
+  grid-template-rows: 1fr auto;
+  min-height: 100%;
 }
 
 #popup.sidebar {
-    grid-template-areas:
-        'nav    nav    nav'
-        'main   main   main' !important;
-    max-width: none !important;
+  grid-template-areas:
+    "nav    nav    nav"
+    "main   main   main" !important;
+  max-width: none !important;
 }
 
 .mobile nav {
-    top: unset;
-    bottom: 0;
-    border-top: solid 1px var(--popup-header-border);
-    border-bottom: none;
-    overflow: hidden;
-    padding-top: 0 !important;
+  top: unset;
+  bottom: 0;
+  border-top: solid 1px var(--popup-header-border);
+  border-bottom: none;
+  overflow: hidden;
+  padding-top: 0 !important;
 }
 
 .mobile > header,
 .sidebar > header {
-    display: none !important;
+  display: none !important;
 }
 
 .mobile .menu {
-    display: flex;
+  display: flex;
 }
 
 .mobile .menu li {
-    flex: 1;
-    text-align: center;
-    border-left: solid 1px var(--popup-header-border);
+  flex: 1;
+  text-align: center;
+  border-left: solid 1px var(--popup-header-border);
 }
 
 .mobile nav li:last-of-type,
 .mobile header h1 {
-    display: none !important;
+  display: none !important;
 }
 
 .sidebar nav li:last-of-type,
 .sidebar header h1 {
-    display: none !important;
+  display: none !important;
 }
 
 .mobile .menu li:first-of-type {
-    border: none !important;
+  border: none !important;
 }
 
 .mobile .menu li a {
-    width: 100%;
-    display: block;
-    padding: -16px 0;
+  width: 100%;
+  display: block;
+  padding-block-start: -16px;
 }
 
 .mobile .menu li a span {
-    box-shadow: 0 0 0 0 var(--button-background-hover);
-    border-radius: 100%;
-    transition: ease .05s box-shadow;
+  box-shadow: 0 0 0 0 var(--button-background-hover);
+  border-radius: 100%;
+  transition: ease 0.05s box-shadow;
 }
 
 .mobile .menu li a:active span {
-    box-shadow: 0 0 0 50px var(--button-background-hover);
-    background: var(--button-background-hover);
+  box-shadow: 0 0 0 50px var(--button-background-hover);
+  background: var(--button-background-hover);
 }
 
 .mobile #items li {
-    position: relative;
+  position: relative;
 }
 
 .mobile #items li div:last-child {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: block;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.mobile #items li div:last-child a {
+  background: transparent !important;
+  display: block;
+  height: 100%;
+}
+
+.mobile #items li div:last-child a span {
+  display: none;
+}
+
+.sidebar nav {
+  padding-top: 0 !important;
+}
+
+html {
+  height: 100%;
+}
+
+#empty h1,
+#empty h3 {
+  text-align: center;
+}
+
+#empty img {
+  width: 75%;
+  margin: 1em auto;
+  display: block;
+}
+
+@media (width <= 300px) {
+  .sidebar #items li {
+    position: relative;
+  }
+
+  .sidebar #items li div:last-child {
     position: absolute;
     top: 0;
     left: 0;
@@ -91,60 +136,15 @@
     height: 100%;
     margin: 0;
     padding: 0;
-}
+  }
 
-.mobile #items li div:last-child a {
+  .sidebar #items li div:last-child a {
     background: transparent !important;
     display: block;
     height: 100%;
-}
+  }
 
-.mobile #items li div:last-child a span {
+  .sidebar #items li div:last-child a span {
     display: none;
-}
-
-.sidebar nav {
-    padding-top: 0 !important;
-}
-
-html {
-    height: 100%;
-}
-
-#empty h1,
-#empty h3 {
-    text-align: center;
-}
-
-#empty img {
-    width: 75%;
-    margin: 1em auto;
-    display: block;
-}
-
-@media (width <= 300px) {
-    .sidebar #items li {
-        position: relative;
-    }
-
-    .sidebar #items li div:last-child {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        display: block;
-        height: 100%;
-        margin: 0;
-        padding: 0;
-    }
-
-    .sidebar #items li div:last-child a {
-        background: transparent !important;
-        display: block;
-        height: 100%;
-    }
-
-    .sidebar #items li div:last-child a span {
-        display: none;
-    }
+  }
 }

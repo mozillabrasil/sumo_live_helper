@@ -1,31 +1,38 @@
 // Create message handler
 browser.runtime.onMessage.addListener(handleMessage);
 
+// ESLint detected tht questionList wasn't declared. Declaring it at the top of
+// the file fixes the linting error. However, we should avoid top-level
+// declarations and refactor it in a way that the data is passed only to
+// functions that need it.
+let questionList;
+
 // Declaration of UI elements
-const clear = document.getElementById('clear');
-const refresh = document.getElementById('refresh');
-const settings = document.getElementById('settings');
-const sidebar = document.getElementById('sidebar');
-const questionListUI = document.getElementById('questions');
-const questionTemplate = document.getElementsByClassName('question-template')[0];
+const clear = document.getElementById("clear");
+const refresh = document.getElementById("refresh");
+const settings = document.getElementById("settings");
+const sidebar = document.getElementById("sidebar");
+const questionListUI = document.getElementById("questions");
+const questionTemplate =
+  document.getElementsByClassName("question-template")[0];
 
 // Button localized text
-clear.title = browser.i18n.getMessage('clear_notifications');
-refresh.title = browser.i18n.getMessage('refresh');
-settings.title = browser.i18n.getMessage('open_preferences');
-sidebar.title = browser.i18n.getMessage('open_sidebar');
+clear.title = browser.i18n.getMessage("clear_notifications");
+refresh.title = browser.i18n.getMessage("refresh");
+settings.title = browser.i18n.getMessage("open_preferences");
+sidebar.title = browser.i18n.getMessage("open_sidebar");
 
 // Button click handlers
-clear.addEventListener('click', markAllAsRead, false);
-refresh.addEventListener('click', callAPI, false);
-settings.addEventListener('click', openPreferences, false);
-sidebar.addEventListener('click', openSidebar, false);
-questionListUI.addEventListener('click', openQuestion, false);
+clear.addEventListener("click", markAllAsRead, false);
+refresh.addEventListener("click", callAPI, false);
+settings.addEventListener("click", openPreferences, false);
+sidebar.addEventListener("click", openSidebar, false);
+questionListUI.addEventListener("click", openQuestion, false);
 
-window.oncontextmenu = function(event) {
-     event.preventDefault();
-     event.stopPropagation();
-     return false;
+window.oncontextmenu = function (event) {
+  event.preventDefault();
+  event.stopPropagation();
+  return false;
 };
 
 // Is it Android
@@ -44,11 +51,11 @@ getQuestionList.then(dataLoaded);
  * @param {Object} event
  */
 function openPreferences(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    browser.tabs.create({
-        url: 'preferences.html'
-    });
+  event.preventDefault();
+  event.stopPropagation();
+  browser.tabs.create({
+    url: "preferences.html",
+  });
 }
 
 /**
@@ -56,9 +63,9 @@ function openPreferences(event) {
  * @param {Object} event
  */
 function openSidebar(event) {
-    event.preventDefault();
-    event.stopPropagation();
-    browser.sidebarAction.open();
+  event.preventDefault();
+  event.stopPropagation();
+  browser.sidebarAction.open();
 }
 
 /**
@@ -67,31 +74,31 @@ function openSidebar(event) {
  * @param {object} question Question item button
  */
 async function openQuestion(question) {
-    question.preventDefault();
-    question.stopPropagation();
+  question.preventDefault();
+  question.stopPropagation();
 
-    const url = question.target.href;
-    if (!url) return;
-    let tabID = await browser.tabs.query({ active: true });
-    tabID = tabID[0].id;
+  const url = question.target.href;
+  if (!url) return;
+  let tabID = await browser.tabs.query({ active: true });
+  tabID = tabID[0].id;
 
-    if (inNewTab) browser.tabs.create({ url: url });
-    else browser.tabs.update(tabID, { url: url });
+  if (inNewTab) browser.tabs.create({ url: url });
+  else browser.tabs.update(tabID, { url: url });
 
-    let selectedQuestion = null;
+  let selectedQuestion = null;
 
-    if (question.target.id) {
-        selectedQuestion = question.target;
-    } else if (question.target.parentNode.id) {
-        selectedQuestion = question.target.parentNode;
-    }
+  if (question.target.id) {
+    selectedQuestion = question.target;
+  } else if (question.target.parentNode.id) {
+    selectedQuestion = question.target.parentNode;
+  }
 
-    if (selectedQuestion != null) {
-        browser.runtime.sendMessage({
-            task: 'mark_as_read',
-            id: selectedQuestion.id
-        });
-    }
+  if (selectedQuestion != null) {
+    browser.runtime.sendMessage({
+      task: "mark_as_read",
+      id: selectedQuestion.id,
+    });
+  }
 }
 
 /**
@@ -99,36 +106,36 @@ async function openQuestion(question) {
  * @param {object} message
  */
 function handleMessage(message) {
-    switch (message.task) {
-        case 'add_new_questions':
-            addQuestions(message.questions, message.isFinishedLoading);
-            return;
-        case 'update_question_list':
-            questionList = message.questions;
-            return;
-        case 'remove_question':
-            removeQuestion(message.id);
-            return;
-        case 'start_loading':
-            showLoadingBar(true);
-            return;
-        case 'mark_as_read':
-            markAsRead(message.id);
-            return;
-        case 'update_theme':
-            setCurrentTheme(message.theme);
-            return;
-        case 'no_api_call':
-            questionList = [];
-            addQuestions([], true);
-            return;
-        case 'toggle_locale_labels':
-            showLocaleLabels(message.multiple);
-            return;
-        case 'update_open_in_new_tab':
-            inNewTab = message.value;
-            return;
-    }
+  switch (message.task) {
+    case "add_new_questions":
+      addQuestions(message.questions, message.isFinishedLoading);
+      return;
+    case "update_question_list":
+      questionList = message.questions;
+      return;
+    case "remove_question":
+      removeQuestion(message.id);
+      return;
+    case "start_loading":
+      showLoadingBar(true);
+      return;
+    case "mark_as_read":
+      markAsRead(message.id);
+      return;
+    case "update_theme":
+      setCurrentTheme(message.theme);
+      return;
+    case "no_api_call":
+      questionList = [];
+      addQuestions([], true);
+      return;
+    case "toggle_locale_labels":
+      showLocaleLabels(message.multiple);
+      return;
+    case "update_open_in_new_tab":
+      inNewTab = message.value;
+      return;
+  }
 }
 
 /**
@@ -136,16 +143,16 @@ function handleMessage(message) {
  * @param {object} data
  */
 function dataLoaded(data) {
-    setCurrentTheme(data.chooseTheme);
-    showLocaleLabels(data.chooseLanguage.length != 1);
+  setCurrentTheme(data.chooseTheme);
+  showLocaleLabels(data.chooseLanguage.length != 1);
 
-    questionList = data.questions;
-    inNewTab = data.openNewTab;
+  questionList = data.questions;
+  inNewTab = data.openNewTab;
 
-    addQuestions(questionList, false);
+  addQuestions(questionList, false);
 
-    showLoadingWheel(false);
-    callAPI();
+  showLoadingWheel(false);
+  callAPI();
 }
 
 /**
@@ -153,19 +160,21 @@ function dataLoaded(data) {
  * @param {string} theme
  */
 function setCurrentTheme(theme) {
-    document.body.classList.remove('theme-dark', 'theme-light');
+  document.body.classList.remove("theme-dark", "theme-light");
 
-    if (theme == 'auto') {
-        const isSystemThemeDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+  if (theme == "auto") {
+    const isSystemThemeDark = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
 
-        if (isSystemThemeDark == true) {
-            document.body.classList.add('theme-dark');
-        } else {
-            document.body.classList.add('theme-light');
-        }
+    if (isSystemThemeDark == true) {
+      document.body.classList.add("theme-dark");
     } else {
-        document.body.classList.add('theme-' + theme);
+      document.body.classList.add("theme-light");
     }
+  } else {
+    document.body.classList.add("theme-" + theme);
+  }
 }
 
 /**
@@ -173,15 +182,15 @@ function setCurrentTheme(theme) {
  * @param {Object} event
  */
 function callAPI(event) {
-    if (event) {
-        event.preventDefault();
-        event.stopPropagation();
-    }
+  if (event) {
+    event.preventDefault();
+    event.stopPropagation();
+  }
 
-    showLoadingBar(true);
-    browser.runtime.sendMessage({
-        task: 'call_api'
-    });
+  showLoadingBar(true);
+  browser.runtime.sendMessage({
+    task: "call_api",
+  });
 }
 
 /**
@@ -190,25 +199,28 @@ function callAPI(event) {
  * @param {boolean} isFinishedLoading
  */
 function addQuestions(questions, isFinishedLoading) {
-    // Create questions on the UI
-    for (question of questions) {
-        if (question.show && document.getElementsByClassName('item-' + question.id)[0] == undefined) {
-            createQuestionUI(
-                question.product,
-                question.title,
-                question.id,
-                question.locale,
-                question.new
-            );
-        }
+  // Create questions on the UI
+  for (let question of questions) {
+    if (
+      question.show &&
+      document.getElementsByClassName("item-" + question.id)[0] == undefined
+    ) {
+      createQuestionUI(
+        question.product,
+        question.title,
+        question.id,
+        question.locale,
+        question.new
+      );
     }
+  }
 
-    toggleQuestionList();
+  toggleQuestionList();
 
-    if (isFinishedLoading) {
-        showLoadingBar(false);
-        showLoadingWheel(false);
-    }
+  if (isFinishedLoading) {
+    showLoadingBar(false);
+    showLoadingWheel(false);
+  }
 }
 
 /**
@@ -219,71 +231,71 @@ function addQuestions(questions, isFinishedLoading) {
  * @param {boolean} isNew
  */
 async function createQuestionUI(product, title, id, locale, isNew) {
-    // Create UI elements
-    const list = document.getElementById('items');
-    const item = questionTemplate.cloneNode(true);
-    const productIcon = item.getElementsByClassName('item-icon')[0];
-    const productLocale = item.getElementsByClassName('item-locale')[0];
-    const questionTitle = item.getElementsByClassName('item-title')[0];
-    const button = item.getElementsByClassName('item-link')[0];
-    const url = 'https://support.mozilla.org/' + locale + '/questions/' + id;
+  // Create UI elements
+  const list = document.getElementById("items");
+  const item = questionTemplate.cloneNode(true);
+  const productIcon = item.getElementsByClassName("item-icon")[0];
+  const productLocale = item.getElementsByClassName("item-locale")[0];
+  const questionTitle = item.getElementsByClassName("item-title")[0];
+  const button = item.getElementsByClassName("item-link")[0];
+  const url = "https://support.mozilla.org/" + locale + "/questions/" + id;
 
-    // Add item ID
-    item.className = 'item-' + id;
+  // Add item ID
+  item.className = "item-" + id;
 
-    // Mark questions as unread
-    if (isNew) {
-        item.classList.add('item-unread');
-    }
+  // Mark questions as unread
+  if (isNew) {
+    item.classList.add("item-unread");
+  }
 
-    // Add question icon
-    productIcon.src = '../res/products/' + product + '.png';
-    productIcon.title = browser.i18n.getMessage('product_' + product);
+  // Add question icon
+  productIcon.src = "../res/products/" + product + ".png";
+  productIcon.title = browser.i18n.getMessage("product_" + product);
 
-    // Add question locale
-    productLocale.textContent = locale.substring(0, 2).toUpperCase();
-    productLocale.classList.add(locale.toLowerCase());
+  // Add question locale
+  productLocale.textContent = locale.substring(0, 2).toUpperCase();
+  productLocale.classList.add(locale.toLowerCase());
 
-    // Add question title
-    questionTitle.textContent = title;
+  // Add question title
+  questionTitle.textContent = title;
 
-    // Add question button
-    button.id = id;
-    button.href = url;
-    button.addEventListener('click', openQuestion);
+  // Add question button
+  button.id = id;
+  button.href = url;
+  button.addEventListener("click", openQuestion);
 
-    // Determine question order
-    const allButtons = list.getElementsByClassName('button');
-    let i = 0;
-    while (allButtons[i] && allButtons[i].id > id) {
-        i++;
-    }
+  // Determine question order
+  const allButtons = list.getElementsByClassName("button");
+  let i = 0;
+  while (allButtons[i] && allButtons[i].id > id) {
+    i++;
+  }
 
-    // Create question position value
-    let position;
-    if (i >= allButtons.length) {
-        position = null;
-    } else {
-        position = list.childNodes[i];
-    }
+  // Create question position value
+  let position;
+  if (i >= allButtons.length) {
+    position = null;
+  } else {
+    position = list.childNodes[i];
+  }
 
-    // Add item to list
-    list.insertBefore(item, position);
+  // Add item to list
+  list.insertBefore(item, position);
 }
 
 /**
  * Show question list if there are questions to display
  */
 function toggleQuestionList() {
-    const empty = document.getElementById('empty');
+  const empty = document.getElementById("empty");
 
-    if (questionList.length > 0) {
-        questionListUI.style.display = 'block';
-        empty.style.display = 'none';
-    } else {
-        questionListUI.style.display = 'none';
-        empty.style.display = 'block';
-    }
+  if (questionList.length > 0) {
+    questionListUI.style.display = "block";
+    empty.style.display = "none";
+  } else {
+    questionListUI.style.display = "none";
+    empty.style.display = "block";
+  }
 }
 
 /**
@@ -291,15 +303,15 @@ function toggleQuestionList() {
  * @param {boolean} show
  */
 function showLocaleLabels(show) {
-    let localeBadge = document.getElementsByClassName('item-locale')[0];
+  let localeBadge = document.getElementsByClassName("item-locale")[0];
 
-    if (show) {
-        //questionListUI.classList.remove('one-locale');
-        localeBadge.style.display = 'block';
-    } else {
-        //questionListUI.classList.add('one-locale');
-        localeBadge.style.display = 'none';
-    }
+  if (show) {
+    //questionListUI.classList.remove('one-locale');
+    localeBadge.style.display = "block";
+  } else {
+    //questionListUI.classList.add('one-locale');
+    localeBadge.style.display = "none";
+  }
 }
 
 /**
@@ -307,7 +319,9 @@ function showLocaleLabels(show) {
  * @param {number} id
  */
 function markAsRead(id) {
-    document.getElementsByClassName('item-' + id)[0].classList.remove('item-unread');
+  document
+    .getElementsByClassName("item-" + id)[0]
+    .classList.remove("item-unread");
 }
 
 /**
@@ -316,15 +330,15 @@ function markAsRead(id) {
  * @param {Object} event
  */
 function markAllAsRead(event) {
-    event.preventDefault();
-    event.stopPropagation();
+  event.preventDefault();
+  event.stopPropagation();
 
-    for (question of questionList) {
-        browser.runtime.sendMessage({
-            task: 'mark_as_read',
-            id: question.id
-        });
-    }
+  for (let question of questionList) {
+    browser.runtime.sendMessage({
+      task: "mark_as_read",
+      id: question.id,
+    });
+  }
 }
 
 /**
@@ -332,27 +346,27 @@ function markAllAsRead(event) {
  * @param {number} id
  */
 function removeQuestion(id) {
-    const question = document.getElementsByClassName('item-' + id)[0];
-    if (question) question.parentElement.removeChild(question);
+  const question = document.getElementsByClassName("item-" + id)[0];
+  if (question) question.parentElement.removeChild(question);
 }
 
 /**
  * Determine if this window is sidebar
  */
 function isSidebar() {
-    let queries = window.location.href;
-    queries = queries.substring(queries.indexOf('?') + 1, queries.length);
+  let queries = window.location.href;
+  queries = queries.substring(queries.indexOf("?") + 1, queries.length);
 
-    if (queries.indexOf('popup') >= 0) {
-        document.body.classList.add('popup');
-    } else if (queries.indexOf('mobile') >= 0) {
-		isMobile = true;
-        document.body.classList.add('mobile');
-    } else {
-        document.body.classList.add('sidebar');
-        browser.runtime.connect();
-        return true;
-    }
+  if (queries.indexOf("popup") >= 0) {
+    document.body.classList.add("popup");
+  } else if (queries.indexOf("mobile") >= 0) {
+    isMobile = true;
+    document.body.classList.add("mobile");
+  } else {
+    document.body.classList.add("sidebar");
+    browser.runtime.connect();
+    return true;
+  }
 }
 
 /**
@@ -360,19 +374,19 @@ function isSidebar() {
  * @param {boolean} state
  */
 function showLoadingBar(state) {
-    const load = document.getElementById('load');
+  const load = document.getElementById("load");
 
-    if (state) {
-        load.style.opacity = '1';
-    } else {
-        load.style.opacity = '0';
-    }
+  if (state) {
+    load.style.opacity = "1";
+  } else {
+    load.style.opacity = "0";
+  }
 }
 
 function showLoadingWheel(state) {
-    const load = document.getElementById('page-loader');
+  const load = document.getElementById("page-loader");
 
-    if (!state) {
-        load.style.display = 'none';
-    }
+  if (!state) {
+    load.style.display = "none";
+  }
 }

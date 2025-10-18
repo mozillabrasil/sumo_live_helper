@@ -1,144 +1,144 @@
 {
-    "extensionName": {
-        "message": "SUMO Live Helper",
-        "description": "A kiegészítő neve."
-    },
-    "extensionDescription": {
-        "message": "Ez a kiegészítő a SUMO (Mozilla Támogatás) önkénteseinek szól, hogy láthassák az új, nem megválaszolt támogatási kéréseket."
-    },
-    "watch_questions": {
-        "message": "Figyeljen az új kérésekre"
-    },
-    "description_questions": {
-        "message": "Meghatározza, hogy a SUMO Live Helper értesítésben küldje-e el az új kéréseket"
-    },
-    "frequency_questions": {
-        "message": "Meghatározza, hogy a SUMO Live Helper milyen időszakonként keressen új kérdéseket"
-    },
-    "polling": {
-        "message": "Hány percenként kérdezze le az API-t"
-    },
-    "preferences": {
-        "message": "Beállítások"
-    },
-    "one_question_without_answer": {
-        "message": " kérdés válasz nélkül (Kattintson a megnyitáshoz)"
-    },
-    "more_than_one_question_without_answer": {
-        "message": " kérdés válasz nélkül (Kattintson a megnyitáshoz)"
-    },
-    "choose_language": {
-        "message": "Válasszon nyelvet"
-    },
-    "choose_language_description": {
-        "message": "Válassza ki, hogy mely nyelven akar nyitott kérdéseket keresni"
-    },
-    "choose_product": {
-        "message": "Válasszon terméket"
-    },
-    "choose_product_description": {
-        "message": "Válassza ki, hogy mely termékekhez akar nyitott kérdéseket keresni"
-    },
-    "open_tab": {
-        "message": "Megnyitás"
-    },
-    "product_firefox": {
-        "message": "Asztali Firefox"
-    },
-    "product_thunderbird": {
-        "message": "Thunderbird"
-    },
-    "product_mobile": {
-        "message": "Firefox for Android"
-    },
-    "product_ios": {
-        "message": "Firefox for iOS"
-    },
-    "product_firefox-enterprise": {
-        "message": "Vállalati Firefox"
-    },
-    "product_firefox-private-network-vpn": {
-        "message": "Mozilla VPN"
-    },
-    "product_hubs": {
-        "message": "Hubs"
-    },
-    "congratulations": {
-        "message": "Gratulálunk!"
-    },
-    "no_questions_found": {
-        "message": "Az összes kérdés megválaszolva!"
-    },
-    "refresh": {
-        "message": "Frissítés"
-    },
-    "clear_notifications": {
-        "message": "Értesítések törlése"
-    },
-    "show_notifications": {
-        "message": "Böngészőértesítések megjelenítése"
-    },
-    "open_in_new_tab": {
-        "message": "Open questions in new tab"
-    },
-    "description_notifications": {
-        "message": "Meghatározza, hogy kap-e felugró értesíteseket, ha új kérdések vannak"
-    },
-    "notification_title_single": {
-        "message": "új kérdés találva!"
-    },
-    "notification_title_multiple": {
-        "message": "új kérdés találva!"
-    },
-    "notification_message_more": {
-        "message": "további vár segítségre."
-    },
-    "notification_message_click": {
-        "message": "A kérdések listájának megtekintéséhez kattintson a SUMO Live Helper eszköztár ikonra…"
-    },
-    "open_preferences": {
-        "message": "Beállítások megnyitása"
-    },
-    "prefer_sidebar": {
-        "message": "A kérdéseket mindig az oldalsávban nyissa meg"
-    },
-    "open_sidebar": {
-        "message": "Oldalsáv megnyitása"
-    },
-     "language": {
-        "message": "Nyelv"
-    },
-    "products": {
-        "message": "Termékek"
-    },
-    "synchronisation": {
-        "message": "Szinkronizálás"
-    },
-    "general": {
-        "message": " Általános"
-    },
-    "credits": {
-        "message": " Credits"
-    },
-    "default_time": {
-        "message": "15 (alapértelmezett)"
-    },
-    "theme": {
-        "message": "Téma"
-    },
-    "choose_theme": {
-        "message": "Válasszon témát"
-    },
-    "theme_auto": {
-        "message": "Automatikus felismerés (alapértelmezett)"
-    },
-    "theme_dark": {
-        "message": "Sötét"
-    },
-    "theme_light": {
-        "message": "Világos"
-    },
-    "never": {
-        "message": "Soha"
-    }
+  "extensionName": {
+    "message": "SUMO Live Helper",
+    "description": "A kiegészítő neve."
+  },
+  "extensionDescription": {
+    "message": "Ez a kiegészítő a SUMO (Mozilla Támogatás) önkénteseinek szól, hogy láthassák az új, nem megválaszolt támogatási kéréseket."
+  },
+  "watch_questions": {
+    "message": "Figyeljen az új kérésekre"
+  },
+  "description_questions": {
+    "message": "Meghatározza, hogy a SUMO Live Helper értesítésben küldje-e el az új kéréseket"
+  },
+  "frequency_questions": {
+    "message": "Meghatározza, hogy a SUMO Live Helper milyen időszakonként keressen új kérdéseket"
+  },
+  "polling": {
+    "message": "Hány percenként kérdezze le az API-t"
+  },
+  "preferences": {
+    "message": "Beállítások"
+  },
+  "one_question_without_answer": {
+    "message": " kérdés válasz nélkül (Kattintson a megnyitáshoz)"
+  },
+  "more_than_one_question_without_answer": {
+    "message": " kérdés válasz nélkül (Kattintson a megnyitáshoz)"
+  },
+  "choose_language": {
+    "message": "Válasszon nyelvet"
+  },
+  "choose_language_description": {
+    "message": "Válassza ki, hogy mely nyelven akar nyitott kérdéseket keresni"
+  },
+  "choose_product": {
+    "message": "Válasszon terméket"
+  },
+  "choose_product_description": {
+    "message": "Válassza ki, hogy mely termékekhez akar nyitott kérdéseket keresni"
+  },
+  "open_tab": {
+    "message": "Megnyitás"
+  },
+  "product_firefox": {
+    "message": "Asztali Firefox"
+  },
+  "product_thunderbird": {
+    "message": "Thunderbird"
+  },
+  "product_mobile": {
+    "message": "Firefox for Android"
+  },
+  "product_ios": {
+    "message": "Firefox for iOS"
+  },
+  "product_firefox-enterprise": {
+    "message": "Vállalati Firefox"
+  },
+  "product_firefox-private-network-vpn": {
+    "message": "Mozilla VPN"
+  },
+  "product_hubs": {
+    "message": "Hubs"
+  },
+  "congratulations": {
+    "message": "Gratulálunk!"
+  },
+  "no_questions_found": {
+    "message": "Az összes kérdés megválaszolva!"
+  },
+  "refresh": {
+    "message": "Frissítés"
+  },
+  "clear_notifications": {
+    "message": "Értesítések törlése"
+  },
+  "show_notifications": {
+    "message": "Böngészőértesítések megjelenítése"
+  },
+  "open_in_new_tab": {
+    "message": "Open questions in new tab"
+  },
+  "description_notifications": {
+    "message": "Meghatározza, hogy kap-e felugró értesíteseket, ha új kérdések vannak"
+  },
+  "notification_title_single": {
+    "message": "új kérdés találva!"
+  },
+  "notification_title_multiple": {
+    "message": "új kérdés találva!"
+  },
+  "notification_message_more": {
+    "message": "további vár segítségre."
+  },
+  "notification_message_click": {
+    "message": "A kérdések listájának megtekintéséhez kattintson a SUMO Live Helper eszköztár ikonra…"
+  },
+  "open_preferences": {
+    "message": "Beállítások megnyitása"
+  },
+  "prefer_sidebar": {
+    "message": "A kérdéseket mindig az oldalsávban nyissa meg"
+  },
+  "open_sidebar": {
+    "message": "Oldalsáv megnyitása"
+  },
+  "language": {
+    "message": "Nyelv"
+  },
+  "products": {
+    "message": "Termékek"
+  },
+  "synchronisation": {
+    "message": "Szinkronizálás"
+  },
+  "general": {
+    "message": " Általános"
+  },
+  "credits": {
+    "message": " Credits"
+  },
+  "default_time": {
+    "message": "15 (alapértelmezett)"
+  },
+  "theme": {
+    "message": "Téma"
+  },
+  "choose_theme": {
+    "message": "Válasszon témát"
+  },
+  "theme_auto": {
+    "message": "Automatikus felismerés (alapértelmezett)"
+  },
+  "theme_dark": {
+    "message": "Sötét"
+  },
+  "theme_light": {
+    "message": "Világos"
+  },
+  "never": {
+    "message": "Soha"
+  }
 }

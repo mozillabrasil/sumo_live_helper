@@ -1,144 +1,144 @@
 {
-    "extensionName": {
-        "message": "SUMO Live Helper",
-        "description": "Extension name."
-    },
-    "extensionDescription": {
-        "message": "Cette extension est destinée aux volontaires de SUMO (Support Mozilla) qui peuvent voir s’il y a des questions sans réponses sur les forums d’assistance."
-    },
-    "watch_questions": {
-        "message": "Rechercher de nouvelles questions"
-    },
-    "description_questions": {
-        "message": "Détermine si SUMO Live Helper doit avertir de la réception de nouvelles questions"
-    },
-    "frequency_questions": {
-        "message": "Déterminer l’intervalle de temps au terme duquel SUMO Live Helper doit chercher de nouvelles questions"
-    },
-    "polling": {
-        "message": "Intervalle en minutes pour contacter l’API"
-    },
-    "preferences": {
-        "message": "Préférences"
-    },
-    "one_question_without_answer": {
-        "message": " question sans réponse (cliquer pour ouvrir)"
-    },
-    "more_than_one_question_without_answer": {
-        "message": " questions sans réponse (cliquer pour ouvrir)"
-    },
-    "choose_language": {
-        "message": "Choisir une langue"
-    },
-    "choose_language_description": {
-        "message": "Choisir une langue dans laquelle chercher des questions ouvertes"
-    },
-    "choose_product": {
-        "message": "Choisir un produit"
-    },
-    "choose_product_description": {
-        "message": "Choisir un produit pour lequel chercher des questions ouvertes"
-    },
-    "open_tab": {
-        "message": "Ouvrir"
-    },
-    "product_firefox": {
-        "message": "Firefox pour ordinateur"
-    },
-    "product_thunderbird": {
-        "message": "Thunderbird"
-    },
-    "product_mobile": {
-        "message": "Firefox pour Android"
-    },
-    "product_ios": {
-        "message": "Firefox pour iOS"
-    },
-    "product_firefox-enterprise": {
-        "message": "Firefox pour entreprise"
-    },
-    "product_firefox-private-network-vpn": {
-        "message": "Mozilla VPN"
-    },
-    "product_hubs": {
-        "message": "Hubs"
-    },
-    "congratulations": {
-        "message": "Félicitations !"
-    },
-    "no_questions_found": {
-        "message": "Toutes les questions ont reçu une réponse !"
-    },
-    "refresh": {
-        "message": "Actualiser"
-    },
-    "clear_notifications": {
-        "message": "Effacer les notifications"
-    },
-    "show_notifications": {
-        "message": "Voir les notifications dans le navigateur"
-    },
-    "open_in_new_tab": {
-        "message": "Open questions in new tab"
-    },
-    "description_notifications": {
-        "message": "Détermine si vous recevez des notifications de type popups lorsque de nouvelles questions sont trouvées"
-    },
-    "notification_title_single": {
-        "message": "Une nouvelle question a été trouvée !"
-    },
-    "notification_title_multiple": {
-        "message": "De nouvelles questions ont été trouvées !"
-    },
-    "notification_message_more": {
-        "message": "Besoin de plus d’aide."
-    },
-    "notification_message_click": {
-        "message": "Cliquer sur l’icône de SUMO Live Helper dans la barre d’outils pour voir la liste de questions…"
-    },
-    "open_preferences": {
-        "message": "Ouvrir les préférences"
-    },
-    "prefer_sidebar": {
-        "message": "Toujours ouvrir les questions dans le panneau latéral"
-    },
-    "open_sidebar": {
-        "message": "Ouvrir le panneau latéral"
-    },
-     "language": {
-        "message": "Langue"
-    },
-    "products": {
-        "message": "Produits"
-    },
-    "synchronisation": {
-        "message": "Synchronisation"
-    },
-    "general": {
-        "message": " Général"
-    },
-    "credits": {
-        "message": " Credits"
-    },
-    "default_time": {
-        "message": "15 (par défaut)"
-    },
-    "theme": {
-        "message": "Thème"
-    },
-    "choose_theme": {
-        "message": "Choisir un thème"
-    },
-    "theme_auto": {
-        "message": "Détection automatique (par défaut)"
-    },
-    "theme_dark": {
-        "message": "Sombre"
-    },
-    "theme_light": {
-        "message": "Clair"
-    },
-    "never": {
-        "message": "Jamais"
-    }
+  "extensionName": {
+    "message": "SUMO Live Helper",
+    "description": "Extension name."
+  },
+  "extensionDescription": {
+    "message": "Cette extension est destinée aux volontaires de SUMO (Support Mozilla) qui peuvent voir s’il y a des questions sans réponses sur les forums d’assistance."
+  },
+  "watch_questions": {
+    "message": "Rechercher de nouvelles questions"
+  },
+  "description_questions": {
+    "message": "Détermine si SUMO Live Helper doit avertir de la réception de nouvelles questions"
+  },
+  "frequency_questions": {
+    "message": "Déterminer l’intervalle de temps au terme duquel SUMO Live Helper doit chercher de nouvelles questions"
+  },
+  "polling": {
+    "message": "Intervalle en minutes pour contacter l’API"
+  },
+  "preferences": {
+    "message": "Préférences"
+  },
+  "one_question_without_answer": {
+    "message": " question sans réponse (cliquer pour ouvrir)"
+  },
+  "more_than_one_question_without_answer": {
+    "message": " questions sans réponse (cliquer pour ouvrir)"
+  },
+  "choose_language": {
+    "message": "Choisir une langue"
+  },
+  "choose_language_description": {
+    "message": "Choisir une langue dans laquelle chercher des questions ouvertes"
+  },
+  "choose_product": {
+    "message": "Choisir un produit"
+  },
+  "choose_product_description": {
+    "message": "Choisir un produit pour lequel chercher des questions ouvertes"
+  },
+  "open_tab": {
+    "message": "Ouvrir"
+  },
+  "product_firefox": {
+    "message": "Firefox pour ordinateur"
+  },
+  "product_thunderbird": {
+    "message": "Thunderbird"
+  },
+  "product_mobile": {
+    "message": "Firefox pour Android"
+  },
+  "product_ios": {
+    "message": "Firefox pour iOS"
+  },
+  "product_firefox-enterprise": {
+    "message": "Firefox pour entreprise"
+  },
+  "product_firefox-private-network-vpn": {
+    "message": "Mozilla VPN"
+  },
+  "product_hubs": {
+    "message": "Hubs"
+  },
+  "congratulations": {
+    "message": "Félicitations !"
+  },
+  "no_questions_found": {
+    "message": "Toutes les questions ont reçu une réponse !"
+  },
+  "refresh": {
+    "message": "Actualiser"
+  },
+  "clear_notifications": {
+    "message": "Effacer les notifications"
+  },
+  "show_notifications": {
+    "message": "Voir les notifications dans le navigateur"
+  },
+  "open_in_new_tab": {
+    "message": "Open questions in new tab"
+  },
+  "description_notifications": {
+    "message": "Détermine si vous recevez des notifications de type popups lorsque de nouvelles questions sont trouvées"
+  },
+  "notification_title_single": {
+    "message": "Une nouvelle question a été trouvée !"
+  },
+  "notification_title_multiple": {
+    "message": "De nouvelles questions ont été trouvées !"
+  },
+  "notification_message_more": {
+    "message": "Besoin de plus d’aide."
+  },
+  "notification_message_click": {
+    "message": "Cliquer sur l’icône de SUMO Live Helper dans la barre d’outils pour voir la liste de questions…"
+  },
+  "open_preferences": {
+    "message": "Ouvrir les préférences"
+  },
+  "prefer_sidebar": {
+    "message": "Toujours ouvrir les questions dans le panneau latéral"
+  },
+  "open_sidebar": {
+    "message": "Ouvrir le panneau latéral"
+  },
+  "language": {
+    "message": "Langue"
+  },
+  "products": {
+    "message": "Produits"
+  },
+  "synchronisation": {
+    "message": "Synchronisation"
+  },
+  "general": {
+    "message": " Général"
+  },
+  "credits": {
+    "message": " Credits"
+  },
+  "default_time": {
+    "message": "15 (par défaut)"
+  },
+  "theme": {
+    "message": "Thème"
+  },
+  "choose_theme": {
+    "message": "Choisir un thème"
+  },
+  "theme_auto": {
+    "message": "Détection automatique (par défaut)"
+  },
+  "theme_dark": {
+    "message": "Sombre"
+  },
+  "theme_light": {
+    "message": "Clair"
+  },
+  "never": {
+    "message": "Jamais"
+  }
 }

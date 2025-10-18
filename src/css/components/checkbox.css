@@ -1,35 +1,35 @@
 /* Checkbox */
 input[type="checkbox"] {
-    appearance: none;
-    background-color: var(--input-background);
-    border: 1px solid var(--input-border-color);
-    border-radius: 2px;
-    cursor: pointer;
-    display: inline-block;
-    height: 20px;
-    width: 20px;
+  appearance: none;
+  background-color: var(--input-background);
+  border: 1px solid var(--input-border-color);
+  border-radius: 2px;
+  cursor: pointer;
+  display: inline-block;
+  height: 20px;
+  width: 20px;
 }
 
 input[type="checkbox"]:checked {
-    background: url('../../res/icons/light/check.svg') center / 18px;
-    background-color: var(--input-background);
+  background: url("../../res/icons/light/check.svg") center / 18px;
+  background-color: var(--input-background);
 }
 
 /* Hover state */
 input[type="checkbox"]:hover {
-    border: 1px solid var(--input-border-color-hover);
+  border: 1px solid var(--input-border-color-hover);
 }
 
 label.checkbox:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 /* Pressed state */
 
 /* Focused state */
 input[type="checkbox"]:focus {
-    box-shadow:
-        0 0 0 2px #0a84ff inset,
-        0 0 0 2px rgb(10 132 255 / 30%);
-    outline: none;
+  box-shadow:
+    0 0 0 2px #0a84ff inset,
+    0 0 0 2px rgb(10 132 255 / 30%);
+  outline: none;
 }
