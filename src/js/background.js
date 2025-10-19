@@ -327,28 +327,25 @@ function callAPI() {
   numberOfAPIRequests = product.length * locale.length;
   let requestCounter = 0;
   const requests = new Array(numberOfAPIRequests);
+  const url = new URL("https://support.mozilla.org/api/2/question/");
 
   for (let i = 0; i < product.length; i++) {
     for (let j = 0; j < locale.length; j++) {
+      let params = {
+        format: "json",
+        ordering: "-id",
+        is_solved: is_solved,
+        is_spam: is_spam,
+        is_locked: is_locked,
+        product: product[i],
+        is_taken: is_taken,
+        is_archived: is_archived,
+        locale: locale[j],
+        num_answers: max_answers,
+      }
+      url.search = new URLSearchParams(params).toString();
       requests[requestCounter] = new XMLHttpRequest();
-      let requestAPI =
-        "https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved=" +
-        is_solved +
-        "&is_spam=" +
-        is_spam +
-        "&is_locked=" +
-        is_locked +
-        "&product=" +
-        product[i] +
-        "&is_taken=" +
-        is_taken +
-        "&is_archived=" +
-        is_archived +
-        "&locale=" +
-        locale[j] +
-        "&num_answers=" +
-        max_answers;
-      requests[requestCounter].open("GET", requestAPI, true);
+      requests[requestCounter].open("GET", url, true);
       requests[requestCounter].responseType = "json";
       requests[requestCounter].send();
       requests[requestCounter].onload = function () {
