@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "__MSG_extensionName__",
   "description": "__MSG_extensionDescription__",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "homepage_url": "https://github.com/mozillabrasil/sumo_live_helper",
   "default_locale": "en",
   "author": "Mozilla Brasil, Jhonatas Machado, Wesley Branton, Danny Colin",
@@ -11,7 +11,9 @@
       "strict_min_version": "79.0",
       "id": "sumo_live_helper@mozillabr.org"
     },
-    "gecko_android": {}
+    "gecko_android": {
+      "strict_min_version": "113.0"
+    }
   },
   "icons": {
     "16": "/res/logo/sumo16.png",
