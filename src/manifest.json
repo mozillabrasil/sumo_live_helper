@@ -30,7 +30,8 @@
     "default_title": "__MSG_extensionName__"
   },
   "background": {
-    "scripts": ["/js/background.js"]
+    "scripts": ["/js/background.js"],
+    "type": "module"
   },
   "options_ui": {
     "browser_style": false,

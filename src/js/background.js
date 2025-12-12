@@ -1,3 +1,5 @@
+import mock from './mock.js';
+
 // Variable declaration
 let frequencySeekNewQuestions,
   locale,
@@ -35,7 +37,7 @@ browser.runtime.onConnect.addListener((port) => {
  * Detect changes to data in Storage API
  * @param {object} changes
  */
-function settingsUpdated(changes) {
+async function settingsUpdated(changes) {
   let changedItems = Object.keys(changes);
   for (let item of changedItems) {
     switch (item) {
@@ -49,7 +51,7 @@ function settingsUpdated(changes) {
           task: "toggle_locale_labels",
           multiple: locale.length != 1,
         });
-        callAPI();
+        await callAPI();
         return;
       case "showNotifications":
         showNotifications = changes[item].newValue;
@@ -63,7 +65,7 @@ function settingsUpdated(changes) {
         return;
       case "chooseProduct":
         product = changes[item].newValue;
-        callAPI();
+        await callAPI();
         return;
       case "onlySidebar":
         onlySidebar = changes[item].newValue;
@@ -153,11 +155,11 @@ function createAlarm(time) {
  * @param {object} sender
  * @param {function} sendResponse
  */
-function handleMessage(message, sender, sendResponse) {
+async function handleMessage(message, sender, sendResponse) {
   switch (message.task) {
     case "call_api":
       apiFromPopup = true;
-      callAPI();
+      await callAPI();
       return;
     case "mark_as_read":
       markAsRead(message.id);
@@ -173,7 +175,7 @@ function handleMessage(message, sender, sendResponse) {
  * Run when browser loaded data from Storage API (at startup)
  * @param {object} data
  */
-function dataLoaded(data) {
+async function dataLoaded(data) {
   // Load question list
   if (data.questions && data.questionVersion == 1) {
     questionList = data.questions;
@@ -303,13 +305,13 @@ function dataLoaded(data) {
   createAlarm(frequencySeekNewQuestions);
   checkProductList(data);
   updateQuestionCount();
-  callAPI();
+  await callAPI();
 }
 
 /**
  * Send request to SUMO API
  */
-function callAPI() {
+async function callAPI() {
   // API request settings
   const is_solved = "false";
   const is_spam = "false";
@@ -327,33 +329,43 @@ function callAPI() {
   numberOfAPIRequests = product.length * locale.length;
   let requestCounter = 0;
   const requests = new Array(numberOfAPIRequests);
+  const url = new URL("https://support.mozilla.org/api/2/question/");
 
   for (let i = 0; i < product.length; i++) {
     for (let j = 0; j < locale.length; j++) {
-      requests[requestCounter] = new XMLHttpRequest();
-      let requestAPI =
-        "https://support.mozilla.org/api/2/question/?format=json&ordering=-id&is_solved=" +
-        is_solved +
-        "&is_spam=" +
-        is_spam +
-        "&is_locked=" +
-        is_locked +
-        "&product=" +
-        product[i] +
-        "&is_taken=" +
-        is_taken +
-        "&is_archived=" +
-        is_archived +
-        "&locale=" +
-        locale[j] +
-        "&num_answers=" +
-        max_answers;
-      requests[requestCounter].open("GET", requestAPI, true);
-      requests[requestCounter].responseType = "json";
-      requests[requestCounter].send();
-      requests[requestCounter].onload = function () {
-        loadRequest(this);
-      };
+      // TODO:
+      // - Move the fetch request to its own function
+      let params = {
+        format: "json",
+        ordering: "-id",
+        is_solved: is_solved,
+        is_spam: is_spam,
+        is_locked: is_locked,
+        product: product[i],
+        is_taken: is_taken,
+        is_archived: is_archived,
+        locale: locale[j],
+        num_answers: max_answers,
+      }
+      url.search = new URLSearchParams(params).toString();
+
+      const options = {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+
+      const debug = true;
+
+      if (debug) {
+        const mockResponse = mock();
+        loadRequest(mockResponse);
+      } else {
+        const fetchResponse = await fetch(url, options);
+        loadRequest(await fetchResponse.json());
+      }
+
       requestCounter++;
     }
   }
@@ -380,12 +392,16 @@ function loadRequest(request) {
   numberOfAPIRequests--;
   const isFinishedLoading = numberOfAPIRequests <= 0;
 
-  const responseSUMO = request.response;
+  const responseSUMO = request;
   const newQuestionList = [];
 
   const validProducts = product.map((p) => p.toLowerCase());
   const validLocales = locale.map((l) => l.toLowerCase());
 
+  // TODO:
+  // - Filter doesn't work on responseSUMO.results. Is it because the data is in
+  //   json?
+  //
   // Filter SUMO list to only unanswered
   const availableQuestions = responseSUMO.results.filter((q) => {
     return (
